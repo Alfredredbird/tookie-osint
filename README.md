@@ -1,10 +1,11 @@
 # alfred
 A Advanced Social Media account finder. (Work In Progress)
 
+
 # Overview
 Alfred has a simple to use UI and is realy straight foward.
 
-![Screen Shot 2023-08-22 at 3 48 37 PM](https://github.com/Alfredredbird/alfred/assets/105014217/8e09ad2c-d366-4eed-9565-d9dc014b8166)
+![Screen Shot 2023-08-22 at 4 18 32 PM](https://github.com/Alfredredbird/alfred/assets/105014217/7ae6a993-af2e-4845-b386-43c8433f583d)
 
 # Installation
 The Requirments Will Automaticly Be Installed.
