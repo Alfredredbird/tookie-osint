@@ -76,10 +76,30 @@ Typing -h twice shows the help menu.
 # Need Help?
 Check out https://github.com/Alfredredbird/alfred/issues for help.
 Still Need Help? Contact Below :D
+# Common Questions:
+
+<table>
+    <tr>
+        <th>Where Is Alfred Installed?</th>
+        <th>Where You Cloned It.</th>
+    </tr>
+    <tr>
+        <td>Where Is The Generated Site List?</td>
+        <td>In The Install Folder. The File Is Called Working.txt</td>
+    </tr>
+    <tr>
+        <td>Cant See Options?</td>
+        <td> Type The Username Then -h</td>
+    </tr>
+    <tr>
+        <td>Cant Find File?</td>
+        <td> Make Sure The Path Is Right</td>
+    </tr>
+   
+</table>
 
 
 # contact
-
 
 - Youtube : https://youtube.com/@alfredredbird
 - Twitter: @alfredredbird1
