@@ -9,8 +9,10 @@ Parrot
 
 # Overview
 Alfred has a simple to use UI and is realy straight foward.
+![Screen Shot 2023-08-22 at 3 48 37 PM](https://github.com/Alfredredbird/alfred/assets/105014217/8e09ad2c-d366-4eed-9565-d9dc014b8166)
 
-![Screen Shot 2023-08-22 at 3 32 07 PM](https://github.com/Alfredredbird/alfred/assets/105014217/f2d52754-92e5-46a1-9c4c-5185f432af2d)
+
+
 
 # Help
 Alfred has a wide viriaty of options to use.
