@@ -1,0 +1,6 @@
+colorama 
+logging
+requests
+pathlib
+rich 
+alive_progress

@@ -12,7 +12,6 @@ import requests
 from pathlib import Path
 import time
 import site
-import requests
 import random
 from time import sleep
 from rich.console import Console
@@ -36,21 +35,7 @@ def get_random_string(length):
     result_str = ''.join(random.choice(letters) for i in range(length))
     return result_str
      
-# def update_progress(progress):
-#     print("\r [{0}] {1}%".format('#'*(progress//10), progress), end='')
-# def check_proxy():
-#     try:
-#         r = requests.get('https://youtube.com', proxies=proxies, timeout=5)
-#         if r.status_code == 200:
-#             print("YAY")
-#             return True
-#         else:
-#             print("BOO")
-#             return False
-#     except:
-#         print("BOO")
-#         return False 
-# python -m PyInstaller brib.py --onefile
+
 
 #site lists
 siteList = []
@@ -68,8 +53,8 @@ print (Fore.RED +'''
                                                           {(     )}
 ===========================================================""===""=========
                                                             |||||
-                                                             |||
-                                                              |
+                 By Jeffrey Montanari                        |||
+                 Twiter: @alfredredbird1                      |
 ''');
 
 ## prints os infomation
