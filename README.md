@@ -13,7 +13,7 @@ The Requirments Will Automaticly Be Installed.
 
 
     git clone https://github.com/alfredredbird/alfred
-    cd alfred && sudo python3 install.py
+    cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
     
 # Tested OS:
