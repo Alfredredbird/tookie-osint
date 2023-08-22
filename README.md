@@ -44,20 +44,13 @@ The Requirments Will Automaticly Be Installed.
 
 There Is A Lot Lol
 
-- urllib 
-- platform 
-- timeit
 - colorama 
 - logging
-- json
 - requests 
 - pathlib
-- time
-- site
-- random
 - richconsole
 - alive_progress
-- string
+  
 
 
 
