@@ -24,4 +24,15 @@ Typing -h twice shows the help menu.
 ![INput](https://github.com/Alfredredbird/alfred/assets/105014217/2a94bdc0-b7a2-4499-8c4c-ba743bbdbe60)
 
 # Installation
-working on that....
+The Requirments Will Automaticly Be Installed.
+
+=
+Dependencies will be automatically installed.
+
+    git clone https://github.com/alfredredbird/alfred
+    cd alfred && sudo python3 install.py
+    python3 brib.py
+
+
+
+=
