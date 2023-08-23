@@ -55,12 +55,14 @@ print (Fore.RED +'''
                                                             |||||
                  By Jeffrey Montanari                        |||
                  Twiter: @alfredredbird1                      |
+
+             Thanks To Our Sponsor: Smoke-wolf
 ''');
 
 ## prints os infomation
 if platform.system() == 'Windows':
     
-    print (Fore.RED + 'Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n By Using You Take Full Account Of Your Actions')
+    print (Fore.RED + '     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n By Using You Take Full Account Of Your Actions')
     print (Fore.RESET + 'Type -h twice ')
    
 
