@@ -15,6 +15,9 @@ The Requirments Will Automaticly Be Installed.
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
+
+    or download the latest release from: https://github.com/Alfredredbird/alfred/releases.
+    then extract the zip or tar.gz
     
 # Tested OS:
 
