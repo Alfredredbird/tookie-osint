@@ -71,7 +71,7 @@ if platform.system() == 'Windows':
     print (Fore.RESET + "===========================================================================")
 else:    
     print (Fore.RESET + '===========================================================================')
-    print (Fore.RED + 'Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n By Using You Take Full Account Of Your Actions')
+    print (Fore.RED + '     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions')
     
     
     print (Fore.RESET + ' ')
