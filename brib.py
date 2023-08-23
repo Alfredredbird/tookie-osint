@@ -18,6 +18,10 @@ from rich.console import Console
 from alive_progress import *
 import string
 
+#variables
+modes = ""
+inputnum = ""
+ars = ""
 alist = True
 fastMode = 0
 cError = 0
@@ -109,9 +113,7 @@ def prx_checker(prx):
 	except requests.exceptions.RequestException as e:
         # print proxy with Errs
 		raise SystemExit(f"{prx}: is Not reachable \nErr: {e}")
-modes = ""
-inputnum = ""
-ars = ""
+
 while test != True:
     input1 = input('⤷ ')
     if input1 != "":
