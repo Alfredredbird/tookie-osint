@@ -48,9 +48,7 @@ The Requirments Will Automaticly Be Installed.
 There Is A Lot Lol
 
 - colorama 
-- logging
 - requests 
-- pathlib
 - richconsole
 - alive_progress
   
