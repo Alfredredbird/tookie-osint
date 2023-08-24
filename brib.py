@@ -1,21 +1,24 @@
 #!/usr/bin/env python
 from __future__ import print_function
+from time import sleep
+from rich.console import Console
+from alive_progress import *
+from timeit import default_timer
+from colorama import Fore, Back, Style
+from pathlib import Path
+from socket import socket
+import urllib.request, urllib.error, urllib.parse
+import ssl
 import sys
 import os
 import urllib.request
 import platform
-from timeit import default_timer
-from colorama import Fore, Back, Style
 import logging
 import json
 import requests
-from pathlib import Path
 import time
 import site
 import random
-from time import sleep
-from rich.console import Console
-from alive_progress import *
 import string
 
 # variables
@@ -29,10 +32,8 @@ siteProgcounter = 0
 console = Console()
 testall = False
 slectpath = ""
-
-
-def update_progress(progress):
-    print("\r [{0}] {1}%".format("#" * (progress // 10), progress), end="")
+test = False
+ec = 0
 
 
 def get_random_string(length):
@@ -47,18 +48,26 @@ def get_random_string(length):
 siteList = []
 siteNSFW = []
 
-ec = 0
+# clears the terminal when Alfred is ran
 os.system("cls" if os.name == "nt" else "clear")
 print(
     Fore.RED
-    + """
- █████╗ ██╗     ███████╗██████╗ ███████╗██████╗ 
-██╔══██╗██║     ██╔════╝██╔══██╗██╔════╝██╔══██╗           __,---.
-███████║██║     █████╗  ██████╔╝█████╗  ██║  ██║          /__|o\  )
-██╔══██║██║     ██╔══╝  ██╔══██╗██╔══╝  ██║  ██║           `-\ / /
-██║  ██║███████╗██║     ██║  ██║███████╗██████╔╝            ,) (,
-╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚══════╝╚═════╝            //   \\
-                                                          {(     )}
+    + """   
+                                    
+                         ╓φ▒Γ ,╖╗⌐
+                        Φ╬╬Γ @╬╬Γ ╔▓
+                       ^╣╬▓µ╣╬▓  ▄▓▓▓
+                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
+                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
+                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
+                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐                 
+                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `                 
+                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ                    __,---. 
+                     `╙╨╨╨╜  ▀▀▀▀▀¬                      /__|o\  ) 
+                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄                `-\ / /
+                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█                  ,) (,
+                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░                 //   \\
+                   A Advanced OSINT Tool                  {(     )}
 ===========================================================""===""=========
                                                             |||||
                  By Jeffrey Montanari                        |||
@@ -69,69 +78,33 @@ print(
 )
 
 ## prints os infomation
-if platform.system() == "Windows":
-    print(
-        Fore.RED
-        + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n By Using You Take Full Account Of Your Actions"
-    )
-    print(Fore.RESET + "Type -h twice ")
 
-    print("")
-    print(
-        Fore.RESET
-        + "==========================================================================="
-    )
-else:
-    print(
-        Fore.RESET
-        + "==========================================================================="
-    )
-    print(
-        Fore.RED
-        + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
-    )
+print(
+    Fore.RESET
+    + "==========================================================================="
+)
+print(
+    Fore.RED
+    + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
+)
 
-    print(Fore.RESET + " ")
-    print(platform.system())
-    print(platform.release())
-    print("")
-    print(
-        Fore.RESET
-        + "==========================================================================="
-    )
+print(Fore.RESET + " ")
+print("     " + platform.system())
+print("     " + platform.release())
+print("")
+print(
+    Fore.RESET
+    + "==========================================================================="
+)
 
 
 print(" ")
 uname = input("⤷ ")
-
-test = False
-# if "-t" in modes:
-#     timeout = input('   ⤷ ')
-#     timeout = int(timeout)
-
-# test = False
-
-
-#     #extra
-# modes = modes + input('⤷ ')
+#
+# This is where we gather the inputed options and then run them.
+# Not all of the options exicute on inout.
 #
 #
-def prx_checker(prx):
-    try:
-        # Get proxy
-        get = requests.get(prx)
-        # if the request succeeds
-        if get.status_code == 200:
-            return f"{prx}: is reachable"
-        else:
-            return f"{prx}: is Not reachable, status_code: {get.status_code}"
-
-    # Exception
-    except requests.exceptions.RequestException as e:
-        # print proxy with Errs
-        raise SystemExit(f"{prx}: is Not reachable \nErr: {e}")
-
-
 while test != True:
     input1 = input("⤷ ")
     if input1 != "":
@@ -236,6 +209,7 @@ while test != True:
                                 b += 1
                                 gen = get_random_string(int(input2))
                                 siteLst.append("https://" + str(gen) + ".com")
+                    # generates a combo of sites
                     if testall == True:
                         if siteType != "":
                             while b != int(trys):
@@ -312,7 +286,6 @@ while test != True:
                                 + str(trys)
                             )
                             if r.status_code >= 200 and r.status_code <= 500:
-                                # f.write(str(siteLst[i])+ "\n")
                                 f.write(
                                     '{"site": "'
                                     + str(siteLst[i])
@@ -453,6 +426,24 @@ while test != True:
                     print("Timeout Must Be A Number")
                     if "-d" in input2:
                         input1.replace("-d", "")
+        if "-S" in input1:
+            input2 = input("SITE: ⤷ ")
+            if input2 == "":
+                lol = 1
+            if input2 != "":
+                modes += input1
+                
+                try:
+                   response = urllib.request.urlopen(input2)
+                   webContent = response.read().decode('UTF-8')
+
+                   f = open('downloaded-site.html', 'w')
+                   f.write(webContent)
+                   f.close
+                   print("Downloaded Page And Saved To: downloaded-site.html")
+                except ConnectionError:
+                    print("Error Downloading Web Content!")
+                              
 
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
@@ -533,15 +524,6 @@ while test != True:
 
                 try:
                     file = open(file_path, "r+")
-
-                    # with open(file_path, 'r') as fp:
-                    #     content = fp.readlines()
-
-                    # with open(file_path, 'w') as fp:
-                    #     for line in content:
-                    #         fp.write(line.strip('') + ' \n')
-                    #         print(content)
-                    #   lnum += 1
                     file1 = open(file_path, "r")
                     Lines = file1.readlines()
 
@@ -575,15 +557,6 @@ while test != True:
             if os.path.exists(file_path):
                 # reads the file
                 file = open(file_path, "r+")
-
-                # with open(file_path, 'r') as fp:
-                #     content = fp.readlines()
-
-                # with open(file_path, 'w') as fp:
-                #     for line in content:
-                #         fp.write(line.strip('') + ' \n')
-                #         print(content)
-                #   lnum += 1
                 file1 = open(file_path, "r")
                 Lines = file1.readlines()
 
@@ -620,15 +593,8 @@ while test != True:
             except:
                 print(Fore.RED + "Error!")
                 print(Fore.RESET + " ")
-                exit()
-            exit()
 
         if "-a" in input1:
-            # input4 = input("   ⤷ ")
-            # if (input4 == ""):
-            #      lol = 1
-            # if(input4 != ""):
-
             modes += input1
 
         if "-f" in input1:
@@ -695,63 +661,13 @@ Usage: [USERNAME]                               //\    //\
             |        | Format [Type] [Ip] [Port] 
         -f  |        | Runs A Fast Scan    
         -O  |        | Checks Accounts From A List
+        -ssl|        | Gets A Sites SSL Certificate
 """
             )
 
     if "" in input1 and inputnum != "":
         test = True
     inputnum = ""
-# print (modes)
-# test = False
-# lol = 0
-# uname = input('⤷ ')
-
-
-# while test != True:
-#  modes = input("⤷")
-#  if "-t" in modes:
-
-#   input2 = input("   ⤷ ")
-#   if (input2 == ""):
-#    lol = 1
-#   if(input2 != ""):
-#    modes += input1
-
-#    timeout = int(input2);
-#    lol = 2
-
-
-#  if "-a" in input1:
-
-#   input4 = input("   ⤷ ")
-#   if (input4 == ""):
-#    lol = 1
-#   if(input4 != ""):
-#    modes += input1
-#    modes += input4
-
-# print(lol)
-# print(uname)
-# print(modes)
-
-
-# if (" " in uname ):
-#     print(Fore.RED + "Error: Space In Username!" )
-#     exit()
-
-
-# elif (" " in uname and nums != 1):
-#      print(Fore.RED + "Error: Space In Username!" )
-#      exit()
-
-
-# else:
-
-#   if ("-a" in uname):
-#     uname = uname.replace("-a","")
-
-
-# replace with your preferred directory and file path
 dir_path = Path.home() / "Downloads"
 
 file_name = "usernames.alfred"
@@ -817,12 +733,8 @@ with open(file_path, "w") as f:
     for site in siteList:
         siteCount += 1
         with console.status("Working....") as status:
-            #    prints the sites
-            #    print(site["site"], site[uname])
-
             siteN = site["site"]
             siteNSFW = site["nsfw"]
-            #    update_progress(siteProgcounter)
 
             try:
                 headers = headers = {
@@ -868,10 +780,6 @@ with open(file_path, "w") as f:
 
                 if ec == 1:
                     print(response.status_code)
-                #   if siteNSFW == "true":
-                #             print('[' + Fore.LIGHTMAGENTA_EX + "+" + Fore.WHITE + "] " + siteN  + uname + "     " + Fore.YELLOW + siteNSFW + Fore.RESET)
-                #             f.write('[' + "+" + "] " + siteN  + uname + "NSFW" + "\n")
-                #  checks for connection error
                 if response.status_code == 200:
                     siteProgcounter += 1
             except requests.exceptions.SSLError:
@@ -973,9 +881,6 @@ with open(file_path, "w") as f:
                     print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                     f.write("[" + "+" + "] " + siteN + uname + "\n")
 
-            # elif " " in uname and nums != 1:
-            #  print(Fore.RED + "Error: Space In Username!" )
-            #  exit()
 if cError >= 5:
     print(
         Fore.RED
