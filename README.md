@@ -4,7 +4,7 @@
 
 
 # Overview
-Alfred has a simple to use UI and is realy straight foward.
+Alfred has a simple to use UI and is realy straight foward. :D
 
 ![Screen Shot 2023-08-22 at 4 18 32 PM](https://github.com/Alfredredbird/alfred/assets/105014217/7ae6a993-af2e-4845-b386-43c8433f583d)
 
