@@ -54,14 +54,19 @@ There Is A Lot Lol
   
 
 
+# Upcoming Features
+
+- [ ] Tor Searching
+- [x] better site generation
+- [ ] updater
+- [ ] advanced site generation 
 
 
 
 
 
-
-
-Alfred has a wide viriaty of options to use.
+# Showcase
+Alfred has a wide variety of options to use.
 Typing -h twice shows the help menu.
 ![Screen Shot 2023-08-22 at 3 33 18 PM](https://github.com/Alfredredbird/alfred/assets/105014217/386e84cf-3291-44d2-8d55-b76a5a149ab6)
     
