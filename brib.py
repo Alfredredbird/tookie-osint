@@ -634,7 +634,7 @@ Usage: [USERNAME]                               //\    //\
             |        | Format [Type] [Ip] [Port] 
         -f  |        | Runs A Fast Scan    
         -O  |        | Checks Accounts From A List
-        -ssl|        | Gets A Sites SSL Certificate
+        -S  |        | Downloads A Webpage's HTML File
 """
             )
 
