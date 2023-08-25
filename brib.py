@@ -225,60 +225,19 @@ while test != True:
                     # generates a combo of sites
                     if testall == True:
                         if siteType != "":
-                            while b != int(trys):
-                                b += 1
+                            for _ in range(int(trys)):
                                 siteLst.append(
                                     "https://"
                                     + str(get_random_string(int(input2)))
                                     + str(siteType)
                                 )
                         if siteType == "":
-                            while b != int(trys):
-                                b += 1
+                            domains = [".com", ".net", ".org", ".xyz", ".edu", ".co", ".us", ".uk", ]
+                            for _ in range(int(trys)):
+                                
                                 gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".com")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".net")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".org")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".xyz")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".edu")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".co")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".org")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".us")
-                            b = 0
-                            while b != int(trys):
-                                b += 1
-                                gen = get_random_string(int(input2))
-                                siteLst.append("https://" + str(gen) + ".uk")
-                            b = 0
-
+                                siteLst += [f"https://{gen}{dom}" for dom in domains]
+                                pass
                     siteError = 0
                     # print(siteLst)
                     i = 0
