@@ -34,6 +34,11 @@ testall = False
 slectpath = ""
 test = False
 ec = 0
+version = ""
+
+with open("alfred/version.txt", "r") as fp:
+    version = fp.read()
+    fp.close()
 
 
 def get_random_string(length):
@@ -89,8 +94,8 @@ print(
 )
 
 print(Fore.RESET + " ")
-print("     " + platform.system())
-print("     " + platform.release())
+print("     " + platform.system() + "                  Alfred Version:")
+print("     " + platform.release() + "                  " + version)
 print("")
 print(
     Fore.RESET
@@ -415,7 +420,7 @@ while test != True:
                                 + str(trys)
                             )
                         except KeyboardInterrupt():
-                            print("Stopping..... Saved To ./working.txt")
+                            print("Stopping..... Saved To alfred/working.txt")
 
                         i += 1
 
@@ -440,20 +445,19 @@ while test != True:
                 lol = 1
             if input2 != "":
                 modes += input1
-                
-                try:
-                   response = urllib.request.urlopen(input2)
-                   webContent = response.read().decode('UTF-8')
 
-                   f = open('downloaded-site.html', 'w')
-                   f.write(webContent)
-                   f.close
-                   print("Downloaded Page And Saved To: downloaded-site.html")
+                try:
+                    response = urllib.request.urlopen(input2)
+                    webContent = response.read().decode("UTF-8")
+
+                    f = open("downloaded-site.html", "w")
+                    f.write(webContent)
+                    f.close
+                    print("Downloaded Page And Saved To: downloaded-site.html")
                 except ConnectionError:
                     print("Error Downloading Web Content!")
                 except ValueError:
-                    print("Unknow URL!")    
-                              
+                    print("Unknow URL!")
 
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
@@ -479,8 +483,8 @@ while test != True:
             if input2 == "":
                 lol = 1
             if input2 == "http":
-                if os.path.exists("./proxys/http.txt"):
-                    file1 = open("./proxys/http.txt", "r")
+                if os.path.exists("alfred/proxys/http.txt"):
+                    file1 = open("alfred/proxys/http.txt", "r")
                     Lines = file1.readlines()
 
                     count = 0
@@ -494,8 +498,8 @@ while test != True:
                     print(Fore.RESET)
 
             elif input2 == "socks4":
-                if os.path.exists("./proxys/socks4.txt"):
-                    file1 = open("./proxys/socks4.txt", "r")
+                if os.path.exists("alfred/proxys/socks4.txt"):
+                    file1 = open("alfred/proxys/socks4.txt", "r")
                     Lines = file1.readlines()
 
                     count = 0
@@ -509,8 +513,8 @@ while test != True:
                     print(Fore.RESET)
 
             elif input2 == "socks5":
-                if os.path.exists("./proxys/socks5.txt"):
-                    file1 = open("./proxys/socks5.txt", "r")
+                if os.path.exists("alfred/proxys/socks5.txt"):
+                    file1 = open("alfred/proxys/socks5.txt", "r")
                     Lines = file1.readlines()
 
                     count = 0
