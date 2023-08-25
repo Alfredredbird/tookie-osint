@@ -443,6 +443,8 @@ while test != True:
                    print("Downloaded Page And Saved To: downloaded-site.html")
                 except ConnectionError:
                     print("Error Downloading Web Content!")
+                except ValueError:
+                    print("Unknow URL!")    
                               
 
         if "-s" in input1:
