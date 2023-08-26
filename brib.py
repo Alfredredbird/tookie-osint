@@ -37,7 +37,7 @@ test = False
 ec = 0
 version = ""
 
-with open("./version.txt", "r") as fp:
+with open("version.txt", "r") as fp:
     version = fp.read()
     fp.close()
 
