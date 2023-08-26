@@ -61,7 +61,10 @@ There Is A Lot Lol
 - [x] better site generation
 - [X] updater
 - [ ] advanced site generation
-- [x] website downloader 
+- [x] website downloader
+- [ ] easy documentation reader
+- [ ] bigger site list
+- [ ] more search options
 
 
 
