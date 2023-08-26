@@ -37,7 +37,7 @@ test = False
 ec = 0
 version = ""
 
-with open("./version.txt", "r") as fp:
+with open("alfred/version.txt", "r") as fp:
     version = fp.read()
     fp.close()
 
@@ -107,7 +107,7 @@ print(
 print(" ")
 cfu = input("Check For Updates? [y/n]: ⤷ ")
 if "Y" in cfu or "y" in cfu:
-    exec(open("update.py").read())
+    exec(open("alfred/update.py").read())
 elif "N" in cfu or "n" in cfu:
     print("Ok! Ill Ask Later....")
 
