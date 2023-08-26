@@ -41,7 +41,7 @@ if alfred_version != version:
     # delets the files listed in udfl
     for item in udfl:
         if "/update.py" not in udfl:
-            os.remove(alfred_install_path + item)
+            os.remove("." + item)
         if "/update.py" in udfl:
             udfl.remove("/update.py")
 
