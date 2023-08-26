@@ -16,4 +16,4 @@
 /proxys/proxylist.txt
 /proxys/socks4.txt
 /proxys/socks5.txt
-/modules/modules
+/modules/modules.py
