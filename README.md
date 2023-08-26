@@ -6,7 +6,8 @@
 # Overview
 Alfred has a simple to use UI and is realy straight foward. :D
 
-![Screen Shot 2023-08-22 at 4 18 32 PM](https://github.com/Alfredredbird/alfred/assets/105014217/7ae6a993-af2e-4845-b386-43c8433f583d)
+![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
+
 
 # Installation
 The Requirments Will Automaticly Be Installed.
@@ -43,6 +44,8 @@ The Requirments Will Automaticly Be Installed.
         <td>11/10</td>
     </tr>
 </table>
+Windows hasn't been working lately please see the docs
+
 # Requirments:
 
 There Is A Lot Lol
@@ -60,7 +63,10 @@ There Is A Lot Lol
 - [x] better site generation
 - [X] updater
 - [ ] advanced site generation
-- [x] website downloader 
+- [x] website downloader
+- [ ] easy documentation reader
+- [ ] bigger site list
+- [ ] more search options
 
 
 
