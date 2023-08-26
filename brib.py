@@ -107,7 +107,7 @@ print(
 print(" ")
 cfu = input("Check For Updates? [y/n]: ⤷ ")
 if "Y" in cfu or "y" in cfu:
-    exec(open("alfred/update.py").read())
+    exec(open("update.py").read())
 elif "N" in cfu or "n" in cfu:
     print("Ok! Ill Ask Later....")
 
