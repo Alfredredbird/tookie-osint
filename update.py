@@ -49,7 +49,7 @@ if alfred_version != version:
     try:
         time.sleep(3)
         rc = requests.get(gitfile_loc + "udfl")
-        open(alfred_install_path + "udfl", "wb").write(rc.content)
+        open("udfl", "wb").write(rc.content)
 
         print(udfl)
     except ConnectionError:
@@ -67,7 +67,7 @@ if alfred_version != version:
             url = gitfile_loc + item
             r = requests.get(url, allow_redirects=True)
             print(item)
-            open(alfred_install_path + item, "wb").write(r.content)
+            open(item, "wb").write(r.content)
             fl.remove(item)
         with open("udfl") as file:
             fh = [line.rstrip() for line in file]
@@ -76,14 +76,14 @@ if alfred_version != version:
             for item in fh:
                 print("Working...")
 
-                if os.path.exists(alfred_install_path + item) == True:
+                if os.path.exists(item) == True:
                     fh.remove(item)
 
                 else:
                     url = gitfile_loc + item
                     r = requests.get(url, allow_redirects=True)
 
-                    open(alfred_install_path + item, "wb").write(r.content)
+                    open(item, "wb").write(r.content)
             if len(fh) == 0:
                 print("Update Done!")
                 exec(open("brib.py").read())
