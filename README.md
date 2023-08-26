@@ -44,6 +44,8 @@ The Requirments Will Automaticly Be Installed.
         <td>11/10</td>
     </tr>
 </table>
+Windows hasn't been working lately please see the docs
+
 # Requirments:
 
 There Is A Lot Lol
