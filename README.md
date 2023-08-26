@@ -58,7 +58,7 @@ There Is A Lot Lol
 
 - [ ] Tor Searching
 - [x] better site generation
-- [ ] updater
+- [X] updater
 - [ ] advanced site generation
 - [x] website downloader 
 
