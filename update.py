@@ -41,7 +41,7 @@ if alfred_version != version:
     # delets the files listed in udfl
     for item in udfl:
         if "/update.py" not in udfl:
-            os.remove("." + item)
+            os.remove(item)
         if "/update.py" in udfl:
             udfl.remove("/update.py")
 
@@ -64,11 +64,17 @@ if alfred_version != version:
 
         # downloads the files from udfl
         for item in fl:
+            print(gitfile_loc + item)
             url = gitfile_loc + item
             r = requests.get(url, allow_redirects=True)
             print(item)
-            open(item, "wb").write(r.content)
-            fl.remove(item)
+            try: 
+             open(item, "wb").write(r.content)
+             fl.remove(item)
+            except FileNotFoundError:
+                print("Cant Find: " + item + "Skiping!") 
+            except OSError:
+                print("Permission Error")    
         with open("udfl") as file:
             fh = [line.rstrip() for line in file]
         # checks to see if the file exists, if not it reinstalls it
