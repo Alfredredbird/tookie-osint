@@ -12,3 +12,7 @@
 /version.txt
 /working.txt
 /udfl
+/proxys/http.txt
+/proxys/proxylist.txt
+/proxys/socks4.txt
+/proxys/socks5.txt
