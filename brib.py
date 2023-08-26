@@ -36,7 +36,7 @@ test = False
 ec = 0
 version = ""
 
-with open("alfred/version.txt", "r") as fp:
+with open("./version.txt", "r") as fp:
     version = fp.read()
     fp.close()
 
@@ -442,8 +442,8 @@ while test != True:
             if input2 == "":
                 lol = 1
             if input2 == "http":
-                if os.path.exists("alfred/proxys/http.txt"):
-                    file1 = open("alfred/proxys/http.txt", "r")
+                if os.path.exists("/proxys/http.txt"):
+                    file1 = open("/proxys/http.txt", "r")
                     Lines = file1.readlines()
 
                     count = 0
@@ -457,8 +457,8 @@ while test != True:
                     print(Fore.RESET)
 
             elif input2 == "socks4":
-                if os.path.exists("alfred/proxys/socks4.txt"):
-                    file1 = open("alfred/proxys/socks4.txt", "r")
+                if os.path.exists("/proxys/socks4.txt"):
+                    file1 = open("/proxys/socks4.txt", "r")
                     Lines = file1.readlines()
 
                     count = 0
@@ -472,8 +472,8 @@ while test != True:
                     print(Fore.RESET)
 
             elif input2 == "socks5":
-                if os.path.exists("alfred/proxys/socks5.txt"):
-                    file1 = open("alfred/proxys/socks5.txt", "r")
+                if os.path.exists("/proxys/socks5.txt"):
+                    file1 = open("/proxys/socks5.txt", "r")
                     Lines = file1.readlines()
 
                     count = 0
