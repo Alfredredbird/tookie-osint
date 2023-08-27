@@ -1,10 +1,14 @@
 import os
 import urllib
+import time
 from colorama import *
 from pathlib import Path
 import requests
+import json
 from rich.console import Console
-def d_option():
+from torrequest import TorRequest
+
+def d_option(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
                 lol = 1
@@ -13,11 +17,42 @@ def d_option():
 
                 try:
                     ars = bool(input2)
+                    return input1, modes     
                 except ValueError:
                     print("Timeout Must Be A Number")
                     if "-d" in input2:
                         input1.replace("-d", "")
+                          
 
+def logo(uname):
+    os.system("cls" if os.name == "nt" else "clear")
+    print(
+    Fore.RED
+    + """   
+                                    
+                         ╓φ▒Γ ,╖╗⌐
+                        Φ╬╬Γ @╬╬Γ ╔▓
+                       ^╣╬▓µ╣╬▓  ▄▓▓▓
+                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
+                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
+                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
+                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐                 
+                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `                 
+                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ                    __,---. 
+                     `╙╨╨╨╜  ▀▀▀▀▀¬                      /__|o\  ) 
+                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄                `-\ / /
+                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█                  ,) (,
+                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░                 //   \\
+                   A Advanced OSINT Tool                  {(     )}
+===========================================================""===""=========
+                                                            |||||
+                 By Jeffrey Montanari                        |||
+                 Twiter: @alfredredbird1                      |
+
+             Thanks To Our Sponsor: Smoke-wolf
+"""
+)
+    print("             The Target Username: " + uname)
 def Cap_S_option(modes, input1):
             input2 = input("SITE: ⤷ ")
             if input2 == "":
@@ -473,4 +508,146 @@ def timeoutC(modes, input1):
                 except ValueError:
                     print("Timeout Must Be A Number")
                     if "-t" in input2:
-                        input1.replace("-t", "")              
+                        input1.replace("-t", "")            
+
+
+
+def darkAlfred(console, uname):
+    # clears the terminal when Dark Alfred is ran
+    os.system("cls" if os.name == "nt" else "clear")
+    test = False
+    lol = 0
+    inputnum = 0
+    start = False
+    siteList = []
+    modes = ""
+    iptext = ""
+    try:
+        rp = requests.get("http://ipecho.net/plain")
+        iptext = rp.text
+    except ConnectionError:
+        print("Connection Error! Cant Get Ip Address.")   
+    print(Fore.BLACK + """
+                    ,╓╔╦╦╦╖╓
+                ╔▒╠╠╩╙╙╙"╙╙╚╬╠▒╦,
+              ,Φ╠╩"   ,╓▄▄╓,    ╙
+            @╠╩   *████▀▀▀███▓,   ╬╬,
+           ╬╠╙  ▄µ          ╙███   ╬╠µ
+          ╠╠╩  ██▌  ╓▒╠╩╝╠╬╦  ╙██   ╠╠
+          ╠╠  j██  ⌠╠╩    ╚╠▒  ██▌  ╠╠⌐
+          ╠╠   ██  └╠╬    ╠╠╩  ██▌  ╠╠⌐
+          ╚╠φ  ╟██   ╚╬╠╠╠╩`  ▄██  ,╠╬
+           ╠╠╦  ╙██▌,      ,,  ╙  ,╠╠
+            ╚╬`   ╙▀█████████▀   #╠╩
+               ,@╦     └└─    ╓@╠╩`
+                "╚╠╠▒▒φφφφ@▒╠╠╩╙
+
+░▒█▀▀▄░█▀▀▄░█▀▀▄░█░▄░░░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄
+░▒█░▒█░█▄▄█░█▄▄▀░█▀▄░░▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█
+░▒█▄▄█░▀░░▀░▀░▀▀░▀░▀░░▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░
+ """)                        
+    print("Searching The DarkWeb For Usernames With: " + uname + ".")
+    print("Your Ip Is: " + iptext)
+    print(Fore.RED + "====================================================================" + Fore.RESET)
+    print("""
+Caution! By Using This Might Expose 
+You To Dangerous Websites Or Content.
+Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
+""")
+    print(Fore.RED + "====================================================================" + Fore.RESET )
+    
+    input1 = input("⤷  ")
+    while test != True:
+       if input1 != "": 
+        #if there is a problem with this code its prob this
+        if "-tp" in input1:
+            torPassword = input("Tor Password:  ⤷")
+        if "-s" in input1:
+            input2 = input("Are You Sure? [Y/N]? ⤷ ")
+            if input2 == "":
+                lol = 1
+            if input2 != "":
+                if input2 == "Y" or input2 == "y":
+                    
+                    input3 = input("100% Sure? [Y/N]? ⤷ ")
+                    if input2 != "":
+                        if input2 == "Y" or input2 == "y":
+                            #  modes += input1
+                            #  inputnum += input2
+                            print("Ok..")
+                            start = True
+                        if input2 == "N" or input2 == "n":
+                            test = False
+                            input1 = ""
+                            print("Ok! Returing To Alfred.")
+                            time.sleep(2)
+                            return test
+        
+
+                if input2 == "N" or input2 == "n":
+                    test = False
+                    input1 = ""
+                    print("Ok! Returing To Alfred.")
+                    time.sleep(2)
+                    return test
+        
+
+       if "" in input1 and inputnum != "":
+            test = True
+       inputnum = ""
+    if start == True:
+        try:
+         with open("sites.json", "r") as f:
+            for jsonObj in f:
+                siteDic = json.loads(jsonObj)
+                siteList.append(siteDic)
+        except FileNotFoundError: 
+             print(Fore.RED + "Cant Find Site File")
+
+             exit(-1)
+        except json.JSONDecodeError:
+             print(Fore.RED + "Error With Site File" + Fore.RESET)
+             exit(-9)    
+
+        dir_path = Path.home() / "Downloads"
+        file_name = "usernames.alfred"
+        file_path = os.path.join(dir_path, file_name)
+        # check if the directory exists
+        if os.path.exists(dir_path):
+             # create the file
+             print(" ")
+             print("Creating / Overwriting Save File.")
+
+        else:
+            print("Directory doesn't exist.")     
+        with open(file_path, "w") as f:
+             for site in siteList:
+                 
+                 with console.status("Working....") as status:
+                     siteN = site["site"]   
+                     try:
+                        tr=TorRequest(password=torPassword)
+                        tr.reset_identity()
+                        response = tr.get(siteN + uname)
+                       
+                        if TorRequest.status_code >= 200 and TorRequest.status_code >= 300:
+                            print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+                            f.write("[" + "+" + "] " + siteN + uname + "\n")
+                        
+                         
+                     except ConnectionError():
+                        print("Connection Error!")
+
+
+
+
+
+def updateReq():
+    
+    cfu = input("Check For Updates? [y/n]: ⤷ ")
+    if "Y" in cfu or "y" in cfu:
+        exec(open("./update.py").read())
+    elif "N" in cfu or "n" in cfu:
+        print("Ok! Ill Ask Later....")
+    else: 
+        print("Not Sure What You Ment. Ill Ask Later")

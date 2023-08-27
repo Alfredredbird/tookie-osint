@@ -8,7 +8,7 @@ fsites.json
 imsom.txt
 requirements.txt
 sites.json
-version.txt
+version.cfg
 working.txt
 udfl
 proxys/http.txt
@@ -16,3 +16,5 @@ proxys/proxylist.txt
 proxys/socks4.txt
 proxys/socks5.txt
 modules/modules.py
+modules/printmodules.py
+modules/scanmodules.py

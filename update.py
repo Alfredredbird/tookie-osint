@@ -19,7 +19,7 @@ dlfl = ""
 fl = []
 fh = []
 # READS ALFRED VERSION
-with open("version.txt", "r") as fp:
+with open("version.cfg", "r") as fp:
     version = fp.read()
     fp.close()
 
