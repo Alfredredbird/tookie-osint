@@ -72,6 +72,7 @@ There Is A Lot Lol
 - [ ] easy documentation reader
 - [ ] bigger site list
 - [ ] more search options
+- [ ] better option pharser
 
 
 
