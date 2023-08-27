@@ -17,6 +17,7 @@ Alfred is successful at this task almost 90% of the time.
 The Requirments Will Automaticly Be Installed.
 
 
+
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
@@ -24,6 +25,8 @@ The Requirments Will Automaticly Be Installed.
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
+    cd alfred && sudo pip install -r requirements.txt
+    python3 brib.py
 # Tested OS:
 
 <table>
