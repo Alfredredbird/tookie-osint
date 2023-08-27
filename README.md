@@ -4,7 +4,11 @@
 
 
 # Overview
-Alfred has a simple to use UI and is realy straight foward. :D
+Alfred has a simple-to-use UI and is really straightforward. :D
+
+The main idea of Alfred is to discover usernames that are requested from an input.
+
+Alfred is successful at this task almost 90% of the time.
 
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
 
@@ -77,8 +81,6 @@ Alfred has a wide variety of options to use.
 Typing -h twice shows the help menu.
 ![Screen Shot 2023-08-22 at 3 33 18 PM](https://github.com/Alfredredbird/alfred/assets/105014217/386e84cf-3291-44d2-8d55-b76a5a149ab6)
     
-# Process
-![INput](https://github.com/Alfredredbird/alfred/assets/105014217/2a94bdc0-b7a2-4499-8c4c-ba743bbdbe60)
 
 # Need Help?
 Check out https://github.com/Alfredredbird/alfred/issues for help.
