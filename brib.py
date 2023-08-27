@@ -156,10 +156,13 @@ else:
 
 #determins what list of sites to use.
 if fastMode == 0:
+    #fastmode0 is the default scan mode
     fastmode0(siteList)
 if fastMode == 1:
+    #fastmode1 is the fast scan mode
     fastmode1(siteList)
 if fastMode == 2:
+    #fastmode2 is the scan from custom site list
     fastmode2(siteList, slectpath)
 #prints ui stuff
 print(Fore.GREEN + "searching for sites with: " + uname + Fore.RESET)
