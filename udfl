@@ -5,7 +5,6 @@ README.md
 SECURITY.md
 brib.py
 fsites.json
-imsom.txt
 requirements.txt
 sites.json
 version.cfg
@@ -18,3 +17,4 @@ proxys/socks5.txt
 modules/modules.py
 modules/printmodules.py
 modules/scanmodules.py
+modules/__init__.py
