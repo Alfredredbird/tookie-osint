@@ -67,7 +67,7 @@ There Is A Lot Lol
 
 # Upcoming Features
 
-- [ ] Tor Searching
+- [ ] Tor Searching (in beta)
 - [x] better site generation
 - [X] updater
 - [ ] advanced site generation
