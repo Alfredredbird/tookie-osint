@@ -23,6 +23,7 @@ import site
 import random
 import string
 # variables
+domain_extensions = False
 alist = True
 test = False
 testall = False
@@ -36,6 +37,7 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
+# site lists
 siteList = []
 siteNSFW = []
 #opens the config and gets the version number
@@ -46,7 +48,6 @@ def get_random_string(length):
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
-# site lists
 # clears the terminal when Alfred is ran
 os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
@@ -73,7 +74,7 @@ while test != True:
         if "-q" in input1 or "--quit" in input1:
             qexit()
         if "-gsl" in input1:
-            siteListGen(console, testall, get_random_string)
+            siteListGen(console, testall, get_random_string,domain_extensions)
         if "-d" in input1:
           d_option(modes,input1)
         if "-S" in input1:

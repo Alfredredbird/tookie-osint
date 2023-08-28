@@ -239,7 +239,8 @@ Usage: [USERNAME]                               //\    //\
 
 
 
-def siteListGen(console, testall, get_random_string):
+def siteListGen(console, testall, get_random_string,domain_extensions):
+
             input2 = input("CHAR: ⤷ ")
             trys = input("  TRYS: ⤷ ")
             siteType = input("     TYPE: ⤷ ")
@@ -249,6 +250,7 @@ def siteListGen(console, testall, get_random_string):
             if siteGenOPtions != "":
                 if "-a" in siteGenOPtions:
                     testall = True
+                 
             if input2 == "":
                 lol = 1
             if input2 != "":
@@ -284,7 +286,9 @@ def siteListGen(console, testall, get_random_string):
                                 
                                 gen = get_random_string(int(input2))
                                 siteLst += [f"https://{gen}{dom}" for dom in domains]
+                                siteLst += [f"https://{gen}{dom}{extension}" for dom in domains]
                                 pass
+                         
                     siteError = 0
                     # print(siteLst)
                     i = 0
