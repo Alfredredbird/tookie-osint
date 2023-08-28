@@ -36,6 +36,7 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
+# site lists
 siteList = []
 siteNSFW = []
 #opens the config and gets the version number
@@ -46,7 +47,6 @@ def get_random_string(length):
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
-# site lists
 # clears the terminal when Alfred is ran
 os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
