@@ -47,6 +47,10 @@ The Requirments Will Automaticly Be Installed.
         <td>Windows</td>
         <td>11/10</td>
     </tr>
+ <tr>
+        <td>Termux</td>
+        <td>0.118.0</td>
+    </tr>
     <tr>
         <td>Kali linux</td>
         <td> Rolling / Sana</td>
