@@ -637,11 +637,3 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                          
                      except ConnectionError():
                         print("Connection Error!")
-
-
-
-
-
-
-    
-    
