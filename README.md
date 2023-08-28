@@ -127,7 +127,7 @@ Typing -h twice shows the help menu.
     
 
 # ⁉️ Need Help?
-Check out https://github.com/Alfredredbird/alfred/issues for help.
+Check out https://github.com/Alfredredbird/alfred/issues or the WiKi for help.
 Still Need Help? Contact Below :D
 # 📗 Info:
 
