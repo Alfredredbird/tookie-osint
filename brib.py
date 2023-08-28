@@ -74,7 +74,7 @@ while test != True:
         if "-q" in input1 or "--quit" in input1:
             qexit()
         if "-gsl" in input1:
-            siteListGen(console, testall, get_random_string,domain_extensions)
+            siteListGen(console, testall, get_random_string,domain_extensions,uname)
         if "-d" in input1:
           d_option(modes,input1)
         if "-S" in input1:

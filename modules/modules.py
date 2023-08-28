@@ -239,7 +239,7 @@ Usage: [USERNAME]                               //\    //\
 
 
 
-def siteListGen(console, testall, get_random_string,domain_extensions):
+def siteListGen(console, testall, get_random_string,domain_extensions, uname):
 
             input2 = input("CHAR: ⤷ ")
             trys = input("  TRYS: ⤷ ")
@@ -250,6 +250,8 @@ def siteListGen(console, testall, get_random_string,domain_extensions):
             if siteGenOPtions != "":
                 if "-a" in siteGenOPtions:
                     testall = True
+                if "-d" in siteGenOPtions:
+                    domain_extensions = True    
                  
             if input2 == "":
                 lol = 1
@@ -286,8 +288,24 @@ def siteListGen(console, testall, get_random_string,domain_extensions):
                                 
                                 gen = get_random_string(int(input2))
                                 siteLst += [f"https://{gen}{dom}" for dom in domains]
-                                siteLst += [f"https://{gen}{dom}{extension}" for dom in domains]
+                                
                                 pass
+                    if domain_extensions == True:
+                        if siteType != "":
+                            for _ in range(int(trys)):
+                                siteLst.append(
+                                    "https://"
+                                    + str(get_random_string(int(input2)))
+                                    + str(siteType)
+                                )
+                        if siteType == "":
+                            domains = [".com/u/", ".net/u/", ".org/u/", ".xyz/u/", ".edu/u/", ".co/u/", ".us/u/", ".uk/u/",".com/user/", ".net/user/", ".org/user/", ".xyz/user/", ".edu/user/", ".co/user/", ".us/user/", ".uk/user/",".com/profile/", ".net/profile/", ".org/profile/", ".xyz/profile/", ".edu/profile/", ".co/profile/", ".us/profile/", ".uk/profile/"  ]
+                            for _ in range(int(trys)):
+                                
+                                gen = get_random_string(int(input2))
+                                
+                                siteLst += [f"https://{gen}{dom}{uname}" for dom in domains]
+                                pass        
                          
                     siteError = 0
                     # print(siteLst)
