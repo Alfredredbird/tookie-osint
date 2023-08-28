@@ -52,7 +52,13 @@ os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
 #this is the function to update the code
-updateReq()  
+cfu = input("Check For Updates? [y/n]: ⤷ ")
+if "Y" in cfu or "y" in cfu:
+        exec(open("./update.py").read())
+elif "N" in cfu or "n" in cfu:
+        print("Ok! Ill Ask Later....")
+else: 
+        print("Not Sure What You Ment. Ill Ask Later")
 #this is the variable that gets the username
 uname = input("⤷ ")
 # This is where we gather the inputed options and then run them.

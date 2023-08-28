@@ -9,9 +9,7 @@ import time
 # variables
 version = ""
 alfred_version = ""
-alfred_update_path = (
-    "https://raw.githubusercontent.com/Alfredredbird/alfred/main/version.txt"
-)
+alfred_update_path = ("https://raw.githubusercontent.com/Alfredredbird/alfred/main/version.cfg")
 alfred_install_path = "/alfred/"
 gitfile_loc = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
 udfl = []

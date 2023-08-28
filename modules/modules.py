@@ -642,12 +642,6 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
 
 
 
-def updateReq():
+
     
-    cfu = input("Check For Updates? [y/n]: ⤷ ")
-    if "Y" in cfu or "y" in cfu:
-        exec(open("./update.py").read())
-    elif "N" in cfu or "n" in cfu:
-        print("Ok! Ill Ask Later....")
-    else: 
-        print("Not Sure What You Ment. Ill Ask Later")
+    
