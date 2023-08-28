@@ -44,6 +44,10 @@ The Requirments Will Automaticly Be Installed.
         <td> Monterey 12.6.7 </td>
     </tr>
     <tr>
+        <td>Windows</td>
+        <td>11/10</td>
+    </tr>
+    <tr>
         <td>Kali linux</td>
         <td> Rolling / Sana</td>
     </tr>
@@ -52,8 +56,32 @@ The Requirments Will Automaticly Be Installed.
         <td>3.1 </td>
     </tr>
     <tr>
-        <td>Windows</td>
-        <td>11/10</td>
+        <td>Ubuntu</td>
+        <td>22.04/20.04 </td>
+    </tr>
+    <tr>
+        <td>Debian</td>
+        <td>10.00 </td>
+    </tr>
+   <tr>
+        <td>Alpine</td>
+        <td>3.10 </td>
+    </tr>
+  <tr>
+        <td>Fedora</td>
+        <td>v33</td>
+    </tr>
+  <tr>
+        <td>Arch Linux</td>
+        <td>2021.07.01</td>
+    </tr>
+  <tr>
+        <td>Manjaro</td>
+        <td>21</td>
+    </tr>
+   <tr>
+        <td>Void</td>
+        <td>Rolling Release</td>
     </tr>
 </table>
 Windows hasn't been working lately please see the docs
