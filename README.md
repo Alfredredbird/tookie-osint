@@ -3,31 +3,38 @@
 
 
 
-# Overview
+# 🔎 Overview
 Alfred has a simple-to-use UI and is really straightforward. :D
-
 The main idea of Alfred is to discover usernames that are requested from an input.
-
 Alfred is successful at this task almost 90% of the time.
+Our tool was created by our Team and is available for your use. 
+Our team does not take responsibility for any malicious actions and or responsibility caused by our tool.
+If you want to contribute, make a fork and make a pull request to submit your changes. :D
+
 
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
 
 
-# Installation
-The Requirments Will Automaticly Be Installed.
+# 📦 Installation
+The requirements will Automatically Be Installed.
 
 
 
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
-# Install 2
+# 📦 Manual Install 
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
-# Tested OS:
+
+# 📦 Termux Install
+   It Can Be Found Here: https://github.com/Alfredredbird/alfred/wiki/Instalations#termux 
+
+     
+# 💻 Tested OS:
 
 <table>
     <tr>
@@ -39,6 +46,14 @@ The Requirments Will Automaticly Be Installed.
         <td> Monterey 12.6.7 </td>
     </tr>
     <tr>
+        <td>Windows</td>
+        <td>11/10</td>
+    </tr>
+ <tr>
+        <td>Termux</td>
+        <td>0.118.0</td>
+    </tr>
+    <tr>
         <td>Kali linux</td>
         <td> Rolling / Sana</td>
     </tr>
@@ -47,13 +62,37 @@ The Requirments Will Automaticly Be Installed.
         <td>3.1 </td>
     </tr>
     <tr>
-        <td>Windows</td>
-        <td>11/10</td>
+        <td>Ubuntu</td>
+        <td>22.04/20.04 </td>
+    </tr>
+    <tr>
+        <td>Debian</td>
+        <td>10.00 </td>
+    </tr>
+   <tr>
+        <td>Alpine</td>
+        <td>3.10 </td>
+    </tr>
+  <tr>
+        <td>Fedora</td>
+        <td>v33</td>
+    </tr>
+  <tr>
+        <td>Arch Linux</td>
+        <td>2021.07.01</td>
+    </tr>
+  <tr>
+        <td>Manjaro</td>
+        <td>21</td>
+    </tr>
+   <tr>
+        <td>Void</td>
+        <td>Rolling Release</td>
     </tr>
 </table>
 Windows hasn't been working lately please see the docs
 
-# Requirments:
+# 📖 Requirments:
 
 There Is A Lot Lol
 
@@ -65,7 +104,7 @@ There Is A Lot Lol
   
 
 
-# Upcoming Features
+# 📕 Upcoming Features
 
 - [ ] Tor Searching (in beta)
 - [x] better site generation
@@ -81,39 +120,38 @@ There Is A Lot Lol
 
 
 
-# Showcase
+# 🍿 Showcase
 Alfred has a wide variety of options to use.
 Typing -h twice shows the help menu.
 ![Screen Shot 2023-08-22 at 3 33 18 PM](https://github.com/Alfredredbird/alfred/assets/105014217/386e84cf-3291-44d2-8d55-b76a5a149ab6)
     
 
-# Need Help?
-Check out https://github.com/Alfredredbird/alfred/issues for help.
+# ⁉️ Need Help?
+Check out https://github.com/Alfredredbird/alfred/issues or the WiKi for help.
 Still Need Help? Contact Below :D
-# Common Questions:
+# 📗 Info:
 
 <table>
     <tr>
-        <th>Where Is Alfred Installed?</th>
-        <th>Where You Cloned It.</th>
+        <th>Wiki</th>
+        <th>https://github.com/Alfredredbird/alfred/wiki</th>
+    </tr>
+   <tr>
+        <th>Releases</th>
+        <th>https://github.com/Alfredredbird/alfred/releases</th>
     </tr>
     <tr>
-        <td>Where Is The Generated Site List?</td>
-        <td>In The Install Folder. The File Is Called Working.txt</td>
+        <th>Contributors</th>
+        <th>https://github.com/Alfredredbird/alfred/graphs/contributors</th>
     </tr>
     <tr>
-        <td>Cant See Options?</td>
-        <td> Type The Username Then -h</td>
+        <th>Discord</th>
+        <th>https://discord.gg/m2RSZ2Hhx5</th>
     </tr>
-    <tr>
-        <td>Cant Find File?</td>
-        <td> Make Sure The Path Is Right</td>
-    </tr>
-   
 </table>
 
 
-# contact
+# 📘 contact
 
 - Youtube : https://youtube.com/@alfredredbird
 - Twitter: @alfredredbird1
