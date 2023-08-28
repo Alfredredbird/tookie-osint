@@ -176,7 +176,7 @@ print(Fore.GREEN + "searching for sites with: " + uname + Fore.RESET)
 print("")
 siteCount = 0
 #opens the save file and writes working sites to it
-with open(file_path, "w") as f:
+with open(file_path, "xw") as f:
     for site in siteList:
         siteCount += 1
         with console.status("Working....") as status:
