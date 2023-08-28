@@ -21,12 +21,17 @@ The Requirments Will Automaticly Be Installed.
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
-# Install 2
+# Manual Install 
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
+
+# Termux Install
+   It Can Be Found Here: https://github.com/Alfredredbird/alfred/wiki/Instalations#termux 
+
+     
 # Tested OS:
 
 <table>
