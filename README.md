@@ -3,7 +3,7 @@
 
 
 
-# Overview
+# 🔎 Overview
 Alfred has a simple-to-use UI and is really straightforward. :D
 
 The main idea of Alfred is to discover usernames that are requested from an input.
@@ -13,7 +13,7 @@ Alfred is successful at this task almost 90% of the time.
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
 
 
-# Installation
+# 📦 Installation
 The Requirments Will Automaticly Be Installed.
 
 
@@ -21,18 +21,18 @@ The Requirments Will Automaticly Be Installed.
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
-# Manual Install 
+# 📦 Manual Install 
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
 
-# Termux Install
+# 📦 Termux Install
    It Can Be Found Here: https://github.com/Alfredredbird/alfred/wiki/Instalations#termux 
 
      
-# Tested OS:
+# 💻 Tested OS:
 
 <table>
     <tr>
@@ -58,7 +58,7 @@ The Requirments Will Automaticly Be Installed.
 </table>
 Windows hasn't been working lately please see the docs
 
-# Requirments:
+# 📖 Requirments:
 
 There Is A Lot Lol
 
@@ -70,7 +70,7 @@ There Is A Lot Lol
   
 
 
-# Upcoming Features
+# 📕 Upcoming Features
 
 - [ ] Tor Searching (in beta)
 - [x] better site generation
@@ -86,39 +86,38 @@ There Is A Lot Lol
 
 
 
-# Showcase
+# 🍿 Showcase
 Alfred has a wide variety of options to use.
 Typing -h twice shows the help menu.
 ![Screen Shot 2023-08-22 at 3 33 18 PM](https://github.com/Alfredredbird/alfred/assets/105014217/386e84cf-3291-44d2-8d55-b76a5a149ab6)
     
 
-# Need Help?
+# ⁉️ Need Help?
 Check out https://github.com/Alfredredbird/alfred/issues for help.
 Still Need Help? Contact Below :D
-# Common Questions:
+# 📗 Info:
 
 <table>
     <tr>
-        <th>Where Is Alfred Installed?</th>
-        <th>Where You Cloned It.</th>
+        <th>Wiki</th>
+        <th>https://github.com/Alfredredbird/alfred/wiki</th>
+    </tr>
+   <tr>
+        <th>Releases</th>
+        <th>https://github.com/Alfredredbird/alfred/releases</th>
     </tr>
     <tr>
-        <td>Where Is The Generated Site List?</td>
-        <td>In The Install Folder. The File Is Called Working.txt</td>
+        <th>Contributors</th>
+        <th>https://github.com/Alfredredbird/alfred/graphs/contributors</th>
     </tr>
     <tr>
-        <td>Cant See Options?</td>
-        <td> Type The Username Then -h</td>
+        <th>Discord</th>
+        <th>https://discord.gg/m2RSZ2Hhx5</th>
     </tr>
-    <tr>
-        <td>Cant Find File?</td>
-        <td> Make Sure The Path Is Right</td>
-    </tr>
-   
 </table>
 
 
-# contact
+# 📘 contact
 
 - Youtube : https://youtube.com/@alfredredbird
 - Twitter: @alfredredbird1
