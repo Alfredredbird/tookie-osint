@@ -612,7 +612,7 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                     print("Ok! Returing To Alfred.")
                     time.sleep(2)
                     return test
-        
+    
 
        if "" in input1 and inputnum != "":
             test = True
