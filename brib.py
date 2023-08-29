@@ -11,7 +11,7 @@ from socket import socket
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
-from random import *
+import random
 import urllib.request, urllib.error, urllib.parse
 import sys
 import os
@@ -57,7 +57,7 @@ print_logoscreen(version)
 #reads the configuration file 
 config.read('./config/config.ini')
 #this is the function to update the code
-x = randint(1, 4)
+x = random.randint(1, 4)
 if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
     print("You Can Disable Updating In The Config File")
     
@@ -75,7 +75,7 @@ if (config.get('main', 'checkforupdates') == 'yes'):
 #asks the user if they want to enable updates    
 if (config.get('main', 'checkforupdates') == 'no'):
  #gets input
- getNum = randint(1, 10)
+ getNum = random.randint(1, 10)
  if(getNum == 7):
   changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
  #pharses it
