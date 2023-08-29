@@ -2,6 +2,16 @@
  
 
 
+![GitHub contributors](https://img.shields.io/github/contributors/Alfredredbird/alfred)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/alfred)
+![Discord](https://img.shields.io/discord/809533983444566119?label=Online%20Discord%20Users&color=%235865F2)
+![GitHub forks](https://img.shields.io/github/forks/alfredredbird/alfred?logoColor=ffff&color=%23ff0000)
+![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/alfred?color=%2332cd32)
+
+
+
+
+
 
 # 🔎 Overview
 Alfred has a simple-to-use UI and is really straightforward. :D
@@ -105,7 +115,7 @@ There Is A Lot Lol
 
 
 # 📕 Upcoming Features
-
+ (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
 - [x] better site generation
 - [X] updater
