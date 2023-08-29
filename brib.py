@@ -60,6 +60,8 @@ config.read('./config/config.ini')
 x = random.randint(1, 4)
 if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
     print("You Can Disable Updating In The Config File")
+if(x == 2):
+    print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
     
 
 

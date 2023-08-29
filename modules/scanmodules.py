@@ -113,6 +113,12 @@ def Startscan(modes, siteN, uname,cError, ec,f,siteProgcounter,siteNSFW):
                     f.write("[" + "CE" + "] " + siteN + uname + "\n")
                     cError += 1
                     return cError
+            except requests.exceptions.TooManyRedirects():
+                if "-a" in modes:
+                    print("[" + Fore.YELLOW + "TR" + Fore.RESET + "] " + siteN + uname)
+                    f.write("[" + "TR" + "] " + siteN + uname + "\n")
+                    cError += 1
+                    return cError        
             except KeyboardInterrupt:
                 print("""===========================================================""")
                 print("Stopping........")
