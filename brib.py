@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
+from configparser import ConfigParser
 from time import sleep
 from rich.console import Console
 from alive_progress import *
@@ -10,6 +11,7 @@ from socket import socket
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
+from random import *
 import urllib.request, urllib.error, urllib.parse
 import sys
 import os
@@ -20,7 +22,6 @@ import json
 import requests
 import time
 import site
-import random
 import string
 # variables
 domain_extensions = False
@@ -32,6 +33,7 @@ cError = 0
 siteProgcounter = 0
 ec = 0
 console = Console()
+config = ConfigParser()
 slectpath = ""
 version = ""
 modes = ""
@@ -52,14 +54,41 @@ def get_random_string(length):
 os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
+#reads the configuration file 
+config.read('config.ini')
 #this is the function to update the code
-cfu = input("Check For Updates? [y/n]: ⤷ ")
-if "Y" in cfu or "y" in cfu:
+x = randint(1, 4)
+if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
+    print("You Can Disable Updating In The Config File")
+    
+
+
+if (config.get('main', 'checkforupdates') == 'yes'):
+ cfu = input("Check For Updates? [y/n]: ⤷ ")
+ if "Y" in cfu or "y" in cfu:
         exec(open("./update.py").read())
-elif "N" in cfu or "n" in cfu:
+ elif "N" in cfu or "n" in cfu:
         print("Ok! Ill Ask Later....")
-else: 
+ else: 
         print("Not Sure What You Ment. Ill Ask Later")
+  
+#asks the user if they want to enable updates    
+if (config.get('main', 'checkforupdates') == 'no'):
+ #gets input
+ getNum = randint(1, 10)
+ if(getNum == 7):
+  changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
+ #pharses it
+  if "Y" in changeconfig or "y" in changeconfig:
+        config.set('main', 'checkforupdates', 'yes')
+        print("Updates Are Enabled!")
+        with open('config.ini', 'w') as f:
+            config.write(f)
+  elif "N" in changeconfig or "n" in changeconfig:
+        print("Ok! Ill Ask Later....")
+  else: 
+        print("Not Sure What You Ment. Ill Ask Later")
+        
 #this is the variable that gets the username
 uname = input("⤷ ")
 # This is where we gather the inputed options and then run them.

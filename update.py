@@ -9,7 +9,7 @@ import time
 # variables
 version = ""
 alfred_version = ""
-alfred_update_path = ("https://raw.githubusercontent.com/Alfredredbird/alfred/main/version.cfg")
+alfred_update_path = ("https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg")
 alfred_install_path = "/alfred/"
 gitfile_loc = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
 udfl = []
@@ -17,7 +17,7 @@ dlfl = ""
 fl = []
 fh = []
 # READS ALFRED VERSION
-with open("version.cfg", "r") as fp:
+with open("config/version.cfg", "r") as fp:
     version = fp.read()
     fp.close()
 
@@ -32,7 +32,7 @@ except ConnectionError:
 # checks for updates
 if alfred_version != version:
     print("Fecthing Updates!")
-    with open("udfl") as file:
+    with open("/config/udfl") as file:
         udfl = [line.rstrip() for line in file]
 
     print(udfl)
@@ -47,7 +47,7 @@ if alfred_version != version:
     try:
         time.sleep(3)
         rc = requests.get(gitfile_loc + "udfl")
-        open("udfl", "wb").write(rc.content)
+        open("/config/udfl", "wb").write(rc.content)
 
         print(udfl)
     except ConnectionError:

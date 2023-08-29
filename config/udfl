@@ -7,9 +7,7 @@ brib.py
 fsites.json
 requirements.txt
 sites.json
-version.cfg
 working.txt
-udfl
 proxys/http.txt
 proxys/proxylist.txt
 proxys/socks4.txt
@@ -18,3 +16,6 @@ modules/modules.py
 modules/printmodules.py
 modules/scanmodules.py
 modules/__init__.py
+config/config.ini
+config/udfl
+config/version.cfg
