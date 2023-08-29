@@ -43,7 +43,7 @@ ars = ""
 siteList = []
 siteNSFW = []
 #opens the config and gets the version number
-with open("version.cfg", "r") as fp:
+with open("./config/version.cfg", "r") as fp:
     version = fp.read()
 def get_random_string(length):
     # choose from all lowercase letter
@@ -55,7 +55,7 @@ os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
 #reads the configuration file 
-config.read('config.ini')
+config.read('./config/config.ini')
 #this is the function to update the code
 x = randint(1, 4)
 if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
