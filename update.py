@@ -17,7 +17,7 @@ dlfl = ""
 fl = []
 fh = []
 # READS ALFRED VERSION
-with open("config/version.cfg", "r") as fp:
+with open("./config/version.cfg", "r") as fp:
     version = fp.read()
     fp.close()
 
@@ -32,7 +32,7 @@ except ConnectionError:
 # checks for updates
 if alfred_version != version:
     print("Fecthing Updates!")
-    with open("/config/udfl") as file:
+    with open("./config/udfl") as file:
         udfl = [line.rstrip() for line in file]
 
     print(udfl)
@@ -47,7 +47,7 @@ if alfred_version != version:
     try:
         time.sleep(3)
         rc = requests.get(gitfile_loc + "udfl")
-        open("/config/udfl", "wb").write(rc.content)
+        open("./config/udfl", "wb").write(rc.content)
 
         print(udfl)
     except ConnectionError:
@@ -73,7 +73,7 @@ if alfred_version != version:
                 print("Cant Find: " + item + "Skiping!") 
             except OSError:
                 print("Permission Error")    
-        with open("udfl") as file:
+        with open("./config/udfl") as file:
             fh = [line.rstrip() for line in file]
         # checks to see if the file exists, if not it reinstalls it
         while True:
