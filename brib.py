@@ -100,10 +100,20 @@ while test != True:
     if input1 != "":
         if "-t" in input1:
             timeoutC(modes, input1)
+        if "-u" in input1:
+            print("Requested Username: " +uname)    
         if "-c" in input1:
             proxyCheck(modes, input1)
         if "-q" in input1 or "--quit" in input1:
             qexit()
+        if "-ls" in input1:
+           #gets the files in ./alfred
+           my_list = printFiles()
+           columns = 3
+           spaces = "      "
+           #prints the files neetly
+           for first, second, third in zip(my_list[::columns], my_list[1::columns], my_list[2::columns]):
+            print(f'{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}')
         if "-gsl" in input1:
             siteListGen(console, testall, get_random_string,domain_extensions,uname)
         if "-d" in input1:

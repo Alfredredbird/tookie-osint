@@ -1,4 +1,5 @@
 import os
+from os import walk
 import urllib
 import time
 from colorama import *
@@ -7,7 +8,8 @@ import requests
 import json
 from rich.console import Console
 from torrequest import TorRequest
-
+from os import listdir
+from os.path import isfile, join
 def d_option(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
@@ -235,6 +237,8 @@ Usage: [USERNAME]                               //\    //\
         -f  |        | Runs A Fast Scan    
         -O  |        | Checks Accounts From A List
         -S  |        | Downloads A Webpage's HTML File
+        -u  |        | Prints The Requested Username
+        -ls |        | Prints The Files In ./alfred
 """
             )
 
@@ -392,6 +396,12 @@ def siteListGen(console, testall, get_random_string,domain_extensions, uname):
                                 + "/"
                                 + str(trys)
                             )
+                        except requests.exceptions.BaseHTTPError():
+                            siteError += 1
+                            print("["+ Fore.RED+ "-"+ Fore.RESET+ "] "+ "?"+ " "+ str(i)+ "/"+ str(trys))    
+                        except requests.exceptions.TooManyRedirects():
+                            siteError += 1
+                            print("["+ Fore.RED+ "-"+ Fore.RESET+ "] "+ "?"+ " "+ str(i)+ "/"+ str(trys))        
                         except requests.exceptions.SSLError():
                             siteError += 1
                             print(
@@ -660,3 +670,10 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                          
                      except ConnectionError():
                         print("Connection Error!")
+
+
+
+def printFiles():
+    #ha ha Only Files. Sounds like something else, I wonder what? (Only Fans)
+    onlyfiles = [f for f in listdir("./") if isfile(join("./", f))] 
+    return onlyfiles                    
