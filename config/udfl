@@ -1,3 +1,4 @@
+config/udfl
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 LICENSE
@@ -17,5 +18,4 @@ modules/printmodules.py
 modules/scanmodules.py
 modules/__init__.py
 config/config.ini
-config/udfl
 config/version.cfg
