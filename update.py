@@ -46,7 +46,7 @@ if alfred_version != version:
     # waits then downloads a new file manager copy
     try:
         time.sleep(3)
-        rc = requests.get(gitfile_loc + "udfl")
+        rc = requests.get(gitfile_loc + "/config/udfl")
         open("./config/udfl", "wb").write(rc.content)
 
         print(udfl)
