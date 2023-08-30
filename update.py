@@ -55,7 +55,7 @@ if alfred_version != version:
 
     try:
         # reads the udfl file
-        with open("udfl") as file:
+        with open("./config/udfl") as file:
             fl = [line.rstrip() for line in file]
         time.sleep(2)
         print("Downloading Files")
