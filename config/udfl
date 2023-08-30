@@ -19,5 +19,3 @@ modules/__init__.py
 config/config.ini
 config/udfl
 config/version.cfg
-/config
-/proxys
