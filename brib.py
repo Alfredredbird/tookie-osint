@@ -15,7 +15,6 @@ import random
 import urllib.request, urllib.error, urllib.parse
 import sys
 import os
-import urllib.request
 import platform
 import logging
 import json
@@ -117,13 +116,13 @@ while test != True:
         if "-gsl" in input1:
             siteListGen(console, testall, get_random_string,domain_extensions,uname)
         if "-d" in input1:
-          d_option(modes,input1)
+         redirects1(modes,input1)
         if "-S" in input1:
-            Cap_S_option(modes, input1)
+            siteDownloader(modes, input1)
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
-            if input2 == "":
-                lol = 1
+            # if input2 == "":
+            #     lol = 1
             if input2 != "":
                 if input2 == "Y" or input2 == "y":
                     modes += input1
@@ -138,7 +137,7 @@ while test != True:
         if "-ec" in input1:
             ec = 1
         if "-lp" in input1:
-            l_p()
+            list_proxys()
         if "-O" in input1 or "-o" in input1:
             slectpath = Path.home() / str(input("PATH: ⤷ "))
             file_path = os.path.join(slectpath)
@@ -166,10 +165,10 @@ while test != True:
                 exit(69)
         # code to read and check files
         if "-r" in input1 or "--read" in input1:
-            R_option(slectpath)
+            read_save(slectpath)
         #code to ping a site
         if "-p" in input1 or "--ping" in input1:
-            p_option()
+            ping()
         #code to display all error codes    
         if "-a" in input1:
             modes += input1

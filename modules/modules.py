@@ -10,7 +10,7 @@ from rich.console import Console
 from torrequest import TorRequest
 from os import listdir
 from os.path import isfile, join
-def d_option(modes,input1):
+def redirects1(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
                 lol = 1
@@ -55,7 +55,7 @@ def logo(uname):
 """
 )
     print("             The Target Username: " + uname)
-def Cap_S_option(modes, input1):
+def siteDownloader(modes, input1):
             input2 = input("SITE: ⤷ ")
             if input2 == "":
                 lol = 1
@@ -76,7 +76,7 @@ def Cap_S_option(modes, input1):
                 except ValueError:
                     print("Unknow URL!")          
 
-def l_p():
+def list_proxys():
             input2 = input("TYPE:  ⤷ ")
             # check if the directory exists
             if input2 == "":
@@ -128,7 +128,7 @@ def l_p():
                     print(Fore.RESET)
 
 
-def R_option(slectpath):
+def read_save(slectpath):
             if slectpath == "":
                 dir_path = Path.home() / "Downloads"
 
@@ -156,7 +156,7 @@ def R_option(slectpath):
                 print(Fore.RED + "Cant Find The Save File!")
                 print(Fore.RESET)
 
-def p_option():
+def ping():
             headers = headers = {
                 "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
             }
@@ -431,6 +431,20 @@ def siteListGen(console, testall, get_random_string,domain_extensions, uname):
                                 + str(trys)
                             )
                         except requests.exceptions.TooManyRedirects():
+                            siteError += 1
+                            print(
+                                "["
+                                + Fore.RED
+                                + "-"
+                                + Fore.RESET
+                                + "] "
+                                + "?"
+                                + +" "
+                                + str(i)
+                                + "/"
+                                + str(trys)
+                            )
+                        except requests.exceptions.ChunkedEncodingError():
                             siteError += 1
                             print(
                                 "["
