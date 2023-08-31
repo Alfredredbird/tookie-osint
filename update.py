@@ -95,4 +95,4 @@ if alfred_version != version:
     except ConnectionError:
         print("Failed To Download Update Files. (-3)")
 else:
-    print("Your On The Latest Version!")
+    print("You're On The Latest Version!")
