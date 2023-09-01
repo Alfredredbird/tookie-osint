@@ -50,6 +50,7 @@ def get_random_string(length):
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
 # clears the terminal when Alfred is ran
+#
 os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
