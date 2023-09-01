@@ -18,7 +18,7 @@ Alfred has a simple-to-use UI and is really straightforward. :D
 The main idea of Alfred is to discover usernames that are requested from an input.
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by our Team and is available for your use. 
-Our team does not take responsibility for any malicious actions and or responsibility caused by our tool.
+Our team does not take responsibility for any malicious actions and or responsibility caused by our tool. :(
 If you want to contribute, make a fork and make a pull request to submit your changes. :D
 
 
@@ -123,7 +123,7 @@ There Is A Lot Lol
 - [x] website downloader
 - [ ] easy documentation reader
 - [ ] bigger site list
-- [ ] more search options
+- [] more search options
 - [ ] better option pharser
 
 
