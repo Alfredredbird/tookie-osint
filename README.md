@@ -18,8 +18,8 @@ Alfred has a simple-to-use UI and is really straightforward. :D
 The main idea of Alfred is to discover usernames that are requested from an input.
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by our Team and is available for your use. 
-Our team does not take responsibility for any malicious actions and or responsibility caused by our tool.
-If you want to contribute, make a fork and make a pull request to submit your changes. :D
+Our team does not take responsibility for any malicious actions and or responsibility caused by our tool. :(
+If you want to contribute, make a fork and make a pull request to submit your changes. :D We are proud to anounce that Alfred has reached 600 downloads. 
 
 
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
@@ -123,7 +123,7 @@ There Is A Lot Lol
 - [x] website downloader
 - [ ] easy documentation reader
 - [ ] bigger site list
-- [ ] more search options
+- [] more search options
 - [ ] better option pharser
 
 
@@ -167,4 +167,4 @@ Still Need Help? Contact Below :D
 - Twitter: @alfredredbird1
 - Twitch: https://twitch.tv/alfredredbird
 - Email : j2montanari@gmail.com
-- Discord: https://discord.com/invite/e2QjcQyFzm
+- Discord: https://discord.gg/m2RSZ2Hhx5
