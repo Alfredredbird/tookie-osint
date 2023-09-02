@@ -239,6 +239,8 @@ Usage: [USERNAME]                               //\    //\
         -S  |        | Downloads A Webpage's HTML File
         -u  |        | Prints The Requested Username
         -ls |        | Prints The Files In ./alfred
+       -Cat |        | Reads The Inputed File
+   --Config |        | Edits The Config. (Beta)
 """
             )
 
@@ -691,3 +693,16 @@ def printFiles():
     #ha ha Only Files. Sounds like something else, I wonder what? (Only Fans)
     onlyfiles = [f for f in listdir("./") if isfile(join("./", f))] 
     return onlyfiles                    
+
+
+def catFile(file_path):
+    try:
+        with open(file_path, "r") as f:
+            for jsonObj in f:
+                siteDic = json.loads(jsonObj)
+                print(siteDic) 
+                               
+    except FileNotFoundError:
+        print(Fore.RED + "Cant Find Site File")
+    except json.JSONDecodeError:
+        print(Fore.RED + "Error With Site File" + Fore.RESET)

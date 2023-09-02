@@ -138,6 +138,9 @@ while test != True:
             ec = 1
         if "-lp" in input1:
             list_proxys()
+        if "-Cat" in input1:
+            file_path = input("Filname:  ⤷ ")
+            catFile(file_path)    
         if "-O" in input1 or "-o" in input1:
             slectpath = Path.home() / str(input("PATH: ⤷ "))
             file_path = os.path.join(slectpath)
@@ -163,6 +166,8 @@ while test != True:
                 print(Fore.RED + "Cant Find The Save File!")
                 print(Fore.RESET)
                 exit(69)
+        if("--Config" in input1):
+            print("Do Config Stuff. Still Working On This.")        
         # code to read and check files
         if "-r" in input1 or "--read" in input1:
             read_save(slectpath)
