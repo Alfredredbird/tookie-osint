@@ -167,4 +167,4 @@ Still Need Help? Contact Below :D
 - Twitter: @alfredredbird1
 - Twitch: https://twitch.tv/alfredredbird
 - Email : j2montanari@gmail.com
-- Discord: https://discord.com/invite/e2QjcQyFzm
+- Discord: https://discord.gg/m2RSZ2Hhx5
