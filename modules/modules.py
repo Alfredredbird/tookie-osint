@@ -240,7 +240,7 @@ Usage: [USERNAME]                               //\    //\
         -u  |        | Prints The Requested Username
         -ls |        | Prints The Files In ./alfred
        -Cat |        | Reads The Inputed File
-   --Config |        | Edits The Config. (Beta)
+   --Config |        | Edits The Config. 
 """
             )
 #
@@ -706,3 +706,27 @@ def catFile(file_path):
         print(Fore.RED + "Cant Find Site File")
     except json.JSONDecodeError:
         print(Fore.RED + "Error With Site File" + Fore.RESET)
+
+
+def configEditor(config):
+    config.read('./config/config.ini')
+    editConfigAwnser = input("Edit The Config? [y/n]: ⤷ ")      
+    if(editConfigAwnser == "y" or editConfigAwnser == "Y"):  
+        
+        print("[1] Check for updates: " + str(config.get('main', 'checkforupdates')))
+        editConfig = input("What Do You Want To Change? ⤷ ")
+        if(editConfig == '1'):
+            if(config.get('main', 'checkforupdates') == 'yes'):
+             print("Ok! [checkforupdates] Is Set For Yes. Changing To No")
+             config.set('main', 'checkforupdates', 'no')
+             with open('./config/config.ini', 'w') as f:
+                config.write(f)
+                return True
+            if(config.get('main', 'checkforupdates') == 'no'):
+             print("Ok! [checkforupdates] Is Set For No. Changing To Yes")
+             config.set('main', 'checkforupdates', 'yes')
+             with open('./config/config.ini', 'w') as f:
+                config.write(f)    
+                return False
+    if(editConfigAwnser == "n" or editConfigAwnser == "N"):  
+        print("Aww ok")    

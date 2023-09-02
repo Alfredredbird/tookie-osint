@@ -168,7 +168,7 @@ while test != True:
                 print(Fore.RESET)
                 exit(69)
         if("--Config" in input1):
-            print("Do Config Stuff. Still Working On This.")        
+            configEditor(config)      
         # code to read and check files
         if "-r" in input1 or "--read" in input1:
             read_save(slectpath)
