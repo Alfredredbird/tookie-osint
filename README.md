@@ -123,7 +123,7 @@ There Is A Lot Lol
 - [x] website downloader
 - [ ] easy documentation reader
 - [ ] bigger site list
-- [] more search options
+- [ ] more search options
 - [ ] better option pharser
 
 
@@ -159,6 +159,8 @@ Still Need Help? Contact Below :D
         <th>https://discord.gg/m2RSZ2Hhx5</th>
     </tr>
 </table>
+
+
 # 📙 Articles
 There has been sevral aritcles written about our tool. Feel free to check them out :D
 <table>
@@ -174,10 +176,7 @@ There has been sevral aritcles written about our tool. Feel free to check them o
         <th>Sibnet</th>
         <th>https://info.sibnet.ru/article/646445/</th>
     </tr>
-    <tr>
-        <th>Discord</th>
-        <th>https://discord.gg/m2RSZ2Hhx5</th>
-    </tr>
+    
 </table>
 
 # 📘 contact
