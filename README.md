@@ -168,11 +168,11 @@ There has been sevral aritcles written about our tool. Feel free to check them o
     </tr>
    <tr>
         <th>Speka Media</th>
-        <th>https://github.com/Alfredredbird/alfred/releases</th>
+        <th>https://speka.media/rozrobniki-predstavili-alfred-vidkritu-utilitu-dlya-osint-pygwkp</th>
     </tr>
     <tr>
         <th>Sibnet</th>
-        <th>https://github.com/Alfredredbird/alfred/graphs/contributors</th>
+        <th>https://info.sibnet.ru/article/646445/</th>
     </tr>
     <tr>
         <th>Discord</th>
