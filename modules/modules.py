@@ -216,16 +216,7 @@ Usage: [USERNAME]                               //\    //\
         -a  |        | (Shows Everything) 
             |        | Error ID's:
             |        |   
-            |        |      S ⥴ SSL Error  
-            |        |      H ⥴ HTTP Error  
-            |        |      T ⥴ Connection Timeout   
-            |        |      R ⥴ Retry Error  
-            |        |      P ⥴ Proxy Error  
-            |        |      C ⥴ Connection Error  
-            |        |      I ⥴ Invalid URL  
-            |        |      N ⥴ Header Error 
-            |        |      CE ⥴ Chunk Error  
-            |        |      TR ⥴ To Many Redirects
+            |        |   E ⥴ Connection Error, Etc
             |        |
             |        +-----------------------------------------
         -N  | --nsfw | (Points NSFW Sites)    
