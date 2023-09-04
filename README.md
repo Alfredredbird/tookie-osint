@@ -156,7 +156,7 @@ Still Need Help? Contact Below :D
         <th>https://github.com/Alfredredbird/alfred/graphs/contributors</th>
     </tr>
     <tr>
-        <th>Discord</th>
+        <th>Discord Server</th>
         <th>https://discord.gg/m2RSZ2Hhx5</th>
     </tr>
 </table>
@@ -186,4 +186,4 @@ There has been several aritcles written about our tool. Feel free to check them 
 - Twitter: @alfredredbird1
 - Twitch: https://twitch.tv/alfredredbird
 - Email : j2montanari@gmail.com
-- Discord: https://discord.gg/m2RSZ2Hhx5
+- Discord Server: https://discord.gg/m2RSZ2Hhx5
