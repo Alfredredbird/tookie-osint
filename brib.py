@@ -50,7 +50,6 @@ def get_random_string(length):
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
 # clears the terminal when Alfred is ran
-#
 os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
@@ -63,8 +62,6 @@ if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
 if(x == 2):
     print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
     
-
-
 if (config.get('main', 'checkforupdates') == 'yes'):
  cfu = input("Check For Updates? [y/n]: ⤷ ")
  if "Y" in cfu or "y" in cfu:
@@ -119,7 +116,14 @@ while test != True:
         if "-d" in input1:
          redirects1(modes,input1)
         if "-S" in input1:
+            dirDump("./downloadedSites/")
             siteDownloader(modes, input1)
+            time.sleep(2)
+            print("Downloading CSS")
+            scriptDownloader("./downloadedSites/css_files.txt", ".css")
+            time.sleep(2)
+            print("Downloading JS")
+            scriptDownloader("./downloadedSites/javascript_files.txt", ".js")
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
             # if input2 == "":

@@ -4,12 +4,15 @@ import urllib
 import time
 from colorama import *
 from pathlib import Path
+from bs4 import BeautifulSoup as bs
 import requests
 import json
 from rich.console import Console
 from torrequest import TorRequest
 from os import listdir
 from os.path import isfile, join
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup as bs
 def redirects1(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
@@ -61,13 +64,46 @@ def siteDownloader(modes, input1):
                 modes += input1
 
                 try:
+                    # thanks to https://thepythoncode.com/article/extract-web-page-script-and-css-files-in-python for the code refrence
                     response = urllib.request.urlopen(input2)
                     webContent = response.read().decode("UTF-8")
 
-                    f = open("downloaded-site.html", "w")
+                    f = open("./downloadedSites/downloaded-site.html", "w")
                     f.write(webContent)
                     f.close
                     print("Downloaded Page And Saved To: downloaded-site.html")
+                    url = input2
+                    session = requests.Session()
+                    session.headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+                    # get the HTML content
+                    html = session.get(url).content
+                    # parse HTML using beautiful soup
+                    soup = bs(html, "html.parser")
+                    # get the JavaScript files
+                    script_files = []
+                    for script in soup.find_all("script"):
+                        if script.attrs.get("src"):
+                            # if the tag has the attribute 'src'
+                            script_url = urljoin(url, script.attrs.get("src"))
+                            script_files.append(script_url)
+                    # get the CSS files
+                    css_files = []
+                    for css in soup.find_all("link"):
+                        if css.attrs.get("href"):
+                         # if the link tag has the 'href' attribute
+                         css_url = urljoin(url, css.attrs.get("href"))
+                         css_files.append(css_url)      
+                    print("Total script files in the page:", len(script_files))
+                    print("Total CSS files in the page:", len(css_files))
+                    # write file links into files
+                    with open("./downloadedSites/javascript_files.txt", "w") as f:
+                        for js_file in script_files:
+                            print(js_file, file=f)
+                        
+                    with open("./downloadedSites/css_files.txt", "w") as f:
+                        for css_file in css_files:
+                            print(css_file, file=f)    
+                                         
                     return modes
                 except ConnectionError:
                     print("Error Downloading Web Content!")
@@ -486,3 +522,28 @@ def configEditor(config):
                 return False
     if(editConfigAwnser == "n" or editConfigAwnser == "N"):  
         print("Aww ok")    
+
+def scriptDownloader(sitePaths, extinsion):
+        count = 0
+        file1 = open(sitePaths, "r")
+        Lines = file1.readlines()
+        L = [Lines]
+        for line in Lines:
+                count += 1
+                #downloads the file from the site
+                print("Downloading File: " + line)
+                url = line
+                r = requests.get(url, allow_redirects=True)
+                try: 
+                    open("./downloadedSites/file"+str(count) +extinsion, "wb").write(r.content)
+                except FileNotFoundError:
+                     print("Cant Find: " + item + "Skiping!") 
+                except OSError:
+                     print("Permission Error")    
+                   
+
+
+def dirDump(mydir):
+    filelist = [ f for f in os.listdir(mydir) if f.endswith(".bak") ]
+    for f in filelist:
+        os.remove(os.path.join(mydir, f))                  

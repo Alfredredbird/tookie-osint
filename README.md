@@ -121,6 +121,7 @@ There Is A Lot Lol
 - [X] updater
 - [ ] advanced site generation
 - [x] website downloader
+- [x] website Script File Downloader
 - [ ] easy documentation reader
 - [ ] bigger site list
 - [ ] more search options
