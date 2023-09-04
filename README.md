@@ -19,7 +19,7 @@ The main idea of Alfred is to discover usernames that are requested from an inpu
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by our Team and is available for your use. 
 Our team does not take responsibility for any malicious actions and or responsibility caused by our tool. :(
-If you want to contribute, make a fork and make a pull request to submit your changes. :D We are proud to anounce that Alfred has reached 600 downloads!
+If you want to contribute, make a fork and make a pull request to submit your changes. :D We are proud to anounce that Alfred has reached 700 downloads!
 
 
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
