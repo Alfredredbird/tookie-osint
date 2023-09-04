@@ -9,50 +9,19 @@ def Startscan(modes, siteN, uname,cError, ec,f,siteProgcounter,siteNSFW):
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
                 }
                 if "-t" in modes:
-                    response = requests.get(
-                        siteN + uname,
-                        headers=headers,
-                        timeout=timeout,
-                        allow_redirects=False,
-                        proxies=False,
-                        json=False,
-                    )  # 35
+                    response = requests.get(siteN + uname, headers=headers,timeout=timeout,allow_redirects=False,proxies=False,json=False,)  # 35
                 if "-d" in modes:
-                    response = requests.get(
-                        siteN + uname,
-                        headers=headers,
-                        timeout=1.5,
-                        allow_redirects=ars,
-                        proxies=False,
-                        json=False,
-                    )
+                    response = requests.get(siteN + uname,headers=headers,timeout=1.5,allow_redirects=ars,proxies=False, json=False,)
                 if "-c" in modes:
-                    response = requests.get(
-                        siteN + uname,
-                        headers=headers,
-                        timeout=1.5,
-                        allow_redirects=False,
-                        proxies=proxies,
-                        json=False,
-                    )
-
+                    response = requests.get(siteN + uname,headers=headers,timeout=1.5,allow_redirects=False,proxies=proxies,json=False,)
                 else:
-                    response = requests.get(
-                        siteN + uname,
-                        headers=headers,
-                        timeout=1.5,
-                        allow_redirects=False,
-                        proxies=False,
-                        json=False,
-                    )
-
+                    response = requests.get(siteN + uname,headers=headers,timeout=1.5,allow_redirects=False,proxies=False,json=False,)
                 if ec == 1:
                     print(response.status_code)
                 if response.status_code == 200:
                     siteProgcounter += 1
             except (requests.exceptions.SSLError,requests.exceptions.HTTPError,requests.exceptions.ConnectTimeout,requests.exceptions.ReadTimeout,requests.exceptions.RetryError,requests.exceptions.ProxyError,requests.exceptions.ConnectionError,requests.exceptions.InvalidHeader,requests.exceptions.InvalidURL,requests.exceptions.TooManyRedirects, requests.exceptions.ChunkedEncodingError):
                 connection_error = 1
-                #  print(requests.exceptions.HTTPError)
                 if "-a" in modes:
                     print("[" + Fore.YELLOW + "E" + Fore.RESET + "] " + siteN + uname)
                     f.write("[" + "E" + "] " + siteN + uname + "\n")
