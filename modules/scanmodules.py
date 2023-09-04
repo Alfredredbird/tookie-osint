@@ -91,47 +91,16 @@ def Startscan(modes, siteN, uname,cError, ec,f,siteProgcounter,siteNSFW):
                     print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                     f.write("[" + "+" + "] " + siteN + uname + "\n")
 
-def fastmode0(siteList):
-    try:
-        with open("./sites.json", "r") as f:
-            for jsonObj in f:
-                siteDic = json.loads(jsonObj)
-                siteList.append(siteDic)
-        return siteList        
-    except FileNotFoundError:
-        print(Fore.RED + "Cant Find Site File")
-
-        exit(-1)
-    except json.JSONDecodeError:
-        print(Fore.RED + "Error With Site File" + Fore.RESET)
-        exit(-9)
-
-
-def fastmode1(siteList):
-    try:
-        with open("./fsites.json", "r") as f:
-            for jsonObj in f:
-                siteDic = json.loads(jsonObj)
-                siteList.append(siteDic)
-        return siteList        
-    except FileNotFoundError:
-        print(Fore.RED + "Cant Find Site File")
-
-        exit(-1)
-    except json.JSONDecodeError:
-        print(Fore.RED + "Error With Site File" + Fore.RESET)
-        exit(-9)    
-
-def fastmode2(siteList, slectpath):
+def scanFileList(siteList,slectpath):
     try:
         with open(slectpath, "r") as f:
             for jsonObj in f:
                 siteDic = json.loads(jsonObj)
                 siteList.append(siteDic)
+        return siteList        
     except FileNotFoundError:
         print(Fore.RED + "Cant Find Site File")
-
         exit(-1)
     except json.JSONDecodeError:
         print(Fore.RED + "Error With Site File" + Fore.RESET)
-        exit(-9)            
+        exit(-9)
