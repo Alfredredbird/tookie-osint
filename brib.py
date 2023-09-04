@@ -41,6 +41,18 @@ ars = ""
 # site lists
 siteList = []
 siteNSFW = []
+#checks if the nesasary files exist
+if(os.path.exists('./config/config.ini') == True):
+            print("Config File exists")
+else:
+    print("Cant Find Nesasary Files. Try Reinstalling Alfred") 
+    exit(1)            
+if(os.path.exists('./update.py') == True):
+            print("Update File exists")    
+else:
+    print("Cant Find Nesasary Files. Try Reinstalling Alfred") 
+    exit(1)     
+
 #opens the config and gets the version number
 with open("./config/version.cfg", "r") as fp:
     version = fp.read()
@@ -117,6 +129,7 @@ while test != True:
          redirects1(modes,input1)
         if "-S" in input1:
             dirDump("./downloadedSites/")
+            time.sleep(2)
             siteDownloader(modes, input1)
             time.sleep(2)
             print("Downloading CSS")

@@ -541,9 +541,7 @@ def scriptDownloader(sitePaths, extinsion):
                 except OSError:
                      print("Permission Error")    
                    
-
-
 def dirDump(mydir):
-    filelist = [ f for f in os.listdir(mydir) if f.endswith(".bak") ]
+    filelist = [ f for f in os.listdir(mydir) ]
     for f in filelist:
         os.remove(os.path.join(mydir, f))                  
