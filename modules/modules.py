@@ -16,7 +16,6 @@ def redirects1(modes,input1):
                 lol = 1
             if input2 != "":
                 modes += input1
-
                 try:
                     ars = bool(input2)
                     return input1, modes     
@@ -25,7 +24,6 @@ def redirects1(modes,input1):
                     if "-d" in input2:
                         input1.replace("-d", "")
                           
-
 def logo(uname):
     os.system("cls" if os.name == "nt" else "clear")
     print(
@@ -175,68 +173,6 @@ def ping():
                 print(Fore.RED + "Error!")
                 print(Fore.RESET + " ")
 
-                
-
-def print_help():
-    print(
-                """
-██╗   ██╗███████╗ █████╗  ██████╗ ███████╗
-██║   ██║██╔════╝██╔══██╗██╔════╝ ██╔════╝
-██║   ██║███████╗███████║██║  ███╗█████╗  
-██║   ██║╚════██║██╔══██║██║   ██║██╔══╝  
-╚██████╔╝███████║██║  ██║╚██████╔╝███████╗                      
- ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝      \      \    
-                                                (o>    (o>
-Usage: [USERNAME]                               //\    //\ 
-       [OPTIONS]                                V_/    V_/ 
-================================================================
-                                                ||     ||
-                                                ||     ||
-   [COMMAND]  [ALIAS]  [INFO]
-
-        -h  | --help |
-------------+--------+------------------------------------------
-        -r  | --read | (Reads Last Search Results) 
-        -p  | --ping | (pings website)
-        -q  | --quit | (Quits)
-        -lp |        | (Gives A List Of Posible Working Proxys)
-            |        | Types:
-            |        |
-            |        |       http   ⥴ /http.txt
-            |        |       socks4 ⥴ /socks4.txt
-            |        |       socks5 ⥴ /socks5.txt
-            |        |
-        -gsl|        | (Generates Random Sites And Tests Them)
-            |        |  Ussage:
-            |        |     [LENGTH]
-            |        |        [AMOUNT]
-            |        |           [TYPE] 
-            |        |              [OPTIONS]
-------------+--------+------------------------------------------
-        -a  |        | (Shows Everything) 
-            |        | Error ID's:
-            |        |   
-            |        |   E ⥴ Connection Error, Etc
-            |        |
-            |        +-----------------------------------------
-        -N  | --nsfw | (Points NSFW Sites)    
-        -ec |        | (Prints The Returned Status Code)
-        -s  |        | (Starts The Program)
-        -d  |        | (Allows Redirects "Might Not Be Accutate")
-        -c  |        | (Connects To A Proxy Server)
-            |        | Format [Type] [Ip] [Port] 
-        -f  |        | Runs A Fast Scan    
-        -O  |        | Checks Accounts From A List
-        -S  |        | Downloads A Webpage's HTML File
-        -u  |        | Prints The Requested Username
-        -ls |        | Prints The Files In ./alfred
-       -Cat |        | Reads The Inputed File
-   --Config |        | Edits The Config. 
-"""
-            )
-#
-
-
 def siteListGen(console, testall, get_random_string,domain_extensions, uname):
 
             input2 = input("CHAR: ⤷ ")
@@ -312,166 +248,17 @@ def siteListGen(console, testall, get_random_string,domain_extensions, uname):
                     while i != len(siteLst):
                         try:
                             r = requests.get(siteLst[i], timeout=1)
-                            print(
-                                "["
-                                + Fore.GREEN
-                                + "+"
-                                + Fore.RESET
-                                + "] "
-                                + str(siteLst[i])
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
+                            print("["+ Fore.GREEN+ "+"+ Fore.RESET+ "] "+ str(siteLst[i])+ " "+ str(i)+ "/"+ str(trys))
                             if r.status_code >= 200 and r.status_code <= 500:
-                                f.write(
-                                    '{"site": "'
-                                    + str(siteLst[i])
-                                    + "/"
-                                    + '", "nsfw": "False"}'
-                                    + "\n"
-                                )
-                        except requests.exceptions.ConnectionError:
+                                f.write('{"site": "'+ str(siteLst[i])+ "/"+ '", "nsfw": "False"}'+ "\n")
+                        except (requests.exceptions.ConnectionError,requests.exceptions.Timeout,IndexError,requests.exceptions.HTTPError,requests.exceptions.BaseHTTPError,requests.exceptions.SSLError, requests.exceptions.TooManyRedirects,requests.exceptions.TooManyRedirects,requests.exceptions.RetryError,TypeError,requests.exceptions.ChunkedEncodingError):
                             siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-
-                        except IndexError:
-                            i = len(siteLst) + 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except requests.exceptions.Timeout:
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except requests.exceptions.HTTPError():
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except requests.exceptions.BaseHTTPError():
-                            siteError += 1
-                            print("["+ Fore.RED+ "-"+ Fore.RESET+ "] "+ "?"+ " "+ str(i)+ "/"+ str(trys))    
-                        except requests.exceptions.TooManyRedirects():
-                            siteError += 1
-                            print("["+ Fore.RED+ "-"+ Fore.RESET+ "] "+ "?"+ " "+ str(i)+ "/"+ str(trys))        
-                        except requests.exceptions.SSLError():
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except requests.exceptions.RetryError():
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + " "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except requests.exceptions.TooManyRedirects():
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + +" "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except requests.exceptions.ChunkedEncodingError():
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + +" "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
-                        except TypeError():
-                            siteError += 1
-                            print(
-                                "["
-                                + Fore.RED
-                                + "-"
-                                + Fore.RESET
-                                + "] "
-                                + "?"
-                                + +" "
-                                + str(i)
-                                + "/"
-                                + str(trys)
-                            )
+                            print("["+ Fore.RED+ "-"+ Fore.RESET+ "] "+ "?"+ " "+ str(i)+ "/"+ str(trys)) 
                         except KeyboardInterrupt():
                             print("Stopping..... Saved To alfred/working.txt")
-
+                        # tbh its 11 at night rn and idk what i+=1 does
                         i += 1
-
                     print(str(siteError) + " Not Working Sites...")                           
-
 
 def qexit():      
             exitInput = input("Exit? [Y/N]")
@@ -479,7 +266,6 @@ def qexit():
                 exit(0)
             if exitInput == "N" or exitInput == "n":
                 print("Continueing....")              
-
 
 def proxyCheck(modes, input1):
             typeInput = input("TYPE: ⤷ ")
@@ -498,30 +284,19 @@ def proxyCheck(modes, input1):
                             prxs = input2 + ":" + input3
                             proxies = {"{typeInput}": prxs}
                         #  print("Proxy: " + input2 + ":" + input3)
-
                         except requests.exceptions.ProxyError:
                             print(Fore.RED + "Proxy Error!" + Fore.RESET)
 
                         print("")
                         print("     Save Proxy To File?")
                         saveProxy = input("         [Y/n]?  ⤷ ")
-
                         if saveProxy == "Y" or saveProxy == "y":
                             with open("proxyList.txt", "a") as fp:
                                 fp.write(" \n" + input2 + ":" + input3)
                                 fp.close()
 
                         elif saveProxy == "N" or saveProxy == "n":
-                            print(
-                                "Continuing"
-                                + Fore.RED
-                                + "."
-                                + Fore.GREEN
-                                + "."
-                                + Fore.YELLOW
-                                + "."
-                                + Fore.RESET
-                            )
+                            print("Continuing"+ Fore.RED+ "."+ Fore.GREEN+ "."+ Fore.YELLOW+ "."+ Fore.RESET)
 
                     if input3 == "":
                         print("     Wheres The Port? Lol")
@@ -533,7 +308,6 @@ def proxyCheck(modes, input1):
                 if "-c" in input1:
                     input1.replace("-c", "")
               
-
 def timeoutC(modes, input1):
             input2 = input("   ⤷ ")
             if input2 == "":
@@ -549,8 +323,6 @@ def timeoutC(modes, input1):
                     print("Timeout Must Be A Number")
                     if "-t" in input2:
                         input1.replace("-t", "")            
-
-
 
 def darkAlfred(console, uname):
     # clears the terminal when Dark Alfred is ran
@@ -623,7 +395,6 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                             time.sleep(2)
                             return test
         
-
                 if input2 == "N" or input2 == "n":
                     test = False
                     input1 = ""
@@ -631,7 +402,6 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                     time.sleep(2)
                     return test
     
-
        if "" in input1 and inputnum != "":
             test = True
        inputnum = ""
@@ -678,13 +448,10 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                      except ConnectionError():
                         print("Connection Error!")
 
-
-
 def printFiles():
     #ha ha Only Files. Sounds like something else, I wonder what? (Only Fans)
     onlyfiles = [f for f in listdir("./") if isfile(join("./", f))] 
     return onlyfiles                    
-
 
 def catFile(file_path):
     try:
@@ -697,13 +464,11 @@ def catFile(file_path):
         print(Fore.RED + "Cant Find Site File")
     except json.JSONDecodeError:
         print(Fore.RED + "Error With Site File" + Fore.RESET)
-
-
+# this is the module that edits the configuration file. needs to be cleaned up tho
 def configEditor(config):
     config.read('./config/config.ini')
     editConfigAwnser = input("Edit The Config? [y/n]: ⤷ ")      
     if(editConfigAwnser == "y" or editConfigAwnser == "Y"):  
-        
         print("[1] Check for updates: " + str(config.get('main', 'checkforupdates')))
         editConfig = input("What Do You Want To Change? ⤷ ")
         if(editConfig == '1'):

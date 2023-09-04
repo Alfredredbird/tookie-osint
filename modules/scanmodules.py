@@ -48,9 +48,7 @@ def Startscan(modes, siteN, uname,cError, ec,f,siteProgcounter,siteNSFW):
                         f.write("["+ "+"+ "] "+ siteN+ uname+ "             NSFW"+ "\n")
 
                     if response.status_code == 200 and siteNSFW == "false":
-                        print(
-                            "[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname
-                        )
+                        print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                         f.write("[" + "+" + "] " + siteN + uname + "\n")
                 if response.status_code == 200 and "-N" not in modes:
                     print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
