@@ -5,9 +5,10 @@ LICENSE
 README.md
 SECURITY.md
 brib.py
-fsites.json
+sites/fsites.json
 requirements.txt
-sites.json
+sites/sites.json
+sites/siteList.json
 working.txt
 proxys/http.txt
 proxys/proxylist.txt
