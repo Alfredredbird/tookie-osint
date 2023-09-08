@@ -119,12 +119,11 @@ There Is A Lot Lol
 - [ ] Tor Searching (in beta)
 - [x] better site generation
 - [X] updater
-- [ ] advanced site generation
+- [X] advanced site generation
 - [x] website downloader
 - [x] website Script File Downloader
 - [ ] easy documentation reader
 - [ ] bigger site list
-- [ ] more search options
 - [ ] better option pharser
 - [ ] Version Changer/Downloader
 
