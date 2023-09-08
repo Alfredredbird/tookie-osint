@@ -286,7 +286,7 @@ def siteListGen(console, testall, get_random_string,domain_extensions, uname):
                             r = requests.get(siteLst[i], timeout=1)
                             print("["+ Fore.GREEN+ "+"+ Fore.RESET+ "] "+ str(siteLst[i])+ " "+ str(i)+ "/"+ str(trys))
                             if r.status_code >= 200 and r.status_code <= 500:
-                                f.write('{"site": "'+ str(siteLst[i])+ "/"+ '", "nsfw": "False"}'+ "\n")
+                                f.write('{"site": "'+ str(siteLst[i])+ "/"+ '", "nsfw": "Unknown"}'+ "\n")
                         except (requests.exceptions.ConnectionError,requests.exceptions.Timeout,IndexError,requests.exceptions.HTTPError,requests.exceptions.BaseHTTPError,requests.exceptions.SSLError, requests.exceptions.TooManyRedirects,requests.exceptions.TooManyRedirects,requests.exceptions.RetryError,TypeError,requests.exceptions.ChunkedEncodingError):
                             siteError += 1
                             print("["+ Fore.RED+ "-"+ Fore.RESET+ "] "+ "?"+ " "+ str(i)+ "/"+ str(trys)) 

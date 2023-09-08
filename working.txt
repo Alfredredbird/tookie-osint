@@ -1,3 +1,0 @@
-{"site": "https://rkpvc.com/u/alfred/", "nsfw": "False"}
-{"site": "https://rkpvc.com/user/alfred/", "nsfw": "False"}
-{"site": "https://rkpvc.com/profile/alfred/", "nsfw": "False"}

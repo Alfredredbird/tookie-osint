@@ -128,6 +128,7 @@ while test != True:
         if "-d" in input1:
          redirects1(modes,input1)
         if "-S" in input1:
+            print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk.")
             dirDump("./downloadedSites/")
             time.sleep(2)
             siteDownloader(modes, input1)
@@ -198,6 +199,9 @@ while test != True:
         #code to do a fast scan
         if "-f" in input1:
             fastMode = 1
+        #code to run a LOOOOOOOOOONG scan    
+        if "-m" in input1:
+            fastMode = 3    
         #code to show NSFW sites
         if "-N" in input1:
             modes += input1
@@ -234,6 +238,9 @@ if fastMode == 1:
 if fastMode == 2:
     #fastmode2 is the scan from custom site list
     scanFileList(siteList, slectpath)
+if fastMode == 3:
+    #fastmode2 is the scan from custom site list
+    scanFileList(siteList, "./sites/Megasites.json")    
 #prints ui stuff
 print(Fore.GREEN + "searching for sites with: " + uname + Fore.RESET)
 print("")

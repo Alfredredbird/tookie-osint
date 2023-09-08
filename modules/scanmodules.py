@@ -46,6 +46,9 @@ def Startscan(modes, siteN, uname,cError, ec,f,siteProgcounter,siteNSFW):
                     if response.status_code == 200 and siteNSFW == "true":
                         print("["+ Fore.LIGHTMAGENTA_EX+ "NSFW"+ Fore.RESET+ "] "+ siteN+ uname+ "     "+ Fore.RESET)
                         f.write("["+ "+"+ "] "+ siteN+ uname+ "             NSFW"+ "\n")
+                    if response.status_code == 200 and siteNSFW == "Unknown":
+                        print("["+ Fore.BLACK+ "NSFW?"+ Fore.RESET+ "] "+ siteN+ uname+ "     "+ Fore.RESET)
+                        f.write("["+ "+"+ "] "+ siteN+ uname+ "             NSFW?"+ "\n")    
 
                     if response.status_code == 200 and siteNSFW == "false":
                         print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
