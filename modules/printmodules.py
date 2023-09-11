@@ -1,5 +1,8 @@
 from colorama import *
+import time
 import platform
+import os
+
 def print_logoscreen(version):
     print(
     Fore.RED
@@ -101,5 +104,48 @@ Usage: [USERNAME]                               //\    //\
         -ls |        | Prints The Files In ./alfred
        -Cat |        | Reads The Inputed File
    --Config |        | Edits The Config. 
+     --Wiki |        | Prints Wiki Pages 
 """
             )        
+
+def wiki():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("""░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄░░░▒█░░▒█░░▀░░▒█░▄▀░░▀░
+▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█░░░▒█▒█▒█░░█▀░▒█▀▄░░░█▀
+▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░░░░▒▀▄▀▄▀░▀▀▀░▒█░▒█░▀▀▀
+""")        
+    print("""
+    [1] Installation
+    [2] Options
+    [3] Errors
+    [4] Dark Alfred
+    [5] Modules
+    """)
+    search = input("What Are You Looking For?  ⤷  ")
+    if search == "1":
+        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Instalations")
+        returntoAlfred(3)
+        return True
+    elif search == "2":
+        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Usage---Options")
+        returntoAlfred(3)
+        return True
+    elif search == "3":
+        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Errors")
+        returntoAlfred(3)
+        return True
+    elif search == "4":
+        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Dark-Alfred")
+        returntoAlfred(3)
+        return True
+    elif search == "5":
+        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Modules")
+        returntoAlfred(3)
+        return True
+    else:
+        print("Not Sure.... But You Can Check Here: https://github.com/Alfredredbird/alfred/wiki/")
+        returntoAlfred(3)
+        return True                   
+def returntoAlfred(seconds):
+    print("Returning To Alfred Soon...")
+    time.sleep(seconds)        

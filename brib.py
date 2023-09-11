@@ -186,7 +186,11 @@ while test != True:
                 print(Fore.RESET)
                 exit(69)
         if("--Config" in input1):
-            configEditor(config)      
+            configEditor(config) 
+        #code for wiki
+        if "--Wiki" in input1:
+             wiki()
+             logo(uname)          
         # code to read and check files
         if "-r" in input1 or "--read" in input1:
             read_save(slectpath)
@@ -212,6 +216,7 @@ while test != True:
         if "-Tor" in input1:
             darkAlfred(console, uname)
             logo(uname)
+           
     #checks for empty input
     if "" in input1 and inputnum != "":
         test = True
