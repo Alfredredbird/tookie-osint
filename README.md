@@ -123,7 +123,7 @@ There Is A Lot Lol
 - [x] website downloader
 - [x] website Script File Downloader
 - [ ] easy documentation reader
-- [ ] bigger site list
+- [X] bigger site list
 - [ ] better option pharser
 - [ ] Version Changer/Downloader
 
