@@ -163,7 +163,7 @@ Still Need Help? Contact Below :D
 
 
 # 📙 Articles
-There has been several aritcles written about our tool. Feel free to check them out :D
+There has been several aritcles written about our tool. Feal free to check them out :D
 <table>
     <tr>
         <th>Habr</th>
