@@ -177,6 +177,11 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>Sibnet</th>
         <th>https://info.sibnet.ru/article/646445/</th>
     </tr>
+    <tr>
+        <th>NetRunner</th>
+        <th>https://blog.netrunner.lol/alfred-advanced-osint-info-gathering-tool-afc1a7afd8a3</th>
+    </tr>
+
     
 </table>
 
