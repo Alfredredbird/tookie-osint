@@ -8,7 +8,7 @@ import argparse
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 1024 * 4 #4KB
-filename = str(input("File To Send: ⤷ "))
+filename = input("File To Send: ⤷ ")
 host = str(input("Host IP: ⤷ "))
 port = 5001
 
