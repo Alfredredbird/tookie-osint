@@ -43,5 +43,7 @@ def send_file(filename, host, port,SEPARATOR,BUFFER_SIZE):
     s.close()
 
 
-
-send_file(filename, host, port,SEPARATOR,BUFFER_SIZE)    
+try:
+ send_file(filename, host, port,SEPARATOR,BUFFER_SIZE)   
+except KeyboardInterrupt:
+    return   
