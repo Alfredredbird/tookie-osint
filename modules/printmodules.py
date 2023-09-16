@@ -96,7 +96,9 @@ Usage: [USERNAME]                               //\    //\
         -s  |        | (Starts The Program)
         -d  |        | (Allows Redirects "Might Not Be Accutate")
         -c  |        | (Connects To A Proxy Server)
-            |        | Format [Type] [Ip] [Port] 
+            |        |      Format [Type] [Ip] [Port] 
+            |        |
+        -FS |        | Runs A Simple Network File Share    
         -f  |        | Runs A Fast Scan    
         -O  |        | Checks Accounts From A List
         -S  |        | Downloads A Webpage's HTML File
