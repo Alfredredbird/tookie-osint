@@ -53,4 +53,4 @@ if __name__ == "__main__":
 
 fname = input("File Name: ⤷ ")
 hostn = input("Host: ⤷ ")
-send_file(fname, host, "5001")    
+send_file(fname, int(host), "5001")    
