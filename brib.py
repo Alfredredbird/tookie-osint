@@ -115,6 +115,8 @@ while test != True:
             proxyCheck(modes, input1)
         if "-q" in input1 or "--quit" in input1:
             qexit()
+        if "-FS" in input1:
+            fileShare()    
         if "-ls" in input1:
            #gets the files in ./alfred
            my_list = printFiles()
