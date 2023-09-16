@@ -81,11 +81,11 @@ def fileShare():
     
     host = input("Host Server? [Y/N]: ⤷ ")
     if "Y" in host or "y" in host:
-     print("Waiting For Client To Connect!")
-     exec(open("modules/sender.py").read())
-    elif "N" in host or "n" in host:
      print("Waiting To Connect To Host!")
      exec(open("modules/recive.py").read())
+    elif "N" in host or "n" in host:
+     print("Waiting For Client To Connect!")
+     exec(open("modules/sender.py").read())
     
     else: 
         print("Not Sure What You Ment.")
