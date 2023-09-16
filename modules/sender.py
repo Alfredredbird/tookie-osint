@@ -50,3 +50,7 @@ if __name__ == "__main__":
     host = args.host
     port = args.port
     send_file(filename, host, port)
+
+fname = input("File Name: ⤷ ")
+hostn = input("Host: ⤷ ")
+send_file(fname, host, "5001")    
