@@ -3,3 +3,4 @@ requests
 rich 
 alive_progress
 torrequest
+tqdm
