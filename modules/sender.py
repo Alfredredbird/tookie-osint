@@ -8,8 +8,11 @@ import argparse
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 1024 * 4 #4KB
+filename = str(input("File To Send: ⤷ "))
+host = str(input("Host IP: ⤷ "))
+port = 5001
 
-def send_file(filename, host, port):
+def send_file(filename, host, port,SEPARATOR,BUFFER_SIZE):
     # get the file size
     filesize = os.path.getsize(filename)
     # create the client socket
@@ -39,14 +42,6 @@ def send_file(filename, host, port):
     # close the socket
     s.close()
 
-if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser(description="Simple File Sender")
-    parser.add_argument("file", help="File name to send")
-    parser.add_argument("host", help="The host/IP address of the receiver")
-    parser.add_argument("-p", "--port", help="Port to use, default is 5001", default=5001)
-    args = parser.parse_args()
-    filename = args.file
-    host = args.host
-    port = args.port
-    send_file(filename, host, port)
+
+
+send_file(filename, host, port,SEPARATOR,BUFFER_SIZE)    
