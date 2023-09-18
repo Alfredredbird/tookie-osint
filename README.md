@@ -111,6 +111,7 @@ There Is A Lot Lol
 - richconsole
 - alive_progress
 - torrequest
+- tqdm
   
 
 
