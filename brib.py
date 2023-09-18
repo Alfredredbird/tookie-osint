@@ -29,6 +29,8 @@ test = False
 testall = False
 fastMode = 0
 cError = 0
+# holder is just something Alfred can return when Alfred needs to return nothing.
+holder = 0
 siteProgcounter = 0
 ec = 0
 console = Console()
@@ -107,16 +109,14 @@ uname = input("⤷ ")
 while test != True:
     input1 = input("⤷ ")
     if input1 != "":
-        if "-t" in input1:
-            timeoutC(modes, input1)
-        if "-u" in input1:
-            print("Requested Username: " +uname)    
-        if "-c" in input1:
-            proxyCheck(modes, input1)
-        if "-q" in input1 or "--quit" in input1:
-            qexit()
-        if "-FS" in input1:
-            fileShare()    
+        action = {'-t':[timeoutC,[modes, input1]], '-FS':[fileShare,[]],'-q':[qexit,[]],'-gsl':[siteListGen,[console, testall, get_random_string,domain_extensions,uname]], '-c':[proxyCheck,[modes, input1]], '-lp':[list_proxys,[]], '-h':[print_help,[]], '--help':[print_help,[]], '-d':[redirects1,[modes, input1]],'-u':[unameinfo,[uname]],'-Cat':[catFile,[]],'--Config':[configEditor,[config]],'-p':[ping,[]],'--ping':[ping,[]],'-r':[read_save,[slectpath]],'--read':[read_save,[slectpath]],'--Clear':[logo,[uname]],'clear':[logo,[uname]]}
+        valid = [key for key in action.keys()]
+        for option in valid:
+            if option in input1:
+                args = action[option][1]
+                action[option][0](*args) 
+
+#option phareser for options that cant be put into the option pharser above.               
         if "-ls" in input1:
            #gets the files in ./alfred
            my_list = printFiles()
@@ -125,10 +125,6 @@ while test != True:
            #prints the files neetly
            for first, second, third in zip(my_list[::columns], my_list[1::columns], my_list[2::columns]):
             print(f'{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}')
-        if "-gsl" in input1:
-            siteListGen(console, testall, get_random_string,domain_extensions,uname)
-        if "-d" in input1:
-         redirects1(modes,input1)
         if "-S" in input1:
             print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk.")
             dirDump("./downloadedSites/")
@@ -142,26 +138,21 @@ while test != True:
             scriptDownloader("./downloadedSites/javascript_files.txt", ".js")
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
-            # if input2 == "":
-            #     lol = 1
+            
             if input2 != "":
                 if input2 == "Y" or input2 == "y":
                     modes += input1
                     inputnum += input2
                 if input2 == "N" or input2 == "n":
-                    modes = ""
-                    inputnum = ""
-                    uname = input("⤷ ")
-                    test = False
-                    input2 = ""
-                    input1 = ""
+                    # modes = ""
+                    # inputnum = ""
+                    # uname = input("⤷ ")
+                    # test = False
+                    # input2 = ""
+                    # input1 = ""
+                    holder = 1
         if "-ec" in input1:
-            ec = 1
-        if "-lp" in input1:
-            list_proxys()
-        if "-Cat" in input1:
-            file_path = input("Filname:  ⤷ ")
-            catFile(file_path)    
+            ec = 1  
         if "-O" in input1 or "-o" in input1:
             slectpath = Path.home() / str(input("PATH: ⤷ "))
             file_path = os.path.join(slectpath)
@@ -187,18 +178,9 @@ while test != True:
                 print(Fore.RED + "Cant Find The Save File!")
                 print(Fore.RESET)
                 exit(69)
-        if("--Config" in input1):
-            configEditor(config) 
-        #code for wiki
         if "--Wiki" in input1:
              wiki()
-             logo(uname)          
-        # code to read and check files
-        if "-r" in input1 or "--read" in input1:
-            read_save(slectpath)
-        #code to ping a site
-        if "-p" in input1 or "--ping" in input1:
-            ping()
+             logo(uname)                  
         #code to display all error codes    
         if "-a" in input1:
             modes += input1
@@ -211,9 +193,6 @@ while test != True:
         #code to show NSFW sites
         if "-N" in input1:
             modes += input1
-        #prints the help menu
-        if "-h" in uname or "--help" in uname or "-h" in input1 or "--help" in input1:
-            print_help()
         #code to acses Dark Alfred
         if "-Tor" in input1:
             darkAlfred(console, uname)

@@ -68,16 +68,25 @@ Usage: [USERNAME]                               //\    //\
 
         -h  | --help |
 ------------+--------+------------------------------------------
-        -r  | --read | (Reads Last Search Results) 
+   [GENERAL]:        |
+        -s  |        | (Starts The Program)
+        -N  | --nsfw | (Points NSFW Sites)    
+        -ec |        | (Prints The Returned Status Code)
+        -a  |        | (Shows Everything) 
+            |        | Error ID's:
+            |        |   
+            |        |   E ⥴ Connection Error, Etc
+            |        |
         -p  | --ping | (pings website)
+      Clear |--Clear | Clears The Terminal
         -q  | --quit | (Quits)
-        -lp |        | (Gives A List Of Posible Working Proxys)
-            |        | Types:
-            |        |
-            |        |       http   ⥴ /http.txt
-            |        |       socks4 ⥴ /socks4.txt
-            |        |       socks5 ⥴ /socks5.txt
-            |        |
+------------+--------+------------------------------------------
+     [FILES]:        |
+        -r  | --read | (Reads Last Search Results) 
+        -ls |        | Prints The Files In ./alfred
+       -Cat |        | Reads The Inputed File
+   --Config |        | Edits The Config. 
+     --Wiki |        | Prints Wiki Pages 
         -gsl|        | (Generates Random Sites And Tests Them)
             |        |  Ussage:
             |        |     [LENGTH]
@@ -85,28 +94,30 @@ Usage: [USERNAME]                               //\    //\
             |        |           [TYPE] 
             |        |              [OPTIONS]
 ------------+--------+------------------------------------------
-        -a  |        | (Shows Everything) 
-            |        | Error ID's:
-            |        |   
-            |        |   E ⥴ Connection Error, Etc
-            |        |
-            |        +-----------------------------------------
-        -N  | --nsfw | (Points NSFW Sites)    
-        -ec |        | (Prints The Returned Status Code)
-        -s  |        | (Starts The Program)
-        -d  |        | (Allows Redirects "Might Not Be Accutate")
-        -c  |        | (Connects To A Proxy Server)
-            |        |      Format [Type] [Ip] [Port] 
-            |        |
-        -FS |        | Runs A Simple Network File Share    
-        -f  |        | Runs A Fast Scan    
+     [SCANS]:        |
+        -f  |        | Runs A Fast Scan   
+        -m  |        | Runs A Scan From The Big Site List
         -O  |        | Checks Accounts From A List
+        -d  |        | (Allows Redirects "Might Not Be Accutate")
+------------+--------+------------------------------------------
+   [PROXIES]:        |                                          
+        -c  |        | (Connects To A Proxy Server)             
+            |        |      Format [Type] [Ip] [Port]           
+            |        |                                          
+        -lp |        | (Gives A List Of Posible Working Proxys) 
+            |        | Types:                                  
+            |        |                                          
+            |        |       http   ⥴ /http.txt                 
+            |        |       socks4 ⥴ /socks4.txt               
+            |        |       socks5 ⥴ /socks5.txt               
+            |        |                                          
+------------+--------+------------------------------------------
+     [OTHER]:        |
+        -FS |        | Runs A Simple Network File Share    
         -S  |        | Downloads A Webpage's HTML File
         -u  |        | Prints The Requested Username
-        -ls |        | Prints The Files In ./alfred
-       -Cat |        | Reads The Inputed File
-   --Config |        | Edits The Config. 
-     --Wiki |        | Prints Wiki Pages 
+------------+--------+------------------------------------------        
+       
 """
             )        
 
@@ -151,3 +162,6 @@ def wiki():
 def returntoAlfred(seconds):
     print("Returning To Alfred Soon...")
     time.sleep(seconds)        
+
+def unameinfo(uname):
+    print("Requested Username: " +uname)        

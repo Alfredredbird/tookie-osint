@@ -55,7 +55,8 @@ def logo(uname):
              Thanks To Our Sponsor: Smoke-wolf
 """
 )
-    print("             The Target Username: " + uname)
+    print("             The Target Username: " + uname + Fore.RESET)
+    
 def siteDownloader(modes, input1):
             input2 = input("SITE: ⤷ ")
             if input2 == "":
@@ -489,7 +490,8 @@ def printFiles():
     onlyfiles = [f for f in listdir("./") if isfile(join("./", f))] 
     return onlyfiles                    
 
-def catFile(file_path):
+def catFile():
+    file_path = input("Filname:  ⤷ ")
     try:
         with open(file_path, "r") as f:
             for jsonObj in f:
@@ -545,3 +547,7 @@ def dirDump(mydir):
     filelist = [ f for f in os.listdir(mydir) ]
     for f in filelist:
         os.remove(os.path.join(mydir, f))                  
+
+def errorCodes(ec):
+    ec = 1
+    return ec
