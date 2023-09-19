@@ -100,7 +100,7 @@ The requirements will Automatically Be Installed.
         <td>Rolling Release</td>
     </tr>
 </table>
-Windows hasn't been working lately please see the docs
+
 
 # 📖 Requirments:
 
