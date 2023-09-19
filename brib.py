@@ -40,7 +40,7 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
-# site lists
+# These stores the loaded site infos
 siteList = []
 siteNSFW = []
 #checks if the nesasary files exist
@@ -106,6 +106,7 @@ if (config.get('main', 'checkforupdates') == 'no'):
 uname = input("⤷ ")
 # This is where we gather the inputed options and then run them.
 # Not all of the options execute on input.
+
 while test != True:
     input1 = input("⤷ ")
     if input1 != "":
@@ -116,7 +117,7 @@ while test != True:
                 args = action[option][1]
                 action[option][0](*args) 
 
-#option phareser for options that cant be put into the option pharser above.               
+#option phareser for options that cant be put into the option pharser above.     
         if "-ls" in input1:
            #gets the files in ./alfred
            my_list = printFiles()
@@ -125,6 +126,7 @@ while test != True:
            #prints the files neetly
            for first, second, third in zip(my_list[::columns], my_list[1::columns], my_list[2::columns]):
             print(f'{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}')
+          
         if "-S" in input1:
             print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk.")
             dirDump("./downloadedSites/")
