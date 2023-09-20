@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from __future__ import print_function
 from configparser import ConfigParser
 from time import sleep
@@ -67,46 +67,12 @@ def get_random_string(length):
 os.system("cls" if os.name == "nt" else "clear")
 #this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
-#reads the configuration file 
-config.read('./config/config.ini')
-#this is the function to update the code
-x = random.randint(1, 4)
-if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
-    print("You Can Disable Updating In The Config File")
-if(x == 2):
-    print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
-    
-if (config.get('main', 'checkforupdates') == 'yes'):
- cfu = input("Check For Updates? [y/n]: ⤷ ")
- if "Y" in cfu or "y" in cfu:
-        exec(open("./update.py").read())
- elif "N" in cfu or "n" in cfu:
-        print("Ok! Ill Ask Later....")
- else: 
-        print("Not Sure What You Ment. Ill Ask Later")
-  
-#asks the user if they want to enable updates    
-if (config.get('main', 'checkforupdates') == 'no'):
- #gets input
- getNum = random.randint(1, 10)
- if(getNum == 7):
-  changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
- #pharses it
-  if "Y" in changeconfig or "y" in changeconfig:
-        config.set('main', 'checkforupdates', 'yes')
-        print("Updates Are Enabled!")
-        with open('config.ini', 'w') as f:
-            config.write(f)
-  elif "N" in changeconfig or "n" in changeconfig:
-        print("Ok! Ill Ask Later....")
-  else: 
-        print("Not Sure What You Ment. Ill Ask Later")
-        
+#does config stuff
+configUpdateStuff(config)
 #this is the variable that gets the username
 uname = input("⤷ ")
 # This is where we gather the inputed options and then run them.
 # Not all of the options execute on input.
-
 while test != True:
     input1 = input("⤷ ")
     if input1 != "":
@@ -116,7 +82,6 @@ while test != True:
             if option in input1:
                 args = action[option][1]
                 action[option][0](*args) 
-
 #option phareser for options that cant be put into the option pharser above.     
         if "-ls" in input1:
            #gets the files in ./alfred
@@ -125,8 +90,7 @@ while test != True:
            spaces = "      "
            #prints the files neetly
            for first, second, third in zip(my_list[::columns], my_list[1::columns], my_list[2::columns]):
-            print(f'{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}')
-          
+            print(f'{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}')   
         if "-S" in input1:
             print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk.")
             dirDump("./downloadedSites/")
@@ -138,6 +102,17 @@ while test != True:
             time.sleep(2)
             print("Downloading JS")
             scriptDownloader("./downloadedSites/javascript_files.txt", ".js")
+            dv = input("Want To Download Images/Videos? ⤷ ")
+            if "Y" in dv or "y" in dv:
+               print("Downlading Videos/Images")
+               siteD = input("Enter Site Again: ⤷ ")
+               imgandVidDownlaod(siteD)
+            elif "N" in dv or "n" in dv:
+                print("Ok!")
+            else: 
+                print("Not Sure What You Ment. Ill Ask Later")
+            #https://www.xvideos.com/video52918039/sexy_fox_masturbate_and_fucking_dildo_and_cum_many_times_closeup
+            
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
             

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 from os import walk
 import urllib
@@ -13,6 +14,9 @@ from os import listdir
 from os.path import isfile, join
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup
+import wget
+import random
 def redirects1(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
@@ -106,10 +110,21 @@ def siteDownloader(modes, input1):
                             print(css_file, file=f)    
                                          
                     return modes
+                except requests.exceptions.RequestException:
+                    print("Error Downloading Web Content!")     
                 except ConnectionError:
                     print("Error Downloading Web Content!")
                 except ValueError:
-                    print("Unknow URL!")          
+                    print("Unknow URL!")    
+                except requests.exceptions.ConnectionError:
+                    print("Error Downloading Web Content!")    
+                except requests.exceptions.HTTPError:
+                    print("Error Downloading Web Content!")    
+                except requests.exceptions.InvalidURL:
+                    print("Error Downloading Web Content!")
+                except ConnectionError:
+                    print("Error")
+                          
 
 def list_proxys():
             input2 = input("TYPE:  ⤷ ")
@@ -504,24 +519,48 @@ def catFile():
         print(Fore.RED + "Error With Site File" + Fore.RESET)
 # this is the module that edits the configuration file. needs to be cleaned up tho
 def configEditor(config):
+    #reads the config
     config.read('./config/config.ini')
-    editConfigAwnser = input("Edit The Config? [y/n]: ⤷ ")      
+    #gets input
+    editConfigAwnser = input("Edit The Config? [y/n]: ⤷ ")  
+    #decieds what to do    
     if(editConfigAwnser == "y" or editConfigAwnser == "Y"):  
+        #options
         print("[1] Check for updates: " + str(config.get('main', 'checkforupdates')))
+        print("[2] Show tips: " + str(config.get('main', 'showtips')))
+        #gets input
         editConfig = input("What Do You Want To Change? ⤷ ")
+        #figures out what to do
         if(editConfig == '1'):
+            #update config logic
             if(config.get('main', 'checkforupdates') == 'yes'):
              print("Ok! [checkforupdates] Is Set For Yes. Changing To No")
              config.set('main', 'checkforupdates', 'no')
              with open('./config/config.ini', 'w') as f:
                 config.write(f)
                 return True
+            #update config logic    
             if(config.get('main', 'checkforupdates') == 'no'):
              print("Ok! [checkforupdates] Is Set For No. Changing To Yes")
              config.set('main', 'checkforupdates', 'yes')
              with open('./config/config.ini', 'w') as f:
                 config.write(f)    
                 return False
+        if(editConfig == '2'):
+            #update config logic
+            if(config.get('main', 'showtips') == 'yes'):
+             print("Ok! [showtips] Is Set For Yes. Changing To No")
+             config.set('main', 'showtips', 'no')
+             with open('./config/config.ini', 'w') as f:
+                config.write(f)
+                return True
+            #update config logic    
+            if(config.get('main', 'showtips') == 'no'):
+             print("Ok! [showtips] Is Set For No. Changing To Yes")
+             config.set('main', 'showtips', 'yes')
+             with open('./config/config.ini', 'w') as f:
+                config.write(f)    
+                return False        
     if(editConfigAwnser == "n" or editConfigAwnser == "N"):  
         print("Aww ok")    
 
@@ -551,3 +590,86 @@ def dirDump(mydir):
 def errorCodes(ec):
     ec = 1
     return ec
+
+# Function to download images
+def download_images(image_urls, output_directory):
+    for url in image_urls:
+        try:
+            image_filename = os.path.join(output_directory, os.path.basename(url))
+            wget.download(url, image_filename)
+            print(f"Downloaded: {image_filename}")
+        except Exception as e:
+            print(f"Error downloading image: {e}")
+
+# Function to download videos
+def download_videos(video_urls, output_directory):
+    for url in video_urls:
+        try:
+            video_filename = os.path.join(output_directory, os.path.basename(url))
+            wget.download(url, video_filename)
+            print(f"Downloaded: {video_filename}")
+        except Exception as e:
+            print(f"Error downloading video: {e}")
+
+# Main function
+def imgandVidDownlaod(input2):
+    url = input2
+    output_directory = "./downloadedSites/"  # Change this to your desired output directory
+
+    # Create the output directory if it doesn't exist
+    os.makedirs(output_directory, exist_ok=True)
+
+    # Send an HTTP GET request to the URL
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        # Find and download images
+        img_tags = soup.find_all('img')
+        img_urls = [img['src'] for img in img_tags if 'src' in img.attrs]
+        download_images(img_urls, output_directory)
+
+        # Find and download videos (you might need to adjust this for specific websites)
+        video_tags = soup.find_all('video')
+        video_urls = [video['src'] for video in video_tags if 'src' in video.attrs]
+        download_videos(video_urls, output_directory)
+    else:
+        print(f"Failed to fetch the URL. Status code: {response.status_code}")
+
+
+def configUpdateStuff(config):
+    config.read('./config/config.ini')
+#this is the function to update the code
+    x = random.randint(1, 4)
+    if(x == 3 and config.get('main', 'checkforupdates') == 'yes'):
+        print("You Can Disable Updating In The Config File")
+    if(x == 2):
+        print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
+    
+    if (config.get('main', 'checkforupdates') == 'yes'):
+        cfu = input("Check For Updates? [y/n]: ⤷ ")
+        if "Y" in cfu or "y" in cfu:
+             exec(open("./update.py").read())
+        elif "N" in cfu or "n" in cfu:
+                print("Ok! Ill Ask Later....")
+        else: 
+                print("Not Sure What You Ment. Ill Ask Later")
+    getNum = random.randint(1, 10)
+    #asks the user if they want to enable updates    
+    if (config.get('main', 'checkforupdates') == 'no'):
+     if(getNum == 7):
+        changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
+        #pharses it
+        if "Y" in changeconfig or "y" in changeconfig:
+            config.set('main', 'checkforupdates', 'yes')
+            print("Updates Are Enabled!")
+            with open('./config/config.ini', 'w') as f:
+                config.write(f)
+        elif "N" in changeconfig or "n" in changeconfig:
+            print("Ok! Ill Ask Later....")
+        else: 
+            print("Not Sure What You Ment. Ill Ask Later")
+    if(getNum == 3 and config.get('main', 'showtips') == 'yes'):
+        #this gets the random tip to display on the screen
+        randomTip = random.choice(open('./config/tips.txt').readlines())
+        print(randomTip) 
