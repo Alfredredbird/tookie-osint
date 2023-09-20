@@ -112,6 +112,7 @@ There Is A Lot Lol
 - alive_progress
 - torrequest
 - tqdm
+- bs4
   
 
 

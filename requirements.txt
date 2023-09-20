@@ -4,3 +4,4 @@ rich
 alive_progress
 torrequest
 tqdm
+bs4
