@@ -22,6 +22,7 @@ import requests
 import time
 import site
 import string
+
 # variables
 domain_extensions = False
 alist = True
@@ -40,37 +41,46 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
+
 # These stores the loaded site infos
 siteList = []
 siteNSFW = []
-#checks if the nesasary files exist
-if(os.path.exists('./config/config.ini') == True):
-            print("Config File exists")
-else:
-    print("Cant Find Nesasary Files. Try Reinstalling Alfred") 
-    exit(1)            
-if(os.path.exists('./update.py') == True):
-            print("Update File exists")    
-else:
-    print("Cant Find Nesasary Files. Try Reinstalling Alfred") 
-    exit(1)     
 
-#opens the config and gets the version number
+# checks if the nesasary files exist
+if (os.path.exists('./config/config.ini') == True):
+    print("Config File exists")
+else:
+    print("Cant Find Nesasary Files. Try Reinstalling Alfred")
+    exit(1)
+
+if (os.path.exists('./update.py') == True):
+    print("Update File exists")
+else:
+    print("Cant Find Nesasary Files. Try Reinstalling Alfred")
+    exit(1)
+
+# opens the config and gets the version number
 with open("./config/version.cfg", "r") as fp:
     version = fp.read()
+
+
 def get_random_string(length):
     # choose from all lowercase letter
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
+
+
 # clears the terminal when Alfred is ran
 os.system("cls" if os.name == "nt" else "clear")
-#this prints the start up screen and passes the verion varaible in
+
+# this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
 #does config stuff
 configUpdateStuff(config)
 #this is the variable that gets the username
 uname = input("⤷ ")
+
 # This is where we gather the inputed options and then run them.
 # Not all of the options execute on input.
 while test != True:

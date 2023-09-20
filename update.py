@@ -16,10 +16,13 @@ udfl = []
 dlfl = ""
 fl = []
 fh = []
+
+
 # READS ALFRED VERSION
 with open("./config/version.cfg", "r") as fp:
     version = fp.read()
     fp.close()
+
 
 # gets the version number
 try:
@@ -28,6 +31,7 @@ try:
     print(alfred_version)
 except ConnectionError:
     print("Failed To Fecth Updates. (-1)")
+
 
 # checks for updates
 if alfred_version != version:
@@ -40,8 +44,6 @@ if alfred_version != version:
     for item in udfl:
         if "/update.py" not in udfl:
             os.remove(item)
-        if "/update.py" in udfl:
-            udfl.remove("/update.py")
 
     # waits then downloads a new file manager copy
     try:
@@ -66,11 +68,13 @@ if alfred_version != version:
             url = gitfile_loc + item
             r = requests.get(url, allow_redirects=True)
             print(item)
+            # Added an exception handler for FileNotFoundError
             try: 
-             open(item, "wb").write(r.content)
-             fl.remove(item)
+                open(item, "wb").write(r.content)
+                fl.remove(item)
             except FileNotFoundError:
-                print("Cant Find: " + item + "Skiping!") 
+                print("Cant Find: " + item + "Skiping!")
+            # Added an exception handler for OSError
             except OSError:
                 print("Permission Error")    
         with open("./config/udfl") as file:
@@ -83,7 +87,7 @@ if alfred_version != version:
                 if os.path.exists(item) == True:
                     fh.remove(item)
 
-                else:
+                elif not os.path.exists(item):
                     url = gitfile_loc + item
                     r = requests.get(url, allow_redirects=True)
 
