@@ -121,8 +121,6 @@ while test != True:
                 print("Ok!")
             else: 
                 print("Not Sure What You Ment. Ill Ask Later")
-           
-            
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
             
