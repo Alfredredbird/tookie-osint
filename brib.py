@@ -121,7 +121,7 @@ while test != True:
                 print("Ok!")
             else: 
                 print("Not Sure What You Ment. Ill Ask Later")
-            #https://www.xvideos.com/video52918039/sexy_fox_masturbate_and_fucking_dildo_and_cum_many_times_closeup
+           
             
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
