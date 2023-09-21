@@ -40,44 +40,6 @@ def print_logoscreen(version):
     print(Fore.RESET+ "===========================================================================")
     print(" ")
 
-def print_logoscreenISH(version):
-    print(
-    Fore.RED
-    + """   
-                                    
-                         ╓φ▒Γ ,╖╗⌐
-                        Φ╬╬Γ @╬╬Γ ╔▓
-                       ^╣╬▓µ╣╬▓  ▄▓▓▓
-                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
-                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
-                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
-                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐      
-                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `        
-                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ          
-                     `╙╨╨╨╜  ▀▀▀▀▀¬               
-                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄   
-                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█ 
-                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░ 
-                   A Advanced OSINT Tool 
-================================================
-                                                
-                 By Jeffrey Montanari           
-                 Twiter: @alfredredbird1        
-
-                 Thanks To Our 
-                 Sponsor: Smoke-wolf
-"""
-)
-## prints os infomation
-    print(Fore.RESET + "================================================")
-    print(Fore.RED + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions")
-    print(Fore.RESET + " ")
-    print("     " + platform.system() + "                  Alfred Version:")
-    print("     " + platform.release() + "                  " + version)
-    print("")
-    print(Fore.RESET+ "================================================")
-    print(" ")
-
 def connectionError(cError, f):
     if cError >= 5:
         print(Fore.RED+ """===========================================================""" )

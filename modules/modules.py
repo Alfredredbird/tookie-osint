@@ -17,7 +17,6 @@ from bs4 import BeautifulSoup as bs
 from bs4 import BeautifulSoup
 import wget
 import random
-import platform
 def redirects1(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
@@ -33,38 +32,7 @@ def redirects1(modes,input1):
                         input1.replace("-d", "")
                           
 def logo(uname):
- os.system("cls" if os.name == "nt" else "clear")
- if (platform.version() == "ish"):
-    print(
-    Fore.RED
-    + """   
-                                    
-                         ╓φ▒Γ ,╖╗⌐
-                        Φ╬╬Γ @╬╬Γ ╔▓
-                       ^╣╬▓µ╣╬▓  ▄▓▓▓
-                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
-                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
-                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
-                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐                 
-                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `                 
-                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ    
-                     `╙╨╨╨╜  ▀▀▀▀▀¬      
-                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄ 
-                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█ 
-                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░ 
-                   A Advanced OSINT Tool  
-===========================================
-                                           
-                 By Jeffrey Montanari        
-                 Twiter: @alfredredbird1 
-                 
-                 Thanks To Our 
-                 Sponsor: Smoke-wolf
-"""
-)
-    print("             The Target Username: " + uname + Fore.RESET)
- else:    
-        
+    os.system("cls" if os.name == "nt" else "clear")
     print(
     Fore.RED
     + """   

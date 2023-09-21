@@ -75,10 +75,7 @@ def get_random_string(length):
 os.system("cls" if os.name == "nt" else "clear")
 
 # this prints the start up screen and passes the verion varaible in
-if (platform.version() == "ish"):
-    print_logoscreenISH(version)
-else:    
-    print_logoscreen(version)
+print_logoscreen(version)
 #does config stuff
 configUpdateStuff(config)
 #this is the variable that gets the username
