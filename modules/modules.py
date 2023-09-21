@@ -32,7 +32,38 @@ def redirects1(modes,input1):
                         input1.replace("-d", "")
                           
 def logo(uname):
-    os.system("cls" if os.name == "nt" else "clear")
+ os.system("cls" if os.name == "nt" else "clear")
+if ("ish" in platform.system()):
+    print(
+    Fore.RED
+    + """   
+                                    
+                         ╓φ▒Γ ,╖╗⌐
+                        Φ╬╬Γ @╬╬Γ ╔▓
+                       ^╣╬▓µ╣╬▓  ▄▓▓▓
+                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
+                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
+                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
+                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐                 
+                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `                 
+                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ    
+                     `╙╨╨╨╜  ▀▀▀▀▀¬      
+                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄ 
+                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█ 
+                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░ 
+                   A Advanced OSINT Tool  
+===========================================
+                                           
+                 By Jeffrey Montanari        
+                 Twiter: @alfredredbird1 
+                 
+                 Thanks To Our 
+                 Sponsor: Smoke-wolf
+"""
+)
+    print("             The Target Username: " + uname + Fore.RESET)
+else:    
+        
     print(
     Fore.RED
     + """   
