@@ -190,7 +190,7 @@ There has been several aritcles written about our tool. Feal free to check them 
 # 📘 contact
 
 - Youtube : https://youtube.com/@alfredredbird
-- Twitter: @alfredredbird1
+- Twitter: https://twitter.com/Alfredredbird1
 - Twitch: https://twitch.tv/alfredredbird
 - Email : j2montanari@gmail.com
 - Discord Server: https://discord.gg/m2RSZ2Hhx5
