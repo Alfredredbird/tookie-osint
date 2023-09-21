@@ -34,7 +34,7 @@ def redirects1(modes,input1):
                           
 def logo(uname):
  os.system("cls" if os.name == "nt" else "clear")
- if ("ish" in str(platform.system())):
+ if (platform.version() == "ish"):
     print(
     Fore.RED
     + """   
