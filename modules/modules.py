@@ -17,6 +17,7 @@ from bs4 import BeautifulSoup as bs
 from bs4 import BeautifulSoup
 import wget
 import random
+import platform
 def redirects1(modes,input1):
             input2 = input("   ⤷ ")
             if input2 == "":
@@ -33,7 +34,7 @@ def redirects1(modes,input1):
                           
 def logo(uname):
  os.system("cls" if os.name == "nt" else "clear")
-if ("ish" in platform.system()):
+ if ("ish" in str(platform.system())):
     print(
     Fore.RED
     + """   
@@ -62,7 +63,7 @@ if ("ish" in platform.system()):
 """
 )
     print("             The Target Username: " + uname + Fore.RESET)
-else:    
+ else:    
         
     print(
     Fore.RED

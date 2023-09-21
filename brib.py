@@ -75,7 +75,7 @@ def get_random_string(length):
 os.system("cls" if os.name == "nt" else "clear")
 
 # this prints the start up screen and passes the verion varaible in
-if ("ish" in platform.system()):
+if ("ish" in str(platform.system())):
     print_logoscreenISH(version)
 else:    
     print_logoscreen(version)
