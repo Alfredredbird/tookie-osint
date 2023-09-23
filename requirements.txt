@@ -5,3 +5,4 @@ alive_progress
 torrequest
 tqdm
 bs4
+wget
