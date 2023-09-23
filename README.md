@@ -28,8 +28,6 @@ If you want to contribute, make a fork and make a pull request to submit your ch
 # 📦 Installation
 The requirements will Automatically Be Installed.
 
-
-
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip install -r requirements.txt
     python3 brib.py
@@ -41,6 +39,10 @@ The requirements will Automatically Be Installed.
     python3 brib.py
 
 # 📦 Termux Install
+    
+    termux-setup-storage
+    ln -s storage/downloads Downloads
+    
     git clone https://github.com/alfredredbird/alfred
     cd alfred && pip install -r requirements.txt
     python3 brib.py
