@@ -41,8 +41,9 @@ The requirements will Automatically Be Installed.
     python3 brib.py
 
 # 📦 Termux Install
-   It Can Be Found Here: https://github.com/Alfredredbird/alfred/wiki/Instalations#termux 
-
+    git clone https://github.com/alfredredbird/alfred
+    cd alfred && pip install -r requirements.txt
+    python3 brib.py
      
 # 💻 Tested OS:
 
