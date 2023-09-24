@@ -9,7 +9,9 @@ import time
 # variables
 version = ""
 alfred_version = ""
-alfred_update_path = ("https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg")
+alfred_update_path = (
+    "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+)
 alfred_install_path = "/alfred/"
 gitfile_loc = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
 udfl = []
@@ -69,14 +71,14 @@ if alfred_version != version:
             r = requests.get(url, allow_redirects=True)
             print(item)
             # Added an exception handler for FileNotFoundError
-            try: 
+            try:
                 open(item, "wb").write(r.content)
                 fl.remove(item)
             except FileNotFoundError:
                 print("Cant Find: " + item + "Skiping!")
             # Added an exception handler for OSError
             except OSError:
-                print("Permission Error")    
+                print("Permission Error")
         with open("./config/udfl") as file:
             fh = [line.rstrip() for line in file]
         # checks to see if the file exists, if not it reinstalls it

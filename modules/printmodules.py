@@ -3,10 +3,11 @@ import time
 import platform
 import os
 
+
 def print_logoscreen(version):
     print(
-    Fore.RED
-    + """   
+        Fore.RED
+        + """   
                                     
                          ╓φ▒Γ ,╖╗⌐
                         Φ╬╬Γ @╬╬Γ ╔▓
@@ -29,29 +30,47 @@ def print_logoscreen(version):
 
              Thanks To Our Sponsor: Smoke-wolf
 """
-)
-## prints os infomation
-    print(Fore.RESET + "===========================================================================")
-    print(Fore.RED + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions")
+    )
+    ## prints os infomation
+    print(
+        Fore.RESET
+        + "==========================================================================="
+    )
+    print(
+        Fore.RED
+        + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
+    )
     print(Fore.RESET + " ")
     print("     " + platform.system() + "                  Alfred Version:")
     print("     " + platform.release() + "                  " + version)
     print("")
-    print(Fore.RESET+ "===========================================================================")
+    print(
+        Fore.RESET
+        + "==========================================================================="
+    )
     print(" ")
+
 
 def connectionError(cError, f):
     if cError >= 5:
-        print(Fore.RED+ """===========================================================""" )
-        print(Fore.RED+ "Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :(")
-        print(Fore.RED+ """===========================================================""")
+        print(
+            Fore.RED + """==========================================================="""
+        )
+        print(
+            Fore.RED
+            + "Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :("
+        )
+        print(
+            Fore.RED + """==========================================================="""
+        )
     if cError <= 5:
         f.close
         print("""===========================================================""")
 
+
 def print_help():
     print(
-                """
+        """
 ██╗   ██╗███████╗ █████╗  ██████╗ ███████╗
 ██║   ██║██╔════╝██╔══██╗██╔════╝ ██╔════╝
 ██║   ██║███████╗███████║██║  ███╗█████╗  
@@ -119,49 +138,69 @@ Usage: [USERNAME]                               //\    //\
 ------------+--------+------------------------------------------        
        
 """
-            )        
+    )
+
 
 def wiki():
     os.system("cls" if os.name == "nt" else "clear")
-    print("""░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄░░░▒█░░▒█░░▀░░▒█░▄▀░░▀░
+    print(
+        """░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄░░░▒█░░▒█░░▀░░▒█░▄▀░░▀░
 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█░░░▒█▒█▒█░░█▀░▒█▀▄░░░█▀
 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░░░░▒▀▄▀▄▀░▀▀▀░▒█░▒█░▀▀▀
-""")        
-    print("""
+"""
+    )
+    print(
+        """
     [1] Installation
     [2] Options
     [3] Errors
     [4] Dark Alfred
     [5] Modules
-    """)
+    """
+    )
     search = input("What Are You Looking For?  ⤷  ")
     if search == "1":
-        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Instalations")
+        print(
+            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Instalations"
+        )
         returntoAlfred(3)
         return True
     elif search == "2":
-        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Usage---Options")
+        print(
+            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Usage---Options"
+        )
         returntoAlfred(3)
         return True
     elif search == "3":
-        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Errors")
+        print(
+            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Errors"
+        )
         returntoAlfred(3)
         return True
     elif search == "4":
-        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Dark-Alfred")
+        print(
+            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Dark-Alfred"
+        )
         returntoAlfred(3)
         return True
     elif search == "5":
-        print("You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Modules")
+        print(
+            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Modules"
+        )
         returntoAlfred(3)
         return True
     else:
-        print("Not Sure.... But You Can Check Here: https://github.com/Alfredredbird/alfred/wiki/")
+        print(
+            "Not Sure.... But You Can Check Here: https://github.com/Alfredredbird/alfred/wiki/"
+        )
         returntoAlfred(3)
-        return True                   
+        return True
+
+
 def returntoAlfred(seconds):
     print("Returning To Alfred Soon...")
-    time.sleep(seconds)        
+    time.sleep(seconds)
+
 
 def unameinfo(uname):
-    print("Requested Username: " +uname)     
+    print("Requested Username: " + uname)
