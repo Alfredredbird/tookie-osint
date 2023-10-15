@@ -187,7 +187,10 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>https://blog.netrunner.lol/alfred-advanced-osint-info-gathering-tool-afc1a7afd8a3</th>
     </tr>
 
-    
+   <tr>
+        <th>gebutcher</th>
+        <th>https://gebutcher.blogspot.com/2023/10/OsintAlfred.html?m=1</th>
+    </tr>
 </table>
 
 # 📘 contact
