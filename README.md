@@ -19,8 +19,8 @@ The main idea of Alfred is to discover usernames that are requested from an inpu
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by me and is available for your use. 
 I do not take responsibility for any malicious actions and or responsibility caused by my tool. :(
+Please note that Alfred was created to help new programers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand.
 If you want to contribute, make a fork and make a pull request to submit your changes. :D I am proud to anounce that Alfred has over 700 weekly downloads!
-
 
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
 
@@ -168,7 +168,7 @@ Still Need Help? Contact Below :D
 
 
 # 📙 Articles
-There has been several aritcles written about our tool. Feal free to check them out :D
+There has been several aritcles written about our tool. Feal free to check them out :D  Theses articales belong to their resectfull owners.
 <table>
     <tr>
         <th>Habr</th>
@@ -187,7 +187,24 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>https://blog.netrunner.lol/alfred-advanced-osint-info-gathering-tool-afc1a7afd8a3</th>
     </tr>
 
-    
+   <tr>
+        <th>gebutcher</th>
+        <th>https://gebutcher.blogspot.com/2023/10/OsintAlfred.html?m=1</th>
+    </tr>
+     <tr>
+        <th>Iguru</th>
+        <th>https://iguru.gr/alfred-ena-proigmeno-osint-programma/</th>
+    </tr>
+    <tr>
+        <th>Medevel</th>
+        <th>https://medevel.com/31-osint-tools/</th>
+    </tr>
+    <tr>
+        <th>Medium</th>
+        <th>https://medium.com/age-of-awareness/osint-unleashed-the-5-best-tools-for-cyber-investigators-8ff08fe9a4ba</th>
+    </tr>
+
+ 
 </table>
 
 # 📘 contact
@@ -197,3 +214,10 @@ There has been several aritcles written about our tool. Feal free to check them 
 - Twitch: https://twitch.tv/alfredredbird
 - Email : j2montanari@gmail.com
 - Discord Server: https://discord.gg/m2RSZ2Hhx5
+
+
+# 🤝 partnership
+Want to partner with the Alfred project? Send me a Dm on Discord :D
+
+Partners:
+- GHPM ~ Smoke-Wolf
