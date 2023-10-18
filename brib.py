@@ -13,6 +13,8 @@ from socket import socket
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
+from modules.siteListGen import *
+from modules.configcheck import *
 import random
 import urllib.request, urllib.error, urllib.parse
 import sys
@@ -48,29 +50,11 @@ ars = ""
 siteList = []
 siteNSFW = []
 
-# checks if the nesasary files exist
-if os.path.exists("./config/config.ini") == True:
-    print("Config File exists")
-else:
-    print("Cant Find Nesasary Files. Try Reinstalling Alfred")
-    exit(1)
 
-if os.path.exists("./update.py") == True:
-    print("Update File exists")
-else:
-    print("Cant Find Nesasary Files. Try Reinstalling Alfred")
-    exit(1)
-
-# opens the config and gets the version number
-with open("./config/version.cfg", "r") as fp:
-    version = fp.read()
+version = configC()
 
 
-def get_random_string(length):
-    # choose from all lowercase letter
-    letters = string.ascii_lowercase
-    result_str = "".join(random.choice(letters) for i in range(length))
-    return result_str
+  
 
 
 # clears the terminal when Alfred is ran

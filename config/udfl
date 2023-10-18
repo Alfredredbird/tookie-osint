@@ -23,3 +23,5 @@ modules/scanmodules.py
 modules/sender.py
 modules/recive.py
 modules/__init__.py
+modules/siteListGen.py
+modules/configcheck.py

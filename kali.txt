@@ -1,0 +1,98 @@
+Reproducibility - N/A
+Severity - minor
+Priority - normal
+
+Name: Alfred
+
+Release: v2.1(e) https://github.com/Alfredredbird/alfred/releases/tag/v2.1(e)
+
+Homepage: https://github.com/Alfredredbird/alfred
+
+Download: https://github.com/Alfredredbird/alfred/releases/tag/v2.1(e)
+
+Author: Jeffrey Montanari (Alfredredbird)
+
+License: Via MIT Licenses. It's free to use and edit.
+
+Description: Alfred is a simple OSINT tool that finds social media accounts across the web. Its goal is to help new programmers and penetration testers get a good start in OSINT. Alfred has many options and features, such as different scan types, website list generators, simple local file sharing, and much more. The tool also has a 90% success rate and is still in heavy development.
+
+Dependencies: Python3.10, colorama, requests, richconsole, alive_progress, torrequest, tqdm, bs4
+
+Similar tools: Sherlock, Scylla, Mr.Holmes
+
+Activity: Alfred started in December of 2022 but wasn't added to GitHub until August 2023. Alfred is currently still being developed and updated.
+
+How to install:
+sudo apt update
+sudo apt install python3.10
+git clone https://github.com/alfredredbird/alfred
+cd alfred && sudo pip install -r requirements.txt
+python3 brib.py
+
+How to use:     
+!The Usage has been modified from its original to fit the forum page!
+                                                                  \\        \\
+                                                                   (o>     (o>
+Usage: [USERNAME]                               //\     //\ 
+               [OPTIONS]                                V_/    V_/ 
+================================================================
+                                                                   ||     ||
+                                                                   ||     ||
+   [COMMAND]  [ALIAS]  [INFO]
+
+             -h  | --help |
+ --------------+----------+------------------------------------------
+[GENERAL]:             |
+             -s  |             | (Starts The Program)
+            -N  | --nsfw | (Points NSFW Sites)    
+            -ec |             | (Prints The Returned Status Code)
+             -a  |             | (Shows Everything) 
+                  |             | Error ID's:
+                  |             |   
+                  |             |   E ⥴ Connection Error, Etc
+                  |             |
+            -p  | --ping  | (pings website)
+       Clear |--Clear  | Clears The Terminal
+            -q  | --quit   | (Quits)
+------------+-------------+------------------------------------------
+   [FILES]:                 |
+          -r  |    --read | (Reads Last Search Results) 
+          -ls |                | Prints The Files In ./alfred
+       -Cat |                | Reads The Inputed File
+ --Config |               | Edits The Config. 
+   --Wiki |                 | Prints Wiki Pages 
+        -gsl|                 | (Generates Random Sites And Tests Them)
+              |                 |  Ussage:
+              |                 |     [LENGTH]
+              |                 |        [AMOUNT]
+              |                 |           [TYPE] 
+              |                 |              [OPTIONS]
+------------+--------+------------------------------------------
+ [SCANS]:          |
+          -f  |          | Runs A Fast Scan   
+        -m  |          | Runs A Scan From The Big Site List
+        -O  |          | Checks Accounts From A List
+        -d   |          | (Allows Redirects "Might Not Be Accurate")
+------------+--------+------------------------------------------
+[PROXIES]:        |                                          
+         -c  |          | (Connects To A Proxy Server)             
+              |          |      Format [Type] [Ip] [Port]           
+              |          |                                          
+        -lp |          | (Gives A List Of Posible Working Proxys) 
+             |          | Types:                                  
+             |          |                                          
+             |          |       http   ⥴ /http.txt                 
+             |          |       socks4 ⥴ /socks4.txt               
+             |          |       socks5 ⥴ /socks5.txt               
+             |          |                                          
+----------+---------+------------------------------------------
+  [OTHER]:        |
+     -FS  |           | Runs A Simple Network File Share    
+       -S  |           | Downloads A Webpage's HTML File
+       -u  |           | Prints The Requested Username
+------------+--------+------------------------------------------        
+ 
+
+     
+
+Packaged: No
