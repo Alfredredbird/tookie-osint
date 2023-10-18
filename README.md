@@ -145,6 +145,8 @@ Typing -h twice shows the help menu.
 # ⁉️ Need Help?
 Check out https://github.com/Alfredredbird/alfred/issues or the WiKi for help.
 Still Need Help? Contact Below :D
+# 🤔 Cant Find The Site Your Looking For?
+Make a pullrequest or a Bug report with the site and we will add it. :D
 # 📗 Info:
 
 <table>
