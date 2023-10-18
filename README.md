@@ -203,6 +203,11 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>Medium</th>
         <th>https://medium.com/age-of-awareness/osint-unleashed-the-5-best-tools-for-cyber-investigators-8ff08fe9a4ba</th>
     </tr>
+     <tr>
+        <th>TechnoNews</th>
+        <th>https://techno-news.net/2023/08/28/news_7132/</th>
+    </tr>
+    
 
  
 </table>
