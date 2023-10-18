@@ -168,7 +168,7 @@ Still Need Help? Contact Below :D
 
 
 # 📙 Articles
-There has been several aritcles written about our tool. Feal free to check them out :D
+There has been several aritcles written about our tool. Feal free to check them out :D  Theses articales belong to their resectfull owners.
 <table>
     <tr>
         <th>Habr</th>
@@ -195,6 +195,16 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>Iguru</th>
         <th>https://iguru.gr/alfred-ena-proigmeno-osint-programma/</th>
     </tr>
+    <tr>
+        <th>Medevel</th>
+        <th>https://medevel.com/31-osint-tools/</th>
+    </tr>
+    <tr>
+        <th>Medium</th>
+        <th>https://medium.com/age-of-awareness/osint-unleashed-the-5-best-tools-for-cyber-investigators-8ff08fe9a4ba</th>
+    </tr>
+
+ 
 </table>
 
 # 📘 contact
