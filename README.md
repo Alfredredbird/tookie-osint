@@ -191,6 +191,10 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>gebutcher</th>
         <th>https://gebutcher.blogspot.com/2023/10/OsintAlfred.html?m=1</th>
     </tr>
+     <tr>
+        <th>Iguru</th>
+        <th>https://iguru.gr/alfred-ena-proigmeno-osint-programma/</th>
+    </tr>
 </table>
 
 # 📘 contact
