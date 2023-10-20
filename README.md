@@ -131,6 +131,7 @@ There Is A Lot Lol
 - [X] bigger site list
 - [ ] better option pharser
 - [ ] WebUi
+- [ ] Webscraper
 
 
 
