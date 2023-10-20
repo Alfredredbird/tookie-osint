@@ -36,7 +36,7 @@ Fore.RESET +"""
                  Twiter: @alfredredbird1        """+Fore.RED+"""              | """+ 
                  Fore.RESET+ """
 
-               Many Thanks To Our Sponsors!
+               Many Thanks To Our Partners!
 """
     )
     ## prints os infomation
@@ -46,7 +46,6 @@ Fore.RESET +"""
     print(Fore.RESET + " ")
     print("     " + "OS:" + "                                      Alfred Version:")
     print("     " + platform.system()+" "+platform.release() + "                               " + version)
-    print("     ")
     print("     " + "Python Version:" + "                          Host:")
     print("     " + platform.python_version() + "                                   " + str(platform.node()) )
     print("")
@@ -100,7 +99,7 @@ Fore.RESET +"""
                  Twiter: @alfredredbird1        """+Fore.RED+"""              | """+ 
                  Fore.RESET+ """
 
-               Many Thanks To Our Sponsors!
+               Many Thanks To Our Partners!
 """
     )
     ## prints os infomation

@@ -391,52 +391,6 @@ def catFile():
         print(Fore.RED + "Error With Site File" + Fore.RESET)
 
 
-# this is the module that edits the configuration file. needs to be cleaned up tho
-def configEditor(config):
-    # reads the config
-    config.read("./config/config.ini")
-    # gets input
-    editConfigAwnser = input("Edit The Config? [y/n]: ⤷ ")
-    # decieds what to do
-    if editConfigAwnser == "y" or editConfigAwnser == "Y":
-        # options
-        print("[1] Check for updates: " + str(config.get("main", "checkforupdates")))
-        print("[2] Show tips: " + str(config.get("main", "showtips")))
-        # gets input
-        editConfig = input("What Do You Want To Change? ⤷ ")
-        # figures out what to do
-        if editConfig == "1":
-            # update config logic
-            if config.get("main", "checkforupdates") == "yes":
-                print("Ok! [checkforupdates] Is Set For Yes. Changing To No")
-                config.set("main", "checkforupdates", "no")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-            # update config logic
-            if config.get("main", "checkforupdates") == "no":
-                print("Ok! [checkforupdates] Is Set For No. Changing To Yes")
-                config.set("main", "checkforupdates", "yes")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return False
-        if editConfig == "2":
-            # update config logic
-            if config.get("main", "showtips") == "yes":
-                print("Ok! [showtips] Is Set For Yes. Changing To No")
-                config.set("main", "showtips", "no")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-            # update config logic
-            if config.get("main", "showtips") == "no":
-                print("Ok! [showtips] Is Set For No. Changing To Yes")
-                config.set("main", "showtips", "yes")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return False
-    if editConfigAwnser == "n" or editConfigAwnser == "N":
-        print("Aww ok")
 
 
 def scriptDownloader(sitePaths, extinsion,count):
@@ -521,42 +475,7 @@ def imgandVidDownlaod(input2):
         print(f"Failed to fetch the URL. Status code: {response.status_code}")
 
 
-def configUpdateStuff(config):
-    config.read("./config/config.ini")
-    # this is the function to update the code
-    x = random.randint(1, 4)
-    if x == 3 and config.get("main", "checkforupdates") == "yes":
-        print("You Can Disable Updating In The Config File")
-    if x == 2:
-        print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
 
-    if config.get("main", "checkforupdates") == "yes":
-        cfu = input("Check For Updates? [y/n]: ⤷ ")
-        if "Y" in cfu or "y" in cfu:
-            exec(open("./update.py").read())
-        elif "N" in cfu or "n" in cfu:
-            print("Ok! Ill Ask Later....")
-        else:
-            print("Not Sure What You Ment. Ill Ask Later")
-    getNum = random.randint(1, 10)
-    # asks the user if they want to enable updates
-    if config.get("main", "checkforupdates") == "no":
-        if getNum == 7:
-            changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
-            # pharses it
-            if "Y" in changeconfig or "y" in changeconfig:
-                config.set("main", "checkforupdates", "yes")
-                print("Updates Are Enabled!")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-            elif "N" in changeconfig or "n" in changeconfig:
-                print("Ok! Ill Ask Later....")
-            else:
-                print("Not Sure What You Ment. Ill Ask Later")
-    if getNum == 3 and config.get("main", "showtips") == "yes":
-        # this gets the random tip to display on the screen
-        randomTip = random.choice(open("./config/tips.txt").readlines())
-        print(randomTip)
 
 def get_random_string(length):
     # choose from all lowercase letter
