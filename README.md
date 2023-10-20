@@ -209,7 +209,11 @@ There has been several aritcles written about our tool. Feal free to check them 
         <th>TechnoNews</th>
         <th>https://techno-news.net/2023/08/28/news_7132/</th>
     </tr>
-    
+    <tr>
+        <th>Xhref</th>
+        <th>  https://xhref.blogspot.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
+    </tr>
+  
 
  
 </table>
