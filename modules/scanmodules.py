@@ -3,7 +3,10 @@ import requests
 import json
 from bs4 import BeautifulSoup as bs
 from urllib.parse import urljoin
+from modules.configcheck import *
+from configparser import ConfigParser
 
+config = ConfigParser()
 #scan logic
 def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars):
 
@@ -198,11 +201,11 @@ def siteDownloader():
             print("Total CSS files in the page:", len(css_files))
 
             # write file links into files
-            with open("./downloadedSites/javascript_files.txt", "w") as f:
+            with open(globalPath(config)+"javascript_files.txt", "w") as f:
                 for js_file in script_files:
                      print(js_file, file=f)
 
-            with open("./downloadedSites/css_files.txt", "w") as f:
+            with open(globalPath(config)+"css_files.txt", "w") as f:
                 for css_file in css_files:
                     print(css_file, file=f)
         except requests.exceptions.ConnectionError:

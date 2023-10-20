@@ -1,24 +1,22 @@
 #!/usr/bin/env python3
 import os
-from os import walk
-import urllib
 import time
 from colorama import *
 from pathlib import Path
-from bs4 import BeautifulSoup as bs
 import requests
 import json
 from rich.console import Console
 from torrequest import TorRequest
 from os import listdir
 from os.path import isfile, join
-from urllib.parse import urljoin
-from bs4 import BeautifulSoup as bs
 from bs4 import BeautifulSoup
+from modules.configcheck import *
+from configparser import ConfigParser
 import wget
 import random
 import string
 
+config = ConfigParser()
 
 def redirects1(modes, input1):
     input2 = input("   ⤷ ")
@@ -405,7 +403,7 @@ def scriptDownloader(sitePaths, extinsion,count):
         url = line
         r = requests.get(url, allow_redirects=True)
         try:
-            open("./downloadedSites/file" + str(count) + extinsion, "wb").write(
+            open(globalPath(config)+"file" + str(count) + extinsion, "wb").write(
                 r.content
             )
         except FileNotFoundError:
@@ -414,10 +412,7 @@ def scriptDownloader(sitePaths, extinsion,count):
             print("Permission Error")
 
 
-def dirDump(mydir):
-    filelist = [f for f in os.listdir(mydir)]
-    for f in filelist:
-        os.remove(os.path.join(mydir, f))
+
 
 
 def errorCodes(ec):
@@ -450,9 +445,7 @@ def download_videos(video_urls, output_directory):
 # Main function
 def imgandVidDownlaod(input2):
     url = input2
-    output_directory = (
-        "./downloadedSites/"  # Change this to your desired output directory
-    )
+    output_directory = (globalPath(config))
 
     # Create the output directory if it doesn't exist
     os.makedirs(output_directory, exist_ok=True)

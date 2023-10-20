@@ -84,9 +84,14 @@ def configEditor(config):
     # decieds what to do
     if editConfigAwnser == "y" or editConfigAwnser == "Y":
         # options
+        print("")
+        print("===========================================================================")
         print("[1] Check for updates: " + str(config.get("main", "checkforupdates")))
         print("[2] Show tips: " + str(config.get("main", "showtips")))
         print("[3] Site Download Path: " + str(config.get("main", "defaultDlPath")))
+        print("===========================================================================")
+        print("[A] Clean Up Alfred. (This Removes Temporary Files)")
+        print("")
         # gets input
         editConfig = input("What Do You Want To Change? ⤷ ")
         # figures out what to do
@@ -128,6 +133,21 @@ def configEditor(config):
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
                     return True    
+        if editConfig == "A" or editConfig == "a":
+            #deletes the downloaded files
+            dirDump(globalPath(config))
+            print("Done!")
+            print("===========================================================================")
+            print("")
     if editConfigAwnser == "n" or editConfigAwnser == "N":
         print("Aww ok")
 
+def globalPath(config):
+    config.read("./config/config.ini")
+    path = config.get("main","defaultDlPath")
+    return path
+
+def dirDump(mydir):
+    filelist = [f for f in os.listdir(mydir)]
+    for f in filelist:
+        os.remove(os.path.join(mydir, f))

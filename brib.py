@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from __future__ import print_function
-
 from configparser import ConfigParser
 from time import sleep
 from rich.console import Console
@@ -19,6 +18,7 @@ import os
 import time
 import site
 
+#cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 
 # variables
 domain_extensions = False
@@ -39,29 +39,19 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
-
-# These stores the loaded site infos
+# These stores the loaded site info
 siteList = []
 siteNSFW = []
-
-
+#gets the version of Alfred
 version = configC()
-
-
-  
-
-
 # clears the terminal when Alfred is ran
 os.system("cls" if os.name == "nt" else "clear")
-
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
 # does config stuff
 configUpdateStuff(config)
 # this is the variable that gets the username
 uname = input("Target: ⤷ ")
-
-
 # This is where we gather the inputed options and then run them.
 # Not all of the options execute on input.
 while test != True:
@@ -100,15 +90,15 @@ while test != True:
 
         if "-S" in input1:
             print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk." )
-            dirDump("./downloadedSites/")
+            dirDump(globalPath(config))
             time.sleep(2)
             siteDownloader()
             time.sleep(4)
             print("Downloading CSS")
-            scriptDownloader("./downloadedSites/css_files.txt", ".css",count)
+            scriptDownloader(globalPath(config)+"css_files.txt", ".css",count)
             time.sleep(2)
             print("Downloading JS")
-            scriptDownloader("./downloadedSites/javascript_files.txt", ".js",count)
+            scriptDownloader(globalPath(config)+"javascript_files.txt", ".js",count)
             dv = input("Want To Download Images/Videos? ⤷ ")
             if "Y" in dv or "y" in dv:
                 print("Downlading Videos/Images")
