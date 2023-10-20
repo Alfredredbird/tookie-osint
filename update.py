@@ -1,8 +1,5 @@
 import os
-import shutil
-import base64
 import requests
-import glob
 import time
 
 

@@ -15,17 +15,10 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.configcheck import *
-import random
-import urllib.request, urllib.error, urllib.parse
-import sys
 import os
-import platform
-import logging
-import json
-import requests
 import time
 import site
-import string
+
 
 # variables
 domain_extensions = False
@@ -34,6 +27,7 @@ test = False
 testall = False
 fastMode = 0
 cError = 0
+count = 0
 # holder is just something Alfred can return when Alfred needs to return nothing.
 holder = 0
 siteProgcounter = 0
@@ -65,7 +59,8 @@ print_logoscreen(version)
 # does config stuff
 configUpdateStuff(config)
 # this is the variable that gets the username
-uname = input("⤷ ")
+uname = input("Target: ⤷ ")
+
 
 # This is where we gather the inputed options and then run them.
 # Not all of the options execute on input.
@@ -73,6 +68,8 @@ while test != True:
     input1 = input("⤷ ")
     if input1 != "":
         action = {
+            "-ls": [dirList, []],
+            "ls": [dirList, []],
             "-t": [timeoutC, [modes, input1]],
             "-FS": [fileShare, []],
             "-q": [qexit, []],
@@ -92,40 +89,26 @@ while test != True:
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
             "--read": [read_save, [slectpath]],
-            "--Clear": [logo, [uname]],
-            "clear": [logo, [uname]],
+            "--Clear": [logo, [uname,version]],
+            "clear": [logo, [uname,version]],
         }
         valid = [key for key in action.keys()]
         for option in valid:
             if option in input1:
                 args = action[option][1]
                 action[option][0](*args)
-        # option phareser for options that cant be put into the option pharser above.
-        if "-ls" in input1:
-            # gets the files in ./alfred
-            my_list = printFiles()
-            columns = 3
-            spaces = "      "
-            # prints the files neetly
-            for first, second, third in zip(
-                my_list[::columns], my_list[1::columns], my_list[2::columns]
-            ):
-                print(
-                    f"{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}"
-                )
+
         if "-S" in input1:
-            print(
-                "Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk."
-            )
+            print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk." )
             dirDump("./downloadedSites/")
             time.sleep(2)
-            siteDownloader(modes, input1)
-            time.sleep(2)
+            siteDownloader()
+            time.sleep(4)
             print("Downloading CSS")
-            scriptDownloader("./downloadedSites/css_files.txt", ".css")
+            scriptDownloader("./downloadedSites/css_files.txt", ".css",count)
             time.sleep(2)
             print("Downloading JS")
-            scriptDownloader("./downloadedSites/javascript_files.txt", ".js")
+            scriptDownloader("./downloadedSites/javascript_files.txt", ".js",count)
             dv = input("Want To Download Images/Videos? ⤷ ")
             if "Y" in dv or "y" in dv:
                 print("Downlading Videos/Images")
@@ -143,12 +126,6 @@ while test != True:
                     modes += input1
                     inputnum += input2
                 if input2 == "N" or input2 == "n":
-                    # modes = ""
-                    # inputnum = ""
-                    # uname = input("⤷ ")
-                    # test = False
-                    # input2 = ""
-                    # input1 = ""
                     holder = 1
         if "-ec" in input1:
             ec = 1
@@ -179,7 +156,7 @@ while test != True:
                 exit(69)
         if "--Wiki" in input1:
             wiki()
-            logo(uname)
+            logo(uname,version)
         # code to display all error codes
         if "-a" in input1:
             modes += input1
@@ -237,7 +214,7 @@ with open(file_path, "w") as f:
         with console.status("Working....") as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
-            Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW)
+            Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars)
 # checks for a connection error and prints
 connectionError(cError, f)
 # calculates the percentage

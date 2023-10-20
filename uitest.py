@@ -2,7 +2,7 @@ import platform
 from colorama import *
 
 ver = "v2.2(a) Rev 1"
-pythonVer = platform.python_version()
+
 
 def print_logoscreen(version):
     print(
@@ -46,10 +46,9 @@ Fore.RESET +"""
     print("     " + platform.system()+" "+platform.release() + "                               " + version)
     print("     ")
     print("     " + "Python Version:" + "                          Host:")
-    print("     " + pythonVer + "                                   " + str(platform.node()) )
+    print("     " + platform.python_version() + "                                   " + str(platform.node()) )
     print("")
     print(Fore.RESET+ "===========================================================================")
     print(" ")
-    
 
 print_logoscreen(ver)    

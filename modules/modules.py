@@ -35,102 +35,6 @@ def redirects1(modes, input1):
                 input1.replace("-d", "")
 
 
-def logo(uname):
-    os.system("cls" if os.name == "nt" else "clear")
-    print(
-        Fore.RED
-        + """   
-                                    
-                         ╓φ▒Γ ,╖╗⌐
-                        Φ╬╬Γ @╬╬Γ ╔▓
-                       ^╣╬▓µ╣╬▓  ▄▓▓▓
-                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
-                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
-                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
-                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐                 
-                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `                 
-                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ                    __,---. 
-                     `╙╨╨╨╜  ▀▀▀▀▀¬                      /__|o\  ) 
-                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄                `-\ / /
-                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█                  ,) (,
-                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░                 //   \\
-                   A Advanced OSINT Tool                  {(     )}
-===========================================================""===""=========
-                                                            |||||
-                 By Jeffrey Montanari                        |||
-                 Twiter: @alfredredbird1                      |
-
-             Thanks To Our Sponsor: Smoke-wolf
-"""
-    )
-    print("             The Target Username: " + uname + Fore.RESET)
-
-
-def siteDownloader(modes, input1):
-    input2 = input("SITE: ⤷ ")
-    if input2 == "":
-        lol = 1
-    if input2 != "":
-        modes += input1
-
-        try:
-            # thanks to https://thepythoncode.com/article/extract-web-page-script-and-css-files-in-python for the code refrence
-            response = urllib.request.urlopen(input2)
-            webContent = response.read().decode("UTF-8")
-
-            f = open("./downloadedSites/downloaded-site.html", "w")
-            f.write(webContent)
-            f.close
-            print("Downloaded Page And Saved To: downloaded-site.html")
-            url = input2
-            session = requests.Session()
-            session.headers[
-                "User-Agent"
-            ] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
-            # get the HTML content
-            html = session.get(url).content
-            # parse HTML using beautiful soup
-            soup = bs(html, "html.parser")
-            # get the JavaScript files
-            script_files = []
-            for script in soup.find_all("script"):
-                if script.attrs.get("src"):
-                    # if the tag has the attribute 'src'
-                    script_url = urljoin(url, script.attrs.get("src"))
-                    script_files.append(script_url)
-            # get the CSS files
-            css_files = []
-            for css in soup.find_all("link"):
-                if css.attrs.get("href"):
-                    # if the link tag has the 'href' attribute
-                    css_url = urljoin(url, css.attrs.get("href"))
-                    css_files.append(css_url)
-            print("Total script files in the page:", len(script_files))
-            print("Total CSS files in the page:", len(css_files))
-            # write file links into files
-            with open("./downloadedSites/javascript_files.txt", "w") as f:
-                for js_file in script_files:
-                    print(js_file, file=f)
-
-            with open("./downloadedSites/css_files.txt", "w") as f:
-                for css_file in css_files:
-                    print(css_file, file=f)
-
-            return modes
-        except requests.exceptions.RequestException:
-            print("Error Downloading Web Content!")
-        except ConnectionError:
-            print("Error Downloading Web Content!")
-        except ValueError:
-            print("Unknow URL!")
-        except requests.exceptions.ConnectionError:
-            print("Error Downloading Web Content!")
-        except requests.exceptions.HTTPError:
-            print("Error Downloading Web Content!")
-        except requests.exceptions.InvalidURL:
-            print("Error Downloading Web Content!")
-        except ConnectionError:
-            print("Error")
 
 
 def list_proxys():
@@ -465,7 +369,14 @@ def printFiles():
     onlyfiles = [f for f in listdir("./") if isfile(join("./", f))]
     return onlyfiles
 
-
+def dirList():
+     # gets the files in ./alfred
+            my_list = printFiles()
+            columns = 3
+            spaces = "      "
+            # prints the files neetly
+            for first, second, third in zip(my_list[::columns], my_list[1::columns], my_list[2::columns]):
+                print(f"{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}")
 def catFile():
     file_path = input("Filname:  ⤷ ")
     try:
@@ -528,8 +439,8 @@ def configEditor(config):
         print("Aww ok")
 
 
-def scriptDownloader(sitePaths, extinsion):
-    count = 0
+def scriptDownloader(sitePaths, extinsion,count):
+    
     file1 = open(sitePaths, "r")
     Lines = file1.readlines()
     L = [Lines]
@@ -544,7 +455,7 @@ def scriptDownloader(sitePaths, extinsion):
                 r.content
             )
         except FileNotFoundError:
-            print("Cant Find: " + item + "Skiping!")
+            print("Cant Find Site! "  + "Skiping!")
         except OSError:
             print("Permission Error")
 
@@ -652,3 +563,7 @@ def get_random_string(length):
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
+
+
+
+

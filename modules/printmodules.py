@@ -1,4 +1,5 @@
 from colorama import *
+from modules.modules import *
 import time
 import platform
 import os
@@ -22,52 +23,100 @@ def print_logoscreen(version):
                  ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄                `-\ / /
                  ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█                  ,) (,
                  ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░                 //   \\
-                   A Advanced OSINT Tool                  {(     )}
-===========================================================""===""=========
-                                                            |||||
-                 By Jeffrey Montanari                        |||
-                 Twiter: @alfredredbird1                      |
+                   A Advanced OSINT Tool                  {(     )}"""+
+Fore.RESET +"""
+==========================================================="""+Fore.RED
++ '''""'''+ Fore.RESET+ """==="""+ Fore.RED+'''""'''+Fore.RESET+"""========="""+Fore.RESET+Fore.RED+
+"""
+                                                            ||||| """
++Fore.RESET+"""
+                 By Jeffrey Montanari        """+
+                 Fore.RED+"""                |||"""
+                 +Fore.RESET+ """
+                 Twiter: @alfredredbird1        """+Fore.RED+"""              | """+ 
+                 Fore.RESET+ """
 
-             Thanks To Our Sponsor: Smoke-wolf
+               Many Thanks To Our Sponsors!
 """
     )
     ## prints os infomation
-    print(
-        Fore.RESET
-        + "==========================================================================="
-    )
-    print(
-        Fore.RED
-        + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
-    )
-    print(Fore.RESET + " ")
-    print("     " + platform.system() + "                  Alfred Version:")
-    print("     " + platform.release() + "                  " + version)
+    print(Fore.RESET+ "===========================================================================")
     print("")
-    print(
-        Fore.RESET
-        + "==========================================================================="
-    )
+    print(Fore.RED+ "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions")
+    print(Fore.RESET + " ")
+    print("     " + "OS:" + "                                      Alfred Version:")
+    print("     " + platform.system()+" "+platform.release() + "                               " + version)
+    print("     ")
+    print("     " + "Python Version:" + "                          Host:")
+    print("     " + platform.python_version() + "                                   " + str(platform.node()) )
+    print("")
+    print(Fore.RESET+ "===========================================================================")
     print(" ")
+    
 
 
 def connectionError(cError, f):
     if cError >= 5:
-        print(
-            Fore.RED + """==========================================================="""
-        )
-        print(
-            Fore.RED
-            + "Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :("
-        )
-        print(
-            Fore.RED + """==========================================================="""
-        )
+        print(Fore.RED + """
+===========================================================
+Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :
+===========================================================""")
+        
     if cError <= 5:
         f.close
         print("""===========================================================""")
 
 
+
+def logo(uname, version):
+    os.system("cls" if os.name == "nt" else "clear")
+    print(
+        Fore.RED
+        + """   
+                                    
+                         ╓φ▒Γ ,╖╗⌐
+                        Φ╬╬Γ @╬╬Γ ╔▓
+                       ^╣╬▓µ╣╬▓  ▄▓▓▓
+                     ╔▓  ╙╬╬╬╩  ╜▀▀▀╙╙
+                    ▄▓▓▓▄  ╣╬▓µ╓╓╖╗╗φφ@φ
+                  "╙╙╙╙╙"  ╟╬╬╣╝╣╬╬▀╨╣╬▓                 
+                  ¥φφφφφφφφ╬╬╩   ╫╬▓, ╟╬⌐                 
+                   └╙╨╨╨╨╫╬╬╩ ╔▓  ╚╬╬L `                 
+                    %φφφφ╬╬╩ ╔▓▓▓╕ ╙╬Γ                    __,---. 
+                     `╙╨╨╨╜  ▀▀▀▀▀¬                      /__|o\  ) 
+                 ░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄                `-\ / /
+                 ▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█                  ,) (,
+                 ▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░                 //   \\
+                   A Advanced OSINT Tool                  {(     )}"""+
+Fore.RESET +"""
+==========================================================="""+Fore.RED
++ '''""'''+ Fore.RESET+ """==="""+ Fore.RED+'''""'''+Fore.RESET+"""========="""+Fore.RESET+Fore.RED+
+"""
+                                                            ||||| """
++Fore.RESET+"""
+                 By Jeffrey Montanari        """+
+                 Fore.RED+"""                |||"""
+                 +Fore.RESET+ """
+                 Twiter: @alfredredbird1        """+Fore.RED+"""              | """+ 
+                 Fore.RESET+ """
+
+               Many Thanks To Our Sponsors!
+"""
+    )
+    ## prints os infomation
+    print(Fore.RESET+ "===========================================================================")
+    print("")
+    print(Fore.RED+ "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions")
+    print(Fore.RESET + " ")
+    print("     " + "OS:" + "                                      Alfred Version:")
+    print("     " + platform.system()+" "+platform.release() + "                               " + version)
+    print("     ")
+    print("     " + "Python Version:" + "                          Host:")
+    print("     " + platform.python_version() + "                                   " + str(platform.node()) )
+    print("")
+    print(Fore.RESET+ "===========================================================================")
+    print(" ")
+    print("             The Target Username: " + uname + Fore.RESET)
 def print_help():
     print(
         """
@@ -84,8 +133,8 @@ Usage: [USERNAME]                               //\    //\
                                                 ||     ||
                                                 ||     ||
    [COMMAND]  [ALIAS]  [INFO]
-
-        -h  | --help |
+------------+--------+------------------------------------------
+        -h  | --help | (Shows This Menu)
 ------------+--------+------------------------------------------
    [GENERAL]:        |
         -s  |        | (Starts The Program)
@@ -97,12 +146,12 @@ Usage: [USERNAME]                               //\    //\
             |        |   E ⥴ Connection Error, Etc
             |        |
         -p  | --ping | (pings website)
-      Clear |--Clear | Clears The Terminal
+    --Clear |  Clear | Clears The Terminal
         -q  | --quit | (Quits)
 ------------+--------+------------------------------------------
      [FILES]:        |
         -r  | --read | (Reads Last Search Results) 
-        -ls |        | Prints The Files In ./alfred
+        -ls |   ls   | Prints The Files In ./alfred
        -Cat |        | Reads The Inputed File
    --Config |        | Edits The Config. 
      --Wiki |        | Prints Wiki Pages 
@@ -200,7 +249,12 @@ def wiki():
 def returntoAlfred(seconds):
     print("Returning To Alfred Soon...")
     time.sleep(seconds)
+   
+    
 
 
 def unameinfo(uname):
     print("Requested Username: " + uname)
+
+
+
