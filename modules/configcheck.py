@@ -12,6 +12,8 @@ def configC():
  else:
     print("Cant Find Nesasary Files. Trying To Reinstall Alfred")
     time.sleep(4)
+    with open("./config/version.cfg", "w") as f:
+        f.write("Reinstalling............")
     exec(open("./update.py").read())
     
 
