@@ -1,6 +1,7 @@
 import os
 import random
 from colorama import *
+import time
 #
 #This Module does config stuff
 #
@@ -10,6 +11,7 @@ def configC():
     print("Config File exists")
  else:
     print("Cant Find Nesasary Files. Trying To Reinstall Alfred")
+    time.sleep(4)
     exec(open("./update.py").read())
     
 
