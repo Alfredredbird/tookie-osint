@@ -1,4 +1,7 @@
 config/udfl
+config/config.ini
+config/version.cfg
+config/tips.txt
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 LICENSE
@@ -20,5 +23,5 @@ modules/scanmodules.py
 modules/sender.py
 modules/recive.py
 modules/__init__.py
-config/config.ini
-config/version.cfg
+modules/siteListGen.py
+modules/configcheck.py
