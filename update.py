@@ -41,8 +41,13 @@ if alfred_version != version:
     print(udfl)
     # delets the files listed in udfl
     for item in udfl:
-        if "/update.py" not in udfl:
+        try:
+         if "/update.py" not in udfl:
             os.remove(item)
+        except FileExistsError:
+            print("skipping: " + item)
+        except FileNotFoundError:
+            print("skipping: " + item)
 
     # waits then downloads a new file manager copy
     try:
