@@ -129,7 +129,7 @@ There Is A Lot Lol
 - [x] website Script File Downloader
 - [X] easy documentation reader
 - [X] bigger site list
-- [ ] better option pharser
+- [X] better option pharser
 - [ ] WebUi
 - [ ] Webscraper
 
