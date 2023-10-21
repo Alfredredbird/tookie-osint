@@ -8,7 +8,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/alfredredbird/alfred?logoColor=ffff&color=%23ff0000)
 ![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/alfred?color=%2332cd32)
 
-
+[![Run on Repl.it](https://replit.com/badge/github/alfredredbird/alfred.git)](https://replit.com/new/github/alfredredbird/alfred.git)
 
 
 
