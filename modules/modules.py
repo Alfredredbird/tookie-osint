@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
-import os
-import time
-from colorama import *
-from pathlib import Path
-import requests
 import json
-from rich.console import Console
-from torrequest import TorRequest
-from os import listdir
-from os.path import isfile, join
-from bs4 import BeautifulSoup
-from modules.configcheck import *
-from configparser import ConfigParser
-import wget
+import os
 import random
 import string
+import time
+from configparser import ConfigParser
+from os import listdir
+from os.path import isfile, join
+from pathlib import Path
+
+import requests
+import wget
+from bs4 import BeautifulSoup
+from colorama import *
+from rich.console import Console
+from torrequest import TorRequest
+
+from modules.configcheck import *
 
 config = ConfigParser()
+
 
 def redirects1(modes, input1):
     input2 = input("   ⤷ ")
@@ -31,8 +34,6 @@ def redirects1(modes, input1):
             print("Timeout Must Be A Number")
             if "-d" in input2:
                 input1.replace("-d", "")
-
-
 
 
 def list_proxys():
@@ -134,8 +135,6 @@ def ping():
     except:
         print(Fore.RED + "Error!")
         print(Fore.RESET + " ")
-
-
 
 
 def qexit():
@@ -283,7 +282,6 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                     lol = 1
                 if input2 != "":
                     if input2 == "Y" or input2 == "y":
-
                         input3 = input("100% Sure? [Y/N]? ⤷ ")
                         if input2 != "":
                             if input2 == "Y" or input2 == "y":
@@ -335,7 +333,6 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
             print("Directory doesn't exist.")
         with open(file_path, "w") as f:
             for site in siteList:
-
                 with console.status("Working....") as status:
                     siteN = site["site"]
                     try:
@@ -367,14 +364,21 @@ def printFiles():
     onlyfiles = [f for f in listdir("./") if isfile(join("./", f))]
     return onlyfiles
 
+
 def dirList():
-     # gets the files in ./alfred
-            my_list = printFiles()
-            columns = 3
-            spaces = "      "
-            # prints the files neetly
-            for first, second, third in zip(my_list[::columns], my_list[1::columns], my_list[2::columns]):
-                print(f"{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}")
+    # gets the files in ./alfred
+    my_list = printFiles()
+    columns = 3
+    spaces = "      "
+    # prints the files neetly
+    for first, second, third in zip(
+        my_list[::columns], my_list[1::columns], my_list[2::columns]
+    ):
+        print(
+            f"{Fore.RED + first: <10}{spaces}{Fore.GREEN + second: <10}{spaces}{Fore.BLUE + third + Fore.RESET}"
+        )
+
+
 def catFile():
     file_path = input("Filname:  ⤷ ")
     try:
@@ -389,10 +393,7 @@ def catFile():
         print(Fore.RED + "Error With Site File" + Fore.RESET)
 
 
-
-
-def scriptDownloader(sitePaths, extinsion,count):
-    
+def scriptDownloader(sitePaths, extinsion, count):
     file1 = open(sitePaths, "r")
     Lines = file1.readlines()
     L = [Lines]
@@ -403,16 +404,13 @@ def scriptDownloader(sitePaths, extinsion,count):
         url = line
         r = requests.get(url, allow_redirects=True)
         try:
-            open(globalPath(config)+"file" + str(count) + extinsion, "wb").write(
+            open(globalPath(config) + "file" + str(count) + extinsion, "wb").write(
                 r.content
             )
         except FileNotFoundError:
-            print("Cant Find Site! "  + "Skiping!")
+            print("Cant Find Site! " + "Skiping!")
         except OSError:
             print("Permission Error")
-
-
-
 
 
 def errorCodes(ec):
@@ -445,7 +443,7 @@ def download_videos(video_urls, output_directory):
 # Main function
 def imgandVidDownlaod(input2):
     url = input2
-    output_directory = (globalPath(config))
+    output_directory = globalPath(config)
 
     # Create the output directory if it doesn't exist
     os.makedirs(output_directory, exist_ok=True)
@@ -468,14 +466,8 @@ def imgandVidDownlaod(input2):
         print(f"Failed to fetch the URL. Status code: {response.status_code}")
 
 
-
-
 def get_random_string(length):
     # choose from all lowercase letter
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
-
-
-
-
