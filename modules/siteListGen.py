@@ -1,25 +1,25 @@
 # this is the function to generate the site list. we moved it from the ./modules.py file to help shorten its length.
 
-import os
-from os import walk
-import urllib
-import time
-from colorama import *
-from pathlib import Path
-from bs4 import BeautifulSoup as bs
-import requests
 import json
+import os
+import random
+import time
+import urllib
+from os import listdir, walk
+from os.path import isfile, join
+from pathlib import Path
+from urllib.parse import urljoin
+
+import requests
+import wget
+from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as bs
+from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
-from os import listdir
-from os.path import isfile, join
-from urllib.parse import urljoin
-from bs4 import BeautifulSoup as bs
-from bs4 import BeautifulSoup
-import wget
-import random
-def siteListGen(console, testall, get_random_string, domain_extensions, uname):
 
+
+def siteListGen(console, testall, get_random_string, domain_extensions, uname):
     input2 = input("CHAR: ⤷ ")
     trys = input("  TRYS: ⤷ ")
     siteType = input("     TYPE: ⤷ ")
@@ -73,7 +73,6 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
                         ".uk",
                     ]
                     for _ in range(int(trys)):
-
                         gen = get_random_string(int(input2))
                         siteLst += [f"https://{gen}{dom}" for dom in domains]
 
@@ -114,7 +113,6 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
                         ".uk/profile/",
                     ]
                     for _ in range(int(trys)):
-
                         gen = get_random_string(int(input2))
 
                         siteLst += [f"https://{gen}{dom}{uname}" for dom in domains]
