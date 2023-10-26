@@ -123,14 +123,7 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
-- [x] better site generation
-- [X] updater
-- [X] advanced site generation
-- [x] website downloader
-- [x] website Script File Downloader
-- [X] easy documentation reader
-- [X] bigger site list
-- [X] better option pharser
+- [ ] GUI
 - [ ] WebUi
 - [ ] Webscraper
 
