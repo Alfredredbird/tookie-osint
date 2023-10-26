@@ -1,9 +1,10 @@
 """
 Server receiver of the file
 """
-import socket
-import tqdm
 import os
+import socket
+
+import tqdm
 
 # device's IP address
 SERVER_HOST = "0.0.0.0"

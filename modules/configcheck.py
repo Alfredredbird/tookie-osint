@@ -1,33 +1,34 @@
 import os
 import random
-from colorama import *
 import time
+
+from colorama import *
+
+
 #
-#This Module does config stuff
+# This Module does config stuff
 #
 def configC():
     # checks if the nesasary files exist
- if os.path.exists("./config/config.ini") == True:
-    print("Config File exists")
- else:
-    print("Cant Find Nesasary Files. Trying To Reinstall Alfred")
-    time.sleep(4)
-    with open("./config/version.cfg", "w") as f:
-        f.write("Reinstalling............")
-    exec(open("./update.py").read())
-    
+    if os.path.exists("./config/config.ini") == True:
+        print("Config File exists")
+    else:
+        print("Cant Find Nesasary Files. Trying To Reinstall Alfred")
+        time.sleep(4)
+        with open("./config/version.cfg", "w") as f:
+            f.write("Reinstalling............")
+        exec(open("./update.py").read())
 
- if os.path.exists("./update.py") == True:
-    print("Update File exists")
- else:
-    print("Cant Find Nesasary Files. Try Reinstalling Alfred")
-    exit(1)
+    if os.path.exists("./update.py") == True:
+        print("Update File exists")
+    else:
+        print("Cant Find Nesasary Files. Try Reinstalling Alfred")
+        exit(1)
 
- # opens the config and gets the version number
- with open("./config/version.cfg", "r") as fp:
-    version = fp.read()
-    return version
- 
+    # opens the config and gets the version number
+    with open("./config/version.cfg", "r") as fp:
+        version = fp.read()
+        return version
 
 
 def configUpdateStuff(config):
@@ -45,14 +46,20 @@ def configUpdateStuff(config):
             exec(open("./update.py").read())
         elif "N" in cfu or "n" in cfu:
             print("Ok! Ill Ask Later....")
-            print(Fore.RESET+ """
+            print(
+                Fore.RESET
+                + """
 ===========================================================================
-                  """)
+                  """
+            )
         else:
             print("Not Sure What You Ment. Ill Ask Later")
-            print(Fore.RESET+ """
+            print(
+                Fore.RESET
+                + """
 ===========================================================================
-                  """)
+                  """
+            )
     getNum = random.randint(1, 10)
     # asks the user if they want to enable updates
     if config.get("main", "checkforupdates") == "no":
@@ -71,8 +78,7 @@ def configUpdateStuff(config):
     if getNum == 3 and config.get("main", "showtips") == "yes":
         # this gets the random tip to display on the screen
         randomTip = random.choice(open("./config/tips.txt").readlines())
-        print(randomTip) 
-
+        print(randomTip)
 
 
 # this is the module that edits the configuration file. needs to be cleaned up tho
@@ -85,11 +91,15 @@ def configEditor(config):
     if editConfigAwnser == "y" or editConfigAwnser == "Y":
         # options
         print("")
-        print("===========================================================================")
+        print(
+            "==========================================================================="
+        )
         print("[1] Check for updates: " + str(config.get("main", "checkforupdates")))
         print("[2] Show tips: " + str(config.get("main", "showtips")))
         print("[3] Site Download Path: " + str(config.get("main", "defaultDlPath")))
-        print("===========================================================================")
+        print(
+            "==========================================================================="
+        )
         print("[A] Clean Up Alfred. (This Removes Temporary Files)")
         print("")
         # gets input
@@ -132,20 +142,24 @@ def configEditor(config):
                 config.set("main", "showtips", str(newpath))
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
-                    return True    
+                    return True
         if editConfig == "A" or editConfig == "a":
-            #deletes the downloaded files
+            # deletes the downloaded files
             dirDump(globalPath(config))
             print("Done!")
-            print("===========================================================================")
+            print(
+                "==========================================================================="
+            )
             print("")
     if editConfigAwnser == "n" or editConfigAwnser == "N":
         print("Aww ok")
 
+
 def globalPath(config):
     config.read("./config/config.ini")
-    path = config.get("main","defaultDlPath")
+    path = config.get("main", "defaultDlPath")
     return path
+
 
 def dirDump(mydir):
     filelist = [f for f in os.listdir(mydir)]
