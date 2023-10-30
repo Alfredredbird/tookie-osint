@@ -21,6 +21,7 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
+
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 
 # variables
@@ -48,13 +49,13 @@ siteList = []
 siteNSFW = []
 # gets the version of Alfred
 version = configC()
-#gets the defualt browser and system information 
+# gets the defualt browser and system information
 browser = get_default_browser()
 print(browser)
 # this prints the start up screen and passes the verion varaible in
-print_logoscreen(version,config)
+print_logoscreen(version, config)
 # does config stuff
-configUpdateStuff(config,browser)
+configUpdateStuff(config, browser)
 # this is the variable that gets the username
 uname = input("Target: ⤷ ")
 # This is where we gather the inputed options and then run them.
@@ -84,8 +85,8 @@ while test != True:
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
             "--read": [read_save, [slectpath]],
-            "--Clear": [logo, [uname, version,config]],
-            "clear": [logo, [uname, version,config]],
+            "--Clear": [logo, [uname, version, config]],
+            "clear": [logo, [uname, version, config]],
         }
         valid = [key for key in action.keys()]
         for option in valid:
@@ -127,7 +128,7 @@ while test != True:
         if "-ec" in input1:
             ec = 1
         if "-w" in input1:
-            webscrape = True  
+            webscrape = True
         if "-O" in input1 or "-o" in input1:
             slectpath = Path.home() / str(input("PATH: ⤷ "))
             file_path = os.path.join(slectpath)
@@ -155,7 +156,7 @@ while test != True:
                 exit(69)
         if "--Wiki" in input1:
             wiki()
-            logo(uname, version,config)
+            logo(uname, version, config)
         # code to display all error codes
         if "-a" in input1:
             modes += input1
@@ -171,7 +172,7 @@ while test != True:
         # code to acses Dark Alfred
         if "-Tor" in input1:
             darkAlfred(console, uname)
-            logo(uname,version,config)
+            logo(uname, version, config)
 
     # checks for empty input
     if "" in input1 and inputnum != "":
@@ -180,9 +181,9 @@ while test != True:
 # creates the save file
 
 file_name = "captured.alfred"
-file_path = os.path.join(globalPath(config,1), file_name)
+file_path = os.path.join(globalPath(config, 1), file_name)
 # check if the directory exists
-if os.path.exists(globalPath(config,1)):
+if os.path.exists(globalPath(config, 1)):
     # creates the file
     print(" ")
     print("Creating / Overwriting Save File.")
@@ -206,7 +207,7 @@ if fastMode == 3:
 print(Fore.GREEN + "searching for sites with: " + uname + Fore.RESET)
 print("===========================================================")
 if webscrape == True:
-    print(Fore.RED + "Note!" + Fore.RESET +" Using The Webscraper Is Pretty Slow.")
+    print(Fore.RED + "Note!" + Fore.RESET + " Using The Webscraper Is Pretty Slow.")
     print("===========================================================")
 print("")
 siteCount = 0
@@ -227,6 +228,7 @@ connectionError(cError, f)
 # calculates the percentage
 def is_what_percent_of(num_a, num_b):
     return (num_a / num_b) * 100
+
 
 print("")
 print("===========================================================")

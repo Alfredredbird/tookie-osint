@@ -11,7 +11,7 @@ import platform
 import os
 
 
-def print_logoscreen(version,config):
+def print_logoscreen(version, config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
     prerelease = config.get("main", "prerelease")
@@ -86,22 +86,17 @@ def print_logoscreen(version,config):
     )
     print("")
     print("     " + "Host:" + "                                    Prerelease:")
-    print(
-        "     "
-        + str(platform.node())
-        + "                       "
-        + prerelease
-    )
+    print("     " + str(platform.node()) + "                       " + prerelease)
     print("")
     print("")
     print("     " + "Browser:" + "                                 Python Version:")
     print(
-        "     " +browser
+        "     "
+        + browser
         + "                                     "
         + platform.python_version()
         + "                               "
         + "                                "
-        
     )
     print("")
     print(
@@ -126,7 +121,7 @@ Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your conne
         print("""===========================================================""")
 
 
-def logo(uname, version,config):
+def logo(uname, version, config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
     prerelease = config.get("main", "prerelease")
@@ -202,22 +197,17 @@ def logo(uname, version,config):
     )
     print("")
     print("     " + "Host:" + "                                    Prerelease:")
-    print(
-        "     "
-        + str(platform.node())
-        + "                       "
-        + prerelease
-    )
+    print("     " + str(platform.node()) + "                       " + prerelease)
     print("")
     print("")
     print("     " + "Browser:" + "                                 Python Version:")
     print(
-        "     " +browser
+        "     "
+        + browser
         + "                                     "
         + platform.python_version()
         + "                               "
         + "                                "
-        
     )
     print("")
     print("             The Target Username: " + uname + Fore.RESET)
@@ -226,8 +216,6 @@ def logo(uname, version,config):
         + "==========================================================================="
     )
     print(" ")
-
-    
 
 
 def print_help():

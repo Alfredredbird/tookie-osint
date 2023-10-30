@@ -4,6 +4,8 @@ import time
 
 from colorama import *
 import time
+
+
 #
 # This Module does config stuff
 #
@@ -30,15 +32,22 @@ def configC():
         return version
 
 
-def configUpdateStuff(config,browser):
+def configUpdateStuff(config, browser):
     config.read("./config/config.ini")
 
-    #checks to see if the user is running a Pre or if its Alfreds first launch.
+    # checks to see if the user is running a Pre or if its Alfreds first launch.
     if config.get("main", "firstlaunch") == "yes":
-        print(Fore.RED + "Note!" + Fore.RESET +" This Is Your First Launch :D You Might Need To Restart Alfred To Use All The Modules")
+        print(
+            Fore.RED
+            + "Note!"
+            + Fore.RESET
+            + " This Is Your First Launch :D You Might Need To Restart Alfred To Use All The Modules"
+        )
         print("")
     if config.get("main", "prerelease") == "yes":
-        print(Fore.RED + "Note!" + Fore.RESET +" You Are Using A Prerelease Of Alfred!")
+        print(
+            Fore.RED + "Note!" + Fore.RESET + " You Are Using A Prerelease Of Alfred!"
+        )
         print("Kindly Report Any Bugs Or Errors To Our Repo Or Discord Server. ")
         print("")
     # this is the function to update the code
@@ -86,19 +95,19 @@ def configUpdateStuff(config,browser):
 
     if config.get("main", "browser") != "":
         if config.get("main", "firstlaunch") != "no":
-            config.set("main", "firstlaunch", "no") 
+            config.set("main", "firstlaunch", "no")
             config.get("main", "browser")
-            
-            if  browser == "MSEdgeHTM":
+
+            if browser == "MSEdgeHTM":
                 browser = "Edge"
-                config.set("main", "browser", browser)    
+                config.set("main", "browser", browser)
                 with open("./config/config.ini", "w") as f:
-                    config.write(f)       
-    if config.get("main", "firstlaunch") == "yes":  
-                config.set("main", "firstlaunch", "no") 
-                config.set("main", "browser", browser)    
-                with open("./config/config.ini", "w") as f:
-                    config.write(f) 
+                    config.write(f)
+    if config.get("main", "firstlaunch") == "yes":
+        config.set("main", "firstlaunch", "no")
+        config.set("main", "browser", browser)
+        with open("./config/config.ini", "w") as f:
+            config.write(f)
 
     if getNum == 3 and config.get("main", "showtips") == "yes":
         # this gets the random tip to display on the screen
