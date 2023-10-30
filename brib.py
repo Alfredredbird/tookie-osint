@@ -95,6 +95,8 @@ while test != True:
                 args = action[option][1]
                 action[option][0](*args)
 
+        if "-w" in input1:
+            webscrape = True
         if "-S" in input1:
             print(
                 "Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk."
@@ -182,9 +184,9 @@ while test != True:
 # creates the save file
 
 file_name = "captured.alfred"
-file_path = os.path.join(globalPath(config, 1), file_name)
+file_path = os.path.join("./captured/", file_name)
 # check if the directory exists
-if os.path.exists(globalPath(config, 1)):
+if os.path.exists("./captured/"):
     # creates the file
     print(" ")
     print("Creating / Overwriting Save File.")
@@ -219,8 +221,9 @@ with open(file_path, "r+") as f:
         with console.status("Working....") as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
+            siteErrors= site["errorMessage"]
             Startscan(
-                modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars
+                modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars,webscrape,siteErrors
             )
 # checks for a connection error and prints
 connectionError(cError, f)
