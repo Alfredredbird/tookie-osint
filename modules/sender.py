@@ -1,10 +1,11 @@
 """
 Client that sends the file (uploads)
 """
-import socket
-import tqdm
-import os
 import argparse
+import os
+import socket
+
+import tqdm
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 1024 * 4  # 4KB

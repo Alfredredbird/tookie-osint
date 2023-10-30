@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
 
 from __future__ import print_function
+
+import os
+import site
+import time
 from configparser import ConfigParser
-from time import sleep
-from rich.console import Console
-from alive_progress import *
-from timeit import default_timer
-from colorama import Fore, Back, Style
 from pathlib import Path
 from socket import socket
+from time import sleep
+from timeit import default_timer
+
+from alive_progress import *
+from colorama import Back, Fore, Style
+from rich.console import Console
+
+from modules.configcheck import *
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
-from modules.configcheck import *
-from modules.webscrape import *
-import os
-import time
-import site
 
-#cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
+# cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 
 # variables
 domain_extensions = False
@@ -44,8 +46,7 @@ ars = ""
 # These stores the loaded site info
 siteList = []
 siteNSFW = []
-siteErrors = []
-#gets the version of Alfred
+# gets the version of Alfred
 version = configC()
 
 #gets the defualt browser and system information 
@@ -87,8 +88,8 @@ while test != True:
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
             "--read": [read_save, [slectpath]],
-            "--Clear": [logo, [uname,version]],
-            "clear": [logo, [uname,version]],
+            "--Clear": [logo, [uname, version]],
+            "clear": [logo, [uname, version]],
         }
         valid = [key for key in action.keys()]
         for option in valid:
@@ -97,16 +98,18 @@ while test != True:
                 action[option][0](*args)
 
         if "-S" in input1:
-            print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk." )
-            dirDump(globalPath(config,0))
+            print(
+                "Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk."
+            )
+            dirDump(globalPath(config))
             time.sleep(2)
             siteDownloader()
             time.sleep(4)
             print("Downloading CSS")
-            scriptDownloader(globalPath(config,0)+"css_files.txt", ".css",count)
+            scriptDownloader(globalPath(config) + "css_files.txt", ".css", count)
             time.sleep(2)
             print("Downloading JS")
-            scriptDownloader(globalPath(config,0)+"javascript_files.txt", ".js",count)
+            scriptDownloader(globalPath(config) + "javascript_files.txt", ".js", count)
             dv = input("Want To Download Images/Videos? ⤷ ")
             if "Y" in dv or "y" in dv:
                 print("Downlading Videos/Images")
@@ -156,7 +159,7 @@ while test != True:
                 exit(69)
         if "--Wiki" in input1:
             wiki()
-            logo(uname,version)
+            logo(uname, version)
         # code to display all error codes
         if "-a" in input1:
             modes += input1
@@ -212,20 +215,18 @@ if webscrape == True:
 print("")
 siteCount = 0
 # opens the save file and writes working sites to it
-try:
- with open(file_path, "w") as f:
+with open(file_path, "r+") as f:
     for site in siteList:
         siteCount += 1
         with console.status("Working....") as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
-            siteErrors = site["errorMessage"]
-            Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars,webscrape,siteErrors)
-except FileNotFoundError:
-    print("Cant Find Save File In: " + file_path)       
-except PermissionError:         
-    print("Cant Open Save File In: " + file_path)       
+            Startscan(
+                modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars
+            )
 # checks for a connection error and prints
+connectionError(cError, f)
+
 
 # calculates the percentage
 def is_what_percent_of(num_a, num_b):
@@ -241,4 +242,3 @@ if "Y" in startagain or "y" in startagain:
     exec(open("brib.py").read())
 elif "N" in startagain or "n" in startagain:
     exit()
-    

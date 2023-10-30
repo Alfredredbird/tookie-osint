@@ -6,11 +6,18 @@ from urllib.parse import urljoin
 from modules.configcheck import *
 from modules.webscrape import *
 from configparser import ConfigParser
+from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup as bs
+from colorama import *
+
+from modules.configcheck import *
 
 config = ConfigParser()
-#scan logic
-def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars,webscrape,siteErrors):
 
+# scan logic
+def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars,webscrape,siteErrors):
     try:
         headers = headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
@@ -75,7 +82,7 @@ def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars,
         requests.exceptions.InvalidURL,
         requests.exceptions.TooManyRedirects,
         requests.exceptions.ChunkedEncodingError,
-        requests.exceptions.ContentDecodingError
+        requests.exceptions.ContentDecodingError,
     ):
         connection_error = 1
         if "-a" in modes:
@@ -161,7 +168,6 @@ def scanFileList(siteList, slectpath):
 
 
 def fileShare():
-
     host = input("Host Server? [Y/N]: ⤷ ")
     if "Y" in host or "y" in host:
         print("Waiting To Connect To Host!")
@@ -174,7 +180,6 @@ def fileShare():
         print("Not Sure What You Ment.")
 
 
-
 def siteDownloader():
     input2 = input("SITE: ⤷ ")
     if input2 == "":
@@ -182,11 +187,13 @@ def siteDownloader():
     if input2 != "":
         try:
             url = str(input2)
-            #thanks to https://thepythoncode.com/code/extract-web-page-script-and-css-files-in-python for the code :D
+            # thanks to https://thepythoncode.com/code/extract-web-page-script-and-css-files-in-python for the code :D
             # initialize a session
             session = requests.Session()
             # set the User-agent as a regular browser
-            session.headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+            session.headers[
+                "User-Agent"
+            ] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
 
             # get the HTML content
             html = session.get(url).content
@@ -198,45 +205,45 @@ def siteDownloader():
             script_files = []
 
             for script in soup.find_all("script"):
-             if script.attrs.get("src"):
-                 # if the tag has the attribute 'src'
-                 script_url = urljoin(url, script.attrs.get("src"))
-                 script_files.append(script_url)
+                if script.attrs.get("src"):
+                    # if the tag has the attribute 'src'
+                    script_url = urljoin(url, script.attrs.get("src"))
+                    script_files.append(script_url)
 
-# get the CSS files
+            # get the CSS files
             css_files = []
 
             for css in soup.find_all("link"):
-             if css.attrs.get("href"):
-                # if the link tag has the 'href' attribute
-                 css_url = urljoin(url, css.attrs.get("href"))
-                 css_files.append(css_url)
-
+                if css.attrs.get("href"):
+                    # if the link tag has the 'href' attribute
+                    css_url = urljoin(url, css.attrs.get("href"))
+                    css_files.append(css_url)
 
             print("Total script files in the page:", len(script_files))
             print("Total CSS files in the page:", len(css_files))
 
             # write file links into files
-            with open(globalPath(config,0)+"javascript_files.txt", "w") as f:
-                for js_file in script_files:
-                     print(js_file, file=f)
 
-            with open(globalPath(config,0)+"css_files.txt", "w") as f:
+            with open(globalPath(config,0)+"javascript_files.txt", "w") as f:
+
+                for js_file in script_files:
+                    print(js_file, file=f)
+
+            with open(globalPath(config) + "css_files.txt", "w") as f:
+
                 for css_file in css_files:
                     print(css_file, file=f)
         except requests.exceptions.ConnectionError:
             print("Error Downloading Web Content!")
         except requests.exceptions.RetryError:
-            print("Error Downloading Web Content!")    
+            print("Error Downloading Web Content!")
         except requests.exceptions.HTTPError:
             print("Error Downloading Web Content!")
         except requests.exceptions.InvalidURL:
             print("Error Downloading Web Content!")
         except ConnectionError:
-            print("Error")            
+            print("Error")
         except requests.exceptions.RequestException:
             print("Error Downloading Web Content!")
         except ValueError:
             print("Unknow URL!")
-        
-        

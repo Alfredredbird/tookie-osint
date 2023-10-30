@@ -1,7 +1,7 @@
 import os
-import requests
 import time
 
+import requests
 
 # variables
 version = ""
@@ -42,8 +42,8 @@ if alfred_version != version:
     # delets the files listed in udfl
     for item in udfl:
         try:
-         if "/update.py" not in udfl:
-            os.remove(item)
+            if "/update.py" not in udfl:
+                os.remove(item)
         except FileExistsError:
             print("skipping: " + item)
         except FileNotFoundError:
