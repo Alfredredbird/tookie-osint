@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.safari.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
@@ -59,39 +60,6 @@ def get_default_browser():
         return get_default_browser_linux()
     else:
         return "Unknown"
-
-# if __name__ == '__main__':
-#     default_browser = get_default_browser()
-
-#     if default_browser:
-#         print(f"Your default web browser is: {default_browser}")
-#     else:
-#         print("Unable to determine the default web browser.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #web scraper
 def scrape(url, target_error_message, selected_webdriver):
     try:
@@ -126,41 +94,17 @@ def scrape(url, target_error_message, selected_webdriver):
         elements = driver.find_elements(By.XPATH, f"//*[contains(text(), \"{target_error_message}\")]")
 
         if elements:
-            #f"Found the error message: '{target_error_message}'"
+           
             there = "Yes"
-            # print(f"Found the error message: '{target_error_message}'")
-            print(f"Found the error message: '{target_error_message} {url}'")
+             # line 133 is for dev testing
+            # print(f"Found the error message: '{target_error_message} {url}'")
             return there
         else: #f"Error message '{target_error_message}' not found on the page."
             there = "No"
-            print(f"Error message '{target_error_message}' not found on the page. '{url}'")
+            # line 138 is for dev testing
+            # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
             return there
 
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
-
-
-
-# website_url = 'https://www.twitch.tv/dfglpdzxgkjdhzfkzdfghxcfkjghxkzdjfgh'  # Replace with the URL you want to scrape
-# error_to_find = "Sorry"
-
-# selected_webdriver = select_webdriver()
-# if selected_webdriver:
-#         result = scrape(website_url, error_to_find, selected_webdriver)
-
-#         if result:
-#             print(result)
-# config = ConfigParser()
-# config.read("./config/config.ini")
-#      #error message to find
-# error_to_find = "Sorry"
-#             #combineds to make url
-# website_url = "https://twitch.tv/dzsjkdfgjhzsdfgjhzsdgfjhzsgdfjhGSdfh"
-# #gets driver from the configconfig.read("./config/config.ini")
-# selected_webdriver = config.get("main", "browser")
-# if selected_webdriver:
-#     result = scrape(website_url, error_to_find, selected_webdriver)
-
-# if result:
-#     print(result)
