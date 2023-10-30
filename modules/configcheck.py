@@ -32,6 +32,15 @@ def configC():
 
 def configUpdateStuff(config,browser):
     config.read("./config/config.ini")
+
+    #checks to see if the user is running a Pre or if its Alfreds first launch.
+    if config.get("main", "firstlaunch") == "yes":
+        print(Fore.RED + "Note!" + Fore.RESET +" This Is Your First Launch :D You Might Need To Restart Alfred To Use All The Modules")
+        print("")
+    if config.get("main", "prerelease") == "yes":
+        print(Fore.RED + "Note!" + Fore.RESET +" You Are Using A Prerelease Of Alfred!")
+        print("Kindly Report Any Bugs Or Errors To Our Repo Or Discord Server. ")
+        print("")
     # this is the function to update the code
     x = random.randint(1, 4)
     if x == 3 and config.get("main", "checkforupdates") == "yes":
@@ -85,6 +94,12 @@ def configUpdateStuff(config,browser):
                 config.set("main", "browser", browser)    
                 with open("./config/config.ini", "w") as f:
                     config.write(f)       
+    if config.get("main", "firstlaunch") == "yes":  
+                config.set("main", "firstlaunch", "no") 
+                config.set("main", "browser", browser)    
+                with open("./config/config.ini", "w") as f:
+                    config.write(f) 
+
     if getNum == 3 and config.get("main", "showtips") == "yes":
         # this gets the random tip to display on the screen
         randomTip = random.choice(open("./config/tips.txt").readlines())

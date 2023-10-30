@@ -6,3 +6,4 @@ torrequest
 tqdm
 bs4
 wget
+selenium

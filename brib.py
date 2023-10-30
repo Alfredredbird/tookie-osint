@@ -20,7 +20,7 @@ from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
-
+from modules.webscrape import *
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 
 # variables
@@ -48,13 +48,9 @@ siteList = []
 siteNSFW = []
 # gets the version of Alfred
 version = configC()
-
 #gets the defualt browser and system information 
 browser = get_default_browser()
-
-
-# clears the terminal when Alfred is ran
-# os.system("cls" if os.name == "nt" else "clear")
+print(browser)
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version,config)
 # does config stuff

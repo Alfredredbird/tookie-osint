@@ -14,6 +14,7 @@ import os
 def print_logoscreen(version,config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
+    prerelease = config.get("main", "prerelease")
     print(
         Fore.RED
         + """   
@@ -74,28 +75,30 @@ def print_logoscreen(version,config):
         + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
     )
     print(Fore.RESET + " ")
-    print("     " + "OS:" + "                                      Host:")
+    print("     " + "OS:" + "                                      Alfred Version:")
     print(
         "     "
         + platform.system()
         + " "
         + platform.release()
-        + "                               "
-        + str(platform.node())
-    )
-    print("")
-    print("     " + "Python Version:" + "                          Alfred Version:")
-    print(
-        "     "
-        + platform.python_version()
-        + "                                   "
+        + "                            "
         + version
     )
-    print("     " + "Browser:" + "                                 Prerelease:")
+    print("")
+    print("     " + "Host:" + "                                    Prerelease:")
+    print(
+        "     "
+        + str(platform.node())
+        + "                       "
+        + prerelease
+    )
+    print("")
+    print("")
+    print("     " + "Browser:" + "                                 Python Version:")
     print(
         "     " +browser
-        + " "
-        + "                                    Yes"
+        + "                                     "
+        + platform.python_version()
         + "                               "
         + "                                "
         
@@ -126,6 +129,7 @@ Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your conne
 def logo(uname, version,config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
+    prerelease = config.get("main", "prerelease")
     os.system("cls" if os.name == "nt" else "clear")
     print(
         Fore.RED
@@ -193,34 +197,37 @@ def logo(uname, version,config):
         + platform.system()
         + " "
         + platform.release()
-        + "                               "
+        + "                            "
         + version
-    )
-    print("     ")
-    print("     " + "Browser:" + "                                      Prerelease:")
-    print("     ")
-    print(
-        "     "
-        + browser
-        + " "
-        + "Yes"
-        + "                               "
-        + version
-    )
-    print("     " + "Python Version:" + "                          Host:")
-    print(
-        "     "
-        + platform.python_version()
-        + "                                   "
-        + str(platform.node())
     )
     print("")
+    print("     " + "Host:" + "                                    Prerelease:")
+    print(
+        "     "
+        + str(platform.node())
+        + "                       "
+        + prerelease
+    )
+    print("")
+    print("")
+    print("     " + "Browser:" + "                                 Python Version:")
+    print(
+        "     " +browser
+        + "                                     "
+        + platform.python_version()
+        + "                               "
+        + "                                "
+        
+    )
+    print("")
+    print("             The Target Username: " + uname + Fore.RESET)
     print(
         Fore.RESET
         + "==========================================================================="
     )
     print(" ")
-    print("             The Target Username: " + uname + Fore.RESET)
+
+    
 
 
 def print_help():
