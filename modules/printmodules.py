@@ -11,7 +11,9 @@ import platform
 import os
 
 
-def print_logoscreen(version):
+def print_logoscreen(version,config):
+    config.read("./config/config.ini")
+    browser = config.get("main", "browser")
     print(
         Fore.RED
         + """   
@@ -72,21 +74,31 @@ def print_logoscreen(version):
         + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
     )
     print(Fore.RESET + " ")
-    print("     " + "OS:" + "                                      Alfred Version:")
+    print("     " + "OS:" + "                                      Host:")
     print(
         "     "
         + platform.system()
         + " "
         + platform.release()
         + "                               "
-        + version
+        + str(platform.node())
     )
-    print("     " + "Python Version:" + "                          Host:")
+    print("")
+    print("     " + "Python Version:" + "                          Alfred Version:")
     print(
         "     "
         + platform.python_version()
         + "                                   "
-        + str(platform.node())
+        + version
+    )
+    print("     " + "Browser:" + "                                 Prerelease:")
+    print(
+        "     " +browser
+        + " "
+        + "                                    Yes"
+        + "                               "
+        + "                                "
+        
     )
     print("")
     print(
@@ -111,7 +123,9 @@ Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your conne
         print("""===========================================================""")
 
 
-def logo(uname, version):
+def logo(uname, version,config):
+    config.read("./config/config.ini")
+    browser = config.get("main", "browser")
     os.system("cls" if os.name == "nt" else "clear")
     print(
         Fore.RED
@@ -183,6 +197,16 @@ def logo(uname, version):
         + version
     )
     print("     ")
+    print("     " + "Browser:" + "                                      Prerelease:")
+    print("     ")
+    print(
+        "     "
+        + browser
+        + " "
+        + "Yes"
+        + "                               "
+        + version
+    )
     print("     " + "Python Version:" + "                          Host:")
     print(
         "     "

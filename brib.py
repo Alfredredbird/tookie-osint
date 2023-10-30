@@ -56,7 +56,7 @@ browser = get_default_browser()
 # clears the terminal when Alfred is ran
 # os.system("cls" if os.name == "nt" else "clear")
 # this prints the start up screen and passes the verion varaible in
-print_logoscreen(version)
+print_logoscreen(version,config)
 # does config stuff
 configUpdateStuff(config,browser)
 # this is the variable that gets the username
@@ -88,8 +88,8 @@ while test != True:
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
             "--read": [read_save, [slectpath]],
-            "--Clear": [logo, [uname, version]],
-            "clear": [logo, [uname, version]],
+            "--Clear": [logo, [uname, version,config]],
+            "clear": [logo, [uname, version,config]],
         }
         valid = [key for key in action.keys()]
         for option in valid:
@@ -159,7 +159,7 @@ while test != True:
                 exit(69)
         if "--Wiki" in input1:
             wiki()
-            logo(uname, version)
+            logo(uname, version,config)
         # code to display all error codes
         if "-a" in input1:
             modes += input1
@@ -175,7 +175,7 @@ while test != True:
         # code to acses Dark Alfred
         if "-Tor" in input1:
             darkAlfred(console, uname)
-            logo(uname)
+            logo(uname,version,config)
 
     # checks for empty input
     if "" in input1 and inputnum != "":
