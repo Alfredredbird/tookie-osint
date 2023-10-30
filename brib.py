@@ -46,6 +46,7 @@ inputnum = ""
 ars = ""
 # These stores the loaded site info
 siteList = []
+siteErrors = []
 siteNSFW = []
 # gets the version of Alfred
 version = configC()
