@@ -14,6 +14,7 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.configcheck import *
+from modules.webscrape import *
 import os
 import time
 import site
@@ -25,6 +26,7 @@ domain_extensions = False
 alist = True
 test = False
 testall = False
+webscrape = False
 fastMode = 0
 cError = 0
 count = 0
@@ -42,14 +44,20 @@ ars = ""
 # These stores the loaded site info
 siteList = []
 siteNSFW = []
+siteErrors = []
 #gets the version of Alfred
 version = configC()
+
+#gets the defualt browser and system information 
+browser = get_default_browser()
+
+
 # clears the terminal when Alfred is ran
-os.system("cls" if os.name == "nt" else "clear")
+# os.system("cls" if os.name == "nt" else "clear")
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version)
 # does config stuff
-configUpdateStuff(config)
+configUpdateStuff(config,browser)
 # this is the variable that gets the username
 uname = input("Target: ⤷ ")
 # This is where we gather the inputed options and then run them.
@@ -90,15 +98,15 @@ while test != True:
 
         if "-S" in input1:
             print("Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk." )
-            dirDump(globalPath(config))
+            dirDump(globalPath(config,0))
             time.sleep(2)
             siteDownloader()
             time.sleep(4)
             print("Downloading CSS")
-            scriptDownloader(globalPath(config)+"css_files.txt", ".css",count)
+            scriptDownloader(globalPath(config,0)+"css_files.txt", ".css",count)
             time.sleep(2)
             print("Downloading JS")
-            scriptDownloader(globalPath(config)+"javascript_files.txt", ".js",count)
+            scriptDownloader(globalPath(config,0)+"javascript_files.txt", ".js",count)
             dv = input("Want To Download Images/Videos? ⤷ ")
             if "Y" in dv or "y" in dv:
                 print("Downlading Videos/Images")
@@ -119,6 +127,8 @@ while test != True:
                     holder = 1
         if "-ec" in input1:
             ec = 1
+        if "-w" in input1:
+            webscrape = True  
         if "-O" in input1 or "-o" in input1:
             slectpath = Path.home() / str(input("PATH: ⤷ "))
             file_path = os.path.join(slectpath)
@@ -169,11 +179,11 @@ while test != True:
         test = True
     inputnum = ""
 # creates the save file
-dir_path = Path.home() / "Downloads"
-file_name = "usernames.alfred"
-file_path = os.path.join(dir_path, file_name)
+
+file_name = "captured.alfred"
+file_path = os.path.join(globalPath(config,1), file_name)
 # check if the directory exists
-if os.path.exists(dir_path):
+if os.path.exists(globalPath(config,1)):
     # creates the file
     print(" ")
     print("Creating / Overwriting Save File.")
@@ -195,23 +205,35 @@ if fastMode == 3:
     scanFileList(siteList, "./sites/Megasites.json")
 # prints ui stuff
 print(Fore.GREEN + "searching for sites with: " + uname + Fore.RESET)
+print("===========================================================")
+if webscrape == True:
+    print(Fore.RED + "Note!" + Fore.RESET +" Using The Webscraper Is Pretty Slow.")
+    print("===========================================================")
 print("")
 siteCount = 0
 # opens the save file and writes working sites to it
-with open(file_path, "w") as f:
+try:
+ with open(file_path, "w") as f:
     for site in siteList:
         siteCount += 1
         with console.status("Working....") as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
-            Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars)
+            siteErrors = site["errorMessage"]
+            Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars,webscrape,siteErrors)
+except FileNotFoundError:
+    print("Cant Find Save File In: " + file_path)       
+except PermissionError:         
+    print("Cant Open Save File In: " + file_path)       
 # checks for a connection error and prints
-connectionError(cError, f)
+
 # calculates the percentage
 def is_what_percent_of(num_a, num_b):
     return (num_a / num_b) * 100
 
-
+print("")
+print("===========================================================")
+print("")
 print("Saved Results To File")
 # Asks to be ran again
 startagain = input("Run Again?: [Y/N] ⤷ ")

@@ -1,23 +1,17 @@
 # this is the function to generate the site list. we moved it from the ./modules.py file to help shorten its length.
-
-import os
-from os import walk
-import urllib
-import time
 from colorama import *
-from pathlib import Path
 from bs4 import BeautifulSoup as bs
 import requests
-import json
-from rich.console import Console
-from torrequest import TorRequest
 from os import listdir
 from os.path import isfile, join
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup as bs
-from bs4 import BeautifulSoup
-import wget
-import random
+from modules.configcheck import *
+from configparser import ConfigParser
+#variables 
+config = ConfigParser()
+
+
 def siteListGen(console, testall, get_random_string, domain_extensions, uname):
 
     input2 = input("CHAR: ⤷ ")
@@ -123,7 +117,7 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
             siteError = 0
             # print(siteLst)
             i = 0
-            f = open("working.txt", "w")
+            f = open(globalPath(config, 1)+"working.txt", "w")
             while i != len(siteLst):
                 try:
                     r = requests.get(siteLst[i], timeout=1)
@@ -174,7 +168,7 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
                         + str(trys)
                     )
                 except KeyboardInterrupt():
-                    print("Stopping..... Saved To alfred/working.txt")
+                    print("Stopping..... Saved To captured/working.txt")
                 # tbh its 11 at night rn and idk what i+=1 does
                 i += 1
             print(str(siteError) + " Not Working Sites...")

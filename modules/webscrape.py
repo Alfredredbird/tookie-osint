@@ -1,0 +1,166 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.remote.remote_connection import LOGGER
+from configparser import ConfigParser
+import logging
+import subprocess
+import os
+import platform
+def get_default_browser_windows():
+    try:
+        browser_key = r'Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice'
+        with os.popen(f'reg query "HKEY_CURRENT_USER\\{browser_key}" /v ProgId') as reg_query:
+            output = reg_query.read()
+        browser_name = output.split()[-1].strip()
+        return browser_name
+    except Exception:
+        return None
+
+
+def get_default_browser_mac():
+    try:
+        command = "osascript -e 'get id of app id \"com.apple.Safari\"'"
+        output = subprocess.check_output(command, shell=True, text=True)
+        if "Safari" in output:
+            return "Safari"
+        else:
+            return "Unknown"
+    except Exception:
+        return None
+
+
+def get_default_browser_linux():
+    try:
+        # Check the BROWSER environment variable
+        browser = os.getenv("BROWSER")
+        if browser:
+            return browser
+        # Try using xdg-settings
+        xdg_browser_command = "xdg-settings get default-web-browser"
+        browser = os.popen(xdg_browser_command).read().strip()
+        if browser:
+            return browser
+        return "Unknown"
+    except Exception:
+        return None
+    
+
+
+def get_default_browser():
+    os_name = platform.system()
+    if os_name == "Windows":
+        return get_default_browser_windows()
+    elif os_name == "Darwin":  # macOS
+        return get_default_browser_mac()
+    elif os_name == "Linux":
+        return get_default_browser_linux()
+    else:
+        return "Unknown"
+
+# if __name__ == '__main__':
+#     default_browser = get_default_browser()
+
+#     if default_browser:
+#         print(f"Your default web browser is: {default_browser}")
+#     else:
+#         print("Unable to determine the default web browser.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#web scraper
+def scrape(url, target_error_message, selected_webdriver):
+    try:
+        # Set the log level to suppress webdriver console output
+        LOGGER.setLevel(logging.ERROR)
+
+        if selected_webdriver == "Chrome":
+            chrome_options = Options()
+            chrome_options.add_argument("--headless")
+            chrome_options.headless = True
+            chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            driver = webdriver.Chrome(options=chrome_options)
+        elif selected_webdriver == "Firefox":
+            firefox_options = FirefoxOptions()
+            firefox_options.add_argument("--headless")
+            firefox_options.headless = True
+            firefox_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            driver = webdriver.Firefox(options=firefox_options)
+        elif selected_webdriver == "Edge":
+            edge_options = EdgeOptions()
+            edge_options.use_chromium = True
+            edge_options.add_argument("--headless")
+            edge_options.headless = True
+            edge_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            driver = webdriver.Edge(options=edge_options)
+        else:
+            print("Invalid webdriver selection.")
+            return None
+
+        driver.get(url)
+        driver.implicitly_wait(10)
+        elements = driver.find_elements(By.XPATH, f"//*[contains(text(), \"{target_error_message}\")]")
+
+        if elements:
+            #f"Found the error message: '{target_error_message}'"
+            there = "Yes"
+            # print(f"Found the error message: '{target_error_message}'")
+            print(f"Found the error message: '{target_error_message} {url}'")
+            return there
+        else: #f"Error message '{target_error_message}' not found on the page."
+            there = "No"
+            print(f"Error message '{target_error_message}' not found on the page. '{url}'")
+            return there
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+
+
+# website_url = 'https://www.twitch.tv/dfglpdzxgkjdhzfkzdfghxcfkjghxkzdjfgh'  # Replace with the URL you want to scrape
+# error_to_find = "Sorry"
+
+# selected_webdriver = select_webdriver()
+# if selected_webdriver:
+#         result = scrape(website_url, error_to_find, selected_webdriver)
+
+#         if result:
+#             print(result)
+# config = ConfigParser()
+# config.read("./config/config.ini")
+#      #error message to find
+# error_to_find = "Sorry"
+#             #combineds to make url
+# website_url = "https://twitch.tv/dzsjkdfgjhzsdfgjhzsdgfjhzsgdfjhGSdfh"
+# #gets driver from the configconfig.read("./config/config.ini")
+# selected_webdriver = config.get("main", "browser")
+# if selected_webdriver:
+#     result = scrape(website_url, error_to_find, selected_webdriver)
+
+# if result:
+#     print(result)

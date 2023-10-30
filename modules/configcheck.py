@@ -2,6 +2,7 @@ import os
 import random
 from colorama import *
 import time
+
 #
 #This Module does config stuff
 #
@@ -30,7 +31,7 @@ def configC():
  
 
 
-def configUpdateStuff(config):
+def configUpdateStuff(config,browser):
     config.read("./config/config.ini")
     # this is the function to update the code
     x = random.randint(1, 4)
@@ -68,6 +69,17 @@ def configUpdateStuff(config):
                 print("Ok! Ill Ask Later....")
             else:
                 print("Not Sure What You Ment. Ill Ask Later")
+
+    if config.get("main", "browser") != "":
+        if config.get("main", "firstlaunch") != "no":
+            config.set("main", "firstlaunch", "no") 
+            config.get("main", "browser")
+            
+            if  browser == "MSEdgeHTM":
+                browser = "Edge"
+                config.set("main", "browser", browser)    
+                with open("./config/config.ini", "w") as f:
+                    config.write(f)       
     if getNum == 3 and config.get("main", "showtips") == "yes":
         # this gets the random tip to display on the screen
         randomTip = random.choice(open("./config/tips.txt").readlines())
@@ -89,6 +101,7 @@ def configEditor(config):
         print("[1] Check for updates: " + str(config.get("main", "checkforupdates")))
         print("[2] Show tips: " + str(config.get("main", "showtips")))
         print("[3] Site Download Path: " + str(config.get("main", "defaultDlPath")))
+        print("[4] Site Username Capture Path: " + str(config.get("main", "defaultCapturePath")))
         print("===========================================================================")
         print("[A] Clean Up Alfred. (This Removes Temporary Files)")
         print("")
@@ -129,24 +142,36 @@ def configEditor(config):
             # update config path logic
             if config.get("main", "defaultDlPath") != "":
                 newpath = input("New Path: ⤷ ")
-                config.set("main", "showtips", str(newpath))
+                config.set("main", "defaultDlPath", str(newpath))
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
                     return True    
+        if editConfig == "4":
+            # update config path logic
+            if config.get("main", "defaultCapturePath") != "":
+                newpath = input("New Path: ⤷ ")
+                config.set("main", "defaultCapturePath", str(newpath))
+                with open("./config/config.ini", "w") as f:
+                    config.write(f)
+                    return True          
         if editConfig == "A" or editConfig == "a":
             #deletes the downloaded files
-            dirDump(globalPath(config))
+            dirDump(globalPath(config,0))
             print("Done!")
             print("===========================================================================")
             print("")
     if editConfigAwnser == "n" or editConfigAwnser == "N":
         print("Aww ok")
 
-def globalPath(config):
+def globalPath(config, num):
     config.read("./config/config.ini")
-    path = config.get("main","defaultDlPath")
-    return path
-
+    if num == 0:
+        path = config.get("main","defaultDlPath")
+        return path
+    elif num == 1:
+        path = config.get("main","defaultCapturePath")
+        return path
+    
 def dirDump(mydir):
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:

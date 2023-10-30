@@ -12,7 +12,8 @@ sites/fsites.json
 requirements.txt
 sites/sites.json
 sites/siteList.json
-working.txt
+captured/working.txt
+captured/captured.txt
 proxys/http.txt
 proxys/proxylist.txt
 proxys/socks4.txt

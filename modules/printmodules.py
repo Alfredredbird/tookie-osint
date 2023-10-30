@@ -1,5 +1,6 @@
 from colorama import *
 from modules.modules import *
+from modules.webscrape import *
 import time
 import platform
 import os
@@ -49,22 +50,12 @@ Fore.RESET +"""
     print("     " + "Python Version:" + "                          Host:")
     print("     " + platform.python_version() + "                                   " + str(platform.node()) )
     print("")
+    print("     " + "Browser:" + "")
+    print("     " + get_default_browser() + "                                   ")
+    print("")
     print(Fore.RESET+ "===========================================================================")
     print(" ")
     
-
-
-def connectionError(cError, f):
-    if cError >= 5:
-        print(Fore.RED + """
-===========================================================
-Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :
-===========================================================""")
-        
-    if cError <= 5:
-        f.close
-        print("""===========================================================""")
-
 
 
 def logo(uname, version):
@@ -112,6 +103,9 @@ Fore.RESET +"""
     print("     ")
     print("     " + "Python Version:" + "                          Host:")
     print("     " + platform.python_version() + "                                   " + str(platform.node()) )
+    print("")
+    print("     " + "Browser:" + "")
+    print("     " + get_default_browser() + "                                   ")
     print("")
     print(Fore.RESET+ "===========================================================================")
     print(" ")
@@ -166,6 +160,7 @@ Usage: [USERNAME]                               //\    //\
         -m  |        | Runs A Scan From The Big Site List
         -O  |        | Checks Accounts From A List
         -d  |        | (Allows Redirects "Might Not Be Accutate")
+        -w  |        | (Allows Alfred To Webscrape)
 ------------+--------+------------------------------------------
    [PROXIES]:        |                                          
         -c  |        | (Connects To A Proxy Server)             
