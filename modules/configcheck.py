@@ -176,7 +176,8 @@ def configEditor(config):
                 print("""Types Supported:
                          Firefox
                          Edge
-                         Chrome""")
+                         Chrome
+                         """)
                 newbrowser = input("Browser: ⤷ ")
                 config.set("main", "browser", str(newbrowser))
                 with open("./config/config.ini", "w") as f:
