@@ -93,7 +93,7 @@ def print_logoscreen(version, config):
     print(
         "     "
         + browser
-        + "                                "
+        + "                                     "
         + platform.python_version()
         + "                               "
         + "                                "
@@ -204,7 +204,7 @@ def logo(uname, version, config):
     print(
         "     "
         + browser
-        + "                                "
+        + "                                            "
         + platform.python_version()
         + "                               "
         + "                                "

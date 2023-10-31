@@ -10,10 +10,14 @@ import logging
 import subprocess
 import os
 import platform
+
+
 def get_default_browser_windows():
     try:
-        browser_key = r'Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice'
-        with os.popen(f'reg query "HKEY_CURRENT_USER\\{browser_key}" /v ProgId') as reg_query:
+        browser_key = r"Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice"
+        with os.popen(
+            f'reg query "HKEY_CURRENT_USER\\{browser_key}" /v ProgId'
+        ) as reg_query:
             output = reg_query.read()
         browser_name = output.split()[-1].strip()
         return browser_name
@@ -47,7 +51,6 @@ def get_default_browser_linux():
         return "Unknown"
     except Exception:
         return None
-    
 
 
 def get_default_browser():
@@ -60,7 +63,9 @@ def get_default_browser():
         return get_default_browser_linux()
     else:
         return "Unknown"
-#web scraper
+
+
+# web scraper
 def scrape(url, target_error_message, selected_webdriver):
     try:
         # Set the log level to suppress webdriver console output
@@ -70,13 +75,17 @@ def scrape(url, target_error_message, selected_webdriver):
             chrome_options = Options()
             chrome_options.add_argument("--headless")
             chrome_options.headless = True
-            chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            chrome_options.add_experimental_option(
+                "excludeSwitches", ["enable-logging"]
+            )
             driver = webdriver.Chrome(options=chrome_options)
         elif selected_webdriver == "Firefox":
             firefox_options = FirefoxOptions()
             firefox_options.add_argument("--headless")
             firefox_options.headless = True
-            firefox_options.add_experimental_option("excludeSwitches", ["enable-logging"])
+            firefox_options.add_experimental_option(
+                "excludeSwitches", ["enable-logging"]
+            )
             driver = webdriver.Firefox(options=firefox_options)
         elif selected_webdriver == "Edge":
             edge_options = EdgeOptions()
@@ -91,20 +100,19 @@ def scrape(url, target_error_message, selected_webdriver):
 
         driver.get(url)
         driver.implicitly_wait(10)
-        elements = driver.find_elements(By.XPATH, f"//*[contains(text(), \"{target_error_message}\")]")
-
+        elements = driver.find_elements(
+            By.XPATH, f'//*[contains(text(), "{target_error_message}")]'
+        )
         if elements:
-           
             there = "Yes"
-             # line 133 is for dev testing
+            # line 133 is for dev testing
             # print(f"Found the error message: '{target_error_message} {url}'")
             return there
-        else: #f"Error message '{target_error_message}' not found on the page."
+        else:  # f"Error message '{target_error_message}' not found on the page."
             there = "No"
             # line 138 is for dev testing
             # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
             return there
-
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
