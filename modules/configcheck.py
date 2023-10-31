@@ -128,6 +128,7 @@ def configEditor(config):
             "==========================================================================="
         )
         print("[A] Clean Up Alfred. (This Removes Temporary Files)")
+        print("[B] Developer Tools.")
         print("")
         # gets input
         editConfig = input("What Do You Want To Change? ⤷ ")
@@ -191,6 +192,19 @@ def configEditor(config):
                 "==========================================================================="
             )
             print("")
+        if editConfig == "B" or editConfig == "b":
+            print(
+            "==========================================================================="
+             )
+            print("Welcome To The Developer Menu!")
+            print("")
+            print("DONT Give The Following Keys To Anyone But A Alfred Developer.")
+            print("privatekey: " + str(config.get("main", "privatekey")))
+            print("syscrypt: " + str(config.get("main", "syscrypt")))
+            print("")
+            print(
+            "==========================================================================="
+        )
     if editConfigAwnser == "n" or editConfigAwnser == "N":
         print("Aww ok")
 

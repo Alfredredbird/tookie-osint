@@ -17,6 +17,7 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
+from modules.crypt import *
 
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
@@ -48,6 +49,13 @@ browser = get_default_browser()
 print(browser)
 # gets the version of Alfred
 version = configC()
+#gets the info to encrypt
+syskey =  platform.system()+ platform.release() +"-AlfredVer-"+ configC()+"-"+platform.python_version()+"-"+browser
+#encrypts the key
+encrypted_text = encrypt(syskey)
+print("Encrypting key...")
+#logs the key
+saveInfo(config,encrypted_text)  
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version, config)
 # does config stuff
