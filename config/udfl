@@ -13,7 +13,7 @@ requirements.txt
 sites/sites.json
 sites/siteList.json
 captured/working.txt
-captured/captured.txt
+captured/captured.alfred
 proxys/http.txt
 proxys/proxylist.txt
 proxys/socks4.txt
@@ -26,3 +26,5 @@ modules/recive.py
 modules/__init__.py
 modules/siteListGen.py
 modules/configcheck.py
+modules/webscrape.py
+modules/crypt.py
