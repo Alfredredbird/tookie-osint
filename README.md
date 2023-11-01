@@ -118,6 +118,7 @@ There Is A Lot Lol
 - tqdm
 - bs4
 - selenium
+- cryptography
   
 
 
