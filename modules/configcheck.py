@@ -58,10 +58,11 @@ def configUpdateStuff(config, browser):
         print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
 
     if config.get("main", "checkforupdates") == "yes":
-        cfu = input("Check For Updates? [y/n]: ⤷ ")
-        if "Y" in cfu or "y" in cfu:
+        try:
+         cfu = input("Check For Updates? [y/n]: ⤷ ")
+         if "Y" in cfu or "y" in cfu:
             exec(open("./update.py").read())
-        elif "N" in cfu or "n" in cfu:
+         elif "N" in cfu or "n" in cfu:
             print("Ok! Ill Ask Later....")
             print(
                 Fore.RESET
@@ -69,7 +70,7 @@ def configUpdateStuff(config, browser):
 ===========================================================================
                   """
             )
-        else:
+         else:
             print("Not Sure What You Ment. Ill Ask Later")
             print(
                 Fore.RESET
@@ -77,6 +78,15 @@ def configUpdateStuff(config, browser):
 ===========================================================================
                   """
             )
+        except KeyboardInterrupt:
+            config.set("main", "firstlaunch", "no")
+            if browser == "MSEdgeHTM":
+                browser = "Edge"
+            config.set("main", "browser", browser)
+            with open("./config/config.ini", "w") as f:
+                config.write(f)
+            exit(1)   
+
     getNum = random.randint(1, 10)
     # asks the user if they want to enable updates
     if config.get("main", "checkforupdates") == "no":

@@ -18,7 +18,7 @@ from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
 from modules.crypt import *
-
+import datetime
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
 domain_extensions = False
@@ -40,6 +40,7 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
+date = datetime.date.today()
 # These stores the loaded site info
 siteList = []
 siteErrors = []
@@ -214,13 +215,14 @@ if webscrape == True:
 print("")
 siteCount = 0
 # opens the save file and writes working sites to it
-with open(file_path, "r+") as f:
+with open(file_path, "a") as f:
     for site in siteList:
         siteCount += 1
         with console.status("Working....") as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
             siteErrors = site["errorMessage"]
+            f.write(str(date))    
             Startscan(
                 modes,
                 siteN,
@@ -233,7 +235,9 @@ with open(file_path, "r+") as f:
                 ars,
                 webscrape,
                 siteErrors,
+                date
             )
+        
 # checks for a connection error and prints
 connectionError(cError, f)
 

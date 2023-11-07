@@ -17,7 +17,7 @@ from modules.configcheck import *
 config = ConfigParser()
 
 # scan logic
-def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars,webscrape,siteErrors):
+def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars,webscrape,siteErrors,date):
     try:
         headers = headers = {
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
@@ -93,6 +93,7 @@ def Startscan(modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW,ars,
     except KeyboardInterrupt:
         print("""===========================================================""")
         print("Stopping........")
+        f.write(str(date))
         f.close
         print("Saved Results To File")
         exit(99)
