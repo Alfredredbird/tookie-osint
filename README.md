@@ -30,13 +30,13 @@ If you want to contribute, make a fork and make a pull request to submit your ch
 The requirements will Automatically Be Installed.
 
     git clone https://github.com/alfredredbird/alfred
-    cd alfred && sudo pip install -r requirements.txt
+    cd alfred && sudo pip3 install -r requirements.txt
     python3 brib.py
 # 📦 Manual Install 
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
-    cd alfred && sudo pip install -r requirements.txt
+    cd alfred && sudo pip3 install -r requirements.txt
     python3 brib.py
 
 # 📦 Termux Install
@@ -45,7 +45,7 @@ The requirements will Automatically Be Installed.
     ln -s storage/downloads Downloads
     
     git clone https://github.com/alfredredbird/alfred
-    cd alfred && pip install -r requirements.txt
+    cd alfred && pip3 install -r requirements.txt
     python3 brib.py
      
 # 💻 Tested OS:
@@ -118,6 +118,7 @@ There Is A Lot Lol
 - tqdm
 - bs4
 - selenium
+- cryptography
   
 
 
