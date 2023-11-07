@@ -50,10 +50,6 @@ browser = get_default_browser()
 print(browser)
 # gets the version of Alfred
 version = configC()
-#installs the chrome driver
-setup_chromedriver()
-#instalsl gecko driver
-setup_geckodriver()
 #gets the info to encrypt
 syskey =  platform.system()+ platform.release() +"-AlfredVer-"+ configC()+"-"+platform.python_version()+"-"+browser
 #encrypts the key

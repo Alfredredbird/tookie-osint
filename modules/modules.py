@@ -16,12 +16,6 @@ from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
 
-import shutil
-import zipfile
-import requests
-from pathlib import Path
-from selenium import webdriver
-
 from modules.configcheck import *
 
 config = ConfigParser()
@@ -477,46 +471,3 @@ def get_random_string(length):
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
-
-def setup_chromedriver():
-    # Define the download URL for ChromeDriver
-    chrome_driver_url = "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
-
-    # Specify the destination directory for the ChromeDriver executable
-    chromedriver_path = "/usr/local/bin/chromedriver"
-
-    # Download and extract ChromeDriver
-    download_and_extract(chrome_driver_url, chromedriver_path)
-
-def setup_geckodriver():
-    # Define the download URL for GeckoDriver
-    gecko_driver_url = "https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz"
-
-    # Specify the destination directory for the GeckoDriver executable
-    geckodriver_path = "/usr/local/bin/geckodriver"
-
-    # Download and extract GeckoDriver
-    download_and_extract(gecko_driver_url, geckodriver_path)
-
-def download_and_extract(driver_url, destination_path):
-    # Check if the WebDriver executable already exists
-    if Path(destination_path).is_file():
-        print(f"{destination_path} already exists. Skipping download.")
-        return
-
-    # Download the WebDriver archive
-    response = requests.get(driver_url, stream=True)
-    with open("/tmp/driver.zip", "wb") as driver_file:
-        for chunk in response.iter_content(chunk_size=1024):
-            if chunk:
-                driver_file.write(chunk)
-
-    # Extract the WebDriver from the downloaded archive
-    with zipfile.ZipFile("/tmp/driver.zip", "r") as zip_ref:
-        zip_ref.extractall(destination_path)
-
-    # Set execute permissions
-    os.chmod(destination_path, 0o775)
-
-    # Clean up temporary files
-    os.remove("/tmp/driver.zip")
