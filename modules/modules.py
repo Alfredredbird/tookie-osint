@@ -16,6 +16,12 @@ from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
 
+import shutil
+import zipfile
+import requests
+from pathlib import Path
+from selenium import webdriver
+
 from modules.configcheck import *
 
 config = ConfigParser()
