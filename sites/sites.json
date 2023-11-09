@@ -218,44 +218,44 @@
 {"site": "https://www.smule.com/", "nsfw": "false","errorMessage": "Right tune, wrong note!"}
 {"site": "https://www.snapchat.com/add/", "nsfw": "false","errorMessage": "This content was not found"}
 {"site": "https://soundcloud.com/", "nsfw": "false","errorMessage": "We can’t find that user."}
-{"site": "https://sourceforge.net/u/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://soylentnews.org/~", "nsfw": "false","errorMessage": "none"}
-{"site": "https://speedrun.com/user/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://splice.com/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://splits.io/users/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://www.sportlerfrage.net/nutzer/", "nsfw": "false","errorMessage": "none"}
+{"site": "https://sourceforge.net/u/", "nsfw": "false","errorMessage": "Whoops, we can't find that page."}
+{"site": "https://soylentnews.org/~", "nsfw": "false","errorMessage": "The user you requested does not exist, no matter how much you wish this might be the case."}
+{"site": "https://speedrun.com/user/", "nsfw": "false","errorMessage": "NOT FOUND"}
+{"site": "https://splice.com/", "nsfw": "false","errorMessage": "The page you were looking for could not be found."}
+{"site": "https://splits.io/users/", "nsfw": "false","errorMessage": "This page doesn't exist."}
+{"site": "https://www.sportlerfrage.net/nutzer/", "nsfw": "false","errorMessage": "Hoppla!"}
 {"site": "https://www.sports.ru/profile/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://open.spotify.com/user/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://robertsspaceindustries.com/citizens/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://steamcommunity.com/groups/", "nsfw": "false","errorMessage": "none"}
+{"site": "https://open.spotify.com/user/", "nsfw": "false","errorMessage": "Page not found"}
+{"site": "https://robertsspaceindustries.com/citizens/", "nsfw": "false","errorMessage": "NAVIGATING UNCHARTED TERRITORY"}
+{"site": "https://steamcommunity.com/groups/", "nsfw": "false","errorMessage": "Sorry!"}
 {"site": "https://www.strava.com/athletes/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://forum.sublimetext.com/u/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://ch.tetr.io/u/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tldrlegal.com/users/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://traktrain.com/", "nsfw": "false","errorMessage": "none"}
+{"site": "https://forum.sublimetext.com/u/", "nsfw": "false","errorMessage": "Oops! That page doesn’t exist or is private."}
+{"site": "https://ch.tetr.io/u/", "nsfw": "false","errorMessage": "No such user!"}
+{"site": "https://tldrlegal.com/users/", "nsfw": "false","errorMessage": "Oops... something went wrong."}
+{"site": "https://traktrain.com/", "nsfw": "false","errorMessage": "Mistyped URL"}
 {"site": "https://t.me/", "nsfw": "false","errorMessage": "none"}
 {"site": "https://tellonym.me/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tenor.com/users/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://themeforest.net/user/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tiktok.com/@", "nsfw": "false","errorMessage": "none"}
-{"site": "https://www.tnaflix.com/profile/", "nsfw": "True","errorMessage": "none"}
-{"site": "https://www.tradingview.com/u/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://www.trakt.tv/users/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://trashbox.ru/users/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://traewelling.de/@", "nsfw": "false","errorMessage": "none"}
-{"site": "https://trello.com/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://trello.com/1/Members/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tryhackme.com/p/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tryhackme.com/api/user/exist/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tuna.voicemod.net/user/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://tweakers.net/gallery/", "nsfw": "True","errorMessage": "none"}
-{"site": "https://twitter.com/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://nitter.net/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://x.com/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://data.typeracer.com/pit/profile?user=", "nsfw": "false","errorMessage": "none"}
-{"site": "https://ultimate-guitar.com/u/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://unsplash.com/@", "nsfw": "false","errorMessage": "none"}
-{"site": "https://vk.com/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://www.quora.com/profile/", "nsfw": "false","errorMessage": "none"}
-{"site": "https://vsco.co/", "nsfw": "false","errorMessage": "none"}
+{"site": "https://tenor.com/users/", "nsfw": "false","errorMessage": "We could not find the page you were looking for."}
+{"site": "https://themeforest.net/user/", "nsfw": "false","errorMessage": "404 - Nothing to see here"}
+{"site": "https://tiktok.com/@", "nsfw": "false","errorMessage": "Couldn't find this account"}
+{"site": "https://www.tnaflix.com/profile/", "nsfw": "True","errorMessage": "Welcome to our most secret page"}
+{"site": "https://www.tradingview.com/u/", "nsfw": "false","errorMessage": "https://www.tnaflix.com/profile/askdjasgdjasgjasggjs"}
+{"site": "https://www.trakt.tv/users/", "nsfw": "false","errorMessage": "Come, my lord, you are a long way from home and winter is coming."}
+{"site": "https://trashbox.ru/users/", "nsfw": "false","errorMessage": "404 — NOT FOUND"}
+{"site": "https://traewelling.de/@", "nsfw": "false","errorMessage": "Not Found"}
+{"site": "https://trello.com/", "nsfw": "false","errorMessage": "Page not found."}
+{"site": "https://trello.com/1/Members/", "nsfw": "false","errorMessage": "Oh no! 404!"}
+{"site": "https://tryhackme.com/p/", "nsfw": "false","errorMessage": "Nothing to see here"}
+{"site": "https://tryhackme.com/api/user/exist/", "nsfw": "false","errorMessage": "false"}
+{"site": "https://tuna.voicemod.net/user/", "nsfw": "false","errorMessage": "The page you are looking for could not be found."}
+{"site": "https://tweakers.net/gallery/", "nsfw": "false","errorMessage": "404 Not Found"}
+{"site": "https://twitter.com/", "nsfw": "false","errorMessage": "Hmm...this page doesn’t exist. Try searching for something else."}
+{"site": "https://nitter.net/", "nsfw": "false","errorMessage": "Page not found"}
+{"site": "https://x.com/", "nsfw": "false","errorMessage": "This account doesn’t exist"}
+{"site": "https://data.typeracer.com/pit/profile?user=", "nsfw": "false","errorMessage": "Profile Not Found"}
+{"site": "https://ultimate-guitar.com/u/", "nsfw": "false","errorMessage": "Oops! We couldn't find that page."}
+{"site": "https://unsplash.com/@", "nsfw": "false","errorMessage": "Page Not Found"}
+{"site": "https://vk.com/", "nsfw": "false","errorMessage": "Page Not Found"}
+{"site": "https://www.quora.com/profile/", "nsfw": "false","errorMessage": "Page Not Found"}
+{"site": "https://vsco.co/", "nsfw": "false","errorMessage": "Gone astray?"}
 {"site": "https://truthsocial.com/@", "nsfw": "false","errorMessage": "none"}

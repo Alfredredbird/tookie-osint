@@ -81,12 +81,12 @@ def print_logoscreen(version, config):
         + platform.system()
         + " "
         + platform.release()
-        + "                            "
+        + "                               "
         + version
     )
     print("")
     print("     " + "Host:" + "                                    Prerelease:")
-    print("     " + str(platform.node()) + "                       " + prerelease)
+    print("     " + str(platform.node()) + "                              " + prerelease)
     print("")
     print("")
     print("     " + "Browser:" + "                                 Python Version:")
@@ -192,25 +192,25 @@ def logo(uname, version, config):
         + platform.system()
         + " "
         + platform.release()
-        + "                            "
+        + "                               "
         + version
     )
     print("")
     print("     " + "Host:" + "                                    Prerelease:")
-    print("     " + str(platform.node()) + "                       " + prerelease)
+    print("     " + str(platform.node()) + "                              " + prerelease)
     print("")
     print("")
     print("     " + "Browser:" + "                                 Python Version:")
     print(
         "     "
         + browser
-        + "                                     "
+        + "                                            "
         + platform.python_version()
         + "                               "
         + "                                "
     )
     print("")
-    print("             The Target Username: " + uname + Fore.RESET)
+    print("                The Target Username: " + uname + Fore.RESET)
     print(
         Fore.RESET
         + "==========================================================================="

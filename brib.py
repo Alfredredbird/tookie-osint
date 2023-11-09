@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-
 from __future__ import print_function
-
 import os
 import site
 import time
@@ -10,20 +8,18 @@ from pathlib import Path
 from socket import socket
 from time import sleep
 from timeit import default_timer
-
 from alive_progress import *
 from colorama import Back, Fore, Style
 from rich.console import Console
-
 from modules.configcheck import *
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
-
+from modules.crypt import *
+import datetime
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
-
 # variables
 domain_extensions = False
 alist = True
@@ -44,15 +40,23 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
+date = datetime.date.today()
 # These stores the loaded site info
 siteList = []
 siteErrors = []
 siteNSFW = []
-# gets the version of Alfred
-version = configC()
 # gets the defualt browser and system information
 browser = get_default_browser()
 print(browser)
+# gets the version of Alfred
+version = configC()
+#gets the info to encrypt
+syskey =  platform.system()+ platform.release() +"-AlfredVer-"+ configC()+"-"+platform.python_version()+"-"+browser
+#encrypts the key
+encrypted_text = encrypt(syskey)
+print("Encrypting key...")
+#logs the key
+saveInfo(config,encrypted_text)  
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version, config)
 # does config stuff
@@ -94,7 +98,6 @@ while test != True:
             if option in input1:
                 args = action[option][1]
                 action[option][0](*args)
-
         if "-w" in input1:
             webscrape = True
         if "-S" in input1:
@@ -176,13 +179,11 @@ while test != True:
         if "-Tor" in input1:
             darkAlfred(console, uname)
             logo(uname, version, config)
-
     # checks for empty input
     if "" in input1 and inputnum != "":
         test = True
     inputnum = ""
 # creates the save file
-
 file_name = "captured.alfred"
 file_path = os.path.join("./captured/", file_name)
 # check if the directory exists
@@ -192,7 +193,6 @@ if os.path.exists("./captured/"):
     print("Creating / Overwriting Save File.")
 else:
     print("Directory doesn't exist.")
-
 # determins what list of sites to use.
 if fastMode == 0:
     # fastmode0 is the default scan mode
@@ -215,16 +215,29 @@ if webscrape == True:
 print("")
 siteCount = 0
 # opens the save file and writes working sites to it
-with open(file_path, "r+") as f:
+with open(file_path, "a") as f:
     for site in siteList:
         siteCount += 1
         with console.status("Working....") as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
-            siteErrors= site["errorMessage"]
+            siteErrors = site["errorMessage"]
+            f.write(str(date))    
             Startscan(
-                modes, siteN, uname, cError, ec, f, siteProgcounter, siteNSFW, ars,webscrape,siteErrors
+                modes,
+                siteN,
+                uname,
+                cError,
+                ec,
+                f,
+                siteProgcounter,
+                siteNSFW,
+                ars,
+                webscrape,
+                siteErrors,
+                date
             )
+        
 # checks for a connection error and prints
 connectionError(cError, f)
 

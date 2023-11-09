@@ -20,8 +20,7 @@ The main idea of Alfred is to discover usernames that are requested from an inpu
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by me and is available for your use. 
 I do not take responsibility for any malicious actions and or responsibility caused by my tool. :(
-Please note that Alfred was created to help new programers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimised for python 10 so we are working on updating all of the modules to python 12
-If you want to contribute, make a fork and make a pull request to submit your changes. :D I am proud to anounce that Alfred has over 700 weekly downloads!
+Please note that Alfred was created to help new programers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimised for python 12. If you want to contribute, make a fork and make a pull request to submit your changes. :D I am proud to anounce that Alfred has over 700 weekly downloads!
 
 ![Screen Shot 2023-08-25 at 9 37 36 PM](https://github.com/Alfredredbird/alfred/assets/105014217/136c266d-ba5f-478c-9bbf-ad4d0f5c5ad3)
 
@@ -30,14 +29,16 @@ If you want to contribute, make a fork and make a pull request to submit your ch
 The requirements will Automatically Be Installed.
 
     git clone https://github.com/alfredredbird/alfred
-    cd alfred && sudo pip install -r requirements.txt
+    cd alfred && sudo pip3 install -r requirements.txt
     python3 brib.py
 # 📦 Manual Install 
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
-    cd alfred && sudo pip install -r requirements.txt
+    cd alfred && sudo pip3 install -r requirements.txt
     python3 brib.py
+
+    or download the Windows Installer Here: https://github.com/Alfredredbird/alfred/releases/download/v2.2(a)/alfred-installer.exe
 
 # 📦 Termux Install
     
@@ -45,7 +46,7 @@ The requirements will Automatically Be Installed.
     ln -s storage/downloads Downloads
     
     git clone https://github.com/alfredredbird/alfred
-    cd alfred && pip install -r requirements.txt
+    cd alfred && pip3 install -r requirements.txt
     python3 brib.py
      
 # 💻 Tested OS:
@@ -117,6 +118,8 @@ There Is A Lot Lol
 - torrequest
 - tqdm
 - bs4
+- selenium
+- cryptography
   
 
 

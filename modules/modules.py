@@ -404,7 +404,7 @@ def scriptDownloader(sitePaths, extinsion, count):
         url = line
         r = requests.get(url, allow_redirects=True)
         try:
-            open(globalPath(config,0) + "file" + str(count) + extinsion, "wb").write(
+            open(globalPath(config, 0) + "file" + str(count) + extinsion, "wb").write(
                 r.content
             )
         except FileNotFoundError:
@@ -443,7 +443,7 @@ def download_videos(video_urls, output_directory):
 # Main function
 def imgandVidDownlaod(input2):
     url = input2
-    output_directory = (globalPath(config))
+    output_directory = globalPath(config)
 
     # Create the output directory if it doesn't exist
     os.makedirs(output_directory, exist_ok=True)
