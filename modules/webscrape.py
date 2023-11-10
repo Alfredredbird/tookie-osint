@@ -75,20 +75,26 @@ def scrape(url, target_error_message, selected_webdriver):
             chrome_options = Options()
             chrome_options.add_argument("--headless")
             chrome_options.headless = True
-            chrome_options.add_argument("--log-level=3")  # Set the log level to suppress logging
+            chrome_options.add_argument(
+                "--log-level=3"
+            )  # Set the log level to suppress logging
             driver = webdriver.Chrome(options=chrome_options)
         elif selected_webdriver == "Firefox":
             firefox_options = FirefoxOptions()
             firefox_options.add_argument("--headless")
             firefox_options.headless = True
-            firefox_options.add_argument("--log-level=3")  # Set the log level to suppress logging
+            firefox_options.add_argument(
+                "--log-level=3"
+            )  # Set the log level to suppress logging
             driver = webdriver.Firefox(options=firefox_options)
         elif selected_webdriver == "Edge":
             edge_options = EdgeOptions()
             edge_options.use_chromium = True
             edge_options.add_argument("--headless")
             edge_options.headless = True
-            edge_options.add_argument("--log-level=3")  # Set the log level to suppress logging
+            edge_options.add_argument(
+                "--log-level=3"
+            )  # Set the log level to suppress logging
             driver = webdriver.Edge(options=edge_options)
         else:
             print("Invalid webdriver selection.")
