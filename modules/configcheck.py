@@ -59,25 +59,25 @@ def configUpdateStuff(config, browser):
 
     if config.get("main", "checkforupdates") == "yes":
         try:
-         cfu = input("Check For Updates? [y/n]: ⤷ ")
-         if "Y" in cfu or "y" in cfu:
-            exec(open("./update.py").read())
-         elif "N" in cfu or "n" in cfu:
-            print("Ok! Ill Ask Later....")
-            print(
-                Fore.RESET
-                + """
+            cfu = input("Check For Updates? [y/n]: ⤷ ")
+            if "Y" in cfu or "y" in cfu:
+                exec(open("./update.py").read())
+            elif "N" in cfu or "n" in cfu:
+                print("Ok! Ill Ask Later....")
+                print(
+                    Fore.RESET
+                    + """
 ===========================================================================
                   """
-            )
-         else:
-            print("Not Sure What You Ment. Ill Ask Later")
-            print(
-                Fore.RESET
-                + """
+                )
+            else:
+                print("Not Sure What You Ment. Ill Ask Later")
+                print(
+                    Fore.RESET
+                    + """
 ===========================================================================
                   """
-            )
+                )
         except KeyboardInterrupt:
             config.set("main", "firstlaunch", "no")
             if browser == "MSEdgeHTM":
@@ -85,7 +85,7 @@ def configUpdateStuff(config, browser):
             config.set("main", "browser", browser)
             with open("./config/config.ini", "w") as f:
                 config.write(f)
-            exit(1)   
+            exit(1)
 
     getNum = random.randint(1, 10)
     # asks the user if they want to enable updates
@@ -106,7 +106,7 @@ def configUpdateStuff(config, browser):
     if config.get("main", "firstlaunch") == "yes":
         config.set("main", "firstlaunch", "no")
         if browser == "MSEdgeHTM":
-                browser = "Edge"
+            browser = "Edge"
         config.set("main", "browser", browser)
         with open("./config/config.ini", "w") as f:
             config.write(f)
@@ -184,16 +184,18 @@ def configEditor(config):
         if editConfig == "4":
             # update config path logic
             if config.get("main", "browser") != "":
-                print("""Types Supported:
+                print(
+                    """Types Supported:
                          Firefox
                          Edge
                          Chrome
-                         """)
+                         """
+                )
                 newbrowser = input("Browser: ⤷ ")
                 config.set("main", "browser", str(newbrowser))
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
-                    return True        
+                    return True
         if editConfig == "A" or editConfig == "a":
             # deletes the downloaded files
             dirDump(globalPath(config))
@@ -204,8 +206,8 @@ def configEditor(config):
             print("")
         if editConfig == "B" or editConfig == "b":
             print(
-            "==========================================================================="
-             )
+                "==========================================================================="
+            )
             print("Welcome To The Developer Menu!")
             print("")
             print("DONT Give The Following Keys To Anyone But A Alfred Developer.")
@@ -213,8 +215,8 @@ def configEditor(config):
             print("syscrypt: " + str(config.get("main", "syscrypt")))
             print("")
             print(
-            "==========================================================================="
-        )
+                "==========================================================================="
+            )
     if editConfigAwnser == "n" or editConfigAwnser == "N":
         print("Aww ok")
 
