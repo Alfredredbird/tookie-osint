@@ -86,7 +86,9 @@ def print_logoscreen(version, config):
     )
     print("")
     print("     " + "Host:" + "                                    Prerelease:")
-    print("     " + str(platform.node()) + "                              " + prerelease)
+    print(
+        "     " + str(platform.node()) + "                              " + prerelease
+    )
     print("")
     print("")
     print("     " + "Browser:" + "                                 Python Version:")
@@ -197,7 +199,9 @@ def logo(uname, version, config):
     )
     print("")
     print("     " + "Host:" + "                                    Prerelease:")
-    print("     " + str(platform.node()) + "                              " + prerelease)
+    print(
+        "     " + str(platform.node()) + "                              " + prerelease
+    )
     print("")
     print("")
     print("     " + "Browser:" + "                                 Python Version:")

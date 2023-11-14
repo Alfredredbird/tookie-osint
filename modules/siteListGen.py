@@ -121,7 +121,7 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
             siteError = 0
             # print(siteLst)
             i = 0
-            f = open(globalPath(config, 1)+"working.txt", "w")
+            f = open(globalPath(config, 1) + "working.txt", "w")
             while i != len(siteLst):
                 try:
                     r = requests.get(siteLst[i], timeout=1)
