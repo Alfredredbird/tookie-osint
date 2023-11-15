@@ -19,6 +19,7 @@ from modules.siteListGen import *
 from modules.webscrape import *
 from modules.crypt import *
 import datetime
+
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
 domain_extensions = False
@@ -50,13 +51,22 @@ browser = get_default_browser()
 print(browser)
 # gets the version of Alfred
 version = configC()
-#gets the info to encrypt
-syskey =  platform.system()+ platform.release() +"-AlfredVer-"+ configC()+"-"+platform.python_version()+"-"+browser
-#encrypts the key
+# gets the info to encrypt
+syskey = (
+    platform.system()
+    + platform.release()
+    + "-AlfredVer-"
+    + configC()
+    + "-"
+    + platform.python_version()
+    + "-"
+    + browser
+)
+# encrypts the key
 encrypted_text = encrypt(syskey)
 print("Encrypting key...")
-#logs the key
-saveInfo(config,encrypted_text)  
+# logs the key
+saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version, config)
 # does config stuff
@@ -222,7 +232,7 @@ with open(file_path, "a") as f:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
             siteErrors = site["errorMessage"]
-            f.write(str(date))    
+            
             Startscan(
                 modes,
                 siteN,
@@ -235,9 +245,9 @@ with open(file_path, "a") as f:
                 ars,
                 webscrape,
                 siteErrors,
-                date
+                date,
             )
-        
+
 # checks for a connection error and prints
 connectionError(cError, f)
 
@@ -250,7 +260,7 @@ def is_what_percent_of(num_a, num_b):
 print("")
 print("===========================================================")
 print("")
-print("Saved Results To File")
+print("Saved Results To ./captured/captured.alfred")
 # Asks to be ran again
 startagain = input("Run Again?: [Y/N] ⤷ ")
 if "Y" in startagain or "y" in startagain:
