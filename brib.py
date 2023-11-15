@@ -232,7 +232,6 @@ with open(file_path, "a") as f:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
             siteErrors = site["errorMessage"]
-            
             Startscan(
                 modes,
                 siteN,

@@ -11,12 +11,12 @@ import datetime
 import requests
 from bs4 import BeautifulSoup as bs
 from colorama import *
-
+import datetime
 from modules.configcheck import *
 
 config = ConfigParser()
-date = datetime.date.today()
 
+date = datetime.date.today()
 # scan logic
 def Startscan(
     modes,
@@ -119,127 +119,58 @@ def Startscan(
         exit(99)
     else:
         if webscrape == True:
-            if "-a" in modes:
-                if (
-                    response.status_code >= 400
-                    and response.status_code <= 510
-                    and result == "Yes"
-                ):
-                    print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
-                    f.write(str(date)+"[" + "-" + "] " + siteN + uname + "\n")
-                # if response.status_code == 406 and result == "Yes":
-                #     print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
-                #     f.write("[" + "-" + "] " + siteN + uname + "\n")
+         if "-a" in modes:
+            if response.status_code >= 400 and response.status_code <= 510 and result == "Yes":
+                print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
+                f.write(str(date)+"[" + "-" + "] " + siteN + uname + "\n")
+            # if response.status_code == 406 and result == "Yes":
+            #     print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
+            #     f.write("[" + "-" + "] " + siteN + uname + "\n")
 
-            if "-N" in modes:
-                if (
-                    response.status_code == 200
-                    and siteNSFW == "true"
-                    and result == "No"
-                ):
-                    print(
-                        "["
-                        + Fore.LIGHTMAGENTA_EX
-                        + "NSFW"
-                        + Fore.RESET
-                        + "] "
-                        + siteN
-                        + uname
-                        + "     "
-                        + Fore.RESET
-                    )
-                    f.write(str(date)+
-                        "[" + "+" + "] " + siteN + uname + "             NSFW" + "\n"
-                    )
-                if (
-                    response.status_code == 200
-                    and siteNSFW == "Unknown"
-                    and result == "No"
-                ):
-                    print(
-                        "["
-                        + Fore.BLACK
-                        + "NSFW?"
-                        + Fore.RESET
-                        + "] "
-                        + siteN
-                        + uname
-                        + "     "
-                        + Fore.RESET
-                    )
-                    f.write(str(date)+
-                        "[" + "+" + "] " + siteN + uname + "             NSFW?" + "\n"
-                    )
+         if "-N" in modes:
+            if response.status_code == 200 and siteNSFW == "true"  and result == "No":
+                print("["+ Fore.LIGHTMAGENTA_EX+ "NSFW"+ Fore.RESET+ "] "+ siteN+ uname+ "     "+ Fore.RESET)
+                f.write(str(date)+"[" + "+" + "] " + siteN + uname + "             NSFW" + "\n")
+            if response.status_code == 200 and siteNSFW == "Unknown" and result == "No":
+                print("["+ Fore.BLACK+ "NSFW?"+ Fore.RESET+ "] "+ siteN+ uname+ "     "+ Fore.RESET)
+                f.write(str(date)+"[" + "+" + "] " + siteN + uname + "             NSFW?" + "\n")
 
-                if (
-                    response.status_code == 200
-                    and siteNSFW == "false"
-                    and result == "No"
-                ):
-                    print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
-                    f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
-            if (
-                response.status_code >= 200
-                and response.status_code <= 390
-                and "-N" not in modes
-                and result == "No"
-            ):
+            if response.status_code == 200 and siteNSFW == "false" and result == "No":
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
-                return siteProgcounter
-            if response.status_code == 406 and "-N" not in modes and result == "No":
-                print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
-                f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
+         if response.status_code >= 200 and response.status_code <= 390 and "-N" not in modes and result == "No":
+            print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+            f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
+            return siteProgcounter
+         if response.status_code == 406 and "-N" not in modes and result == "No":
+            print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+            f.write("[" + "+" + "] " + siteN + uname + "\n")
         if webscrape == False:
-            if "-a" in modes:
-                if response.status_code >= 300 and response.status_code <= 510:
-                    print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
-                    f.write(str(date)+"[" + "-" + "] " + siteN + uname + "\n")
-                # if response.status_code == 406 and result == "Yes":
-                #     print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
-                #     f.write("[" + "-" + "] " + siteN + uname + "\n")
+         if "-a" in modes:
+            if response.status_code >= 300 and response.status_code <= 510:
+                print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
+                f.write(str(date)+"[" + "-" + "] " + siteN + uname + "\n")
+            # if response.status_code == 406 and result == "Yes":
+            #     print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
+            #     f.write("[" + "-" + "] " + siteN + uname + "\n")
 
-            if "-N" in modes:
-                if response.status_code == 200 and siteNSFW == "true":
-                    print(
-                        "["
-                        + Fore.LIGHTMAGENTA_EX
-                        + "NSFW"
-                        + Fore.RESET
-                        + "] "
-                        + siteN
-                        + uname
-                        + "     "
-                        + Fore.RESET
-                    )
-                    f.write(
-                        str(date)+"[" + "+" + "] " + siteN + uname + "             NSFW" + "\n"
-                    )
-                if response.status_code == 200 and siteNSFW == "Unknown":
-                    print(
-                        "["
-                        + Fore.BLACK
-                        + "NSFW?"
-                        + Fore.RESET
-                        + "] "
-                        + siteN
-                        + uname
-                        + "     "
-                        + Fore.RESET
-                    )
-                    f.write(
-                        str(date)+"[" + "+" + "] " + siteN + uname + "             NSFW?" + "\n"
-                    )
-                if response.status_code == 200 and siteNSFW == "false":
-                    print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
-                    f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
-            if response.status_code == 200 and "-N" not in modes:
+         if "-N" in modes:
+            if response.status_code == 200 and siteNSFW == "true":
+                print("["+ Fore.LIGHTMAGENTA_EX+ "NSFW"+ Fore.RESET+ "] "+ siteN+ uname+ "     "+ Fore.RESET)
+                f.write(str(date)+"[" + "+" + "] " + siteN + uname + "             NSFW" + "\n")
+            if response.status_code == 200 and siteNSFW == "Unknown":
+                print("["+ Fore.BLACK+ "NSFW?"+ Fore.RESET+ "] "+ siteN+ uname+ "     "+ Fore.RESET)
+                f.write(str(date)+"[" + "+" + "] " + siteN + uname + "             NSFW?" + "\n")
+            if response.status_code == 200 and siteNSFW == "false":
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
-                return siteProgcounter
-            if response.status_code == 406 and "-N" not in modes:
-                print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
-                f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
+         if response.status_code == 200 and "-N" not in modes:
+            print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+            f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")
+            return siteProgcounter
+         if response.status_code == 406 and "-N" not in modes:
+            print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+            f.write(str(date)+"[" + "+" + "] " + siteN + uname + "\n")    
 
 
 def scanFileList(siteList, slectpath):
