@@ -260,7 +260,7 @@ def is_what_percent_of(num_a, num_b):
 print("")
 print("===========================================================")
 print("")
-print("Saved Results To File")
+print("Saved Results To ./captured/captured.alfred")
 # Asks to be ran again
 startagain = input("Run Again?: [Y/N] ⤷ ")
 if "Y" in startagain or "y" in startagain:
