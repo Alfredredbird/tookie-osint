@@ -404,7 +404,7 @@ def scriptDownloader(sitePaths, extinsion, count):
         url = line
         r = requests.get(url, allow_redirects=True)
         try:
-            open(globalPath(config, 0) + "file" + str(count) + extinsion, "wb").write(
+            open(globalPath(config) + "file" + str(count) + extinsion, "wb").write(
                 r.content
             )
         except FileNotFoundError:

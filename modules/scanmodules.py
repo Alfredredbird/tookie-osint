@@ -245,7 +245,7 @@ def siteDownloader():
 
             # write file links into files
 
-            with open(globalPath(config, 0) + "javascript_files.txt", "w") as f:
+            with open(globalPath(config) + "javascript_files.txt", "w") as f:
                 for js_file in script_files:
                     print(js_file, file=f)
 
