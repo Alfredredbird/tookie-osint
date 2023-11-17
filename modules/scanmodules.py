@@ -1,18 +1,14 @@
-from colorama import *
-import requests
+import datetime
 import json
-from bs4 import BeautifulSoup as bs
-from urllib.parse import urljoin
-from modules.configcheck import *
-from modules.webscrape import *
 from configparser import ConfigParser
 from urllib.parse import urljoin
-import datetime
+
 import requests
 from bs4 import BeautifulSoup as bs
 from colorama import *
-import datetime
+
 from modules.configcheck import *
+from modules.webscrape import *
 
 config = ConfigParser()
 
