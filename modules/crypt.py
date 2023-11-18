@@ -1,6 +1,8 @@
-from cryptography.fernet import Fernet
-from configparser import ConfigParser
 import platform
+from configparser import ConfigParser
+
+from cryptography.fernet import Fernet
+
 from modules.configcheck import *
 
 config = ConfigParser()
