@@ -8,3 +8,5 @@ bs4
 wget
 selenium
 cryptography
+pre-commit
+black
