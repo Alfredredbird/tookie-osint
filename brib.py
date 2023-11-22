@@ -49,8 +49,15 @@ date = datetime.date.today()
 siteList = []
 siteErrors = []
 siteNSFW = []
-#checks that the folders exist. if not it creates them
-folders_to_create = ['config', 'captured', 'downloadedSites','modules','proxys','sites']
+# checks that the folders exist. if not it creates them
+folders_to_create = [
+    "config",
+    "captured",
+    "downloadedSites",
+    "modules",
+    "proxys",
+    "sites",
+]
 create_folders(folders_to_create)
 # gets the defualt browser and system information
 browser = get_default_browser()
@@ -200,7 +207,7 @@ while test != True:
         test = True
     inputnum = ""
 # creates the save file
-file_name = uname +".txt"
+file_name = uname + ".txt"
 file_path = os.path.join("./captured/", file_name)
 # check if the directory exists
 if os.path.exists("./captured/"):
