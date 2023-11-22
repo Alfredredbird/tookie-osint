@@ -231,6 +231,7 @@ def dirDump(mydir):
     for f in filelist:
         os.remove(os.path.join(mydir, f))
 
+
 def create_folders(folder_list):
     for folder in folder_list:
         if not os.path.exists(folder):
