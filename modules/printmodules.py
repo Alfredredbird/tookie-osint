@@ -6,9 +6,6 @@ from colorama import *
 
 from modules.modules import *
 from modules.webscrape import *
-import time
-import platform
-import os
 
 
 def print_logoscreen(version, config):

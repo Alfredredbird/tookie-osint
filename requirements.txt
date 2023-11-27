@@ -1,7 +1,7 @@
 colorama 
 requests
 rich 
-alive_progress
+alive-progress
 torrequest
 tqdm
 bs4

@@ -1,15 +1,15 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.remote.remote_connection import LOGGER
-from configparser import ConfigParser
 import logging
-import subprocess
 import os
 import platform
+import subprocess
+from configparser import ConfigParser
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.remote.remote_connection import LOGGER
 
 
 def get_default_browser_windows():

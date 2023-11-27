@@ -3,7 +3,6 @@ import random
 import time
 
 from colorama import *
-import time
 
 
 #
@@ -231,6 +230,7 @@ def dirDump(mydir):
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:
         os.remove(os.path.join(mydir, f))
+
 
 def create_folders(folder_list):
     for folder in folder_list:
