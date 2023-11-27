@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 from __future__ import print_function
-
-import datetime
 import os
 import site
 import time
@@ -10,18 +8,17 @@ from pathlib import Path
 from socket import socket
 from time import sleep
 from timeit import default_timer
-
 from alive_progress import *
 from colorama import Back, Fore, Style
 from rich.console import Console
-
 from modules.configcheck import *
-from modules.crypt import *
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
+from modules.crypt import *
+import datetime
 
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
@@ -57,6 +54,7 @@ folders_to_create = [
     "modules",
     "proxys",
     "sites",
+    "lang"
 ]
 create_folders(folders_to_create)
 # gets the defualt browser and system information
@@ -86,11 +84,17 @@ print_logoscreen(version, config)
 configUpdateStuff(config, browser)
 # this is the variable that gets the username
 uname = input("Target: ⤷ ")
-# This is where we gather the inputed options and then run them.
+# this removes the comma and puts the usernames into a list
+uname_list = [item.strip() for item in uname.split(",")]
+
+# This is where Alfred gathers the inputed options and then run them.
 # Not all of the options execute on input.
 while test != True:
     input1 = input("⤷ ")
     if input1 != "":
+        # the options follow a simple ruleset
+        # first you need the input ex: "-ls" then you need the function it will run ex: dirList
+        # lastly, you need the inputs or anything you want to pass into the function ex: [modes, input1]
         action = {
             "-ls": [dirList, []],
             "ls": [dirList, []],
@@ -245,20 +249,24 @@ with open(file_path, "a") as f:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
             siteErrors = site["errorMessage"]
-            Startscan(
-                modes,
-                siteN,
-                uname,
-                cError,
-                ec,
-                f,
-                siteProgcounter,
-                siteNSFW,
-                ars,
-                webscrape,
-                siteErrors,
-                date,
-            )
+            i = 0
+            for item in uname_list:
+                Startscan(
+                    modes,
+                    siteN,
+                    uname_list[i],
+                    cError,
+                    ec,
+                    f,
+                    siteProgcounter,
+                    siteNSFW,
+                    ars,
+                    webscrape,
+                    siteErrors,
+                    date,
+                )
+                i += 1
+
 
 # checks for a connection error and prints
 connectionError(cError, f)
