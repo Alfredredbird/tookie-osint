@@ -211,7 +211,7 @@ def logo(uname, version, config):
         + "                                "
     )
     print("")
-    print("                The Target Username: " + uname + Fore.RESET)
+    print("                The Target Username(s): " + uname + Fore.RESET)
     print(
         Fore.RESET
         + "==========================================================================="
