@@ -28,3 +28,5 @@ modules/siteListGen.py
 modules/configcheck.py
 modules/webscrape.py
 modules/crypt.py
+lang/en.py
+lang/it.py

@@ -17,8 +17,10 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
+from lang.en import *
 from modules.crypt import *
 import datetime
+
 
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
@@ -46,6 +48,11 @@ date = datetime.date.today()
 siteList = []
 siteErrors = []
 siteNSFW = []
+#loads the language
+script_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(script_dir)
+language_code = getLang(config)
+language_module = load_language(language_code)
 # checks that the folders exist. if not it creates them
 folders_to_create = [
     "config",
@@ -59,7 +66,7 @@ folders_to_create = [
 create_folders(folders_to_create)
 # gets the defualt browser and system information
 browser = get_default_browser()
-print(browser)
+print(language_module.browser + browser )
 # gets the version of Alfred
 version = configC()
 # gets the info to encrypt
@@ -75,7 +82,7 @@ syskey = (
 )
 # encrypts the key
 encrypted_text = encrypt(syskey)
-print("Encrypting key...")
+print(language_module.encrypt1)
 # logs the key
 saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
@@ -83,7 +90,7 @@ print_logoscreen(version, config)
 # does config stuff
 configUpdateStuff(config, browser)
 # this is the variable that gets the username
-uname = input("Target: ⤷ ")
+uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
 uname_list = [item.strip() for item in uname.split(",")]
 
