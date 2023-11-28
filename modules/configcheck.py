@@ -133,6 +133,7 @@ def configEditor(config):
         print("[2] Show tips: " + str(config.get("main", "showtips")))
         print("[3] Site Download Path: " + str(config.get("main", "defaultDlPath")))
         print("[4] Browser: " + str(config.get("main", "browser")))
+        print("[5] Language: " + str(config.get("main", "language")))
         print(
             "==========================================================================="
         )
@@ -195,6 +196,22 @@ def configEditor(config):
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
                     return True
+        if editConfig == "5":
+            # update config path logic
+            if config.get("main", "language") != "":
+                print(
+                    """
+            please enter your language code
+            language Supported:
+                it = Italian
+                en = English
+                         """
+                )
+                newbrowser = input("Browser: ⤷ ")
+                config.set("main", "language", str(newbrowser))
+                with open("./config/config.ini", "w") as f:
+                    config.write(f)
+                    return True        
         if editConfig == "A" or editConfig == "a":
             # deletes the downloaded files
             dirDump(globalPath(config))
