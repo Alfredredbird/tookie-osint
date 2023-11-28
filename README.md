@@ -49,7 +49,7 @@ The requirements will Automatically Be Installed.
     cd alfred && pip3 install -r requirements.txt
     python3 brib.py
      
-# 💻 Tested OS:
+# 💻 Tested OS
 
 <table>
     <tr>
@@ -107,7 +107,8 @@ The requirements will Automatically Be Installed.
 </table>
 
 
-# 📖 Requirments:
+
+# 📖 Requirments
 
 There Is A Lot Lol
 
@@ -121,6 +122,14 @@ There Is A Lot Lol
 - selenium
 - cryptography
   
+# 🗣️Supported Languages
+(we need translators 😭)
+- [x] English
+- [x] Italian
+- [ ] Spanish (Comming Soon)
+- [ ] Hebrew (Comming Soon)
+- [ ] French (Comming Soon)
+- [ ] Arabic (Comming Soon)
 
 
 # 📕 Upcoming Features
@@ -231,7 +240,7 @@ There has been several aritcles written about our tool. Feal free to check them 
 
 
 # 🤝 partnership
-Want to partner with the Alfred project? Send me a Dm on Discord :D
+Want to partner with the Alfred project? Feel free to reach out.
 
 Partners:
 - GHPM ~ Smoke-Wolf
