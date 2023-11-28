@@ -136,26 +136,26 @@ while test != True:
             webscrape = True
         if "-S" in input1:
             print(
-                "Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk."
+                f"{Fore.RED + language_module.note + Fore.RESET}{language_module.warning1}"
             )
             dirDump(globalPath(config))
             time.sleep(2)
             siteDownloader()
             time.sleep(4)
-            print("Downloading CSS")
+            print(f"{language_module.download1}CSS")
             scriptDownloader(globalPath(config) + "css_files.txt", ".css", count)
             time.sleep(2)
-            print("Downloading JS")
+            print(f"{language_module.download1}JS")
             scriptDownloader(globalPath(config) + "javascript_files.txt", ".js", count)
-            dv = input("Want To Download Images/Videos? ⤷ ")
+            dv = input("Want To Download Images/Videos? [Y/n]⤷ ")
             if "Y" in dv or "y" in dv:
-                print("Downlading Videos/Images")
-                siteD = input("Enter Site Again: ⤷ ")
+                print(f"{language_module.confirm1}")
+                siteD = input(f"{language_module.prompt1}")
                 imgandVidDownlaod(siteD)
             elif "N" in dv or "n" in dv:
                 print("Ok!")
             else:
-                print("Not Sure What You Ment. Ill Ask Later")
+                print(language_module.idk1)
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
 

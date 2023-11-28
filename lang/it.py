@@ -9,11 +9,20 @@ config3 = "La cartella esiste gia: "
 target = "Obiettivo del: ⤷ "
 browser = "Browser: "
 
-
 file_not_found = "File not found: {filename}"
 permission_denied = "Permission denied for {operation} on {path}"
 
+note = 'Nota! '
+warning1 = "Molti siti non consentono di scaricare i file del sito. Utilizzare a proprio rischio e pericolo."
 
+confirm1 = "Vuoi scaricare immagini/video? [S/n]⤷ "
+
+prompt1 = "Entra di nuovo nel sito: ⤷ "
+
+download1 = "Scaricare "
+
+
+idk1 = "Non sono sicuro di cosa volessi dire..."
 # example bc imma forget
 # import messages
 

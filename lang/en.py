@@ -12,7 +12,17 @@ browser = "Browser: "
 file_not_found = "File not found: {filename}"
 permission_denied = "Permission denied for {operation} on {path}"
 
+note = "Note! "
+warning1 = "Sites Many Not Allow Downloading Their Site Files. Use At Your Own Risk."
 
+confirm1 = "Want To Download Images/Videos? [Y/n]⤷ "
+
+prompt1 = "Enter Site Again: ⤷ "
+
+download1 = "Downloading "
+
+
+idk1 = "Not Sure What You Meant...."
 # example bc imma forget
 # import messages
 
