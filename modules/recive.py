@@ -14,9 +14,18 @@ BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 # create the server socket
 # TCP socket
-s = socket.socket()
-# bind the socket to our local address
-s.bind((SERVER_HOST, SERVER_PORT))
+# binds to all interfaces, insecure
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(("0.0.0.0", 31137))
+
+# binds to all interfaces, insecure
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(("", 4040))
+
+# binds only to a dedicated interface, secure
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(("84.68.10.12", 8080))
+
 # enabling our server to accept connections
 # 5 here is the number of unaccepted connections that
 # the system will allow before refusing new connections
