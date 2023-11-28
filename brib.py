@@ -61,7 +61,7 @@ folders_to_create = [
     "modules",
     "proxys",
     "sites",
-    "lang"
+    "lang",
 ]
 create_folders(folders_to_create)
 # gets the defualt browser and system information
