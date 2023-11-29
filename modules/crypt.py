@@ -5,8 +5,13 @@ from cryptography.fernet import Fernet
 
 from modules.configcheck import *
 
+from modules.lang import *
+
+
 config = ConfigParser()
 
+language_code = getLang(config)
+language_module = load_language(language_code)
 
 def print_encrypted_and_decrypted_text(decrypted_text):
     # print("Original text:", original_text)
@@ -46,7 +51,7 @@ syskey = (
     platform.system()
     + platform.release()
     + "-AlfredVer-"
-    + configC()
+    + configC(language_module)
     + "-"
     + platform.python_version()
     + "-"

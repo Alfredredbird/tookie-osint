@@ -13,21 +13,21 @@ from configparser import ConfigParser
 #
 # This Module does config stuff
 #
-def configC():
+def configC(language_module):
     # checks if the nesasary files exist
     if os.path.exists("./config/config.ini") == True:
-        print("Config File exists")
+        print(language_module.config1)
     else:
-        print("Cant Find Nesasary Files. Trying To Reinstall Alfred")
+        print(language_module.error5)
         time.sleep(4)
         with open("./config/version.cfg", "w") as f:
-            f.write("Reinstalling............")
+            f.write(language_module.status3)
         exec(open("./update.py").read())
 
     if os.path.exists("./update.py") == True:
-        print("Update File exists")
+        print(language_module.config2)
     else:
-        print("Cant Find Nesasary Files. Try Reinstalling Alfred")
+        print(language_module.error5)
         exit(1)
 
     # opens the config and gets the version number
@@ -43,23 +43,23 @@ def configUpdateStuff(config, browser,language_module):
     if config.get("main", "firstlaunch") == "yes":
         print(
             Fore.RED
-            + "Note!"
+            + language_module.note
             + Fore.RESET
-            + " This Is Your First Launch :D You Might Need To Restart Alfred To Use All The Modules"
+            + language_module.warning3
         )
         print("")
     if config.get("main", "prerelease") == "yes":
         print(
-            Fore.RED + "Note!" + Fore.RESET + " You Are Using A Prerelease Of Alfred!"
+            Fore.RED + language_module.note + Fore.RESET + language_module.warning4
         )
-        print("Kindly Report Any Bugs Or Errors To Our Repo Or Discord Server. ")
+        print(language_module.prompt2)
         print("")
     # this is the function to update the code
     x = random.randint(1, 4)
     if x == 3 and config.get("main", "checkforupdates") == "yes":
-        print("You Can Disable Updating In The Config File")
+        print(language_module.prompt3)
     if x == 2:
-        print("Join Our Discord: https://discord.gg/xrdjxyuSQt ")
+        print(language_module.prompt4)
 
     if config.get("main", "checkforupdates") == "yes":
         try:
@@ -67,7 +67,7 @@ def configUpdateStuff(config, browser,language_module):
             if "Y" in cfu or "y" in cfu:
                 exec(open("./update.py").read())
             elif "N" in cfu or "n" in cfu:
-                print("Ok! Ill Ask Later....")
+                print(language_module.prompt5)
                 print(
                     Fore.RESET
                     + """
@@ -75,7 +75,7 @@ def configUpdateStuff(config, browser,language_module):
                   """
                 )
             else:
-                print("Not Sure What You Ment. Ill Ask Later")
+                print(language_module.idk2)
                 print(
                     Fore.RESET
                     + """
@@ -99,13 +99,13 @@ def configUpdateStuff(config, browser,language_module):
             # pharses it
             if "Y" in changeconfig or "y" in changeconfig:
                 config.set("main", "checkforupdates", "yes")
-                print("Updates Are Enabled!")
+                print(language_module.updates)
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
             elif "N" in changeconfig or "n" in changeconfig:
-                print("Ok! Ill Ask Later....")
+                print(language_module.prompt5)
             else:
-                print("Not Sure What You Ment. Ill Ask Later")
+                print(language_module.idk2)
 
     if config.get("main", "firstlaunch") == "yes":
         config.set("main", "firstlaunch", "no")
@@ -122,11 +122,11 @@ def configUpdateStuff(config, browser,language_module):
 
 
 # this is the module that edits the configuration file. needs to be cleaned up tho
-def configEditor(config):
+def configEditor(config,language_module):
     # reads the config
     config.read("./config/config.ini")
     # gets input
-    editConfigAwnser = input("Edit The Config? [y/n]: ⤷ ")
+    editConfigAwnser = input(language_module.config5)
     # decieds what to do
     if editConfigAwnser == "y" or editConfigAwnser == "Y":
         # options
@@ -134,31 +134,31 @@ def configEditor(config):
         print(
             "==========================================================================="
         )
-        print("[1] Check for updates: " + str(config.get("main", "checkforupdates")))
-        print("[2] Show tips: " + str(config.get("main", "showtips")))
-        print("[3] Site Download Path: " + str(config.get("main", "defaultDlPath")))
-        print("[4] Browser: " + str(config.get("main", "browser")))
-        print("[5] Language: " + str(config.get("main", "language")))
+        print(language_module.configOption1 + str(config.get("main", "checkforupdates")))
+        print(language_module.configOption2 + str(config.get("main", "showtips")))
+        print(language_module.configOption3 + str(config.get("main", "defaultDlPath")))
+        print(language_module.configOption4 + str(config.get("main", "browser")))
+        print(language_module.configOption5 + str(config.get("main", "language")))
         print(
             "==========================================================================="
         )
-        print("[A] Clean Up Alfred. (This Removes Temporary Files)")
-        print("[B] Developer Tools.")
+        print(language_module.configOptionA)
+        print(language_module.configOptionB)
         print("")
         # gets input
-        editConfig = input("What Do You Want To Change? ⤷ ")
+        editConfig = input(language_module.config6)
         # figures out what to do
         if editConfig == "1":
             # update config logic
             if config.get("main", "checkforupdates") == "yes":
-                print("Ok! [checkforupdates] Is Set For Yes. Changing To No")
+                print(language_module.configOption1Message)
                 config.set("main", "checkforupdates", "no")
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
                     return True
             # update config logic
             if config.get("main", "checkforupdates") == "no":
-                print("Ok! [checkforupdates] Is Set For No. Changing To Yes")
+                print(language_module.configOption1Message2)
                 config.set("main", "checkforupdates", "yes")
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
@@ -166,14 +166,14 @@ def configEditor(config):
         if editConfig == "2":
             # update config logic
             if config.get("main", "showtips") == "yes":
-                print("Ok! [showtips] Is Set For Yes. Changing To No")
+                print(language_module.configOption2Message)
                 config.set("main", "showtips", "no")
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
                     return True
             # update config logic
             if config.get("main", "showtips") == "no":
-                print("Ok! [showtips] Is Set For No. Changing To Yes")
+                print(language_module.configOption2Message2)
                 config.set("main", "showtips", "yes")
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
@@ -181,7 +181,7 @@ def configEditor(config):
         if editConfig == "3":
             # update config path logic
             if config.get("main", "defaultDlPath") != "":
-                newpath = input("New Path: ⤷ ")
+                newpath = input(language_module.configOption3Message)
                 config.set("main", "defaultDlPath", str(newpath))
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
@@ -190,11 +190,7 @@ def configEditor(config):
             # update config path logic
             if config.get("main", "browser") != "":
                 print(
-                    """Types Supported:
-                         Firefox
-                         Edge
-                         Chrome
-                         """
+                    language_module.configOption4Message
                 )
                 newbrowser = input("Browser: ⤷ ")
                 config.set("main", "browser", str(newbrowser))
@@ -205,12 +201,7 @@ def configEditor(config):
             # update config path logic
             if config.get("main", "language") != "":
                 print(
-                    """
-            please enter your language code
-            language Supported:
-                it = Italian
-                en = English
-                         """
+                    language_module.configOption5Message
                 )
                 newbrowser = input("Language Code: ⤷ ")
                 config.set("main", "language", str(newbrowser))
@@ -220,7 +211,7 @@ def configEditor(config):
         if editConfig == "A" or editConfig == "a":
             # deletes the downloaded files
             dirDump(globalPath(config))
-            print("Done!")
+            print(language_module.configOptionAMessage)
             print(
                 "==========================================================================="
             )
@@ -229,11 +220,11 @@ def configEditor(config):
             print(
                 "==========================================================================="
             )
-            print("Welcome To The Developer Menu!")
+            print(language_module.configOptionBMessage)
             print("")
-            print("DONT Give The Following Keys To Anyone But A Alfred Developer.")
-            print("privatekey: " + str(config.get("main", "privatekey")))
-            print("syscrypt: " + str(config.get("main", "syscrypt")))
+            print(language_module.configOptionBMessage2)
+            print(language_module.configOptionBMessage3 + str(config.get("main", "privatekey")))
+            print(language_module.configOptionBMessage4 + str(config.get("main", "syscrypt")))
             print("")
             print(
                 "==========================================================================="
@@ -254,15 +245,10 @@ def dirDump(mydir):
         os.remove(os.path.join(mydir, f))
 
 
-def create_folders(folder_list):
+def create_folders(folder_list,language_module):
     for folder in folder_list:
         if not os.path.exists(folder):
-            print(f"Creating folder: {folder}")
+            print(f"{language_module.config7}{folder}")
             os.makedirs(folder)
         else:
-            print(f"Folder already exists: {folder}")
-
-
-
-
-
+            print(f"{language_module.config8}{folder}")

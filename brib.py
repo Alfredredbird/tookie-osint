@@ -64,18 +64,18 @@ folders_to_create = [
     "sites",
     "lang",
 ]
-create_folders(folders_to_create)
+create_folders(folders_to_create,language_module)
 # gets the defualt browser and system information
 browser = get_default_browser()
 print(language_module.browser + browser )
 # gets the version of Alfred
-version = configC()
+version = configC(language_module)
 # gets the info to encrypt
 syskey = (
     platform.system()
     + platform.release()
     + "-AlfredVer-"
-    + configC()
+    + configC(language_module)
     + "-"
     + platform.python_version()
     + "-"
@@ -121,7 +121,7 @@ while test != True:
             "-d": [redirects1, [modes, input1]],
             "-u": [unameinfo, [uname]],
             "-Cat": [catFile, []],
-            "--Config": [configEditor, [config]],
+            "--Config": [configEditor, [config,language_module]],
             "-p": [ping, []],
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
