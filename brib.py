@@ -19,6 +19,7 @@ from modules.siteListGen import *
 from modules.webscrape import *
 from lang.en import *
 from modules.crypt import *
+from modules.lang import *
 import datetime
 
 
@@ -79,6 +80,7 @@ syskey = (
     + platform.python_version()
     + "-"
     + browser
+    + language_code
 )
 # encrypts the key
 encrypted_text = encrypt(syskey)
@@ -88,7 +90,7 @@ saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version, config)
 # does config stuff
-configUpdateStuff(config, browser)
+configUpdateStuff(config, browser,language_module)
 # this is the variable that gets the username
 uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list

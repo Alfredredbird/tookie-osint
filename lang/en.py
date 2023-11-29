@@ -5,6 +5,7 @@ encrypt1 = 'Encrypting Key...'
 config1 = "Config File Exsits: "
 config2 = "Update File Exsits: "
 config3 = "Folder Already Exsists: "
+config4 = "Check For Updates? [Y/n]: ⤷ "
 
 target = "Target: ⤷ "
 browser = "Browser: "

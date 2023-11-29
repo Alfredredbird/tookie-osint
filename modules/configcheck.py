@@ -1,8 +1,13 @@
 import os
 import random
 import time
-import importlib.util
 from colorama import *
+from modules.lang import *
+from lang.en import *
+from configparser import ConfigParser
+
+
+#loads the language
 
 
 #
@@ -31,7 +36,7 @@ def configC():
         return version
 
 
-def configUpdateStuff(config, browser):
+def configUpdateStuff(config, browser,language_module):
     config.read("./config/config.ini")
 
     # checks to see if the user is running a Pre or if its Alfreds first launch.
@@ -58,7 +63,7 @@ def configUpdateStuff(config, browser):
 
     if config.get("main", "checkforupdates") == "yes":
         try:
-            cfu = input("Check For Updates? [y/n]: ⤷ ")
+            cfu = input(language_module.config4)
             if "Y" in cfu or "y" in cfu:
                 exec(open("./update.py").read())
             elif "N" in cfu or "n" in cfu:
@@ -207,7 +212,7 @@ def configEditor(config):
                 en = English
                          """
                 )
-                newbrowser = input("Browser: ⤷ ")
+                newbrowser = input("Language Code: ⤷ ")
                 config.set("main", "language", str(newbrowser))
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
@@ -261,20 +266,3 @@ def create_folders(folder_list):
 
 
 
-def load_language(language_code):
-    langp = "./lang/"
-    try:
-        language_path = f"{langp}{language_code}.py"
-        print(f"Attempting to load language file: {language_path}")
-        spec = importlib.util.spec_from_file_location(language_code, language_path)
-        language_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(language_module)
-        return language_module
-    except FileNotFoundError:
-        print(f"Language file not found for {language_code}. Using default.")
-        return None            
-
-def getLang(config):
-    config.read("./config/config.ini")
-    lang = config.get("main", "language")
-    return lang
