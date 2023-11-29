@@ -147,9 +147,8 @@ while test != True:
             time.sleep(2)
             print(f"{language_module.download1}JS")
             scriptDownloader(globalPath(config) + "javascript_files.txt", ".js", count)
-            dv = input("Want To Download Images/Videos? [Y/n]⤷ ")
+            dv = input(f"{language_module.confirm1}")
             if "Y" in dv or "y" in dv:
-                print(f"{language_module.confirm1}")
                 siteD = input(f"{language_module.prompt1}")
                 imgandVidDownlaod(siteD)
             elif "N" in dv or "n" in dv:
@@ -170,7 +169,7 @@ while test != True:
         if "-w" in input1:
             webscrape = True
         if "-O" in input1 or "-o" in input1:
-            slectpath = Path.home() / str(input("PATH: ⤷ "))
+            slectpath = Path.home() / str(input(f"{language_module.path}"))
             file_path = os.path.join(slectpath)
             # check if the directory exists
             fastMode = 2
@@ -187,12 +186,11 @@ while test != True:
                         print("Lines {}: {}".format(count, line.strip()))
                     file.close()
                 except PermissionError():
-                    print("Permission Error")
+                    print(language_module.error1)
                 except TypeError():
-                    print("Type Error")
+                    print(language_module.error2)
             else:
-                print(Fore.RED + "Cant Find The Save File!")
-                print(Fore.RESET)
+                print(Fore.RED + f"{language_module.error3}"+ Fore.RESET)
                 exit(69)
         if "--Wiki" in input1:
             wiki()
@@ -224,9 +222,9 @@ file_path = os.path.join("./captured/", file_name)
 if os.path.exists("./captured/"):
     # creates the file
     print(" ")
-    print("Creating / Overwriting Save File.")
+    print(f"{language_module.status2}")
 else:
-    print("Directory doesn't exist.")
+    print(f"{language_module.error4}")
 # determins what list of sites to use.
 if fastMode == 0:
     # fastmode0 is the default scan mode

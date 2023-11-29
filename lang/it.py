@@ -13,11 +13,12 @@ file_not_found = "File not found: {filename}"
 permission_denied = "Permission denied for {operation} on {path}"
 
 note = 'Nota! '
+path = "PERCORSO: ⤷ "
 warning1 = "Molti siti non consentono di scaricare i file del sito. Utilizzare a proprio rischio e pericolo."
 warning2 = " L'utilizzo del webscraper è piuttosto lento."
 
-confirm1 = "Vuoi scaricare immagini/video? [S/n]⤷ "
-confirm2 = "Eseguire di nuovo?: [S/N] ⤷ "
+confirm1 = "Vuoi scaricare immagini/video? [Y/n] ⤷ "
+confirm2 = "Eseguire di nuovo?: [Y/n] ⤷ "
 
 prompt1 = "Entra di nuovo nel sito: ⤷ "
 
@@ -29,8 +30,14 @@ idk1 = "Non sono sicuro di cosa volessi dire..."
 scan1 = "Ricerca di siti con:"
 
 status1 = "Funzionante...."
+status2 = "Creazione/sovrascrittura del file di salvataggio."
 
 save1 = "Risultati salvati in"
+
+error1 = "Errore di autorizzazione"
+error2 = "Tipo Errore"
+error3 = "Non riesco a trovare il file di salvataggio!"
+error4 = "La directory non esiste."
 # example bc imma forget
 # import messages
 
