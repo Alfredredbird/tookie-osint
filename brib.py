@@ -241,10 +241,10 @@ if fastMode == 3:
     # fastmode2 is the scan from custom site list
     scanFileList(siteList, "./sites/Megasites.json")
 # prints ui stuff
-print(Fore.GREEN + "searching for sites with: " + uname + Fore.RESET)
+print(Fore.GREEN + f"{language_module.scan1}" + uname + Fore.RESET)
 print("===========================================================")
 if webscrape == True:
-    print(Fore.RED + "Note!" + Fore.RESET + " Using The Webscraper Is Pretty Slow.")
+    print(Fore.RED + language_module.note + Fore.RESET + language_module.warning2)
     print("===========================================================")
 print("")
 siteCount = 0
@@ -252,7 +252,7 @@ siteCount = 0
 with open(file_path, "a") as f:
     for site in siteList:
         siteCount += 1
-        with console.status("Working....") as status:
+        with console.status(language_module.status1) as status:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
             siteErrors = site["errorMessage"]
@@ -287,9 +287,9 @@ def is_what_percent_of(num_a, num_b):
 print("")
 print("===========================================================")
 print("")
-print("Saved Results To ./captured/captured.alfred")
+print(f"{language_module.save1} ./captured/captured.alfred")
 # Asks to be ran again
-startagain = input("Run Again?: [Y/N] ⤷ ")
+startagain = input(f"{language_module.confirm2}")
 if "Y" in startagain or "y" in startagain:
     exec(open("brib.py").read())
 elif "N" in startagain or "n" in startagain:

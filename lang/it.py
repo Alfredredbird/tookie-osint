@@ -14,8 +14,10 @@ permission_denied = "Permission denied for {operation} on {path}"
 
 note = 'Nota! '
 warning1 = "Molti siti non consentono di scaricare i file del sito. Utilizzare a proprio rischio e pericolo."
+warning2 = " L'utilizzo del webscraper è piuttosto lento."
 
 confirm1 = "Vuoi scaricare immagini/video? [S/n]⤷ "
+confirm2 = "Eseguire di nuovo?: [S/N] ⤷ "
 
 prompt1 = "Entra di nuovo nel sito: ⤷ "
 
@@ -23,6 +25,12 @@ download1 = "Scaricare "
 
 
 idk1 = "Non sono sicuro di cosa volessi dire..."
+
+scan1 = "Ricerca di siti con:"
+
+status1 = "Funzionante...."
+
+save1 = "Risultati salvati in"
 # example bc imma forget
 # import messages
 
