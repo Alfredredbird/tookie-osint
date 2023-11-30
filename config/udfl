@@ -32,3 +32,4 @@ modules/lang.py
 lang/en.py
 lang/it.py
 lang/il.py
+lang/es.py
