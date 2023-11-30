@@ -127,7 +127,7 @@ There Is A Lot Lol
 - [x] English
 - [x] Italian
 - [x] Hebrew 
-- [ ] Spanish (Comming Soon)
+- [x] Spanish
 - [ ] French (Comming Soon)
 - [ ] Arabic (Comming Soon)
 
