@@ -112,14 +112,14 @@ while test != True:
             "-q": [qexit, []],
             "-gsl": [
                 siteListGen,
-                [console, testall, get_random_string, domain_extensions, uname],
+                [console, testall, get_random_string, domain_extensions, uname,language_module],
             ],
             "-c": [proxyCheck, [modes, input1]],
             "-lp": [list_proxys, []],
             "-h": [print_help, []],
             "--help": [print_help, []],
             "-d": [redirects1, [modes, input1]],
-            "-u": [unameinfo, [uname]],
+            "-u": [unameinfo, [uname,language_module]],
             "-Cat": [catFile, []],
             "--Config": [configEditor, [config,language_module]],
             "-p": [ping, []],
@@ -195,7 +195,7 @@ while test != True:
                 print(Fore.RED + f"{language_module.error3}"+ Fore.RESET)
                 exit(69)
         if "--Wiki" in input1:
-            wiki()
+            wiki(language_module)
             logo(uname, version, config)
         # code to display all error codes
         if "-a" in input1:

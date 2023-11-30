@@ -6,7 +6,12 @@ from colorama import *
 
 from modules.modules import *
 from modules.webscrape import *
+from modules.lang import *
+from configparser import ConfigParser
 
+config = ConfigParser()
+language_code = getLang(config)
+language_module = load_language(language_code)
 
 def print_logoscreen(version, config):
     config.read("./config/config.ini")
@@ -56,9 +61,10 @@ def print_logoscreen(version, config):
         + Fore.RED
         + """              | """
         + Fore.RESET
-        + """
+        + f"""
 
-               Many Thanks To Our Partners!
+               
+               {language_module.title1}
 """
     )
     ## prints os infomation
@@ -69,10 +75,10 @@ def print_logoscreen(version, config):
     print("")
     print(
         Fore.RED
-        + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
+        + language_module.disclamer
     )
     print(Fore.RESET + " ")
-    print("     " + "OS:" + "                                      Alfred Version:")
+    print("     " + "OS:" + f"                                      Alfred {language_module.version}:")
     print(
         "     "
         + platform.system()
@@ -88,7 +94,7 @@ def print_logoscreen(version, config):
     )
     print("")
     print("")
-    print("     " + "Browser:" + "                                 Python Version:")
+    print("     " + "Browser:" + f"                                 Python {language_module.version}:")
     print(
         "     "
         + browser
@@ -109,9 +115,9 @@ def connectionError(cError, f):
     if cError >= 5:
         print(
             Fore.RED
-            + """
+            + f"""
 ===========================================================
-Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :
+{language_module.error6}:
 ==========================================================="""
         )
 
@@ -169,9 +175,9 @@ def logo(uname, version, config):
         + Fore.RED
         + """              | """
         + Fore.RESET
-        + """
+        + f"""
 
-               Many Thanks To Our Partners!
+               {language_module.title1}
 """
     )
     ## prints os infomation
@@ -182,10 +188,10 @@ def logo(uname, version, config):
     print("")
     print(
         Fore.RED
-        + "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
+        + language_module.disclamer
     )
     print(Fore.RESET + " ")
-    print("     " + "OS:" + "                                      Alfred Version:")
+    print("     " + "OS:" + f"                                      Alfred {language_module.version}:")
     print(
         "     "
         + platform.system()
@@ -201,7 +207,7 @@ def logo(uname, version, config):
     )
     print("")
     print("")
-    print("     " + "Browser:" + "                                 Python Version:")
+    print("     " + "Browser:" + f"                                 Python {language_module.version}:")
     print(
         "     "
         + browser
@@ -211,7 +217,7 @@ def logo(uname, version, config):
         + "                                "
     )
     print("")
-    print("                The Target Username(s): " + uname + Fore.RESET)
+    print(f"                {language_module.targetusernames} " + uname + Fore.RESET)
     print(
         Fore.RESET
         + "==========================================================================="
@@ -293,7 +299,7 @@ Usage: [USERNAME]                               //\    //\
     )
 
 
-def wiki():
+def wiki(language_module):
     os.system("cls" if os.name == "nt" else "clear")
     print(
         """░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄░░░▒█░░▒█░░▀░░▒█░▄▀░░▀░
@@ -302,57 +308,57 @@ def wiki():
 """
     )
     print(
-        """
-    [1] Installation
-    [2] Options
-    [3] Errors
-    [4] Dark Alfred
-    [5] Modules
+        f"""
+    {language_module.wikiOption1}
+    {language_module.wikiOption2}
+    {language_module.wikiOption3}
+    {language_module.wikiOption4}
+    {language_module.wikiOption5}
     """
     )
     search = input("What Are You Looking For?  ⤷  ")
     if search == "1":
         print(
-            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Instalations"
+            f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Instalations"
         )
-        returntoAlfred(3)
+        returntoAlfred(3,language_module)
         return True
     elif search == "2":
         print(
-            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Usage---Options"
+            f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Usage---Options"
         )
-        returntoAlfred(3)
+        returntoAlfred(3,language_module)
         return True
     elif search == "3":
         print(
-            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Errors"
+            f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Errors"
         )
-        returntoAlfred(3)
+        returntoAlfred(3,language_module)
         return True
     elif search == "4":
         print(
-            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Dark-Alfred"
+            f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Dark-Alfred"
         )
-        returntoAlfred(3)
+        returntoAlfred(3,language_module)
         return True
     elif search == "5":
         print(
-            "You Can Find Info On It Here: https://github.com/Alfredredbird/alfred/wiki/Modules"
+            f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Modules"
         )
-        returntoAlfred(3)
+        returntoAlfred(3,language_module)
         return True
     else:
         print(
-            "Not Sure.... But You Can Check Here: https://github.com/Alfredredbird/alfred/wiki/"
+            f"{language_module.idk3} https://github.com/Alfredredbird/alfred/wiki/"
         )
-        returntoAlfred(3)
+        returntoAlfred(3,language_module)
         return True
 
 
-def returntoAlfred(seconds):
-    print("Returning To Alfred Soon...")
+def returntoAlfred(seconds,language_module):
+    print(language_module.status4)
     time.sleep(seconds)
 
 
-def unameinfo(uname):
-    print("Requested Username: " + uname)
+def unameinfo(uname,language_module):
+    print(language_module.rqUname + uname)

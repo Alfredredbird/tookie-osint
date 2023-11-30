@@ -3,6 +3,14 @@
 
 encrypt1 = 'Chiave di cifratura in corso...'
 
+title1 = "Grazie mille ai nostri partner!"
+
+disclamer =" Desclaimer: Non tutti i siti e/o i proxy sono garantiti per funzionare! n Utilizzandoti, tieni pienamente conto delle tue azioni"
+
+targetusernames = "I nomi utente di destinazione: "
+
+version = "Versione"
+
 config1 = "Il file di configurazione esiste: "
 config2 = "Aggiorna file esistente: "
 config3 = "La cartella esiste gia: "
@@ -64,6 +72,7 @@ prompt2 = "Si prega di segnalare eventuali bug o errori al nostro repository o s
 prompt3 = "È possibile disabilitare l'aggiornamento nel file di configurazione"
 prompt4 = "Unisciti al nostro Discord: https://discord.gg/xrdjxyuSQt "
 prompt5 = "Ok! Ill chiedere più tardi...."
+prompt6 = " Siti non funzionanti..."
 
 download1 = "Scaricare "
 updates = "Gli aggiornamenti sono abilitati!"
@@ -71,12 +80,16 @@ updates = "Gli aggiornamenti sono abilitati!"
 
 idk1 = "Non sono sicuro di cosa volessi dire..."
 idk2 = "Non sono sicuro di quello che hai in mente. Chiederò più tardi" 
+idk3 = "Non sono sicuro.... Ma puoi controllare qui: "
 
 scan1 = "Ricerca di siti con:"
 
 status1 = "Funzionante...."
 status2 = "Creazione/sovrascrittura del file di salvataggio."
 status3 = "Reinstallazione in corso............"
+status4 = "Torneremo presto ad Alfred ..."
+status5 = "Collaudo....."
+status6 = "Fermarsi..... Salvato in captured/working.txt"
 
 save1 = "Risultati salvati in"
 
@@ -85,8 +98,26 @@ error2 = "Tipo Errore"
 error3 = "Non riesco a trovare il file di salvataggio!"
 error4 = "La directory non esiste."
 error5 = "Impossibile trovare i file necessari. Tentativo di reinstallare Alfred"
+error6 = "Uh oh errore! Sembra che la connessione non sembri funzionare. Controlla la tua connessione o il proxy, quindi riprova:"
 
-fileshare1 = "[*] Ascolto come "
+fileshare1 = "[*] Ascolto come"
+fileshare2 = "è connesso."
+fileshare3 = "Ricettazione"
+
+wikiOption1 = "[1] Installazione"
+wikiOption2 = "[2] Opzioni"
+wikiOption3 = "[3] Errori"
+wikiOption4 = "[4] Alfred Oscuro"
+wikiOption5 = "[5] Moduli"
+
+wikilist = "Puoi trovare informazioni su di esso qui: "
+
+rqUname = "Nome utente richiesto: "
+
+sender1 = "[+] Connessione a"
+sender2 = "[+] Connesso."
+sender3 = "Invio in corso."
+sender4 = "File da inviare: ⤷ "
 # example bc imma forget
 # import messages
 

@@ -3,6 +3,14 @@
 
 encrypt1 = 'Encrypting Key...'
 
+title1 = "Many Thanks To Our Partners!"
+
+disclamer = "     Desclaimer: Not All Sites And Or Proxys Are Garineteed To Work! \n     By Using You Take Full Account Of Your Actions"
+
+targetusernames = "The Target Username(s): "
+
+version = "Version"
+
 config1 = "Config File Exsits: "
 config2 = "Update File Exsits: "
 config3 = "Folder Already Exsists: "
@@ -64,6 +72,7 @@ prompt2 = "Kindly Report Any Bugs Or Errors To Our Repo Or Discord Server. "
 prompt3 = "You Can Disable Updating In The Config File"
 prompt4 = "Join Our Discord: https://discord.gg/xrdjxyuSQt "
 prompt5 = "Ok! Ill Ask Later...."
+prompt6 = " Not Working Sites..."
 
 download1 = "Downloading "
 updates = "Updates Are Enabled!"
@@ -71,12 +80,15 @@ updates = "Updates Are Enabled!"
 
 idk1 = "Not Sure What You Meant...."
 idk2 = "Not Sure What You Meant. Ill Ask Later"
-
+idk3 = "Not Sure.... But You Can Check Here: "
 scan1 = "searching for sites with: "
 
 status1 = "Working...."
 status2 = "Creating / Overwriting Save File."
 status3 = "Reinstalling............"
+status4 = "Returning To Alfred Soon..."
+status5 = "Testing....."
+status6 = "Stopping..... Saved To captured/working.txt"
 
 save1 = "Saved Results To"
 
@@ -85,8 +97,26 @@ error2 = "Type Error"
 error3 = "Cant Find The Save File!"
 error4 = "Directory doesn't exist."
 error5 = "Cant Find Necessary Files. Trying To Reinstall Alfred"
+error6 = "Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :"
 
-fileshare1 = "[*] Listening as "
+fileshare1 = "[*] Listening as"
+fileshare2 = "is connected."
+fileshare3 = "Receiving"
+
+wikiOption1 = "[1] Installation"
+wikiOption2 = "[2] Options"
+wikiOption3 = "[3] Errors"
+wikiOption4 = "[4] Dark Alfred"
+wikiOption5 = "[5] Modules"
+
+wikilist = "You Can Find Info On It Here: "
+
+rqUname = "Requested Username: "
+
+sender1 = "[+] Connecting to"
+sender2 = "[+] Connected."
+sender3 = "Sending."
+sender4 = "File To Send: ⤷ "
 # example bc imma forget
 # import messages
 

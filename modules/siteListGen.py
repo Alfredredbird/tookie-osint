@@ -9,7 +9,7 @@ from os import listdir, walk
 from os.path import isfile, join
 from pathlib import Path
 from urllib.parse import urljoin
-
+from modules.lang import *
 import requests
 import wget
 from bs4 import BeautifulSoup
@@ -17,9 +17,13 @@ from bs4 import BeautifulSoup as bs
 from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
+from modules.modules import *
 
 
-def siteListGen(console, testall, get_random_string, domain_extensions, uname):
+
+
+
+def siteListGen(console, testall, get_random_string, domain_extensions, uname,language_module):
     input2 = input("CHAR: ⤷ ")
     trys = input("  TRYS: ⤷ ")
     siteType = input("     TYPE: ⤷ ")
@@ -35,7 +39,7 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
     if input2 == "":
         lol = 1
     if input2 != "":
-        with console.status("Testing.....") as status:
+        with console.status(language_module.status5) as status:
             siteLst = []
             b = 0
             if testall == False:
@@ -172,7 +176,7 @@ def siteListGen(console, testall, get_random_string, domain_extensions, uname):
                         + str(trys)
                     )
                 except KeyboardInterrupt():
-                    print("Stopping..... Saved To captured/working.txt")
+                    print(language_module.status6)
                 # tbh its 11 at night rn and idk what i+=1 does
                 i += 1
-            print(str(siteError) + " Not Working Sites...")
+            print(str(siteError) + language_module.prompt6)

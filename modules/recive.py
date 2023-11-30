@@ -3,9 +3,12 @@ Server receiver of the file
 """
 import os
 import socket
-
+from modules.lang import *
+from configparser import ConfigParser
 import tqdm
-
+config = ConfigParser()
+language_code = getLang(config)
+language_module = load_language(language_code)
 # device's IP address
 SERVER_HOST = "0.0.0.0"
 SERVER_PORT = 5001
@@ -30,11 +33,11 @@ s.bind(("84.68.10.12", 8080))
 # 5 here is the number of unaccepted connections that
 # the system will allow before refusing new connections
 s.listen(5)
-print(f"[*] Listening as {SERVER_HOST}:{SERVER_PORT}")
+print(f"{language_module.fileshare1} {SERVER_HOST}:{SERVER_PORT}")
 # accept connection if there is any
 client_socket, address = s.accept()
 # if below code is executed, that means the sender is connected
-print(f"[+] {address} is connected.")
+print(f"[+] {address} {language_module.fileshare2}")
 
 # receive the file infos
 # receive using client socket, not server socket
@@ -48,7 +51,7 @@ filesize = int(filesize)
 # and writing to the file stream
 progress = tqdm.tqdm(
     range(filesize),
-    f"Receiving {filename}",
+    f"{language_module.fileshare3} {filename}",
     unit="B",
     unit_scale=True,
     unit_divisor=1024,

@@ -4,24 +4,29 @@ Client that sends the file (uploads)
 import argparse
 import os
 import socket
-
+from modules.lang import *
+from configparser import ConfigParser
 import tqdm
+
+config = ConfigParser()
+language_code = getLang(config)
+language_module = load_language(language_code)
 
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 1024 * 4  # 4KB
-filename = input("File To Send: ⤷ ")
+filename = input(language_module.sender4)
 host = str(input("Host IP: ⤷ "))
 port = 5001
 
 
-def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE):
+def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE,language_module):
     # get the file size
     filesize = os.path.getsize(filename)
     # create the client socket
     s = socket.socket()
-    print(f"[+] Connecting to {host}:{port}")
+    print(f"{language_module.sender1} {host}:{port}")
     s.connect((host, port))
-    print("[+] Connected.")
+    print(language_module.sender2)
 
     # send the filename and filesize
     s.send(f"{filename}{SEPARATOR}{filesize}".encode())
@@ -29,7 +34,7 @@ def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE):
     # start sending the file
     progress = tqdm.tqdm(
         range(filesize),
-        f"Sending {filename}",
+        f"{language_module.sender3} {filename}",
         unit="B",
         unit_scale=True,
         unit_divisor=1024,
@@ -51,4 +56,4 @@ def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE):
     s.close()
 
 
-send_file(filename, host, port, SEPARATOR, BUFFER_SIZE)
+send_file(filename, host, port, SEPARATOR, BUFFER_SIZE,language_module)
