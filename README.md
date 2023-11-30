@@ -128,8 +128,9 @@ There Is A Lot Lol
 - [x] Italian
 - [x] Hebrew 
 - [x] Spanish
-- [ ] French (Comming Soon)
-- [ ] Arabic (Comming Soon)
+- [x] French 
+- [x] Arabic
+
 
 
 # 📕 Upcoming Features
