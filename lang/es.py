@@ -49,7 +49,7 @@ configOptionBMessage = "¡Bienvenido al menú de desarrolladores!"
 
 configOption1Message2 = "¡Ok! [checkforupdates] está configurado en No. Cambiando a Sí"
 configOption2Message2 = "¡Ok! [showtips] está configurado en No. Cambiando a Sí"
-configOptionBMessage2 = "NO proporcione las siguientes claves a nadie que no sea un desarrollador de Alfred".
+configOptionBMessage2 = "NO proporcione las siguientes claves a nadie que no sea un desarrollador de Alfred"
 configOptionBMessage3 = "claveprivada: " 
 configOptionBMessage4 = "syscrypt: "
 
@@ -62,7 +62,7 @@ permission_denied = "Permiso denegado para {operation} en {path}"
 note = "¡Nota! "
 path = "RUTA: ⤷ "
 warning1 = "Es posible que los sitios no permitan la descarga de los archivos de su sitio. Úselo bajo su propio riesgo."
-warning2 = "El uso del web scraper es bastante lento".
+warning2 = "El uso del web scraper es bastante lento"
 warning3 = "Este es tu primer lanzamiento :D Es posible que debas reiniciar Alfred para usar todos los módulos"
 warning4 = "¡Estás usando una versión preliminar de Alfred!"
 
