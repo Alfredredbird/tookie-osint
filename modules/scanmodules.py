@@ -29,6 +29,7 @@ def Startscan(
     webscrape,
     siteErrors,
     date,
+    language_module
 ):
     try:
         headers = headers = {
@@ -81,7 +82,7 @@ def Startscan(
                 config.read("./config/config.ini")
                 selected_webdriver = config.get("main", "browser")
                 if selected_webdriver:
-                    result = scrape(website_url, error_to_find, selected_webdriver)
+                    result = scrape(website_url, error_to_find, selected_webdriver,language_module)
 
                 # print(result)
         if ec == 1:
@@ -110,10 +111,10 @@ def Startscan(
         return cError
     except KeyboardInterrupt:
         print("""===========================================================""")
-        print("Stopping........")
+        print(language_module.status7)
 
         f.close
-        print("Saved Results To File")
+        print(language_module.save2)
         exit(99)
     else:
         if webscrape == True:
@@ -268,7 +269,7 @@ def Startscan(
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
 
 
-def scanFileList(siteList, slectpath):
+def scanFileList(siteList, slectpath,language_module):
     try:
         with open(slectpath, "r") as f:
             for jsonObj in f:
@@ -276,27 +277,27 @@ def scanFileList(siteList, slectpath):
                 siteList.append(siteDic)
         return siteList
     except FileNotFoundError:
-        print(Fore.RED + "Cant Find Site File")
+        print(Fore.RED + language_module.error7)
         exit(-1)
     except json.JSONDecodeError:
-        print(Fore.RED + "Error With Site File" + Fore.RESET)
+        print(Fore.RED + language_module.error9 + Fore.RESET)
         exit(-9)
 
 
-def fileShare():
-    host = input("Host Server? [Y/N]: ⤷ ")
+def fileShare(language_module):
+    host = input(language_module.fs1)
     if "Y" in host or "y" in host:
-        print("Waiting To Connect To Host!")
+        print(language_module.fs2)
         exec(open("modules/recive.py").read())
     elif "N" in host or "n" in host:
-        print("Waiting For Client To Connect!")
+        print(language_module.fs3)
         exec(open("modules/sender.py").read())
 
     else:
-        print("Not Sure What You Ment.")
+        print(language_module.idk1)
 
 
-def siteDownloader():
+def siteDownloader(language_module):
     input2 = input("SITE: ⤷ ")
     if input2 == "":
         lol = 1
@@ -335,8 +336,8 @@ def siteDownloader():
                     css_url = urljoin(url, css.attrs.get("href"))
                     css_files.append(css_url)
 
-            print("Total script files in the page:", len(script_files))
-            print("Total CSS files in the page:", len(css_files))
+            print(language_module.siteDl1, len(script_files))
+            print(language_module.siteDl2, len(css_files))
 
             # write file links into files
 
@@ -348,16 +349,16 @@ def siteDownloader():
                 for css_file in css_files:
                     print(css_file, file=f)
         except requests.exceptions.ConnectionError:
-            print("Error Downloading Web Content!")
+            print(language_module.error8)
         except requests.exceptions.RetryError:
-            print("Error Downloading Web Content!")
+            print(language_module.error8)
         except requests.exceptions.HTTPError:
-            print("Error Downloading Web Content!")
+            print(language_module.error8)
         except requests.exceptions.InvalidURL:
-            print("Error Downloading Web Content!")
+            print(language_module.error8)
         except ConnectionError:
-            print("Error")
+            print(language_module.error8)
         except requests.exceptions.RequestException:
-            print("Error Downloading Web Content!")
+            print(language_module.error8)
         except ValueError:
-            print("Unknow URL!")
+            print(language_module.error8)

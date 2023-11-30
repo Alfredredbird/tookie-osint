@@ -108,7 +108,7 @@ while test != True:
             "-ls": [dirList, []],
             "ls": [dirList, []],
             "-t": [timeoutC, [modes, input1]],
-            "-FS": [fileShare, []],
+            "-FS": [fileShare, [language_module]],
             "-q": [qexit, []],
             "-gsl": [
                 siteListGen,
@@ -142,7 +142,7 @@ while test != True:
             )
             dirDump(globalPath(config))
             time.sleep(2)
-            siteDownloader()
+            siteDownloader(language_module)
             time.sleep(4)
             print(f"{language_module.download1}CSS")
             scriptDownloader(globalPath(config) + "css_files.txt", ".css", count)
@@ -230,16 +230,16 @@ else:
 # determins what list of sites to use.
 if fastMode == 0:
     # fastmode0 is the default scan mode
-    scanFileList(siteList, "./sites/sites.json")
+    scanFileList(siteList, "./sites/sites.json",language_module)
 if fastMode == 1:
     # fastmode1 is the fast scan mode
-    scanFileList(siteList, "./sites/fsites.json")
+    scanFileList(siteList, "./sites/fsites.json",language_module)
 if fastMode == 2:
     # fastmode2 is the scan from custom site list
-    scanFileList(siteList, slectpath)
+    scanFileList(siteList, slectpath,language_module)
 if fastMode == 3:
     # fastmode2 is the scan from custom site list
-    scanFileList(siteList, "./sites/Megasites.json")
+    scanFileList(siteList, "./sites/Megasites.json",language_module)
 # prints ui stuff
 print(Fore.GREEN + f"{language_module.scan1}" + uname + Fore.RESET)
 print("===========================================================")
@@ -271,6 +271,7 @@ with open(file_path, "a") as f:
                     webscrape,
                     siteErrors,
                     date,
+                    language_module
                 )
                 i += 1
 

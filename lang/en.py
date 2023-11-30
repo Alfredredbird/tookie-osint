@@ -89,8 +89,10 @@ status3 = "Reinstalling............"
 status4 = "Returning To Alfred Soon..."
 status5 = "Testing....."
 status6 = "Stopping..... Saved To captured/working.txt"
+status7 = "Stopping........"
 
 save1 = "Saved Results To"
+save2 = "Saved Results To File"
 
 error1 = "Permission Error"
 error2 = "Type Error"
@@ -98,6 +100,11 @@ error3 = "Cant Find The Save File!"
 error4 = "Directory doesn't exist."
 error5 = "Cant Find Necessary Files. Trying To Reinstall Alfred"
 error6 = "Uh Oh Error! Looks Like The Connection Dont Seem To Be Working. Check your connection Or Proxy, Then Try Again :"
+error7 = "Cant Find Site File"
+error8 = "Error Downloading Web Content!"
+error9 = "Error With Site File"
+error10 = "Invalid webdriver selection."
+error11 = "An error occurred: "
 
 fileshare1 = "[*] Listening as"
 fileshare2 = "is connected."
@@ -117,6 +124,13 @@ sender1 = "[+] Connecting to"
 sender2 = "[+] Connected."
 sender3 = "Sending."
 sender4 = "File To Send: ⤷ "
+
+fs1 = "Host Server? [Y/N]: ⤷ "
+fs2 = "Waiting To Connect To Host!"
+fs3 = "Waiting For Client To Connect!"
+
+siteDl1 = "Total script files in the page:"
+siteDl2 = "Total CSS files in the page:"
 # example bc imma forget
 # import messages
 

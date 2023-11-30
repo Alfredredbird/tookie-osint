@@ -66,7 +66,7 @@ def get_default_browser():
 
 
 # web scraper
-def scrape(url, target_error_message, selected_webdriver):
+def scrape(url, target_error_message, selected_webdriver,language_module):
     try:
         # Set the log level to suppress webdriver console output
         LOGGER.setLevel(logging.ERROR)
@@ -97,7 +97,7 @@ def scrape(url, target_error_message, selected_webdriver):
             )  # Set the log level to suppress logging
             driver = webdriver.Edge(options=edge_options)
         else:
-            print("Invalid webdriver selection.")
+            print(language_module.error10)
             return None
 
         driver.get(url)
@@ -116,5 +116,5 @@ def scrape(url, target_error_message, selected_webdriver):
             # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
             return there
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"{language_module.error11}{e}")
         return None

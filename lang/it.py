@@ -90,8 +90,10 @@ status3 = "Reinstallazione in corso............"
 status4 = "Torneremo presto ad Alfred ..."
 status5 = "Collaudo....."
 status6 = "Fermarsi..... Salvato in captured/working.txt"
+status7 = "Arresto in corso........"
 
 save1 = "Risultati salvati in"
+save2 = "Risultati salvati su file"
 
 error1 = "Errore di autorizzazione"
 error2 = "Tipo Errore"
@@ -99,6 +101,11 @@ error3 = "Non riesco a trovare il file di salvataggio!"
 error4 = "La directory non esiste."
 error5 = "Impossibile trovare i file necessari. Tentativo di reinstallare Alfred"
 error6 = "Uh oh errore! Sembra che la connessione non sembri funzionare. Controlla la tua connessione o il proxy, quindi riprova:"
+error7 = "Impossibile trovare il file del sito"
+error8 = "Errore durante il download del contenuto Web!"
+error9 = "Errore con il file del sito"
+error10 = "Selezione del driver Web non valida."
+error11 = "Si è verificato un errore: "
 
 fileshare1 = "[*] Ascolto come"
 fileshare2 = "è connesso."
@@ -118,6 +125,13 @@ sender1 = "[+] Connessione a"
 sender2 = "[+] Connesso."
 sender3 = "Invio in corso."
 sender4 = "File da inviare: ⤷ "
+
+fs1 = "Server host? [Y/n]: ⤷ "
+fs2 = "In attesa di connettersi all'host!"
+fs3 = "In attesa che il client si connetta!"
+
+siteDl1 = "Totale file di script nella pagina:"
+siteDl2 = "Totale file CSS nella pagina:"
 # example bc imma forget
 # import messages
 
