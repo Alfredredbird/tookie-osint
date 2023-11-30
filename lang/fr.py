@@ -42,6 +42,10 @@ configOption5Message = """
             Langues prises en charge :
                 it = italien
                 fr = français
+                il = hébreu 
+                en = anglais 
+                ar = arabe 
+                es = espagnol
                          """
 configOptionAMessage = "Fait!"
 configOptionBMessage = "Bienvenue dans le menu développeur!"
