@@ -126,8 +126,8 @@ There Is A Lot Lol
 (we need translators 😭)
 - [x] English
 - [x] Italian
+- [x] Hebrew 
 - [ ] Spanish (Comming Soon)
-- [ ] Hebrew (Comming Soon)
 - [ ] French (Comming Soon)
 - [ ] Arabic (Comming Soon)
 
@@ -135,9 +135,9 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
-- [ ] GUI
 - [ ] WebUi
 - [ ] Webscraper
+- [ ] Phone Number OSINT
 
 
 
