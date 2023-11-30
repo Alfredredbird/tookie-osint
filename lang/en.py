@@ -42,6 +42,7 @@ configOption5Message = """
                 it = Italian
                 en = English
                 il = Hebrew
+                es = Spanish
                          """
 configOptionAMessage = "Done!"
 configOptionBMessage = "Welcome To The Developer Menu!"
