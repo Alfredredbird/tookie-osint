@@ -43,6 +43,8 @@ configOption5Message = """
                 en = inglés
                 il = hebreo 
                 es = español
+                fr = francés 
+                ar = árabe
                          """
 configOptionAMessage = "Hecho!"
 configOptionBMessage = "¡Bienvenido al menú de desarrolladores!"
