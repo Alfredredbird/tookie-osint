@@ -42,6 +42,9 @@ configOption5Message = """
 اللغة المدعومة:
    it = Italian
    en = English
+   il = Hebrew 
+   ar = Arabic 
+   es = Spanish
 """
 configOptionAMessage = "تمت!"
 configOptionBMessage = "مرحبا بك في قائمة المطور!"
