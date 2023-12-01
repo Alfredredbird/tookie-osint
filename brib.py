@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import print_function
+
+import datetime
 import os
 import site
 import time
@@ -8,10 +10,15 @@ from pathlib import Path
 from socket import socket
 from time import sleep
 from timeit import default_timer
+
 from alive_progress import *
 from colorama import Back, Fore, Style
 from rich.console import Console
+
+from lang.en import *
 from modules.configcheck import *
+from modules.crypt import *
+from modules.lang import *
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
@@ -47,7 +54,7 @@ date = datetime.date.today()
 siteList = []
 siteErrors = []
 siteNSFW = []
-#loads the language
+# loads the language
 script_dir = os.path.dirname(os.path.realpath(__file__))
 os.chdir(script_dir)
 language_code = getLang(config)
@@ -62,10 +69,10 @@ folders_to_create = [
     "sites",
     "lang",
 ]
-create_folders(folders_to_create,language_module)
+create_folders(folders_to_create, language_module)
 # gets the defualt browser and system information
 browser = get_default_browser()
-print(language_module.browser + browser )
+print(language_module.browser + browser)
 # gets the version of Alfred
 version = configC(language_module)
 # gets the info to encrypt
@@ -88,7 +95,7 @@ saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version, config)
 # does config stuff
-configUpdateStuff(config, browser,language_module)
+configUpdateStuff(config, browser, language_module)
 # this is the variable that gets the username
 uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
@@ -109,16 +116,23 @@ while test != True:
             "-q": [qexit, []],
             "-gsl": [
                 siteListGen,
-                [console, testall, get_random_string, domain_extensions, uname,language_module],
+                [
+                    console,
+                    testall,
+                    get_random_string,
+                    domain_extensions,
+                    uname,
+                    language_module,
+                ],
             ],
             "-c": [proxyCheck, [modes, input1]],
             "-lp": [list_proxys, []],
             "-h": [print_help, []],
             "--help": [print_help, []],
             "-d": [redirects1, [modes, input1]],
-            "-u": [unameinfo, [uname,language_module]],
+            "-u": [unameinfo, [uname, language_module]],
             "-Cat": [catFile, []],
-            "--Config": [configEditor, [config,language_module]],
+            "--Config": [configEditor, [config, language_module]],
             "-p": [ping, []],
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
@@ -189,7 +203,7 @@ while test != True:
                 except TypeError():
                     print(language_module.error2)
             else:
-                print(Fore.RED + f"{language_module.error3}"+ Fore.RESET)
+                print(Fore.RED + f"{language_module.error3}" + Fore.RESET)
                 exit(69)
         if "--Wiki" in input1:
             wiki(language_module)
@@ -228,16 +242,16 @@ else:
 # determins what list of sites to use.
 if fastMode == 0:
     # fastmode0 is the default scan mode
-    scanFileList(siteList, "./sites/sites.json",language_module)
+    scanFileList(siteList, "./sites/sites.json", language_module)
 if fastMode == 1:
     # fastmode1 is the fast scan mode
-    scanFileList(siteList, "./sites/fsites.json",language_module)
+    scanFileList(siteList, "./sites/fsites.json", language_module)
 if fastMode == 2:
     # fastmode2 is the scan from custom site list
-    scanFileList(siteList, slectpath,language_module)
+    scanFileList(siteList, slectpath, language_module)
 if fastMode == 3:
     # fastmode2 is the scan from custom site list
-    scanFileList(siteList, "./sites/Megasites.json",language_module)
+    scanFileList(siteList, "./sites/Megasites.json", language_module)
 # prints ui stuff
 print(Fore.GREEN + f"{language_module.scan1}" + uname + Fore.RESET)
 print("===========================================================")
@@ -269,7 +283,7 @@ with open(file_path, "a") as f:
                     webscrape,
                     siteErrors,
                     date,
-                    language_module
+                    language_module,
                 )
                 i += 1
 

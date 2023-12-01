@@ -19,14 +19,14 @@ Alfred has a simple-to-use UI and is really straightforward. :D
 The main idea of Alfred is to discover usernames that are requested from an input.
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by me and is available for your use. 
-I do not take responsibility for any malicious actions and or responsibility caused by my tool. :(
-Please note that Alfred was created to help new programers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimised for python 12. If you want to contribute, make a fork and make a pull request to submit your changes. :D I am proud to anounce that Alfred has over 700 weekly downloads!
+I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
+Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimised for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D I am proud to anounce that Alfred has over 700 weekly downloads!
 
 <img width="502" alt="imasdasdage" src="https://github.com/Alfredredbird/alfred/assets/105014217/c085915e-5803-4b4f-9d25-efc96822ac19">
 
 
 # 📦 Installation
-The requirements will Automatically Be Installed.
+The requirements will be automatically installed.
 
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip3 install -r requirements.txt
@@ -106,8 +106,6 @@ The requirements will Automatically Be Installed.
     </tr>
 </table>
 
-
-
 # 📖 Requirments
 
 There Is A Lot Lol
@@ -128,9 +126,8 @@ There Is A Lot Lol
 - [x] Italian
 - [x] Hebrew 
 - [x] Spanish
-- [ ] French (Comming Soon)
-- [ ] Arabic (Comming Soon)
-
+- [x] French 
+- [x] Arabic
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
@@ -139,22 +136,19 @@ There Is A Lot Lol
 - [ ] Webscraper
 - [ ] Phone Number OSINT
 
-
-
-
-
 # 🍿 Showcase
 Alfred has a wide variety of options to use.
 Typing -h twice shows the help menu.
 
 <img width="434" alt="imaasdasdasage" src="https://github.com/Alfredredbird/alfred/assets/105014217/756d0b3b-6c37-425d-ae98-7ab00befb77d">
 
-
 # ⁉️ Need Help?
 Check out https://github.com/Alfredredbird/alfred/issues or the WiKi for help.
 Still Need Help? Contact Below :D
+
 # 🤔 Cant Find The Site Your Looking For?
-Make a pullrequest or a Bug report with the site and we will add it. :D
+Make a pull request or a bug report with the site and we will add it. :D
+
 # 📗 Info:
 
 <table>
@@ -176,9 +170,8 @@ Make a pullrequest or a Bug report with the site and we will add it. :D
     </tr>
 </table>
 
-
 # 📙 Articles
-There has been several aritcles written about our tool. Feal free to check them out :D  Theses articales belong to their resectfull owners.
+There has been several articles written about our tool. Feal free to check them out :D  Theses articles belong to their respectful owners.
 <table>
     <tr>
         <th>Habr</th>

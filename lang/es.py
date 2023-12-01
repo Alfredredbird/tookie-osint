@@ -1,7 +1,7 @@
 # es.py
 # Español
 
-encrypt1 = 'Cifrando Clave...'
+encrypt1 = "Cifrando Clave..."
 
 title1 = "¡Muchas gracias a nuestros socios!"
 
@@ -20,10 +20,10 @@ config6 = "¿Qué quieres cambiar? ⤷ "
 config7 = "Creando carpeta:"
 config8 = "La carpeta ya existe:"
 
-configOption1 = "[1] Buscar actualizaciones: " 
-configOption2 = "[2] Mostrar consejos: " 
+configOption1 = "[1] Buscar actualizaciones: "
+configOption2 = "[2] Mostrar consejos: "
 configOption3 = "[3] Ruta de descarga del sitio: "
-configOption4 = "[4] Navegador: " 
+configOption4 = "[4] Navegador: "
 configOption5 = "[5] Idioma: "
 configOptionA = "[A] Limpiar Alfred. (Esto elimina archivos temporales)"
 configOptionB = "[B] Herramientas de desarrollo."
@@ -51,8 +51,10 @@ configOptionBMessage = "¡Bienvenido al menú de desarrolladores!"
 
 configOption1Message2 = "¡Ok! [checkforupdates] está configurado en No. Cambiando a Sí"
 configOption2Message2 = "¡Ok! [showtips] está configurado en No. Cambiando a Sí"
-configOptionBMessage2 = "NO proporcione las siguientes claves a nadie que no sea un desarrollador de Alfred"
-configOptionBMessage3 = "claveprivada: " 
+configOptionBMessage2 = (
+    "NO proporcione las siguientes claves a nadie que no sea un desarrollador de Alfred"
+)
+configOptionBMessage3 = "claveprivada: "
 configOptionBMessage4 = "syscrypt: "
 
 target = "Objetivo: ⤷ "

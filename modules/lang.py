@@ -1,6 +1,7 @@
 import importlib.util
 from configparser import ConfigParser
 
+
 def load_language(language_code):
     langp = "./lang/"
     try:
@@ -12,7 +13,8 @@ def load_language(language_code):
         return language_module
     except FileNotFoundError:
         print(f"Language file not found for {language_code}. Using default.")
-        return None            
+        return None
+
 
 def getLang(config):
     config.read("./config/config.ini")

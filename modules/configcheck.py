@@ -1,13 +1,14 @@
 import os
 import random
 import time
-from colorama import *
-from modules.lang import *
-from lang.en import *
 from configparser import ConfigParser
 
+from colorama import *
 
-#loads the language
+from lang.en import *
+from modules.lang import *
+
+# loads the language
 
 
 #
@@ -36,22 +37,15 @@ def configC(language_module):
         return version
 
 
-def configUpdateStuff(config, browser,language_module):
+def configUpdateStuff(config, browser, language_module):
     config.read("./config/config.ini")
 
     # checks to see if the user is running a Pre or if its Alfreds first launch.
     if config.get("main", "firstlaunch") == "yes":
-        print(
-            Fore.RED
-            + language_module.note
-            + Fore.RESET
-            + language_module.warning3
-        )
+        print(Fore.RED + language_module.note + Fore.RESET + language_module.warning3)
         print("")
     if config.get("main", "prerelease") == "yes":
-        print(
-            Fore.RED + language_module.note + Fore.RESET + language_module.warning4
-        )
+        print(Fore.RED + language_module.note + Fore.RESET + language_module.warning4)
         print(language_module.prompt2)
         print("")
     # this is the function to update the code
@@ -122,7 +116,7 @@ def configUpdateStuff(config, browser,language_module):
 
 
 # this is the module that edits the configuration file. needs to be cleaned up tho
-def configEditor(config,language_module):
+def configEditor(config, language_module):
     # reads the config
     config.read("./config/config.ini")
     # gets input
@@ -134,7 +128,9 @@ def configEditor(config,language_module):
         print(
             "==========================================================================="
         )
-        print(language_module.configOption1 + str(config.get("main", "checkforupdates")))
+        print(
+            language_module.configOption1 + str(config.get("main", "checkforupdates"))
+        )
         print(language_module.configOption2 + str(config.get("main", "showtips")))
         print(language_module.configOption3 + str(config.get("main", "defaultDlPath")))
         print(language_module.configOption4 + str(config.get("main", "browser")))
@@ -189,9 +185,7 @@ def configEditor(config,language_module):
         if editConfig == "4":
             # update config path logic
             if config.get("main", "browser") != "":
-                print(
-                    language_module.configOption4Message
-                )
+                print(language_module.configOption4Message)
                 newbrowser = input("Browser: ⤷ ")
                 config.set("main", "browser", str(newbrowser))
                 with open("./config/config.ini", "w") as f:
@@ -200,14 +194,12 @@ def configEditor(config,language_module):
         if editConfig == "5":
             # update config path logic
             if config.get("main", "language") != "":
-                print(
-                    language_module.configOption5Message
-                )
+                print(language_module.configOption5Message)
                 newbrowser = input("Language Code: ⤷ ")
                 config.set("main", "language", str(newbrowser))
                 with open("./config/config.ini", "w") as f:
                     config.write(f)
-                    return True        
+                    return True
         if editConfig == "A" or editConfig == "a":
             # deletes the downloaded files
             dirDump(globalPath(config))
@@ -223,8 +215,14 @@ def configEditor(config,language_module):
             print(language_module.configOptionBMessage)
             print("")
             print(language_module.configOptionBMessage2)
-            print(language_module.configOptionBMessage3 + str(config.get("main", "privatekey")))
-            print(language_module.configOptionBMessage4 + str(config.get("main", "syscrypt")))
+            print(
+                language_module.configOptionBMessage3
+                + str(config.get("main", "privatekey"))
+            )
+            print(
+                language_module.configOptionBMessage4
+                + str(config.get("main", "syscrypt"))
+            )
             print("")
             print(
                 "==========================================================================="
@@ -245,7 +243,7 @@ def dirDump(mydir):
         os.remove(os.path.join(mydir, f))
 
 
-def create_folders(folder_list,language_module):
+def create_folders(folder_list, language_module):
     for folder in folder_list:
         if not os.path.exists(folder):
             print(f"{language_module.config7}{folder}")
