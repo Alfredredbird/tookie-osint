@@ -304,7 +304,7 @@ def siteDownloader(language_module):
     if input2 != "":
         try:
             url = str(input2)
-            # thanks to https://thepythoncode.com/code/extract-web-page-script-and-css-files-in-python for the code :D
+            
             # initialize a session
             session = requests.Session()
             # set the User-agent as a regular browser

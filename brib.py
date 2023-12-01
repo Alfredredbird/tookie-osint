@@ -21,8 +21,6 @@ from lang.en import *
 from modules.crypt import *
 from modules.lang import *
 import datetime
-
-
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
 domain_extensions = False
@@ -95,7 +93,6 @@ configUpdateStuff(config, browser,language_module)
 uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
 uname_list = [item.strip() for item in uname.split(",")]
-
 # This is where Alfred gathers the inputed options and then run them.
 # Not all of the options execute on input.
 while test != True:
@@ -157,9 +154,9 @@ while test != True:
                 print("Ok!")
             else:
                 print(language_module.idk1)
+        #this is the function that starts Alfred.        
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
-
             if input2 != "":
                 if input2 == "Y" or input2 == "y":
                     modes += input1
@@ -214,6 +211,7 @@ while test != True:
             darkAlfred(console, uname)
             logo(uname, version, config)
     # checks for empty input
+    #it will keep printing ⤷ until -s is entered and Y is entered
     if "" in input1 and inputnum != "":
         test = True
     inputnum = ""
@@ -278,8 +276,6 @@ with open(file_path, "a") as f:
 
 # checks for a connection error and prints
 connectionError(cError, f)
-
-
 # calculates the percentage
 def is_what_percent_of(num_a, num_b):
     return (num_a / num_b) * 100
