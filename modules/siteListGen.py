@@ -9,7 +9,7 @@ from os import listdir, walk
 from os.path import isfile, join
 from pathlib import Path
 from urllib.parse import urljoin
-from modules.lang import *
+
 import requests
 import wget
 from bs4 import BeautifulSoup
@@ -17,6 +17,8 @@ from bs4 import BeautifulSoup as bs
 from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
+
+from modules.lang import *
 from modules.modules import *
 
 

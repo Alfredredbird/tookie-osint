@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import print_function
+
+import datetime
 import os
 import site
 import time
@@ -8,20 +10,20 @@ from pathlib import Path
 from socket import socket
 from time import sleep
 from timeit import default_timer
+
 from alive_progress import *
 from colorama import Back, Fore, Style
 from rich.console import Console
+
+from lang.en import *
 from modules.configcheck import *
+from modules.crypt import *
+from modules.lang import *
 from modules.modules import *
 from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
-from lang.en import *
-from modules.crypt import *
-from modules.lang import *
-import datetime
-
 
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables

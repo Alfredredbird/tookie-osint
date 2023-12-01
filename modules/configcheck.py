@@ -1,11 +1,12 @@
 import os
 import random
 import time
-from colorama import *
-from modules.lang import *
-from lang.en import *
 from configparser import ConfigParser
 
+from colorama import *
+
+from lang.en import *
+from modules.lang import *
 
 # loads the language
 

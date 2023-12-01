@@ -4,9 +4,7 @@ from configparser import ConfigParser
 from cryptography.fernet import Fernet
 
 from modules.configcheck import *
-
 from modules.lang import *
-
 
 config = ConfigParser()
 

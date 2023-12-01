@@ -4,9 +4,11 @@ Client that sends the file (uploads)
 import argparse
 import os
 import socket
-from modules.lang import *
 from configparser import ConfigParser
+
 import tqdm
+
+from modules.lang import *
 
 config = ConfigParser()
 language_code = getLang(config)

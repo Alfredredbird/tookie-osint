@@ -1,13 +1,13 @@
 import os
 import platform
 import time
+from configparser import ConfigParser
 
 from colorama import *
 
+from modules.lang import *
 from modules.modules import *
 from modules.webscrape import *
-from modules.lang import *
-from configparser import ConfigParser
 
 config = ConfigParser()
 language_code = getLang(config)
