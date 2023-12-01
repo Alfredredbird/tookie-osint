@@ -13,8 +13,6 @@ jobs:
       - uses: isort/isort-action@v1
         with:
           requirements-files: "requirements.txt"
-          options: "--profile black"
-
   lint:
     name: Lint Code (Black)
     runs-on: ubuntu-latest
