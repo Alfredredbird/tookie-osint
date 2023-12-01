@@ -13,6 +13,7 @@ config = ConfigParser()
 language_code = getLang(config)
 language_module = load_language(language_code)
 
+
 def print_encrypted_and_decrypted_text(decrypted_text):
     # print("Original text:", original_text)
     # print("Encrypted text:", encrypted_text)
