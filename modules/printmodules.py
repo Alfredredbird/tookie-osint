@@ -13,6 +13,7 @@ config = ConfigParser()
 language_code = getLang(config)
 language_module = load_language(language_code)
 
+
 def print_logoscreen(version, config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
@@ -73,12 +74,13 @@ def print_logoscreen(version, config):
         + "==========================================================================="
     )
     print("")
-    print(
-        Fore.RED
-        + language_module.disclamer
-    )
+    print(Fore.RED + language_module.disclamer)
     print(Fore.RESET + " ")
-    print("     " + "OS:" + f"                                      Alfred {language_module.version}:")
+    print(
+        "     "
+        + "OS:"
+        + f"                                      Alfred {language_module.version}:"
+    )
     print(
         "     "
         + platform.system()
@@ -94,7 +96,11 @@ def print_logoscreen(version, config):
     )
     print("")
     print("")
-    print("     " + "Browser:" + f"                                 Python {language_module.version}:")
+    print(
+        "     "
+        + "Browser:"
+        + f"                                 Python {language_module.version}:"
+    )
     print(
         "     "
         + browser
@@ -186,12 +192,13 @@ def logo(uname, version, config):
         + "==========================================================================="
     )
     print("")
-    print(
-        Fore.RED
-        + language_module.disclamer
-    )
+    print(Fore.RED + language_module.disclamer)
     print(Fore.RESET + " ")
-    print("     " + "OS:" + f"                                      Alfred {language_module.version}:")
+    print(
+        "     "
+        + "OS:"
+        + f"                                      Alfred {language_module.version}:"
+    )
     print(
         "     "
         + platform.system()
@@ -207,7 +214,11 @@ def logo(uname, version, config):
     )
     print("")
     print("")
-    print("     " + "Browser:" + f"                                 Python {language_module.version}:")
+    print(
+        "     "
+        + "Browser:"
+        + f"                                 Python {language_module.version}:"
+    )
     print(
         "     "
         + browser
@@ -321,44 +332,42 @@ def wiki(language_module):
         print(
             f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Instalations"
         )
-        returntoAlfred(3,language_module)
+        returntoAlfred(3, language_module)
         return True
     elif search == "2":
         print(
             f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Usage---Options"
         )
-        returntoAlfred(3,language_module)
+        returntoAlfred(3, language_module)
         return True
     elif search == "3":
         print(
             f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Errors"
         )
-        returntoAlfred(3,language_module)
+        returntoAlfred(3, language_module)
         return True
     elif search == "4":
         print(
             f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Dark-Alfred"
         )
-        returntoAlfred(3,language_module)
+        returntoAlfred(3, language_module)
         return True
     elif search == "5":
         print(
             f"{language_module.wikilist}https://github.com/Alfredredbird/alfred/wiki/Modules"
         )
-        returntoAlfred(3,language_module)
+        returntoAlfred(3, language_module)
         return True
     else:
-        print(
-            f"{language_module.idk3} https://github.com/Alfredredbird/alfred/wiki/"
-        )
-        returntoAlfred(3,language_module)
+        print(f"{language_module.idk3} https://github.com/Alfredredbird/alfred/wiki/")
+        returntoAlfred(3, language_module)
         return True
 
 
-def returntoAlfred(seconds,language_module):
+def returntoAlfred(seconds, language_module):
     print(language_module.status4)
     time.sleep(seconds)
 
 
-def unameinfo(uname,language_module):
+def unameinfo(uname, language_module):
     print(language_module.rqUname + uname)
