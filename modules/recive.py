@@ -6,6 +6,7 @@ import socket
 from modules.lang import *
 from configparser import ConfigParser
 import tqdm
+
 config = ConfigParser()
 language_code = getLang(config)
 language_module = load_language(language_code)
