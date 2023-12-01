@@ -19,7 +19,7 @@ host = str(input("Host IP: ⤷ "))
 port = 5001
 
 
-def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE,language_module):
+def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE, language_module):
     # get the file size
     filesize = os.path.getsize(filename)
     # create the client socket
@@ -56,4 +56,4 @@ def send_file(filename, host, port, SEPARATOR, BUFFER_SIZE,language_module):
     s.close()
 
 
-send_file(filename, host, port, SEPARATOR, BUFFER_SIZE,language_module)
+send_file(filename, host, port, SEPARATOR, BUFFER_SIZE, language_module)
