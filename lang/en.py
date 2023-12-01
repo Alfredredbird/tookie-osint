@@ -1,7 +1,7 @@
 # en.py
-#English
+# English
 
-encrypt1 = 'Encrypting Key...'
+encrypt1 = "Encrypting Key..."
 
 title1 = "Many Thanks To Our Partners!"
 
@@ -20,10 +20,10 @@ config6 = "What Do You Want To Change? ⤷ "
 config7 = "Creating folder: "
 config8 = "Folder already exists: "
 
-configOption1 = "[1] Check for updates: " 
-configOption2 = "[2] Show tips: " 
+configOption1 = "[1] Check for updates: "
+configOption2 = "[2] Show tips: "
 configOption3 = "[3] Site Download Path: "
-configOption4 = "[4] Browser: " 
+configOption4 = "[4] Browser: "
 configOption5 = "[5] Language: "
 configOptionA = "[A] Clean Up Alfred. (This Removes Temporary Files)"
 configOptionB = "[B] Developer Tools."
@@ -52,7 +52,7 @@ configOptionBMessage = "Welcome To The Developer Menu!"
 configOption1Message2 = "Ok! [checkforupdates] Is Set For No. Changing To Yes"
 configOption2Message2 = "Ok! [showtips] Is Set For No. Changing To Yes"
 configOptionBMessage2 = "DONT Give The Following Keys To Anyone But A Alfred Developer."
-configOptionBMessage3 = "privatekey: " 
+configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
 
 target = "Target: ⤷ "
@@ -144,4 +144,3 @@ siteDl2 = "Total CSS files in the page:"
 # # Example of using placeholders in messages
 # filename = "example.txt"
 # print(messages.file_not_found.format(filename=filename))
-

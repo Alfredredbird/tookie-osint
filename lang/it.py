@@ -1,11 +1,11 @@
 # it.py
-#Italian
+# Italian
 
-encrypt1 = 'Chiave di cifratura in corso...'
+encrypt1 = "Chiave di cifratura in corso..."
 
 title1 = "Grazie mille ai nostri partner!"
 
-disclamer =" Desclaimer: Non tutti i siti e/o i proxy sono garantiti per funzionare! n Utilizzandoti, tieni pienamente conto delle tue azioni"
+disclamer = " Desclaimer: Non tutti i siti e/o i proxy sono garantiti per funzionare! n Utilizzandoti, tieni pienamente conto delle tue azioni"
 
 targetusernames = "I nomi utente di destinazione: "
 
@@ -20,12 +20,14 @@ config6 = "Cosa vuoi cambiare? ⤷ "
 config7 = "Creazione cartella: "
 config8 = "La cartella esiste già: "
 
-configOption1 = "[1] Controlla aggiornamenti: " 
-configOption2 = "[2] Mostra suggerimenti: " 
+configOption1 = "[1] Controlla aggiornamenti: "
+configOption2 = "[2] Mostra suggerimenti: "
 configOption3 = "[3] Percorso di download del sito: "
-configOption4 = "[4] Browser: " 
+configOption4 = "[4] Browser: "
 configOption5 = "[5] Lingua: "
-configOptionA = "[A] Ripulisci Alfred. (In questo modo vengono rimossi i file temporanei)"
+configOptionA = (
+    "[A] Ripulisci Alfred. (In questo modo vengono rimossi i file temporanei)"
+)
 configOptionB = "[B] Strumenti per sviluppatori."
 
 configOption1Message = "Ok! [verificareaggiornamenti] È impostato per Sì. Passando a No"
@@ -49,9 +51,13 @@ configOption5Message = """
 configOptionAMessage = "Fatto!"
 configOptionBMessage = "Benvenuto nel menu sviluppatore!"
 
-configOption1Message2 = "Va bene! [verificareaggiornamenti] È impostato per No. Passando a Sì"
+configOption1Message2 = (
+    "Va bene! [verificareaggiornamenti] È impostato per No. Passando a Sì"
+)
 configOption2Message2 = "Ok! [suggerimenti] È impostato per No. Passando a Sì"
-configOptionBMessage2 = "NON dare le seguenti chiavi a nessuno se non a uno sviluppatore Alfred."
+configOptionBMessage2 = (
+    "NON dare le seguenti chiavi a nessuno se non a uno sviluppatore Alfred."
+)
 configOptionBMessage3 = "chiave privata: "
 configOptionBMessage4 = "syscrypt: "
 
@@ -61,7 +67,7 @@ browser = "Browser: "
 file_not_found = "File not found: {filename}"
 permission_denied = "Permission denied for {operation} on {path}"
 
-note = 'Nota! '
+note = "Nota! "
 path = "PERCORSO: ⤷ "
 warning1 = "Molti siti non consentono di scaricare i file del sito. Utilizzare a proprio rischio e pericolo."
 warning2 = " L'utilizzo del webscraper è piuttosto lento."
@@ -83,7 +89,7 @@ updates = "Gli aggiornamenti sono abilitati!"
 
 
 idk1 = "Non sono sicuro di cosa volessi dire..."
-idk2 = "Non sono sicuro di quello che hai in mente. Chiederò più tardi" 
+idk2 = "Non sono sicuro di quello che hai in mente. Chiederò più tardi"
 idk3 = "Non sono sicuro.... Ma puoi controllare qui: "
 
 scan1 = "Ricerca di siti con:"

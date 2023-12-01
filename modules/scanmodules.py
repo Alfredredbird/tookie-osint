@@ -29,7 +29,7 @@ def Startscan(
     webscrape,
     siteErrors,
     date,
-    language_module
+    language_module,
 ):
     try:
         headers = headers = {
@@ -82,7 +82,9 @@ def Startscan(
                 config.read("./config/config.ini")
                 selected_webdriver = config.get("main", "browser")
                 if selected_webdriver:
-                    result = scrape(website_url, error_to_find, selected_webdriver,language_module)
+                    result = scrape(
+                        website_url, error_to_find, selected_webdriver, language_module
+                    )
 
                 # print(result)
         if ec == 1:
@@ -269,7 +271,7 @@ def Startscan(
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
 
 
-def scanFileList(siteList, slectpath,language_module):
+def scanFileList(siteList, slectpath, language_module):
     try:
         with open(slectpath, "r") as f:
             for jsonObj in f:

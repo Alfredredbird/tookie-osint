@@ -66,7 +66,7 @@ def get_default_browser():
 
 
 # web scraper
-def scrape(url, target_error_message, selected_webdriver,language_module):
+def scrape(url, target_error_message, selected_webdriver, language_module):
     try:
         # Set the log level to suppress webdriver console output
         LOGGER.setLevel(logging.ERROR)

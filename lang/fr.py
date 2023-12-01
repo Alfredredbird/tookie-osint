@@ -1,7 +1,7 @@
 # fr.py
 # Français
 
-encrypt1 = 'Clé de chiffrement...'
+encrypt1 = "Clé de chiffrement..."
 
 title1 = "Merci beaucoup à nos partenaires !"
 
@@ -52,7 +52,9 @@ configOptionBMessage = "Bienvenue dans le menu développeur!"
 
 configOption1Message2 = "Ok! [checkforupdates] est défini sur Non. Changement en Oui"
 configOption2Message2 = "Ok! [showtips] est défini sur Non. Changement en Oui"
-configOptionBMessage2 = "NE DONNEZ PAS LES CLÉS SUIVANTES À QUICONQUE SAUF À UN DÉVELOPPEUR D'ALFRED."
+configOptionBMessage2 = (
+    "NE DONNEZ PAS LES CLÉS SUIVANTES À QUICONQUE SAUF À UN DÉVELOPPEUR D'ALFRED."
+)
 configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
 
@@ -73,7 +75,9 @@ confirm1 = "Voulez-vous télécharger des images/vidéos ? [Y/n] : ⤷ "
 confirm2 = "Exécuter à nouveau ? : [Y/n] : ⤷ "
 
 prompt1 = "Entrez à nouveau le site : ⤷ "
-prompt2 = "Veuillez signaler tous les bogues ou erreurs à notre dépôt ou serveur Discord."
+prompt2 = (
+    "Veuillez signaler tous les bogues ou erreurs à notre dépôt ou serveur Discord."
+)
 prompt3 = "Vous pouvez désactiver la mise à jour dans le fichier de configuration"
 prompt4 = "Rejoignez notre Discord : https://discord.gg/xrdjxyuSQt"
 prompt5 = "Ok! Je demanderai plus tard...."
