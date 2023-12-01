@@ -20,10 +20,9 @@ from torrequest import TorRequest
 from modules.modules import *
 
 
-
-
-
-def siteListGen(console, testall, get_random_string, domain_extensions, uname,language_module):
+def siteListGen(
+    console, testall, get_random_string, domain_extensions, uname, language_module
+):
     input2 = input("CHAR: ⤷ ")
     trys = input("  TRYS: ⤷ ")
     siteType = input("     TYPE: ⤷ ")
