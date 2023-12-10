@@ -132,9 +132,11 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
+- [ ] Pip Package (in beta)
 - [ ] WebUi
 - [ ] Webscraper
 - [ ] Phone Number OSINT
+      
 
 # 🍿 Showcase
 Alfred has a wide variety of options to use.
