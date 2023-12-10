@@ -306,7 +306,7 @@ def siteDownloader(language_module):
     if input2 != "":
         try:
             url = str(input2)
-            
+
             # initialize a session
             session = requests.Session()
             # set the User-agent as a regular browser
