@@ -179,6 +179,11 @@ There has been several articles written about our tool. Feal free to check them 
         <th>Habr</th>
         <th>https://habr.com/ru/news/757502/</th>
     </tr>
+ <tr>
+        <th>Habr</th>
+        <th>https://habr.com/ru/amp/publications/769690/</th></th>
+    </tr>
+
    <tr>
         <th>Speka Media</th>
         <th>https://speka.media/rozrobniki-predstavili-alfred-vidkritu-utilitu-dlya-osint-pygwkp</th>
