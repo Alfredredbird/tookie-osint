@@ -233,9 +233,7 @@ There has been several articles written about our tool. Feal free to check them 
 
 # 📘 contact
 
-- Youtube : https://youtube.com/@alfredredbird
 - Twitter: https://twitter.com/Alfredredbird1
-- Twitch: https://twitch.tv/alfredredbird
 - Discord Server: https://discord.gg/m2RSZ2Hhx5
 
 
