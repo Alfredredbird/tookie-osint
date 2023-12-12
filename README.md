@@ -245,3 +245,4 @@ Want to partner with the Alfred project? Feel free to reach out.
 
 Partners:
 - GHPM ~ Smoke-Wolf
+- EliteGreyIT
