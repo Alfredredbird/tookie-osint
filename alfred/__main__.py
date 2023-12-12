@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     if sys.version_info < (3, 10):
         print(
-            "Sherlock requires Python 3.10+\nYou are using Python %s, which is not supported by Alfred"
+            "Alfred requires Python 3.10+\nYou are using Python %s, which is not supported by Alfred"
             % (python_version)
         )
         sys.exit(1)
