@@ -48,7 +48,12 @@ The requirements will be automatically installed.
     git clone https://github.com/alfredredbird/alfred
     cd alfred && pip3 install -r requirements.txt
     python3 brib.py
-     
+
+# 📦 Install With Pip
+
+    pip install alfred_osint
+  Ussage can be found Here: https://github.com/Alfredredbird/alfred/wiki/Modules  
+   
 # 💻 Tested OS
 
 <table>
