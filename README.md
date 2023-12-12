@@ -128,6 +128,9 @@ There Is A Lot Lol
 - [x] Spanish
 - [x] French 
 - [x] Arabic
+- [x] German
+- [ ] Hindi (Beta)
+- [ ] Russian (Beta)
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
