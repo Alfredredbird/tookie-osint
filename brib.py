@@ -24,10 +24,7 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
-from lang.en import *
-from modules.crypt import *
-from modules.lang import *
-import datetime
+
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # variables
 domain_extensions = False
@@ -168,7 +165,7 @@ while test != True:
                 print("Ok!")
             else:
                 print(language_module.idk1)
-        #this is the function that starts Alfred.        
+        # this is the function that starts Alfred.
         if "-s" in input1:
             input2 = input("[Y/N]? ⤷ ")
             if input2 != "":
@@ -225,7 +222,7 @@ while test != True:
             darkAlfred(console, uname)
             logo(uname, version, config)
     # checks for empty input
-    #it will keep printing ⤷ until -s is entered and Y is entered
+    # it will keep printing ⤷ until -s is entered and Y is entered
     if "" in input1 and inputnum != "":
         test = True
     inputnum = ""
@@ -290,6 +287,8 @@ with open(file_path, "a") as f:
 
 # checks for a connection error and prints
 connectionError(cError, f)
+
+
 # calculates the percentage
 def is_what_percent_of(num_a, num_b):
     return (num_a / num_b) * 100

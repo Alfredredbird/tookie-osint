@@ -132,9 +132,11 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
+- [ ] Pip Package (in beta)
 - [ ] WebUi
 - [ ] Webscraper
 - [ ] Phone Number OSINT
+      
 
 # 🍿 Showcase
 Alfred has a wide variety of options to use.
@@ -177,6 +179,11 @@ There has been several articles written about our tool. Feal free to check them 
         <th>Habr</th>
         <th>https://habr.com/ru/news/757502/</th>
     </tr>
+ <tr>
+        <th>Habr</th>
+        <th>https://habr.com/ru/amp/publications/769690/</th></th>
+    </tr>
+
    <tr>
         <th>Speka Media</th>
         <th>https://speka.media/rozrobniki-predstavili-alfred-vidkritu-utilitu-dlya-osint-pygwkp</th>
@@ -226,9 +233,7 @@ There has been several articles written about our tool. Feal free to check them 
 
 # 📘 contact
 
-- Youtube : https://youtube.com/@alfredredbird
 - Twitter: https://twitter.com/Alfredredbird1
-- Twitch: https://twitch.tv/alfredredbird
 - Discord Server: https://discord.gg/m2RSZ2Hhx5
 
 
