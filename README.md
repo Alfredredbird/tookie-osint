@@ -30,13 +30,14 @@ The requirements will be automatically installed.
 
     git clone https://github.com/alfredredbird/alfred
     cd alfred && sudo pip3 install -r requirements.txt
-    python3 brib.py
+    python3 alfred
+
 # 📦 Manual Install 
     download the latest release from: https://github.com/Alfredredbird/alfred/releases.
     then extract the zip or tar.gz
     
     cd alfred && sudo pip3 install -r requirements.txt
-    python3 brib.py
+    python3 alfred
 
     or download the Windows Installer Here: https://github.com/Alfredredbird/alfred/releases/download/v2.2(a)/alfred-installer.exe
 
@@ -47,7 +48,7 @@ The requirements will be automatically installed.
     
     git clone https://github.com/alfredredbird/alfred
     cd alfred && pip3 install -r requirements.txt
-    python3 brib.py
+    python3 alfred
      
 # 💻 Tested OS
 
