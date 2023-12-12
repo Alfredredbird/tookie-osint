@@ -45,7 +45,7 @@ configOption5Message = """
                  es = ספרדית
                  fr = צרפתית 
                  ar = ערבית 
-                                               """
+                 de = גרמנית                               """
 configOptionAMessage = "בוצע!"
 configOptionBMessage = "ברוכים הבאים לתפריט המפתחים!"
 
