@@ -54,7 +54,7 @@ The requirements will be automatically installed.
 
 # 📦 Install With Pip
 
-    pip install alfred_osint
+    pip install alfred-osint
   Ussage can be found Here: https://github.com/Alfredredbird/alfred/wiki/Modules  
    
 
