@@ -19,7 +19,8 @@
 | ChromeOS| :x:                |
 | Void    | :white_check_mark: |
 
-
+Chrome OS might work but none of us
+have tried it out. 
 
 
 ## Reporting a Vulnerability
