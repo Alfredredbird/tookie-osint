@@ -48,7 +48,7 @@ def chart():
         )
 
 
-def progress_bar_manual(dlcount, total_items, length, fill="█", print_end="\r"):
+def progress_bar_manual(dlcount, total_items, length, fill="#", print_end="\r"):
     def update_progress(progress, prefix="", suffix=""):
         bar_length = length
         filled_length = int(bar_length * progress / 100)
@@ -129,7 +129,7 @@ def update(alfred_update_path):
                     dlcount += 1.90001
                     total_items = len(udfl)
                     progress_bar_manual(
-                        dlcount, total_items, length=40, fill="█", print_end="\r"
+                        dlcount, total_items, length=40, fill="#", print_end="\r"
                     )
                 except FileNotFoundError:
                     print("Cant Find: " + item + "Skiping!")
@@ -208,7 +208,7 @@ def reinstall(chart,gitfile_loc,progress_bar_manual):
                 dlcount += 1.90001
                 total_items = len(udfl)
                 progress_bar_manual(
-                    dlcount, total_items, length=40, fill="█", print_end="\r"
+                    dlcount, total_items, length=40, fill="#", print_end="\r"
                 )
             except FileNotFoundError:
                 print("Cant Find: " + item + "Skiping!")
