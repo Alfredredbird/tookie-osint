@@ -17,9 +17,9 @@ def load_language(language_code):
 
 
 def getLang(config):
-    config.read("./config/config.ini")
     try:
+     config.read("./config/config.ini")
      lang = config.get("main", "language")
-    except Exception:
-       print("Language File Error. Please Restart Alfred")
+    except UnboundLocalError:
+       print("Language File Error. Please Restart Alfred To Fix This")
     return lang
