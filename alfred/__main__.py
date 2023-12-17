@@ -23,4 +23,4 @@ if __name__ == "__main__":
         os.system("cd ..")
         os.system("python.exe brib.py")
     else:
-     os.system("cd .. && python3 brib.py")
+     os.system("python3 brib.py")
