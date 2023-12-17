@@ -11,8 +11,8 @@ targetusernames = "Los nombres de usuario de destino:"
 
 version = "Versión"
 
-config1 = "Existe archivo de configuración:"
-config2 = "Existe archivo de actualización:"
+config1 = "Existe archivo de configuración"
+config2 = "Existe archivo de actualización"
 config3 = "La carpeta ya existe:"
 config4 = "¿Buscar actualizaciones? [Y/n]: ⤷ "
 config5 = "¿Editar la configuración? [Y/n]: ⤷ "

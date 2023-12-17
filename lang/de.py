@@ -11,8 +11,8 @@ targetusernames = "Die Zielbenutzernamen:"
 
 version = "Version"
 
-config1 = "Konfigurationsdatei wird beendet:"
-config2 = "Aktualisierungsdatei existiert:"
+config1 = "Konfigurationsdatei wird beendet"
+config2 = "Aktualisierungsdatei existiert"
 config3 = "Ordner existiert bereits:"
 config4 = "Nach Updates suchen? [J/n]: ⤷ "
 config5 = "Die Konfiguration bearbeiten? [J/n]: ⤷"
@@ -28,7 +28,9 @@ configOption5 = "[5] Sprache: "
 configOptionA = "[A] Bereinigen Sie Alfred. (Dadurch werden temporäre Dateien entfernt)"
 configOptionB = "[B] Entwicklertools."
 
-configOption1Message = "Ok! [checkforupdates] ist auf Ja eingestellt. Wird in Nein geändert."
+configOption1Message = (
+    "Ok! [checkforupdates] ist auf Ja eingestellt. Wird in Nein geändert."
+)
 configOption2Message = "Ok! [showtips] ist auf Ja eingestellt. Wird in Nein geändert."
 configOption3Message = "Neuer Pfad: ⤷ "
 configOption4Message = """Unterstützte Typen:
@@ -50,9 +52,13 @@ configOption5Message = """
 configOptionAMessage = "Fertig!"
 configOptionBMessage = "Willkommen im Entwicklermenü!"
 
-configOption1Message2 = "Ok! [checkforupdates] ist auf Nein eingestellt. Wird in Ja geändert."
+configOption1Message2 = (
+    "Ok! [checkforupdates] ist auf Nein eingestellt. Wird in Ja geändert."
+)
 configOption2Message2 = "Ok! [showtips] ist auf Nein eingestellt. Wird in Ja geändert."
-configOptionBMessage2 = "Geben Sie die folgenden Schlüssel niemandem außer einem Alfred-Entwickler."
+configOptionBMessage2 = (
+    "Geben Sie die folgenden Schlüssel niemandem außer einem Alfred-Entwickler."
+)
 configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
 
@@ -69,8 +75,8 @@ warning2 = "Die Verwendung des Webscrapers ist ziemlich langsam."
 warning3 = "Dies ist Ihr erster Start :D Möglicherweise müssen Sie Alfred neu starten, um alle Module nutzen zu können."
 warning4 = "Sie verwenden eine Vorabversion von Alfred!"
 
-confirm1  = "Möchten Sie Bilder/Videos herunterladen? [J/n] ⤷ "
-confirm2  = "Erneut ausführen?: [J/n] ⤷"
+confirm1 = "Möchten Sie Bilder/Videos herunterladen? [J/n] ⤷ "
+confirm2 = "Erneut ausführen?: [J/n] ⤷"
 
 prompt1 = "Site erneut aufrufen: ⤷"
 prompt2 = "Bitte melden Sie etwaige Bugs oder Fehler unserem Repo- oder Discord-Server."

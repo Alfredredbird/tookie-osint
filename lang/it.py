@@ -11,8 +11,8 @@ targetusernames = "I nomi utente di destinazione: "
 
 version = "Versione"
 
-config1 = "Il file di configurazione esiste: "
-config2 = "Aggiorna file esistente: "
+config1 = "Il file di configurazione esiste "
+config2 = "Aggiorna file esistente "
 config3 = "La cartella esiste gia: "
 config4 = "Controlla gli aggiornamenti? [Y/n]: ⤷ "
 config5 = "Modificare la configurazione? [Y/n]: ⤷ "
