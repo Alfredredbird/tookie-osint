@@ -65,6 +65,7 @@ folders_to_create = [
     "proxys",
     "sites",
     "lang",
+    "alfred",
 ]
 create_folders(folders_to_create, language_module)
 # gets the defualt browser and system information
