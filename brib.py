@@ -93,6 +93,7 @@ saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
 print_logoscreen(version, config)
 # does config stuff
+print()
 configUpdateStuff(config, browser, language_module)
 # this is the variable that gets the username
 uname = input(f"{language_module.target}")

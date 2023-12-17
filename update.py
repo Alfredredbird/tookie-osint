@@ -233,7 +233,7 @@ def reinstall(chart,gitfile_loc,progress_bar_manual):
             if len(fh) == 0:
                 print("Update Done!")
                 time.sleep(1)
-                exec(open("brib.py").read())
+                exit(0)
 
     except ConnectionError:
         print("Failed To Download Update Files. (-3)")
@@ -245,4 +245,4 @@ if "U" in choice or "u" in choice:
 elif "r" in choice or "R" in choice:
     reinstall(chart,gitfile_loc,progress_bar_manual)
 else:
-    print("Idk")
+    print("Not Sure What You Ment...........Ill Ask Later")
