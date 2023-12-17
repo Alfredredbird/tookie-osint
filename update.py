@@ -67,7 +67,7 @@ def progress_bar_manual(dlcount, total_items, length, fill="█", print_end="\r"
         # progress_bar_manual(dlcount,total_items, length=20, fill='█', print_end='\r')
 
 
-def update():
+def update(alfred_update_path):
     # READS ALFRED VERSION
     with open("./config/version.cfg", "r") as fp:
         version = fp.read()
@@ -161,7 +161,7 @@ def update():
         print("Your On The Latest Version!")
 
 
-def reinstall():
+def reinstall(chart,gitfile_loc):
     # checks for updates
 
     print("Reinstalling.....!")
@@ -241,8 +241,8 @@ def reinstall():
 
 choice = input("update or reinstall? [U/r]")
 if "U" in choice or "u" in choice:
-    update()
+    update(alfred_update_path)
 elif "r" in choice or "R" in choice:
-    reinstall()
+    reinstall(chart,gitfile_loc)
 else:
     print("Idk")
