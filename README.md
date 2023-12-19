@@ -253,5 +253,5 @@ There has been several articles written about our tool. Feal free to check them 
 Want to partner with the Alfred project? Feel free to reach out.
 
 Partners:
-- GHPM ~ Smoke-Wolf
+- [GHPM](https://github.com/smoke-wolf/GitHub-Package-Manager) ~ Smoke-Wolf
 - EliteGreyIT
