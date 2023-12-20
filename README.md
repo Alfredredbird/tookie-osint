@@ -56,6 +56,11 @@ The requirements will be automatically installed.
 
     pip install alfred-osint
   Ussage can be found Here: https://github.com/Alfredredbird/alfred/wiki/Modules  
+
+# 📦 Discord Bot
+    Alfred can be ran on Discord with our new Discord Bot. You can freely test out 
+    Alfred without needing to install or setup anything! 
+   [Bot Invite Link]( https://discord.com/api/oauth2/authorize?client_id=987410115219062855&permissions=8&scope=bot%20applications.commands)
    
 
 # 💻 Tested OS
