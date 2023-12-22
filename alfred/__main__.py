@@ -4,8 +4,8 @@
 Alfred: Alfred is a advanced OSINT information gathering tool
 """
 
-import sys
 import os
+import sys
 
 if __name__ == "__main__":
     # Check if the user is using the correct version of Python
@@ -17,10 +17,10 @@ if __name__ == "__main__":
             % (python_version)
         )
         sys.exit(1)
-    
+
     print(os.path.abspath(__file__))
     if os.name == "nt":
         os.system("cd ..")
         os.system("python.exe brib.py")
     else:
-     os.system("python3 brib.py")
+        os.system("python3 brib.py")
