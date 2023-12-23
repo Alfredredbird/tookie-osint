@@ -47,6 +47,7 @@ configOption5Message = """
                 ar = арабский
                 de = немецкий
                 ru = Русский
+                hi = хинди
                        """
 configOptionAMessage = "Готово!"
 configOptionBMessage = "Добро пожаловать в меню разработчика!"
