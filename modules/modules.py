@@ -16,8 +16,6 @@ from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
 
-
-
 config = ConfigParser()
 
 

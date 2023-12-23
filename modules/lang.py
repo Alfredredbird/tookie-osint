@@ -1,6 +1,8 @@
 import importlib.util
 from configparser import ConfigParser
+
 config = ConfigParser()
+
 
 def load_language(language_code):
     langp = "./lang/"
