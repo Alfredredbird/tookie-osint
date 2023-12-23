@@ -10,8 +10,8 @@ from modules.modules import *
 from modules.webscrape import *
 
 config = ConfigParser()
-language_code = getLang(config)
-language_module = load_language(language_code)
+
+language_module = language_m
 
 
 def print_logoscreen(version, config):

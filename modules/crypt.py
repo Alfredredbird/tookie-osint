@@ -8,8 +8,8 @@ from modules.lang import *
 
 config = ConfigParser()
 
-language_code = getLang(config)
-language_module = load_language(language_code)
+
+language_module = language_m
 
 
 def print_encrypted_and_decrypted_text(decrypted_text):
@@ -43,6 +43,7 @@ def decrypt(encrypted_text):
     decrypted_text = cipher_suite.decrypt(encrypted_text).decode()
     return decrypted_text
 
+versionToPass = configC(language_module)
 
 config.read("./config/config.ini")
 browser = config.get("main", "browser")
@@ -50,7 +51,7 @@ syskey = (
     platform.system()
     + platform.release()
     + "-AlfredVer-"
-    + configC(language_module)
+    + versionToPass
     + "-"
     + platform.python_version()
     + "-"

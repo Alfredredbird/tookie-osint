@@ -52,10 +52,7 @@ siteList = []
 siteErrors = []
 siteNSFW = []
 # loads the language
-script_dir = os.path.dirname(os.path.realpath(__file__))
-os.chdir(script_dir)
-language_code = getLang(config)
-language_module = load_language(language_code)
+language_module = language_m
 # checks that the folders exist. if not it creates them
 folders_to_create = [
     "config",
@@ -72,13 +69,13 @@ create_folders(folders_to_create, language_module)
 browser = get_default_browser()
 print(language_module.browser + browser)
 # gets the version of Alfred
-version = configC(language_module)
+version = versionToPass
 # gets the info to encrypt
 syskey = (
     platform.system()
     + platform.release()
     + "-AlfredVer-"
-    + configC(language_module)
+    + version
     + "-"
     + platform.python_version()
     + "-"

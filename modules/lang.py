@@ -1,6 +1,6 @@
 import importlib.util
 from configparser import ConfigParser
-
+config = ConfigParser()
 
 def load_language(language_code):
     langp = "./lang/"
@@ -18,8 +18,12 @@ def load_language(language_code):
 
 def getLang(config):
     try:
-     config.read("./config/config.ini")
-     lang = config.get("main", "language")
+        config.read("./config/config.ini")
+        lang = config.get("main", "language")
     except UnboundLocalError:
-       print("Language File Error. Please Restart Alfred To Fix This")
+        print("Language File Error. Please Restart Alfred To Fix This")
     return lang
+
+
+language_code = getLang(config)
+language_m = load_language(language_code)

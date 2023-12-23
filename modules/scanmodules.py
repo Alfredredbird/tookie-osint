@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 from colorama import *
 
-from modules.configcheck import *
+
 from modules.webscrape import *
 
 config = ConfigParser()

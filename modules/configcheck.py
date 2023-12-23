@@ -2,16 +2,14 @@ import os
 import random
 import time
 from configparser import ConfigParser
+
 import requests
 from colorama import *
 
 from lang.en import *
 from modules.lang import *
 
-# loads the language
 
-
-#
 # This Module does config stuff
 #
 def configC(language_module):
