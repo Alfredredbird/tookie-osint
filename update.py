@@ -161,7 +161,7 @@ def update(alfred_update_path):
         print("Your On The Latest Version!")
 
 
-def reinstall(chart,gitfile_loc,progress_bar_manual):
+def reinstall(chart, gitfile_loc, progress_bar_manual):
     # checks for updates
 
     print("Reinstalling.....!")
@@ -243,6 +243,6 @@ choice = input("update or reinstall? [U/r]")
 if "U" in choice or "u" in choice:
     update(alfred_update_path)
 elif "r" in choice or "R" in choice:
-    reinstall(chart,gitfile_loc,progress_bar_manual)
+    reinstall(chart, gitfile_loc, progress_bar_manual)
 else:
     print("Not Sure What You Ment...........Ill Ask Later")
