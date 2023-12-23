@@ -54,7 +54,9 @@ configOptionBMessage = "Добро пожаловать в меню разраб
 
 configOption1Message2 = "OK! [checkforupdates] установлен на Нет. Меняю на Да"
 configOption2Message2 = "OK! [showtips] установлен на Нет. Меняю на Да"
-configOptionBMessage2 = "НЕ сообщайте следующие ключи никому, кроме разработчика Alfred."
+configOptionBMessage2 = (
+    "НЕ сообщайте следующие ключи никому, кроме разработчика Alfred."
+)
 configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
 
@@ -90,7 +92,7 @@ idk3 = "Не уверен.... Но вы можете проверить здес
 scan1 = "поиск сайтов с: "
 
 status1 = "Работаю...."
-status2 = "Создание/перезапись файла сохранения».
+status2 = "Создание/перезапись файла сохранения"
 status3 = "Переустановка............"
 status4 = "Возвращение к Альфреду в ближайшее время..."
 status5 = "Проверка....."
