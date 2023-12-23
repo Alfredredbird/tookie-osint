@@ -30,4 +30,4 @@ jobs:
         run: isort --profile black .
 
       - name: Lint Code (Black)
-        run: black - t py311 -t py312 .
+        run: black -t py311 -t py312 .
