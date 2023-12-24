@@ -1,5 +1,6 @@
 import os
 import random
+import shutil
 import time
 import shutil
 from configparser import ConfigParser
@@ -49,6 +50,22 @@ def delete_pycache(root_dir):
             print(f"Deleting __pycache__ folder: {pycache_path}")
             # Delete the __pycache__ folder
             shutil.rmtree(pycache_path)
+
+def delete_pycache(root_dir):
+    """
+    Recursively searches for and deletes __pycache__ folders within the specified directory.
+
+    Parameters:
+    - root_dir (str): The root directory to start searching for __pycache__ folders.
+    """
+    for foldername, subfolders, filenames in os.walk(root_dir):
+        # Check if __pycache__ folder exists in the current directory
+        if "__pycache__" in subfolders:
+            pycache_path = os.path.join(foldername, "__pycache__")
+            print(f"Deleting __pycache__ folder: {pycache_path}")
+            # Delete the __pycache__ folder
+            shutil.rmtree(pycache_path)
+
 
 def configUpdateStuff(config, browser, language_module):
     config.read("./config/config.ini")

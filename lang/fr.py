@@ -40,13 +40,15 @@ configOption4Message = """
 configOption5Message = """
             Veuillez saisir votre code de langue
             Langues prises en charge :
-                it = italien
-                fr = français
-                il = hébreu 
-                en = anglais 
-                ar = arabe 
-                es = espagnol
-                de = allemand
+                it = Italien
+                en = Anglais
+                il = Hébreu
+                es = Espagnol
+                fr = Français
+                ar = Arabe
+                de = Allemand
+                ru = Russe
+                hi = Hindi
                          """
 configOptionAMessage = "Fait!"
 configOptionBMessage = "Bienvenue dans le menu développeur!"

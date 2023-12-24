@@ -1,5 +1,5 @@
-# en.py
-# Englisch
+# de.py
+# German
 
 encrypt1 = "Verschlüsselungsschlüssel …"
 
@@ -48,6 +48,8 @@ configOption5Message = """
                  fr = Französisch
                  ar = Arabisch
                  de = deutsch
+                 ru = Russisch
+                 hi = Hindi
                           """
 configOptionAMessage = "Fertig!"
 configOptionBMessage = "Willkommen im Entwicklermenü!"

@@ -43,6 +43,7 @@ def decrypt(encrypted_text):
     decrypted_text = cipher_suite.decrypt(encrypted_text).decode()
     return decrypted_text
 
+
 versionToPass = configC(language_module)
 
 config.read("./config/config.ini")

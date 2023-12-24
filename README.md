@@ -143,8 +143,8 @@ There Is A Lot Lol
 - [x] French 
 - [x] Arabic
 - [x] German
-- [ ] Hindi (Beta)
-- [ ] Russian (Beta)
+- [x] Hindi
+- [x] Russian
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
