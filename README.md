@@ -151,7 +151,7 @@ There Is A Lot Lol
 - [ ] Tor Searching (in beta)
 - [ ] Pip Package (in beta)
 - [ ] WebUi
-- [ ] Webscraper
+- [X] Webscraper
 - [ ] Phone Number OSINT
       
 
