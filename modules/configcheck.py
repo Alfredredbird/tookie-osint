@@ -136,6 +136,24 @@ def syskeys(config):
     print(str(config.get("main", "privatekey")))
     print(str(config.get("main", "syscrypt")))
     
+def globalPath(config):
+    config.read("./config/config.ini")
+    path = config.get("main", "defaultDlPath")
+    return path
+
+def dirDump(mydir):
+    filelist = [f for f in os.listdir(mydir)]
+    for f in filelist:
+        os.remove(os.path.join(mydir, f))
+
+def create_folders(folder_list, language_module):
+    for folder in folder_list:
+        if not os.path.exists(folder):
+            print(f"{language_module.config7}{folder}")
+            os.makedirs(folder)
+        else:
+            print(f"{language_module.config8}{folder}")
+
 
 # this is the module that edits the configuration file. needs to be cleaned up tho
 VALID_CHOICES = {
@@ -206,25 +224,3 @@ def config_editor(config, language_module):
 
     elif edit_config_answer.lower() == "n":
         print("Aww ok")
-
-
-def globalPath(config):
-
-    config.read("./config/config.ini")
-    path = config.get("main", "defaultDlPath")
-    return path
-
-
-def dirDump(mydir):
-    filelist = [f for f in os.listdir(mydir)]
-    for f in filelist:
-        os.remove(os.path.join(mydir, f))
-
-
-def create_folders(folder_list, language_module):
-    for folder in folder_list:
-        if not os.path.exists(folder):
-            print(f"{language_module.config7}{folder}")
-            os.makedirs(folder)
-        else:
-            print(f"{language_module.config8}{folder}")

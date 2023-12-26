@@ -9,7 +9,7 @@ from configparser import ConfigParser
 from os import listdir
 from os.path import isfile, join
 from pathlib import Path
-
+from modules.configcheck import *
 import requests
 import wget
 from bs4 import BeautifulSoup
