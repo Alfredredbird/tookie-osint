@@ -3,7 +3,7 @@ import random
 import shutil
 import time
 import shutil
-from configparser import ConfigParser
+import configparser 
 
 import requests
 from colorama import *
@@ -36,20 +36,7 @@ def configC(language_module):
         version = fp.read()
         return version
 
-def delete_pycache(root_dir):
-    """
-    Recursively searches for and deletes __pycache__ folders within the specified directory.
 
-    Parameters:
-    - root_dir (str): The root directory to start searching for __pycache__ folders.
-    """
-    for foldername, subfolders, filenames in os.walk(root_dir):
-        # Check if __pycache__ folder exists in the current directory
-        if "__pycache__" in subfolders:
-            pycache_path = os.path.join(foldername, "__pycache__")
-            print(f"Deleting __pycache__ folder: {pycache_path}")
-            # Delete the __pycache__ folder
-            shutil.rmtree(pycache_path)
 
 def delete_pycache(root_dir):
     """
@@ -144,126 +131,85 @@ def configUpdateStuff(config, browser, language_module):
         randomTip = random.choice(open("./config/tips.txt").readlines())
         print(randomTip)
 
+def syskeys(config):
+    print("Here are your system keys.")
+    print(str(config.get("main", "privatekey")))
+    print(str(config.get("main", "syscrypt")))
+    
 
 # this is the module that edits the configuration file. needs to be cleaned up tho
-def configEditor(config, language_module):
-    # reads the config
+VALID_CHOICES = {
+    "checkforupdates": ["yes", "no"],
+    "showtips": ["yes", "no"],
+    "browser": ["Firefox", "Edge", "Chrome"],
+    "defaultdlpath": [],
+    "language": ["en", "ar", "de", "es", "fr", "hi", "il", "it", "ru"],
+}
+
+def display_options(config, language_module):
+    print("Options:")
+    print("=====================================")
+    print(f"{language_module.configOption1} {config.get('main', 'checkforupdates')}")
+    print(f"{language_module.configOption2} {config.get('main', 'showtips')}")
+    print(f"{language_module.configOption3} {config.get('main', 'defaultdlpath')}")
+    print(f"{language_module.configOption4} {config.get('main', 'browser')}")
+    print(f"{language_module.configOption5} {config.get('main', 'language')}")
+    print(f"{language_module.configOptionA} ")
+    print(f"{language_module.configOptionB} ")
+    print("=====================================")
+
+def update_config(config, option_key, new_value):
+    config.set("main", option_key, str(new_value))
+    with open("./config/config.ini", "w") as f:
+        config.write(f)
+
+def config_editor(config, language_module):
+    config = configparser.ConfigParser()
     config.read("./config/config.ini")
-    # gets input
-    editConfigAwnser = input(language_module.config5)
-    # decieds what to do
-    if editConfigAwnser == "y" or editConfigAwnser == "Y":
-        # options
-        print("")
-        print(
-            "==========================================================================="
-        )
-        print(
-            language_module.configOption1 + str(config.get("main", "checkforupdates"))
-        )
-        print(language_module.configOption2 + str(config.get("main", "showtips")))
-        print(language_module.configOption3 + str(config.get("main", "defaultDlPath")))
-        print(language_module.configOption4 + str(config.get("main", "browser")))
-        print(language_module.configOption5 + str(config.get("main", "language")))
-        print(
-            "==========================================================================="
-        )
-        print(language_module.configOptionA)
-        print(language_module.configOptionB)
-        print("")
-        # gets input
-        editConfig = input(language_module.config6)
-        # figures out what to do
-        if editConfig == "1":
-            # update config logic
-            if config.get("main", "checkforupdates") == "yes":
-                print(language_module.configOption1Message)
-                config.set("main", "checkforupdates", "no")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-            # update config logic
-            if config.get("main", "checkforupdates") == "no":
-                print(language_module.configOption1Message2)
-                config.set("main", "checkforupdates", "yes")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return False
-        if editConfig == "2":
-            # update config logic
-            if config.get("main", "showtips") == "yes":
-                print(language_module.configOption2Message)
-                config.set("main", "showtips", "no")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-            # update config logic
-            if config.get("main", "showtips") == "no":
-                print(language_module.configOption2Message2)
-                config.set("main", "showtips", "yes")
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return False
-        if editConfig == "3":
-            # update config path logic
-            if config.get("main", "defaultDlPath") != "":
-                newpath = input(language_module.configOption3Message)
-                config.set("main", "defaultDlPath", str(newpath))
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-        if editConfig == "4":
-            # update config path logic
-            if config.get("main", "browser") != "":
-                print(language_module.configOption4Message)
-                newbrowser = input("Browser: ⤷ ")
-                config.set("main", "browser", str(newbrowser))
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-        if editConfig == "5":
-            # update config path logic
-            if config.get("main", "language") != "":
-                print(language_module.configOption5Message)
-                newbrowser = input("Language Code: ⤷ ")
-                config.set("main", "language", str(newbrowser))
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-                    return True
-        if editConfig == "A" or editConfig == "a":
-            # deletes the downloaded files and pychache
-            dirDump(globalPath(config))
-            os.system("pwd")
+    edit_config_answer = input(language_module.config5)
+
+    if edit_config_answer.lower() == "y":
+        display_options(config, language_module)
+
+        edit_config_index = input(language_module.config6)
+        selected_option_key = {
+            "1": "checkforupdates",
+            "2": "showtips",
+            "3": "defaultdlpath",
+            "4": "browser",
+            "5": "language",
+            "A": "option_A",
+            "B": "option_B",
+            "a": "option_A",
+            "b": "option_B",
+        }.get(edit_config_index)
+
+        if selected_option_key in VALID_CHOICES:
+            valid_choices = VALID_CHOICES[selected_option_key]
+            if not valid_choices:  # Allow any input for "defaultdlpath"
+                new_value = input(f"{selected_option_key.capitalize()}: ⤷ ")
+                update_config(config, selected_option_key, new_value)
+            else:
+                new_value = input(f"{selected_option_key.capitalize()} ({'/'.join(valid_choices)}): ⤷ ")
+                if new_value.lower() in valid_choices:
+                    update_config(config, selected_option_key, new_value.lower())
+                else:
+                    print(f"Invalid choice. Please choose from {', '.join(valid_choices)}")
+        elif selected_option_key == "option_A":
+            dirDump(str(config.get("main", "defaultdlpath")))
             delete_pycache("./")
-            print(language_module.configOptionAMessage)
-            print(
-                "==========================================================================="
-            )
-            print("")
-        if editConfig == "B" or editConfig == "b":
-            print(
-                "==========================================================================="
-            )
-            print(language_module.configOptionBMessage)
-            print("")
-            print(language_module.configOptionBMessage2)
-            print(
-                language_module.configOptionBMessage3
-                + str(config.get("main", "privatekey"))
-            )
-            print(
-                language_module.configOptionBMessage4
-                + str(config.get("main", "syscrypt"))
-            )
-            print("")
-            print(
-                "==========================================================================="
-            )
-    if editConfigAwnser == "n" or editConfigAwnser == "N":
+        elif selected_option_key == "option_B":
+            syskeys(config)
+        else:
+            print("Invalid option selected.")
+        return True
+
+    elif edit_config_answer.lower() == "n":
         print("Aww ok")
 
 
 def globalPath(config):
+
     config.read("./config/config.ini")
     path = config.get("main", "defaultDlPath")
     return path

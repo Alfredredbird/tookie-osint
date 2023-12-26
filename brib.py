@@ -128,7 +128,7 @@ while test != True:
             "-d": [redirects1, [modes, input1]],
             "-u": [unameinfo, [uname, language_module]],
             "-Cat": [catFile, []],
-            "--Config": [configEditor, [config, language_module]],
+            "--Config": [config_editor, [config, language_module]],
             "-p": [ping, []],
             "--ping": [ping, []],
             "-r": [read_save, [slectpath]],
