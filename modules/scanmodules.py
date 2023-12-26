@@ -10,6 +10,7 @@ from colorama import *
 from modules.webscrape import *
 
 config = ConfigParser()
+config.read("./config/config.ini")
 
 date = datetime.date.today()
 
@@ -31,8 +32,8 @@ def Startscan(
     language_module,
 ):
     try:
-        headers = headers = {
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
+        headers = {
+            "User-Agent": config['main']['useragent']
         }
         if "-t" in modes:
             response = requests.get(
@@ -311,7 +312,7 @@ def siteDownloader(language_module):
             # set the User-agent as a regular browser
             session.headers[
                 "User-Agent"
-            ] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
+            ] = config['main']['useragent']
 
             # get the HTML content
             html = session.get(url).content

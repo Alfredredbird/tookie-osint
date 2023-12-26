@@ -4,6 +4,7 @@ import os
 import random
 import string
 import time
+import http.client
 from configparser import ConfigParser
 from os import listdir
 from os.path import isfile, join
@@ -17,6 +18,7 @@ from rich.console import Console
 from torrequest import TorRequest
 
 config = ConfigParser()
+config.read("./config/config.ini")
 
 
 def redirects1(modes, input1):
@@ -116,23 +118,28 @@ def read_save(slectpath):
 
 
 def ping():
-    headers = headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
+    headers = {
+        "User-Agent": config['main']['useragent']
     }
-    print(Fore.RED + "Defults To HTTPS")
+    print(Fore.RED + "Defaults to HTTPS.")
 
     print(Fore.RESET + " ")
 
-    reqSite = input("⤷ ")
+    reqSite = input("Enter the URL of the site you want to ping: ")
+
+    if not reqSite.startswith("https://") and not reqSite.startswith("http://"):
+        urlFix = reqSite.split("//", 1)
+        reqSite = urlFix[len(urlFix) - 1] # Account for people doing weird stuff like ftp:// instead
+        reqSite = f"https://{reqSite}"
 
     try:
-        print(Fore.RESET + "Status Code:")
-        test = requests.get(reqSite)
-        print(test.status_code)
-
-    except:
-        print(Fore.RED + "Error!")
-        print(Fore.RESET + " ")
+        test = requests.get(reqSite, headers=headers)
+        code = http.client.responses[test.status_code]
+        print(Fore.RESET + f"Status code: {test.status_code} ({code})")
+    except requests.ConnectionError as e:
+        print(Fore.RED + f"Connection error: {e}" + Fore.RESET)
+    except Exception as e:
+        print(Fore.RED + f"Unknown error: {e}" + Fore.RESET)
 
 
 def qexit():
@@ -140,7 +147,7 @@ def qexit():
     if exitInput == "Y" or exitInput == "y":
         exit(0)
     if exitInput == "N" or exitInput == "n":
-        print("Continueing....")
+        print("Continuing....")
 
 
 def proxyCheck(modes, input1):
@@ -148,7 +155,7 @@ def proxyCheck(modes, input1):
     if typeInput != "":
         input2 = input("    IP: ⤷  ")
         if input2 == "":
-            print("    You Need An IP Silly.")
+            print("    You need an IP, silly!")
             lol = 1
         if input2 != "":
             modes += input1
@@ -184,7 +191,7 @@ def proxyCheck(modes, input1):
                     )
 
             if input3 == "":
-                print("     Wheres The Port? Lol")
+                print("     Where's the port?!")
                 lol = 1
                 return lol
 
@@ -234,8 +241,8 @@ def darkAlfred(console, uname):
               ,Φ╠╩"   ,╓▄▄╓,    ╙
             @╠╩   *████▀▀▀███▓,   ╬╬,
            ╬╠╙  ▄µ          ╙███   ╬╠µ
-          ╠╠╩  ██▌  ╓▒╠╩╝╠╬╦  ╙██   ╠╠                                                                                                  
-          ╠╠  j██  ⌠╠╩    ╚╠▒  ██▌  ╠╠⌐                 
+          ╠╠╩  ██▌  ╓▒╠╩╝╠╬╦  ╙██   ╠╠
+          ╠╠  j██  ⌠╠╩    ╚╠▒  ██▌  ╠╠⌐
           ╠╠   ██  └╠╬    ╠╠╩  ██▌  ╠╠⌐
           ╚╠φ  ╟██   ╚╬╠╠╠╩`  ▄██  ,╠╬
            ╠╠╦  ╙██▌,      ,,  ╙  ,╠╠
@@ -257,7 +264,7 @@ def darkAlfred(console, uname):
     )
     print(
         """
-Caution! By Using This Might Expose 
+Caution! By Using This Might Expose
 You To Dangerous Websites Or Content.
 Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
 """
