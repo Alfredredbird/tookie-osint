@@ -476,3 +476,7 @@ def get_random_string(length):
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
+
+def emptyModule():
+    """This Module is empty and does nothing. Its for when Alfred needs to return something"""
+    return True

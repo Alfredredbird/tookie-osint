@@ -172,6 +172,7 @@ Usage: [USERNAME]                               //\    //\
 ------------+--------+------------------------------------------
      [SCANS]:        |
         -f  |        | Runs A Fast Scan   
+        -w  |        | (Uses The WebScrapper On Scan Start)
         -m  |        | Runs A Scan From The Big Site List
         -O  |        | Checks Accounts From A List
         -d  |        | (Allows Redirects "Might Not Be Accutate")

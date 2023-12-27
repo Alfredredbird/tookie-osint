@@ -88,7 +88,7 @@ print(language_module.encrypt1)
 # logs the key
 saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
-logo('',version, config)
+logo("", version, config)
 # does config stuff
 print()
 configUpdateStuff(config, browser, language_module)
@@ -135,14 +135,31 @@ while test != True:
             "--read": [read_save, [slectpath]],
             "--Clear": [logo, [uname, version, config]],
             "clear": [logo, [uname, version, config]],
+            "-w": [emptyModule, []],
+            "-s": [emptyModule, []],
+            "-S": [emptyModule, []],
+            "-ec": [emptyModule, []],
+            "-O": [emptyModule, []],
+            "-o": [emptyModule, []],
+            "--Wiki": [emptyModule, []],
+            "-a": [emptyModule, []],
+            "-f": [emptyModule, []],
+            "-m": [emptyModule, []],
+            "-N": [emptyModule, []],
+            "-Tor": [emptyModule, []],
         }
         valid = [key for key in action.keys()]
+        option_matched = False
         for option in valid:
             if option in input1:
                 args = action[option][1]
                 action[option][0](*args)
-        if "-w" in input1:
-            webscrape = True
+                option_matched = True
+                break  # Exit the loop if a matching option is found
+
+        if not option_matched:
+            print(f"Invalid option: '{input1}' Try --help for more information")
+
         if "-S" in input1:
             print(
                 f"{Fore.RED + language_module.note + Fore.RESET}{language_module.warning1}"
@@ -282,9 +299,6 @@ with open(file_path, "a") as f:
                     language_module,
                 )
                 i += 1
-
-
-
 
 
 # calculates the percentage
