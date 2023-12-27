@@ -262,13 +262,22 @@ def Startscan(
                 if response.status_code == 200 and siteNSFW == "false":
                     print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                     f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
-            if response.status_code == 200 and "-N" not in modes:
-                print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
-                f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
-                return siteProgcounter
+            # if response.status_code == 200 and "-N" not in modes:
+            #     print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+            #     f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
+            #     return siteProgcounter
             if response.status_code == 406 and "-N" not in modes:
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
+            if response.status_code <= 300 and "-N" not in modes:
+                print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
+                f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")    
+
+
+
+            if response.status_code >= 400 and "-a" in modes:
+                print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
+                f.write(str(date) + "[" + "-" + "] " + siteN + uname + "\n")        
 
 
 def scanFileList(siteList, slectpath, language_module):

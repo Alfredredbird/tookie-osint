@@ -88,7 +88,7 @@ print(language_module.encrypt1)
 # logs the key
 saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
-print_logoscreen(version, config)
+logo('',version, config)
 # does config stuff
 print()
 configUpdateStuff(config, browser, language_module)
@@ -284,8 +284,7 @@ with open(file_path, "a") as f:
                 i += 1
 
 
-# checks for a connection error and prints
-connectionError(cError, f)
+
 
 
 # calculates the percentage
