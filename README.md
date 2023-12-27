@@ -1,5 +1,5 @@
-![IMG_4910](https://github.com/Alfredredbird/alfred/assets/105014217/04eb051d-15c3-4a32-b10b-dcdb12fee881)
- 
+![alfredlogo-512x512 - Copy](https://github.com/Alfredredbird/alfred/assets/105014217/cd59746a-8a1d-4bf9-9bd3-8aacefe27988)
+
 
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Alfredredbird/alfred)
@@ -15,12 +15,12 @@
 
 
 # 🔎 Overview
-Alfred has a simple-to-use UI and is really straightforward. :D
+Alfred has a simple-to-use UI and is really straightforward. 
 The main idea of Alfred is to discover usernames that are requested from an input.
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by me and is available for your use. 
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
-Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D I am proud to announce that Alfred has over 700 weekly downloads!
+Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D We recently changed our logo!! Same tool just better logo.
 
 <img width="502" alt="imasdasdage" src="https://github.com/Alfredredbird/alfred/assets/105014217/c085915e-5803-4b4f-9d25-efc96822ac19">
 
