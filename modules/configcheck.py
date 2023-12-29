@@ -175,7 +175,7 @@ VALID_CHOICES = {
     "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"]
 }
 
-def display_options(config, language_module):
+def display_options(config, section,language_module):
     print("Options:")
     print("=====================================")
     print(f"{language_module.configOption1} {config.get('main', 'checkforupdates')}")
@@ -188,52 +188,70 @@ def display_options(config, language_module):
     print(f"{language_module.configOptionB} ")
     print("=====================================")
 
-def update_config(config, option_key, new_value):
-    config.set("main", option_key, str(new_value))
+def update_config(config, section, option_key, new_value):
+    config.set(section, option_key, str(new_value))
     with open("./config/config.ini", "w") as f:
         config.write(f)
 
+
 def config_editor(config, language_module):
+    selected_option_key = {
+    "1": ("main", "checkforupdates"),
+    "2": ("main", "showtips"),
+    "3": ("main", "defaultdlpath"),
+    "4": ("main", "browser"),
+    "5": ("main", "language"),
+    "6": ("Personalizations", "colorscheme"),
+    "A": ("main", "option_A"),
+    "B": ("main", "option_B"),
+    "a": ("main", "option_A"),
+    "b": ("main", "option_B"),
+     
+}
     config = configparser.ConfigParser()
     config.read("./config/config.ini")
     edit_config_answer = input(language_module.config5)
 
     if edit_config_answer.lower() == "y":
-        display_options(config, language_module)
+        display_options(config, 'main', language_module)  # Use 'main' as default section
 
         edit_config_index = input(language_module.config6)
-        selected_option_key = {
-            "1": "checkforupdates",
-            "2": "showtips",
-            "3": "defaultdlpath",
-            "4": "browser",
-            "5": "language",
-            "6": "colorscheme",
-            "A": "option_A",
-            "B": "option_B",
-            "a": "option_A",
-            "b": "option_B",
-        }.get(edit_config_index)
+        selected_option = selected_option_key.get(edit_config_index)
 
-        if selected_option_key in VALID_CHOICES:
-            valid_choices = VALID_CHOICES[selected_option_key]
-            if not valid_choices:  # Allow any input for "defaultdlpath"
-                new_value = input(f"{selected_option_key.capitalize()}: ⤷ ")
-                update_config(config, selected_option_key, new_value)
+        if selected_option:
+            section, option_key = selected_option
+            if option_key == "custom_config":
+                custom_section = input("Enter the custom configuration section: ")
+                custom_config_key = input("Enter the custom configuration key: ")
+                value = config.get(custom_section, custom_config_key)
+                print(f"Custom Configuration: {custom_section}.{custom_config_key}: {value}")
+            elif option_key == "option_A":
+                handle_option_A(config)
+            elif option_key == "option_B":
+                handle_option_B(config)
             else:
-                new_value = input(f"{selected_option_key.capitalize()} ({'/'.join(valid_choices)}): ⤷ ")
-                if new_value in valid_choices:
-                    update_config(config, selected_option_key, new_value)
+                valid_choices = VALID_CHOICES[option_key] if option_key in VALID_CHOICES else None
+                if not valid_choices:
+                    new_value = input(f"{option_key.capitalize()}: ⤷ ")
+                    update_config(config, section, option_key, new_value)
                 else:
-                    print(f"Invalid choice. Please choose from {', '.join(valid_choices)}")
-        elif selected_option_key == "option_A":
-            dirDump(str(config.get("main", "defaultdlpath")))
-            delete_pycache("./")
-        elif selected_option_key == "option_B":
-            syskeys(config)
+                    new_value = input(f"{option_key.capitalize()} ({'/'.join(valid_choices)}): ⤷ ")
+                    if new_value in valid_choices:
+                        update_config(config, section, option_key, new_value)
+                    else:
+                        print(f"Invalid choice. Please choose from {', '.join(valid_choices)}")
         else:
             print("Invalid option selected.")
         return True
 
     elif edit_config_answer.lower() == "n":
         print("Aww ok")
+
+# Your function for option A
+def handle_option_A(config):
+    dirDump(str(config.get('main', 'defaultdlpath')))
+    delete_pycache("./")
+
+# Your function for option B
+def handle_option_B(config):
+    syskeys(config)
