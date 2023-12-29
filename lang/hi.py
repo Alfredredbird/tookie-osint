@@ -25,6 +25,7 @@ configOption2 = "[2] सुझाव दिखाएं: "
 configOption3 = "[3] साइट डाउनलोड पथ: "
 configOption4 = "[4] ब्राउज़र: "
 configOption5 = "[5] भाषा: "
+configOption6 = "[6] ColorScheme: "
 configOptionA = "[A] अल्फ्रेड को साफ़ करें। (यह अस्थायी फ़ाइलों को हटा देता है)"
 configOptionB = "[B] डेवलपर टूल।"
 

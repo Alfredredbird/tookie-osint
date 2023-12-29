@@ -25,6 +25,7 @@ configOption2 = "[2] הצג טיפים: "
 configOption3 = "[3] נתיב הורדת אתר: "
 configOption4 = "[4] דפדפן: "
 configOption5 = "[5] שפה: "
+configOption6 = "[6] ColorScheme: "
 configOptionA = "[A] נקה את אלפרד. (זה מסיר קבצים זמניים)"
 configOptionB = "[B] כלים למפתחים."
 

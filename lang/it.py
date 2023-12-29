@@ -25,6 +25,7 @@ configOption2 = "[2] Mostra suggerimenti: "
 configOption3 = "[3] Percorso di download del sito: "
 configOption4 = "[4] Browser: "
 configOption5 = "[5] Lingua: "
+configOption6 = "[6] ColorScheme: "
 configOptionA = (
     "[A] Ripulisci Alfred. (In questo modo vengono rimossi i file temporanei)"
 )

@@ -25,6 +25,7 @@ configOption2 = "[2] Afficher les conseils : "
 configOption3 = "[3] Chemin de téléchargement du site : "
 configOption4 = "[4] Navigateur : "
 configOption5 = "[5] Langue : "
+configOption6 = "[6] ColorScheme: "
 configOptionA = "[A] Nettoyer Alfred. (Supprime les fichiers temporaires)"
 configOptionB = "[B] Outils de développement."
 

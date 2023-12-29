@@ -65,6 +65,8 @@ folders_to_create = [
     "alfred",
 ]
 create_folders(folders_to_create, language_module)
+# Grabs The Color Scheme From The Config File
+colorScheme = colorSchemeGrabber(config)
 # gets the defualt browser and system information
 browser = get_default_browser()
 print(language_module.browser + browser)
@@ -88,10 +90,10 @@ print(language_module.encrypt1)
 # logs the key
 saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
-logo("", version, config)
+logo(colorScheme,"", version, config)
 # does config stuff
 print()
-configUpdateStuff(config, browser, language_module)
+configUpdateStuff(colorScheme,config, browser, language_module)
 # this is the variable that gets the username
 uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
@@ -121,20 +123,20 @@ while test != True:
                     language_module,
                 ],
             ],
-            "-c": [proxyCheck, [modes, input1]],
-            "-lp": [list_proxys, []],
+            "-c": [proxyCheck, [colorScheme,modes, input1]],
+            "-lp": [list_proxys, [colorScheme]],
             "-h": [print_help, []],
             "--help": [print_help, []],
             "-d": [redirects1, [modes, input1]],
             "-u": [unameinfo, [uname, language_module]],
-            "-Cat": [catFile, []],
+            "-Cat": [catFile, [colorScheme]],
             "--Config": [config_editor, [config, language_module]],
-            "-p": [ping, []],
-            "--ping": [ping, []],
-            "-r": [read_save, [slectpath]],
-            "--read": [read_save, [slectpath]],
-            "--Clear": [logo, [uname, version, config]],
-            "clear": [logo, [uname, version, config]],
+            "-p": [ping, [colorScheme]],
+            "--ping": [ping, [colorScheme]],
+            "-r": [read_save, [colorScheme,slectpath]],
+            "--read": [read_save, [colorScheme,slectpath]],
+            "--Clear": [logo, [colorScheme,uname, version, config]],
+            "clear": [logo, [colorScheme,uname, version, config]],
             "-w": [emptyModule, []],
             "-s": [emptyModule, []],
             "-S": [emptyModule, []],
@@ -146,7 +148,7 @@ while test != True:
             "-f": [emptyModule, []],
             "-m": [emptyModule, []],
             "-N": [emptyModule, []],
-            "-Tor": [emptyModule, []],
+            "-Tor": [darkAlfred, [colorScheme,console,uname]],
         }
         valid = [key for key in action.keys()]
         option_matched = False
@@ -233,10 +235,7 @@ while test != True:
         # code to show NSFW sites
         if "-N" in input1:
             modes += input1
-        # code to acses Dark Alfred
-        if "-Tor" in input1:
-            darkAlfred(console, uname)
-            logo(uname, version, config)
+        
     # checks for empty input
     # it will keep printing ⤷ until -s is entered and Y is entered
     if "" in input1 and inputnum != "":

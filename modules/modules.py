@@ -36,7 +36,7 @@ def redirects1(modes, input1):
                 input1.replace("-d", "")
 
 
-def list_proxys():
+def list_proxys(colorScheme):
     input2 = input("TYPE:  ⤷ ")
     # check if the directory exists
     if input2 == "":
@@ -53,7 +53,7 @@ def list_proxys():
                 count += 1
                 print("Proxy {}: {}".format(count, line.strip()))
         else:
-            print(Fore.RED + "Cant Find The Proxy File!")
+            print(colorScheme + "Cant Find The Proxy File!")
             print(Fore.RESET)
 
     elif input2 == "socks4":
@@ -68,7 +68,7 @@ def list_proxys():
                 count += 1
                 print("Proxy {}: {}".format(count, line.strip()))
         else:
-            print(Fore.RED + "Cant Find The Proxy File!")
+            print(colorScheme + "Cant Find The Proxy File!")
             print(Fore.RESET)
 
     elif input2 == "socks5":
@@ -84,11 +84,11 @@ def list_proxys():
                 print("Proxy {}: {}".format(count, line.strip()))
 
         else:
-            print(Fore.RED + "Cant Find The Proxy File!")
+            print(colorScheme + "Cant Find The Proxy File!")
             print(Fore.RESET)
 
 
-def read_save(slectpath):
+def read_save(colorScheme,slectpath):
     if slectpath == "":
         dir_path = Path.home() / "Downloads"
 
@@ -113,15 +113,15 @@ def read_save(slectpath):
         file.close()
 
     else:
-        print(Fore.RED + "Cant Find The Save File!")
+        print(colorScheme + "Cant Find The Save File!")
         print(Fore.RESET)
 
 
-def ping():
+def ping(colorScheme):
     headers = {
         "User-Agent": config['main']['useragent']
     }
-    print(Fore.RED + "Defaults to HTTPS.")
+    print(colorScheme + "Defaults to HTTPS.")
 
     print(Fore.RESET + " ")
 
@@ -137,9 +137,9 @@ def ping():
         code = http.client.responses[test.status_code]
         print(Fore.RESET + f"Status code: {test.status_code} ({code})")
     except requests.ConnectionError as e:
-        print(Fore.RED + f"Connection error: {e}" + Fore.RESET)
+        print(colorScheme + f"Connection error: {e}" + Fore.RESET)
     except Exception as e:
-        print(Fore.RED + f"Unknown error: {e}" + Fore.RESET)
+        print(colorScheme + f"Unknown error: {e}" + Fore.RESET)
 
 
 def qexit():
@@ -150,7 +150,7 @@ def qexit():
         print("Continuing....")
 
 
-def proxyCheck(modes, input1):
+def proxyCheck(colorScheme,modes, input1):
     typeInput = input("TYPE: ⤷ ")
     if typeInput != "":
         input2 = input("    IP: ⤷  ")
@@ -168,7 +168,7 @@ def proxyCheck(modes, input1):
                     proxies = {"{typeInput}": prxs}
                 #  print("Proxy: " + input2 + ":" + input3)
                 except requests.exceptions.ProxyError:
-                    print(Fore.RED + "Proxy Error!" + Fore.RESET)
+                    print(colorScheme + "Proxy Error!" + Fore.RESET)
 
                 print("")
                 print("     Save Proxy To File?")
@@ -218,7 +218,7 @@ def timeoutC(modes, input1):
                 input1.replace("-t", "")
 
 
-def darkAlfred(console, uname):
+def darkAlfred(colorScheme,console, uname):
     # clears the terminal when Dark Alfred is ran
     os.system("cls" if os.name == "nt" else "clear")
     test = False
@@ -258,7 +258,7 @@ def darkAlfred(console, uname):
     print("Searching The DarkWeb For Usernames With: " + uname + ".")
     print("Your Ip Is: " + iptext)
     print(
-        Fore.RED
+        colorScheme
         + "===================================================================="
         + Fore.RESET
     )
@@ -270,7 +270,7 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
 """
     )
     print(
-        Fore.RED
+        colorScheme
         + "===================================================================="
         + Fore.RESET
     )
@@ -318,11 +318,11 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                     siteDic = json.loads(jsonObj)
                     siteList.append(siteDic)
         except FileNotFoundError:
-            print(Fore.RED + "Cant Find Site File")
+            print(colorScheme + "Cant Find Site File")
 
             exit(-1)
         except json.JSONDecodeError:
-            print(Fore.RED + "Error With Site File" + Fore.RESET)
+            print(colorScheme + "Error With Site File" + Fore.RESET)
             exit(-9)
 
         dir_path = Path.home() / "Downloads"
@@ -384,7 +384,7 @@ def dirList():
         )
 
 
-def catFile():
+def catFile(colorScheme):
     file_path = input("Filname:  ⤷ ")
     try:
         with open(file_path, "r") as f:
@@ -393,9 +393,9 @@ def catFile():
                 print(siteDic)
 
     except FileNotFoundError:
-        print(Fore.RED + "Cant Find Site File")
+        print(colorScheme + "Cant Find Site File")
     except json.JSONDecodeError:
-        print(Fore.RED + "Error With Site File" + Fore.RESET)
+        print(colorScheme + "Error With Site File" + Fore.RESET)
 
 
 def scriptDownloader(sitePaths, extinsion, count):

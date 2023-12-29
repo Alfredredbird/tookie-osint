@@ -25,6 +25,7 @@ configOption2 = "[2] Показывать советы: "
 configOption3 = "[3] Путь для загрузки сайтов: "
 configOption4 = "[4] Браузер: "
 configOption5 = "[5] Язык: "
+configOption6 = "[6] ColorScheme: "
 configOptionA = "[A] Очистить Alfred. (Удаляет временные файлы)"
 configOptionB = "[B] Инструменты разработчика."
 

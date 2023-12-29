@@ -13,13 +13,19 @@ config = ConfigParser()
 #this grabbes the langugae loader
 language_module = language_m
 
-def logo(uname, version, config):
+def logo(colorScheme,uname, version, config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
     prerelease = config.get("main", "prerelease")
+    showOS = config.get("Personalizations", "showOS")
+    showAlfredVersion = config.get("Personalizations", "showAlfredVersion")
+    showHost = config.get("Personalizations", "showHost")
+    showPrerelease = config.get("Personalizations", "showPrerelease")
+    showBrowser = config.get("Personalizations", "showBrowser")
+    showPythonVersion = config.get("Personalizations", "showPythonVersion")
     os.system("cls" if os.name == "nt" else "clear")
     print(
-        Fore.RED
+        colorScheme
         + """   
                                                                             
                    ****+*++*++                             
@@ -45,28 +51,12 @@ def logo(uname, version, config):
                  %###@@@#*@%#%@       
                  """
         + Fore.RESET
-        
-        + Fore.RED
-        + ''''''
-        + Fore.RESET
-        + """"""
-        + Fore.RED
-        
-        + Fore.RESET
-        + """
-"""
-        + Fore.RESET
-        + Fore.RED
-        
-        + Fore.RESET
+
         + """
               By Jeffrey Montanari        """
-        + Fore.RED
-        + """                """
-        + Fore.RESET
         + """
               Twiter: @alfredredbird1        """
-        + Fore.RED
+        + colorScheme
         + """               """
         + Fore.RESET
         + f"""
@@ -80,14 +70,15 @@ def logo(uname, version, config):
         + "==========================================================================="
     )
     print("")
-    print(Fore.RED + language_module.disclamer)
+    print(colorScheme + language_module.disclamer)
     print(Fore.RESET + " ")
-    print(
+    if showOS == "yes" and showAlfredVersion == "yes":
+     print(
         "     "
         + "OS:"
         + f"                                      Alfred {language_module.version}:"
     )
-    print(
+     print(
         "     "
         + platform.system()
         + " "
@@ -96,18 +87,20 @@ def logo(uname, version, config):
         + version
     )
     print("")
-    print("     " + "Host:" + "                                    Prerelease:")
-    print(
+    if showHost == "yes" and showPrerelease == "yes":
+     print("     " + "Host:" + "                                    Prerelease:")
+     print(
         "     " + str(platform.node()) + "                              " + prerelease
     )
     print("")
     print("")
-    print(
+    if showBrowser == "yes" and showPythonVersion == "yes":
+     print(
         "     "
         + "Browser:"
         + f"                                 Python {language_module.version}:"
     )
-    print(
+     print(
         "     "
         + browser
         + "                                            "
@@ -115,7 +108,7 @@ def logo(uname, version, config):
         + "                               "
         + "                                "
     )
-    print("")
+     print("")
     if uname != "":
      print(f"                {language_module.targetusernames} " + uname + Fore.RESET)
     print(

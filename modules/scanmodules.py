@@ -33,7 +33,7 @@ def Startscan(
 ):
     try:
         headers = {
-            "User-Agent": config['main']['useragent']
+            "User-Agent": config['Personalizations']['useragent']
         }
         if "-t" in modes:
             response = requests.get(
@@ -321,7 +321,7 @@ def siteDownloader(language_module):
             # set the User-agent as a regular browser
             session.headers[
                 "User-Agent"
-            ] = config['main']['useragent']
+            ] = config['Personalizations']['useragent']
 
             # get the HTML content
             html = session.get(url).content

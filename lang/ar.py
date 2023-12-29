@@ -25,6 +25,7 @@ configOption2 = "[2] إظهار النصائح: "
 configOption3 = "[3] مسار تنزيل الموقع: "
 configOption4 = "[4] المستعرض: "
 configOption5 = "[5] اللغة: "
+configOption6 = "[6] ColorScheme: "
 configOptionA = "[A] تنظيف Alfred. (يزيل الملفات المؤقتة)"
 configOptionB = "[B] أدوات المطور."
 

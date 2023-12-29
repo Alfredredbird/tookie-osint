@@ -1,4 +1,4 @@
-![alfredlogo-512x512 - Copy](https://github.com/Alfredredbird/alfred/assets/105014217/cd59746a-8a1d-4bf9-9bd3-8aacefe27988)
+![IMG_4910](https://github.com/Alfredredbird/alfred/assets/105014217/04eb051d-15c3-4a32-b10b-dcdb12fee881)
 
 
 
@@ -20,7 +20,7 @@ The main idea of Alfred is to discover usernames that are requested from an inpu
 Alfred is successful at this task almost 90% of the time.
 Our tool was created by me and is available for your use. 
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
-Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D We recently changed our logo!! Same tool just better logo.
+Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
 
 <img width="502" alt="imasdasdage" src="https://github.com/Alfredredbird/alfred/assets/105014217/c085915e-5803-4b4f-9d25-efc96822ac19">
 
@@ -252,6 +252,7 @@ There has been several articles written about our tool. Feal free to check them 
 
 - Twitter: https://twitter.com/Alfredredbird1
 - Discord Server: https://discord.gg/m2RSZ2Hhx5
+- LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 
 # 🤝 partnership

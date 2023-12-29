@@ -25,6 +25,7 @@ configOption2 = "[2] Show tips: "
 configOption3 = "[3] Site Download Path: "
 configOption4 = "[4] Browser: "
 configOption5 = "[5] Language: "
+configOption6 = "[6] ColorScheme: "
 configOptionA = "[A] Clean Up Alfred. (This Removes Temporary Files)"
 configOptionB = "[B] Developer Tools."
 
