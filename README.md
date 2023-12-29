@@ -252,6 +252,7 @@ There has been several articles written about our tool. Feal free to check them 
 
 - Twitter: https://twitter.com/Alfredredbird1
 - Discord Server: https://discord.gg/m2RSZ2Hhx5
+- LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 
 # 🤝 partnership
