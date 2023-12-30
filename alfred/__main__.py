@@ -1,26 +1,30 @@
 #! /usr/bin/env python3
 
 """
-Alfred: Alfred is a advanced OSINT information gathering tool
+Alfred: Alfred is an advanced OSINT information gathering tool
 """
 
 import os
 import sys
 
-if __name__ == "__main__":
+
+def main():
+    print("Alfred is starting...")
     # Check if the user is using the correct version of Python
     python_version = sys.version.split()[0]
 
     if sys.version_info < (3, 10):
         print(
-            "Alfred requires Python 3.10+\nYou are using Python %s, which is not supported by Alfred"
-            % (python_version)
+            f"Alfred requires Python 3.10+\nYou are using Python {python_version}, which is not supported by Alfred"
         )
         sys.exit(1)
 
     print(os.path.abspath(__file__))
     if os.name == "nt":
-        os.system("cd ..")
-        os.system("python.exe brib.py")
+        os.system("cd .. && python.exe brib.py")
     else:
-        os.system("python3 brib.py")
+        os.system("cd .. && python3 brib.py")
+
+if __name__ == "__main__":
+    main()
+
