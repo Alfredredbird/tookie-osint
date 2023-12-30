@@ -90,10 +90,10 @@ print(language_module.encrypt1)
 # logs the key
 saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
-logo(colorScheme,"", version, config)
+logo(colorScheme, "", version, config)
 # does config stuff
 print()
-configUpdateStuff(colorScheme,config, browser, language_module)
+configUpdateStuff(colorScheme, config, browser, language_module)
 # this is the variable that gets the username
 uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
@@ -123,7 +123,7 @@ while test != True:
                     language_module,
                 ],
             ],
-            "-c": [proxyCheck, [colorScheme,modes, input1]],
+            "-c": [proxyCheck, [colorScheme, modes, input1]],
             "-lp": [list_proxys, [colorScheme]],
             "-h": [print_help, []],
             "--help": [print_help, []],
@@ -133,10 +133,10 @@ while test != True:
             "--Config": [config_editor, [config, language_module]],
             "-p": [ping, [colorScheme]],
             "--ping": [ping, [colorScheme]],
-            "-r": [read_save, [colorScheme,slectpath]],
-            "--read": [read_save, [colorScheme,slectpath]],
-            "--Clear": [logo, [colorScheme,uname, version, config]],
-            "clear": [logo, [colorScheme,uname, version, config]],
+            "-r": [read_save, [colorScheme, slectpath]],
+            "--read": [read_save, [colorScheme, slectpath]],
+            "--Clear": [logo, [colorScheme, uname, version, config]],
+            "clear": [logo, [colorScheme, uname, version, config]],
             "-w": [emptyModule, []],
             "-s": [emptyModule, []],
             "-S": [emptyModule, []],
@@ -148,7 +148,7 @@ while test != True:
             "-f": [emptyModule, []],
             "-m": [emptyModule, []],
             "-N": [emptyModule, []],
-            "-Tor": [darkAlfred, [colorScheme,console,uname]],
+            "-Tor": [darkAlfred, [colorScheme, console, uname]],
         }
         valid = [key for key in action.keys()]
         option_matched = False
@@ -235,7 +235,7 @@ while test != True:
         # code to show NSFW sites
         if "-N" in input1:
             modes += input1
-        
+
     # checks for empty input
     # it will keep printing ⤷ until -s is entered and Y is entered
     if "" in input1 and inputnum != "":

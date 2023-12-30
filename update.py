@@ -240,9 +240,9 @@ def reinstall(chart, gitfile_loc, progress_bar_manual):
 
 
 choice = input("Update or reinstall? [U/r]: ").lower()
-if choice == 'u':
+if choice == "u":
     update(alfred_update_path)
-if choice == 'r':
+if choice == "r":
     reinstall(chart, gitfile_loc, progress_bar_manual)
 else:
     print("Not Sure What You Ment...........Ill Ask Later")

@@ -31,9 +31,11 @@ print("Encryption Key:", key.decode())  # Convert the key to a string for printi
 # Create a Fernet object with the key
 cipher_suite = Fernet(key)
 
+
 def encrypt(text):
     encrypted_text = cipher_suite.encrypt(text.encode())
     return encrypted_text
+
 
 def decrypt(encrypted_text):
     decrypted_text = cipher_suite.decrypt(encrypted_text).decode()

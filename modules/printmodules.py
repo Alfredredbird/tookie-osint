@@ -10,14 +10,15 @@ from modules.modules import *
 from modules.webscrape import *
 
 config = ConfigParser()
-#this grabbes the langugae loader
+# this grabbes the langugae loader
 language_module = language_m
 
-def logo(colorScheme,uname, version, config):
+
+def logo(colorScheme, uname, version, config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
     prerelease = config.get("main", "prerelease")
-    line1 = config.get("Personalizations", "showline1") 
+    line1 = config.get("Personalizations", "showline1")
     line2 = config.get("Personalizations", "showline2")
     line3 = config.get("Personalizations", "showline3")
     os.system("cls" if os.name == "nt" else "clear")
@@ -48,7 +49,6 @@ def logo(colorScheme,uname, version, config):
                  %###@@@#*@%#%@       
                  """
         + Fore.RESET
-
         + """
               By Jeffrey Montanari        """
         + """
@@ -70,44 +70,49 @@ def logo(colorScheme,uname, version, config):
     print(colorScheme + language_module.disclamer)
     print(Fore.RESET + " ")
     if line1 == "yes":
-     print(
-        "     "
-        + "OS:"
-        + f"                                      Alfred {language_module.version}:"
-    )
-     print(
-        "     "
-        + platform.system()
-        + " "
-        + platform.release()
-        + "                               "
-        + version
-    )
+        print(
+            "     "
+            + "OS:"
+            + f"                                      Alfred {language_module.version}:"
+        )
+        print(
+            "     "
+            + platform.system()
+            + " "
+            + platform.release()
+            + "                               "
+            + version
+        )
     print("")
     if line2 == "yes":
-     print("     " + "Host:" + "                                    Prerelease:")
-     print(
-        "     " + str(platform.node()) + "                              " + prerelease
-    )
+        print("     " + "Host:" + "                                    Prerelease:")
+        print(
+            "     "
+            + str(platform.node())
+            + "                              "
+            + prerelease
+        )
     print("")
     print("")
     if line3 == "yes":
-     print(
-        "     "
-        + "Browser:"
-        + f"                                 Python {language_module.version}:"
-    )
-     print(
-        "     "
-        + browser
-        + "                                            "
-        + platform.python_version()
-        + "                               "
-        + "                                "
-    )
-     print("")
+        print(
+            "     "
+            + "Browser:"
+            + f"                                 Python {language_module.version}:"
+        )
+        print(
+            "     "
+            + browser
+            + "                                            "
+            + platform.python_version()
+            + "                               "
+            + "                                "
+        )
+        print("")
     if uname != "":
-     print(f"                {language_module.targetusernames} " + uname + Fore.RESET)
+        print(
+            f"                {language_module.targetusernames} " + uname + Fore.RESET
+        )
     print(
         Fore.RESET
         + "==========================================================================="
