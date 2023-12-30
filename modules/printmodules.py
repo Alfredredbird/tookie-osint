@@ -17,12 +17,9 @@ def logo(colorScheme,uname, version, config):
     config.read("./config/config.ini")
     browser = config.get("main", "browser")
     prerelease = config.get("main", "prerelease")
-    showOS = config.get("Personalizations", "showOS")
-    showAlfredVersion = config.get("Personalizations", "showAlfredVersion")
-    showHost = config.get("Personalizations", "showHost")
-    showPrerelease = config.get("Personalizations", "showPrerelease")
-    showBrowser = config.get("Personalizations", "showBrowser")
-    showPythonVersion = config.get("Personalizations", "showPythonVersion")
+    line1 = config.get("Personalizations", "showline1") 
+    line2 = config.get("Personalizations", "showline2")
+    line3 = config.get("Personalizations", "showline3")
     os.system("cls" if os.name == "nt" else "clear")
     print(
         colorScheme
@@ -72,7 +69,7 @@ def logo(colorScheme,uname, version, config):
     print("")
     print(colorScheme + language_module.disclamer)
     print(Fore.RESET + " ")
-    if showOS == "yes" and showAlfredVersion == "yes":
+    if line1 == "yes":
      print(
         "     "
         + "OS:"
@@ -87,14 +84,14 @@ def logo(colorScheme,uname, version, config):
         + version
     )
     print("")
-    if showHost == "yes" and showPrerelease == "yes":
+    if line2 == "yes":
      print("     " + "Host:" + "                                    Prerelease:")
      print(
         "     " + str(platform.node()) + "                              " + prerelease
     )
     print("")
     print("")
-    if showBrowser == "yes" and showPythonVersion == "yes":
+    if line3 == "yes":
      print(
         "     "
         + "Browser:"
