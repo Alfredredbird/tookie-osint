@@ -316,7 +316,7 @@ print("")
 print(f"{language_module.save1} ./captured/captured.alfred")
 # Asks to be ran again
 startagain = input(f"{language_module.confirm2}")
-if "Y" in startagain or "y" in startagain:
+if startagain == "y":
     exec(open("brib.py").read())
-elif "N" in startagain or "n" in startagain:
+elif startagain == "n":
     exit()
