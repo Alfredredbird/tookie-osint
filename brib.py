@@ -100,7 +100,7 @@ uname = input(f"{language_module.target}")
 uname_list = [item.strip() for item in uname.split(",")]
 # This is where Alfred gathers the inputed options and then run them.
 # Not all of the options execute on input.
-while test != True:
+while not test:
     input1 = input("⤷ ")
     if input1 != "":
         # the options follow a simple ruleset
@@ -238,9 +238,10 @@ while test != True:
 
     # checks for empty input
     # it will keep printing ⤷ until -s is entered and Y is entered
-    if "" in input1 and inputnum != "":
+    if input1 == "" and inputnum != "":
         test = True
     inputnum = ""
+
 # creates the save file
 file_name = uname + ".txt"
 file_path = os.path.join("./captured/", file_name)
@@ -267,7 +268,7 @@ if fastMode == 3:
 # prints ui stuff
 print(Fore.GREEN + f"{language_module.scan1}" + uname + Fore.RESET)
 print("===========================================================")
-if webscrape == True:
+if webscrape:
     print(Fore.RED + language_module.note + Fore.RESET + language_module.warning2)
     print("===========================================================")
 print("")
