@@ -73,6 +73,7 @@ warning1 = "Es posible que los sitios no permitan la descarga de los archivos de
 warning2 = "El uso del web scraper es bastante lento"
 warning3 = "Este es tu primer lanzamiento :D Es posible que debas reiniciar Alfred para usar todos los módulos"
 warning4 = "¡Estás usando una versión preliminar de Alfred!"
+warning5 = "Por favor, introduzca un objetivo antes de continuar: "
 
 confirm1 = "¿Desea descargar imágenes/videos? [Y/n] ⤷ "
 confirm2 = "¿Ejecutar de nuevo? [Y/n] ⤷ "

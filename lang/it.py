@@ -77,6 +77,7 @@ warning1 = "Molti siti non consentono di scaricare i file del sito. Utilizzare a
 warning2 = " L'utilizzo del webscraper è piuttosto lento."
 warning3 = " Questo è il tuo primo lancio :D Potrebbe essere necessario riavviare Alfred per utilizzare tutti i moduli"
 warning4 = " Stai usando un Prerelease di Alfred!"
+warning5 = "Inserisci un target prima di continuare: "
 
 confirm1 = "Vuoi scaricare immagini/video? [Y/n] ⤷ "
 confirm2 = "Eseguire di nuovo?: [Y/n] ⤷ "

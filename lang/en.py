@@ -71,6 +71,7 @@ warning1 = "Many sites don't allow the downloading of their files. Use at your o
 warning2 = " Be aware that the web scraper is a bit slow."
 warning3 = " This is your first launch! :D You may need to restart Alfred for all modules to be available."
 warning4 = " You are using a pre-release version of Alfred!"
+warning5 = "Please enter a target before continuing: "
 
 confirm1 = "Want to download images/videos? [Y/n] ⤷ "
 confirm2 = "Run again? [Y/n] ⤷ "

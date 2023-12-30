@@ -185,8 +185,12 @@ while test != True:
                 print(language_module.idk1)
         # this is the function that starts Alfred.
         if "-s" in input1:
-            input2 = input("[Y/N]? ⤷ ")
-            if input2 != "":
+            if uname == "":
+               uname = input("Please enter a target before continuing: ")
+               uname_list = [item.strip() for item in uname.split(",")]
+            if uname != "":   
+             input2 = input("[Y/N]? ⤷ ")
+             if input2 != "":
                 if input2 == "Y" or input2 == "y":
                     modes += input1
                     inputnum += input2
