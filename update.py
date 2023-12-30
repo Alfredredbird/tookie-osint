@@ -239,10 +239,10 @@ def reinstall(chart, gitfile_loc, progress_bar_manual):
         print("Failed To Download Update Files. (-3)")
 
 
-choice = input("update or reinstall? [U/r]")
-if "U" in choice or "u" in choice:
+choice = input("Update or reinstall? [U/r]: ").lower()
+if choice == 'u':
     update(alfred_update_path)
-elif "r" in choice or "R" in choice:
+if choice == 'r':
     reinstall(chart, gitfile_loc, progress_bar_manual)
 else:
     print("Not Sure What You Ment...........Ill Ask Later")
