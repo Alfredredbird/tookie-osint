@@ -90,10 +90,10 @@ print(language_module.encrypt1)
 # logs the key
 saveInfo(config, encrypted_text)
 # this prints the start up screen and passes the verion varaible in
-logo(colorScheme, "", version, config)
+logo(colorScheme,"", version, config)
 # does config stuff
 print()
-configUpdateStuff(colorScheme, config, browser, language_module)
+configUpdateStuff(colorScheme,config, browser, language_module)
 # this is the variable that gets the username
 uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
@@ -123,7 +123,7 @@ while not test:
                     language_module,
                 ],
             ],
-            "-c": [proxyCheck, [colorScheme, modes, input1]],
+            "-c": [proxyCheck, [colorScheme,modes, input1]],
             "-lp": [list_proxys, [colorScheme]],
             "-h": [print_help, []],
             "--help": [print_help, []],
@@ -133,10 +133,10 @@ while not test:
             "--Config": [config_editor, [config, language_module]],
             "-p": [ping, [colorScheme]],
             "--ping": [ping, [colorScheme]],
-            "-r": [read_save, [colorScheme, slectpath]],
-            "--read": [read_save, [colorScheme, slectpath]],
-            "--Clear": [logo, [colorScheme, uname, version, config]],
-            "clear": [logo, [colorScheme, uname, version, config]],
+            "-r": [read_save, [colorScheme,slectpath]],
+            "--read": [read_save, [colorScheme,slectpath]],
+            "--Clear": [logo, [colorScheme,uname, version, config]],
+            "clear": [logo, [colorScheme,uname, version, config]],
             "-w": [emptyModule, []],
             "-s": [emptyModule, []],
             "-S": [emptyModule, []],
@@ -148,7 +148,7 @@ while not test:
             "-f": [emptyModule, []],
             "-m": [emptyModule, []],
             "-N": [emptyModule, []],
-            "-Tor": [darkAlfred, [colorScheme, console, uname]],
+            "-Tor": [darkAlfred, [colorScheme,console,uname]],
         }
         valid = [key for key in action.keys()]
         option_matched = False
@@ -185,13 +185,17 @@ while not test:
                 print(language_module.idk1)
         # this is the function that starts Alfred.
         if "-s" in input1:
-            input2 = input("[Y/N]? ⤷ ")
-            if input2 != "":
-                if input2 == "Y" or input2 == "y":
-                    modes += input1
-                    inputnum += input2
-                if input2 == "N" or input2 == "n":
-                    holder = 1
+            if uname == "":
+                uname = input("Please enter a target before continuing: ")
+                uname_list = [item.strip() for item in uname.split(",")]
+            if uname != "":
+                input2 = input("[Y/N]? ⤷ ").lower()
+                if input2 != "":
+                    if input2 == "y":
+                        modes += input1
+                        inputnum += input2
+                    if input2 == "n":
+                        holder = 1
         if "-ec" in input1:
             ec = 1
         if "-w" in input1:
@@ -238,7 +242,7 @@ while not test:
 
     # checks for empty input
     # it will keep printing ⤷ until -s is entered and Y is entered
-    if input1 == "" and inputnum != "":
+    if "" in input1 and inputnum != "":
         test = True
     inputnum = ""
 

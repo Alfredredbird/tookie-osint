@@ -21,9 +21,9 @@ def main():
 
     print(os.path.abspath(__file__))
     if os.name == "nt":
-        os.system("cd .. && python.exe brib.py")
+        os.system("python.exe brib.py")
     else:
-        os.system("cd .. && python3 brib.py")
+        os.system("python3 brib.py")
 
 if __name__ == "__main__":
     main()
