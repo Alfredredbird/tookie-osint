@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
+import http.client
 import json
 import os
 import random
 import string
 import time
-import http.client
 from configparser import ConfigParser
 from os import listdir
 from os.path import isfile, join
 from pathlib import Path
-from modules.configcheck import *
+
 import requests
 import wget
 from bs4 import BeautifulSoup
 from colorama import *
 from rich.console import Console
 from torrequest import TorRequest
+
+from modules.configcheck import *
 
 config = ConfigParser()
 config.read("./config/config.ini")
@@ -88,7 +90,7 @@ def list_proxys(colorScheme):
             print(Fore.RESET)
 
 
-def read_save(colorScheme,slectpath):
+def read_save(colorScheme, slectpath):
     if slectpath == "":
         dir_path = Path.home() / "Downloads"
 
@@ -118,9 +120,7 @@ def read_save(colorScheme,slectpath):
 
 
 def ping(colorScheme):
-    headers = {
-        "User-Agent": config['main']['useragent']
-    }
+    headers = {"User-Agent": config["main"]["useragent"]}
     print(colorScheme + "Defaults to HTTPS.")
 
     print(Fore.RESET + " ")
@@ -129,7 +129,9 @@ def ping(colorScheme):
 
     if not reqSite.startswith("https://") and not reqSite.startswith("http://"):
         urlFix = reqSite.split("//", 1)
-        reqSite = urlFix[len(urlFix) - 1] # Account for people doing weird stuff like ftp:// instead
+        reqSite = urlFix[
+            len(urlFix) - 1
+        ]  # Account for people doing weird stuff like ftp:// instead
         reqSite = f"https://{reqSite}"
 
     try:
@@ -150,7 +152,7 @@ def qexit():
         print("Continuing....")
 
 
-def proxyCheck(colorScheme,modes, input1):
+def proxyCheck(colorScheme, modes, input1):
     typeInput = input("TYPE: ⤷ ")
     if typeInput != "":
         input2 = input("    IP: ⤷  ")
@@ -218,7 +220,7 @@ def timeoutC(modes, input1):
                 input1.replace("-t", "")
 
 
-def darkAlfred(colorScheme,console, uname):
+def darkAlfred(colorScheme, console, uname):
     # clears the terminal when Dark Alfred is ran
     os.system("cls" if os.name == "nt" else "clear")
     test = False
@@ -476,6 +478,7 @@ def get_random_string(length):
     letters = string.ascii_lowercase
     result_str = "".join(random.choice(letters) for i in range(length))
     return result_str
+
 
 def emptyModule():
     """This Module is empty and does nothing. Its for when Alfred needs to return something"""

@@ -32,9 +32,7 @@ def Startscan(
     language_module,
 ):
     try:
-        headers = {
-            "User-Agent": config['Personalizations']['useragent']
-        }
+        headers = {"User-Agent": config["Personalizations"]["useragent"]}
         if "-t" in modes:
             response = requests.get(
                 siteN + uname,
@@ -271,13 +269,11 @@ def Startscan(
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
             if response.status_code <= 300 and "-N" not in modes:
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
-                f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")    
-
-
+                f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
 
             if response.status_code >= 400 and "-a" in modes:
                 print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
-                f.write(str(date) + "[" + "-" + "] " + siteN + uname + "\n")        
+                f.write(str(date) + "[" + "-" + "] " + siteN + uname + "\n")
 
 
 def scanFileList(siteList, slectpath, language_module):
@@ -319,9 +315,7 @@ def siteDownloader(language_module):
             # initialize a session
             session = requests.Session()
             # set the User-agent as a regular browser
-            session.headers[
-                "User-Agent"
-            ] = config['Personalizations']['useragent']
+            session.headers["User-Agent"] = config["Personalizations"]["useragent"]
 
             # get the HTML content
             html = session.get(url).content

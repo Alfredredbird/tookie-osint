@@ -55,7 +55,9 @@ configOptionBMessage = "Welcome to the developer menu!"
 
 configOption1Message2 = "Okay, [checkforupdates] is set to no. Changing to yes."
 configOption2Message2 = "Okay, [showtips] is set to no. Changing to yes."
-configOptionBMessage2 = "Don't give the following keys to anyone except an Alfred developer!"
+configOptionBMessage2 = (
+    "Don't give the following keys to anyone except an Alfred developer!"
+)
 configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
 
@@ -67,7 +69,9 @@ permission_denied = "Permission denied for {operation} on {path}"
 
 note = "Note! "
 path = "PATH: ⤷ "
-warning1 = "Many sites don't allow the downloading of their files. Use at your own risk."
+warning1 = (
+    "Many sites don't allow the downloading of their files. Use at your own risk."
+)
 warning2 = " Be aware that the web scraper is a bit slow."
 warning3 = " This is your first launch! :D You may need to restart Alfred for all modules to be available."
 warning4 = " You are using a pre-release version of Alfred!"
@@ -108,7 +112,9 @@ error2 = "Type error!"
 error3 = "Can't find the save file!"
 error4 = "Directory doesn't exist."
 error5 = "Can't find necessary files. Trying to reinstall Alfred."
-error6 = "Looks like we can't connect. Check your connection and/or proxy and try again."
+error6 = (
+    "Looks like we can't connect. Check your connection and/or proxy and try again."
+)
 error7 = "Can't find site file"
 error8 = "Error downloading web content!"
 error9 = "Error with site file"

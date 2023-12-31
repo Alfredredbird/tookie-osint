@@ -1,9 +1,8 @@
+import configparser
 import os
 import random
 import shutil
 import time
-import shutil
-import configparser 
 
 import requests
 from colorama import *
@@ -36,13 +35,14 @@ def configC(language_module):
         version = fp.read()
         return version
 
+
 def colorSchemeGrabber(config):
     print("Grabbing Color Configuration")
     try:
-     config.read("config/config.ini")
-     color = config.get("Personalizations", "colorScheme").upper()
-     color_code = getattr(Fore, color)
-     return color_code
+        config.read("config/config.ini")
+        color = config.get("Personalizations", "colorScheme").upper()
+        color_code = getattr(Fore, color)
+        return color_code
     except:
         print("Could not read configuration file")
         return "RED"
@@ -64,15 +64,19 @@ def delete_pycache(root_dir):
             shutil.rmtree(pycache_path)
 
 
-def configUpdateStuff(colorScheme,config, browser, language_module):
+def configUpdateStuff(colorScheme, config, browser, language_module):
     config.read("./config/config.ini")
 
     # checks to see if the user is running a Pre or if its Alfreds first launch.
     if config.get("main", "firstlaunch") == "yes":
-        print(colorScheme + language_module.note + Fore.RESET + language_module.warning3)
+        print(
+            colorScheme + language_module.note + Fore.RESET + language_module.warning3
+        )
         print("")
     if config.get("main", "prerelease") == "yes":
-        print(colorScheme + language_module.note + Fore.RESET + language_module.warning4)
+        print(
+            colorScheme + language_module.note + Fore.RESET + language_module.warning4
+        )
         print(language_module.prompt2)
         print("")
     # this is the function to update the code
@@ -136,25 +140,33 @@ def configUpdateStuff(colorScheme,config, browser, language_module):
         with open("./config/config.ini", "w") as f:
             config.write(f)
 
-    if getNum == 3 or getNum == 5 and config.get("Personalizations", "showtips") == "yes":
+    if (
+        getNum == 3
+        or getNum == 5
+        and config.get("Personalizations", "showtips") == "yes"
+    ):
         # this gets the random tip to display on the screen
         randomTip = random.choice(open("./config/tips.txt").readlines())
         print(randomTip)
+
 
 def syskeys(config):
     print("Here are your system keys.")
     print(str(config.get("main", "privatekey")))
     print(str(config.get("main", "syscrypt")))
-    
+
+
 def globalPath(config):
     config.read("./config/config.ini")
     path = config.get("main", "defaultDlPath")
     return path
 
+
 def dirDump(mydir):
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:
         os.remove(os.path.join(mydir, f))
+
 
 def create_folders(folder_list, language_module):
     for folder in folder_list:
@@ -172,22 +184,29 @@ VALID_CHOICES = {
     "browser": ["Firefox", "Edge", "Chrome"],
     "defaultdlpath": [],
     "language": ["en", "ar", "de", "es", "fr", "hi", "il", "it", "ru"],
-    "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"]
+    "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"],
 }
 
-def display_options(config, section,language_module):
+
+def display_options(config, section, language_module):
     print("Options:")
     print("=====================================================")
     print(f"{language_module.configOption1} {config.get('main', 'checkforupdates')}")
-    print(f"{language_module.configOption2} {config.get('Personalizations', 'showtips')}")
+    print(
+        f"{language_module.configOption2} {config.get('Personalizations', 'showtips')}"
+    )
     print(f"{language_module.configOption3} {config.get('main', 'defaultdlpath')}")
     print(f"{language_module.configOption4} {config.get('main', 'browser')}")
     print(f"{language_module.configOption5} {config.get('main', 'language')}")
+    print(
+        f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}"
+    )
     print(f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}")
     print("=====================================================")
     print(f"{language_module.configOptionA} ")
     print(f"{language_module.configOptionB} ")
     print("=====================================================")
+
 
 def update_config(config, section, option_key, new_value):
     config.set(section, option_key, str(new_value))
@@ -197,24 +216,25 @@ def update_config(config, section, option_key, new_value):
 
 def config_editor(config, language_module):
     selected_option_key = {
-    "1": ("main", "checkforupdates"),
-    "2": ("main", "showtips"),
-    "3": ("main", "defaultdlpath"),
-    "4": ("main", "browser"),
-    "5": ("main", "language"),
-    "6": ("Personalizations", "colorscheme"),
-    "A": ("main", "option_A"),
-    "B": ("main", "option_B"),
-    "a": ("main", "option_A"),
-    "b": ("main", "option_B"),
-     
-}
+        "1": ("main", "checkforupdates"),
+        "2": ("main", "showtips"),
+        "3": ("main", "defaultdlpath"),
+        "4": ("main", "browser"),
+        "5": ("main", "language"),
+        "6": ("Personalizations", "colorscheme"),
+        "A": ("main", "option_A"),
+        "B": ("main", "option_B"),
+        "a": ("main", "option_A"),
+        "b": ("main", "option_B"),
+    }
     config = configparser.ConfigParser()
     config.read("./config/config.ini")
     edit_config_answer = input(language_module.config5)
 
     if edit_config_answer.lower() == "y":
-        display_options(config, 'main', language_module)  # Use 'main' as default section
+        display_options(
+            config, "main", language_module
+        )  # Use 'main' as default section
 
         edit_config_index = input(language_module.config6)
         selected_option = selected_option_key.get(edit_config_index)
@@ -225,22 +245,30 @@ def config_editor(config, language_module):
                 custom_section = input("Enter the custom configuration section: ")
                 custom_config_key = input("Enter the custom configuration key: ")
                 value = config.get(custom_section, custom_config_key)
-                print(f"Custom Configuration: {custom_section}.{custom_config_key}: {value}")
+                print(
+                    f"Custom Configuration: {custom_section}.{custom_config_key}: {value}"
+                )
             elif option_key == "option_A":
                 handle_option_A(config)
             elif option_key == "option_B":
                 handle_option_B(config)
             else:
-                valid_choices = VALID_CHOICES[option_key] if option_key in VALID_CHOICES else None
+                valid_choices = (
+                    VALID_CHOICES[option_key] if option_key in VALID_CHOICES else None
+                )
                 if not valid_choices:
                     new_value = input(f"{option_key.capitalize()}: ⤷ ")
                     update_config(config, section, option_key, new_value)
                 else:
-                    new_value = input(f"{option_key.capitalize()} ({'/'.join(valid_choices)}): ⤷ ")
+                    new_value = input(
+                        f"{option_key.capitalize()} ({'/'.join(valid_choices)}): ⤷ "
+                    )
                     if new_value in valid_choices:
                         update_config(config, section, option_key, new_value)
                     else:
-                        print(f"Invalid choice. Please choose from {', '.join(valid_choices)}")
+                        print(
+                            f"Invalid choice. Please choose from {', '.join(valid_choices)}"
+                        )
         else:
             print("Invalid option selected.")
         return True
@@ -248,10 +276,12 @@ def config_editor(config, language_module):
     elif edit_config_answer.lower() == "n":
         print("Aww ok")
 
+
 # Your function for option A
 def handle_option_A(config):
-    dirDump(str(config.get('main', 'defaultdlpath')))
+    dirDump(str(config.get("main", "defaultdlpath")))
     delete_pycache("./")
+
 
 # Your function for option B
 def handle_option_B(config):
