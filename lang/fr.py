@@ -74,6 +74,7 @@ warning1 = "Les sites peuvent ne pas autoriser le téléchargement de leurs fich
 warning2 = "L'utilisation du Webscraper est assez lente."
 warning3 = "Ceci est votre premier lancement :D Vous devrez peut-être redémarrer Alfred pour utiliser tous les modules"
 warning4 = "Vous utilisez une préversion d'Alfred !"
+warning5 = "Veuillez entrer une cible avant de continuer: "
 
 confirm1 = "Voulez-vous télécharger des images/vidéos ? [Y/n] : ⤷ "
 confirm2 = "Exécuter à nouveau ? : [Y/n] : ⤷ "

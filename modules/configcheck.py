@@ -190,7 +190,7 @@ VALID_CHOICES = {
 
 def display_options(config, section, language_module):
     print("Options:")
-    print("=====================================")
+    print("=====================================================")
     print(f"{language_module.configOption1} {config.get('main', 'checkforupdates')}")
     print(
         f"{language_module.configOption2} {config.get('Personalizations', 'showtips')}"
@@ -201,9 +201,11 @@ def display_options(config, section, language_module):
     print(
         f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}"
     )
+    print(f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}")
+    print("=====================================================")
     print(f"{language_module.configOptionA} ")
     print(f"{language_module.configOptionB} ")
-    print("=====================================")
+    print("=====================================================")
 
 
 def update_config(config, section, option_key, new_value):

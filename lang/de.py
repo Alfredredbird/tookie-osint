@@ -77,6 +77,7 @@ warning1 = "Viele Websites erlauben das Herunterladen ihrer Site-Dateien nicht. 
 warning2 = "Die Verwendung des Webscrapers ist ziemlich langsam."
 warning3 = "Dies ist Ihr erster Start :D Möglicherweise müssen Sie Alfred neu starten, um alle Module nutzen zu können."
 warning4 = "Sie verwenden eine Vorabversion von Alfred!"
+warning5 = "Bitte geben Sie ein Ziel ein, bevor Sie fortfahren: "
 
 confirm1 = "Möchten Sie Bilder/Videos herunterladen? [J/n] ⤷ "
 confirm2 = "Erneut ausführen?: [J/n] ⤷"
