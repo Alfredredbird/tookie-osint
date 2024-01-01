@@ -319,4 +319,3 @@ if "Y" in startagain or "y" in startagain:
     exec(open("brib.py").read())
 elif "N" in startagain or "n" in startagain:
     exit()
-

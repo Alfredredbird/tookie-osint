@@ -198,9 +198,6 @@ def display_options(config, section, language_module):
     print(f"{language_module.configOption3} {config.get('main', 'defaultdlpath')}")
     print(f"{language_module.configOption4} {config.get('main', 'browser')}")
     print(f"{language_module.configOption5} {config.get('main', 'language')}")
-    print(
-        f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}"
-    )
     print(f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}")
     print("=====================================================")
     print(f"{language_module.configOptionA} ")
