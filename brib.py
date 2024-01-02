@@ -5,6 +5,7 @@ import datetime
 import os
 import site
 import time
+import argparse
 from configparser import ConfigParser
 from pathlib import Path
 from socket import socket
@@ -41,6 +42,7 @@ siteProgcounter = 0
 ec = 0
 console = Console()
 config = ConfigParser()
+argument = parse_args()
 slectpath = ""
 version = ""
 modes = ""
@@ -93,14 +95,38 @@ saveInfo(config, encrypted_text)
 logo(colorScheme,"", version, config)
 # does config stuff
 print()
-configUpdateStuff(colorScheme,config, browser, language_module)
+configUpdateStuff(colorScheme,config, browser, language_module,argument)
 # this is the variable that gets the username
-uname = input(f"{language_module.target}")
+if argument.username:
+    uname = argument.username
+    uname_list = [item.strip() for item in uname.split(",")]
+if not argument.username:
+ uname = input(f"{language_module.target}")
 # this removes the comma and puts the usernames into a list
-uname_list = [item.strip() for item in uname.split(",")]
+ uname_list = [item.strip() for item in uname.split(",")]
+
 # This is where Alfred gathers the inputed options and then run them.
 # Not all of the options execute on input.
-while test != True:
+
+if argument:
+    input1 = "0"
+
+if any(vars(argument).values()):
+ holder += 1
+ if argument.scan:
+  if uname == "":
+     print("You must provide a username")
+     exit(99)
+ if not argument.scan:
+     print("You must use -s to start")
+     print("")
+     exit(99)
+ if argument.fast:
+     fastMode = 1
+ if argument.webscrape:
+     webscrape = True
+else:
+ while test != True:
     input1 = input("⤷ ")
     if input1 != "":
         # the options follow a simple ruleset
@@ -196,6 +222,8 @@ while test != True:
                     inputnum += input2
                 if input2 == "N" or input2 == "n":
                     holder = 1
+        
+        # Your scanning logic here
         if "-ec" in input1:
             ec = 1
         if "-w" in input1:
@@ -238,13 +266,13 @@ while test != True:
             fastMode = 3
         # code to show NSFW sites
         if "-N" in input1:
-            modes += input1
-        
+            modes += input1 
     # checks for empty input
     # it will keep printing ⤷ until -s is entered and Y is entered
     if "" in input1 and inputnum != "":
         test = True
     inputnum = ""
+    
 # creates the save file
 file_name = uname + ".txt"
 file_path = os.path.join("./captured/", file_name)
@@ -309,13 +337,16 @@ def is_what_percent_of(num_a, num_b):
     return (num_a / num_b) * 100
 
 
-print("")
-print("===========================================================")
-print("")
-print(f"{language_module.save1} ./captured/captured.alfred")
-# Asks to be ran again
-startagain = input(f"{language_module.confirm2}")
-if "Y" in startagain or "y" in startagain:
+print("""
+===========================================================
+     """)
+print(f"{language_module.save1} ./captured/{uname}.alfred")
+# Asks to be ran again if there are no arguments
+if any(vars(argument).values()):
+ holder += 1
+else:
+ startagain = input(f"{language_module.confirm2}")
+ if "Y" in startagain or "y" in startagain:
     exec(open("brib.py").read())
-elif "N" in startagain or "n" in startagain:
+ elif "N" in startagain or "n" in startagain:
     exit()

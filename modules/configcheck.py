@@ -64,8 +64,10 @@ def delete_pycache(root_dir):
             shutil.rmtree(pycache_path)
 
 
-def configUpdateStuff(colorScheme, config, browser, language_module):
+def configUpdateStuff(colorScheme, config, browser, language_module,argument):
     config.read("./config/config.ini")
+    #this is just something Alfred can use to return something when it needs to return nothing
+    holder = 0
 
     # checks to see if the user is running a Pre or if its Alfreds first launch.
     if config.get("main", "firstlaunch") == "yes":
@@ -85,8 +87,11 @@ def configUpdateStuff(colorScheme, config, browser, language_module):
         print(language_module.prompt3)
     if x == 2:
         print(language_module.prompt4)
-
-    if config.get("main", "checkforupdates") == "yes":
+    #desides if arguments are being used. if so, it wont ask to update.
+    if any(vars(argument).values()):
+        holder = 1
+    else:
+     if config.get("main", "checkforupdates") == "yes":
         try:
             cfu = input(language_module.config4)
             if "Y" in cfu or "y" in cfu:
@@ -115,10 +120,12 @@ def configUpdateStuff(colorScheme, config, browser, language_module):
             with open("./config/config.ini", "w") as f:
                 config.write(f)
             exit(1)
-
     getNum = random.randint(1, 10)
-    # asks the user if they want to enable updates
-    if config.get("main", "checkforupdates") == "no":
+    if any(vars(argument).values()):
+        holder = 1
+    else:
+     # asks the user if they want to enable updates
+     if config.get("main", "checkforupdates") == "no":
         if getNum == 7:
             changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
             # pharses it
@@ -132,7 +139,7 @@ def configUpdateStuff(colorScheme, config, browser, language_module):
             else:
                 print(language_module.idk2)
 
-    if config.get("main", "firstlaunch") == "yes":
+     if config.get("main", "firstlaunch") == "yes":
         config.set("main", "firstlaunch", "no")
         if browser == "MSEdgeHTM":
             browser = "Edge"
