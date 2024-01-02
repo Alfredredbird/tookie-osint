@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
+import argparse
 import http.client
 import json
 import os
 import random
 import string
 import time
-import argparse
 from configparser import ConfigParser
 from os import listdir
 from os.path import isfile, join
@@ -487,10 +487,16 @@ def emptyModule():
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Alfred OSINT Tool (Command-Line)')
-    parser.add_argument('-s', '--scan', action='store_true', help='Run Alfred scan')
-    parser.add_argument('-u', '--username', help='Specify target username(s) (comma-separated)')
-    parser.add_argument('-f', '--fast', action='store_true', help='Run Alfred with a fast scan')
-    parser.add_argument('-w', '--webscrape', action='store_true', help='Run Alfred with the webscraper')
+    parser = argparse.ArgumentParser(description="Alfred OSINT Tool (Command-Line)")
+    parser.add_argument("-s", "--scan", action="store_true", help="Run Alfred scan")
+    parser.add_argument(
+        "-u", "--username", help="Specify target username(s) (comma-separated)"
+    )
+    parser.add_argument(
+        "-f", "--fast", action="store_true", help="Run Alfred with a fast scan"
+    )
+    parser.add_argument(
+        "-w", "--webscrape", action="store_true", help="Run Alfred with the webscraper"
+    )
 
     return parser.parse_args()

@@ -64,9 +64,9 @@ def delete_pycache(root_dir):
             shutil.rmtree(pycache_path)
 
 
-def configUpdateStuff(colorScheme, config, browser, language_module,argument):
+def configUpdateStuff(colorScheme, config, browser, language_module, argument):
     config.read("./config/config.ini")
-    #this is just something Alfred can use to return something when it needs to return nothing
+    # this is just something Alfred can use to return something when it needs to return nothing
     holder = 0
 
     # checks to see if the user is running a Pre or if its Alfreds first launch.
@@ -87,65 +87,67 @@ def configUpdateStuff(colorScheme, config, browser, language_module,argument):
         print(language_module.prompt3)
     if x == 2:
         print(language_module.prompt4)
-    #desides if arguments are being used. if so, it wont ask to update.
+    # desides if arguments are being used. if so, it wont ask to update.
     if any(vars(argument).values()):
         holder = 1
     else:
-     if config.get("main", "checkforupdates") == "yes":
-        try:
-            cfu = input(language_module.config4)
-            if "Y" in cfu or "y" in cfu:
-                exec(open("./update.py").read())
-            elif "N" in cfu or "n" in cfu:
-                print(language_module.prompt5)
-                print(
-                    Fore.RESET
-                    + """
+        if config.get("main", "checkforupdates") == "yes":
+            try:
+                cfu = input(language_module.config4)
+                if "Y" in cfu or "y" in cfu:
+                    exec(open("./update.py").read())
+                elif "N" in cfu or "n" in cfu:
+                    print(language_module.prompt5)
+                    print(
+                        Fore.RESET
+                        + """
 ===========================================================================
                   """
-                )
-            else:
-                print(language_module.idk2)
-                print(
-                    Fore.RESET
-                    + """
+                    )
+                else:
+                    print(language_module.idk2)
+                    print(
+                        Fore.RESET
+                        + """
 ===========================================================================
                   """
+                    )
+            except KeyboardInterrupt:
+                config.set("main", "firstlaunch", "no")
+                if browser == "MSEdgeHTM":
+                    browser = "Edge"
+                config.set("main", "browser", browser)
+                with open("./config/config.ini", "w") as f:
+                    config.write(f)
+                exit(1)
+    getNum = random.randint(1, 10)
+    if any(vars(argument).values()):
+        holder = 1
+    else:
+        # asks the user if they want to enable updates
+        if config.get("main", "checkforupdates") == "no":
+            if getNum == 7:
+                changeconfig = input(
+                    "Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ "
                 )
-        except KeyboardInterrupt:
+                # pharses it
+                if "Y" in changeconfig or "y" in changeconfig:
+                    config.set("main", "checkforupdates", "yes")
+                    print(language_module.updates)
+                    with open("./config/config.ini", "w") as f:
+                        config.write(f)
+                elif "N" in changeconfig or "n" in changeconfig:
+                    print(language_module.prompt5)
+                else:
+                    print(language_module.idk2)
+
+        if config.get("main", "firstlaunch") == "yes":
             config.set("main", "firstlaunch", "no")
             if browser == "MSEdgeHTM":
                 browser = "Edge"
             config.set("main", "browser", browser)
             with open("./config/config.ini", "w") as f:
                 config.write(f)
-            exit(1)
-    getNum = random.randint(1, 10)
-    if any(vars(argument).values()):
-        holder = 1
-    else:
-     # asks the user if they want to enable updates
-     if config.get("main", "checkforupdates") == "no":
-        if getNum == 7:
-            changeconfig = input("Updates Are Disabed. Wanna Renable Them? [y/n]: ⤷ ")
-            # pharses it
-            if "Y" in changeconfig or "y" in changeconfig:
-                config.set("main", "checkforupdates", "yes")
-                print(language_module.updates)
-                with open("./config/config.ini", "w") as f:
-                    config.write(f)
-            elif "N" in changeconfig or "n" in changeconfig:
-                print(language_module.prompt5)
-            else:
-                print(language_module.idk2)
-
-     if config.get("main", "firstlaunch") == "yes":
-        config.set("main", "firstlaunch", "no")
-        if browser == "MSEdgeHTM":
-            browser = "Edge"
-        config.set("main", "browser", browser)
-        with open("./config/config.ini", "w") as f:
-            config.write(f)
 
     if (
         getNum == 3
@@ -205,7 +207,9 @@ def display_options(config, section, language_module):
     print(f"{language_module.configOption3} {config.get('main', 'defaultdlpath')}")
     print(f"{language_module.configOption4} {config.get('main', 'browser')}")
     print(f"{language_module.configOption5} {config.get('main', 'language')}")
-    print(f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}")
+    print(
+        f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}"
+    )
     print("=====================================================")
     print(f"{language_module.configOptionA} ")
     print(f"{language_module.configOptionB} ")
