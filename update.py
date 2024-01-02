@@ -1,12 +1,14 @@
 import os
 import time
-import requests
 
+import requests
 
 # variables
 version = ""
 alfred_version = ""
-alfred_update_path = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+alfred_update_path = (
+    "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+)
 alfred_install_path = "/alfred/"
 gitfile_loc = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
 udfl = []
@@ -14,6 +16,7 @@ dlfl = ""
 fl = []
 fh = []
 dlcount = 0
+
 
 def chart():
     file_path = "config/udfl"
@@ -23,28 +26,34 @@ def chart():
         third_length = (len(lines) + 2) // 3
 
         max_length_left = max(len(line.strip()) for line in lines[:third_length])
-        max_length_middle = max(len(line.strip()) for line in lines[third_length:2 * third_length])
-        max_length_right = max(len(line.strip()) for line in lines[2 * third_length:])
+        max_length_middle = max(
+            len(line.strip()) for line in lines[third_length : 2 * third_length]
+        )
+        max_length_right = max(len(line.strip()) for line in lines[2 * third_length :])
 
-        print(f"+{'-' * (max_length_left + 2)}+{'-' * (max_length_middle + 2)}+{'-' * (max_length_right + 2)}+")
+        print(
+            f"+{'-' * (max_length_left + 2)}+{'-' * (max_length_middle + 2)}+{'-' * (max_length_right + 2)}+"
+        )
         for left, middle, right in zip(
             lines[:third_length],
-            lines[third_length:2 * third_length],
-            lines[2 * third_length:],
+            lines[third_length : 2 * third_length],
+            lines[2 * third_length :],
         ):
             left = left.strip().ljust(max_length_left)
             middle = middle.strip().ljust(max_length_middle)
             right = right.strip().ljust(max_length_right)
             print(f"| {left} | {middle} | {right} |")
-        print(f"+{'-' * (max_length_left + 2)}+{'-' * (max_length_middle + 2)}+{'-' * (max_length_right + 2)}+")
+        print(
+            f"+{'-' * (max_length_left + 2)}+{'-' * (max_length_middle + 2)}+{'-' * (max_length_right + 2)}+"
+        )
 
 
 def progress_bar_manual(dlcount, total_items, length=40, fill="#"):
     percent_complete = (dlcount / total_items) * 100
     bar_length = length
     filled_length = int(length * percent_complete / 100)
-    bar = fill * filled_length + '-' * (length - filled_length)
-    print(f"\rProgress: [{bar}] {percent_complete:.2f}% Complete", end='\r', flush=True)
+    bar = fill * filled_length + "-" * (length - filled_length)
+    print(f"\rProgress: [{bar}] {percent_complete:.2f}% Complete", end="\r", flush=True)
 
 
 def update(alfred_update_path):
@@ -115,7 +124,9 @@ def update(alfred_update_path):
             while True:
                 for item in fh:
                     if not os.path.exists(item):
-                        response = requests.get(gitfile_loc + item, allow_redirects=True)
+                        response = requests.get(
+                            gitfile_loc + item, allow_redirects=True
+                        )
                         with open(item, "wb") as file:
                             file.write(response.content)
                         fh.remove(item)
@@ -127,6 +138,7 @@ def update(alfred_update_path):
             print("Failed To Download Update Files. (-3)")
     else:
         print("You're On The Latest Version!")
+
 
 def reinstall(gitfile_loc, progress_bar_func):
     print("Reinstalling.....!")
@@ -168,9 +180,7 @@ def reinstall(gitfile_loc, progress_bar_func):
                 with open(item, "wb") as file:
                     file.write(response.content)
                 dlcount += 1
-                progress_bar_func(
-                    dlcount, total_items, length=40, fill="#"
-                )
+                progress_bar_func(dlcount, total_items, length=40, fill="#")
             except FileNotFoundError:
                 print(f"Can't Find: {item} Skipping!")
             except OSError:
