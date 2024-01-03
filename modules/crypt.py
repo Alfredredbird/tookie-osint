@@ -44,26 +44,20 @@ def save_encryption_info(config, private_key, sys_encrypted_key):
         config.write(configfile)
 
 
-def main():
-    """Main function to handle encryption and decryption tasks."""
-    key = generate_encryption_key()
-    print("Encryption Key:", key.decode())
-    cipher_suite = create_cipher(key)
-    sys_info = (
-        platform.system()
-        + platform.release()
-        + "-AlfredVer-"
-        + versionToPass
-        + "-"
-        + platform.python_version()
-        + "-"
-        + config.get("main", "browser")
-    )
-    encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
-    decrypted_sys_info = decrypt_text(cipher_suite, encrypted_sys_info)
-    print_encrypted_and_decrypted(encrypted_sys_info.decode(), decrypted_sys_info)
-    save_encryption_info(config, key, encrypted_sys_info)
-
-
-if __name__ == "__main__":
-    main()
+key = generate_encryption_key()
+print("Encryption Key:", key.decode())
+cipher_suite = create_cipher(key)
+sys_info = (
+    platform.system()
+    + platform.release()
+    + "-AlfredVer-"
+    + versionToPass
+    + "-"
+    + platform.python_version()
+    + "-"
+    + config.get("main", "browser")
+)
+encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
+decrypted_sys_info = decrypt_text(cipher_suite, encrypted_sys_info)
+print_encrypted_and_decrypted(encrypted_sys_info.decode(), decrypted_sys_info)
+save_encryption_info(config, key, encrypted_sys_info)

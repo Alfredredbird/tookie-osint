@@ -18,12 +18,14 @@ def configC(language_module):
     if os.path.exists("./config/config.ini"):
         print(language_module.config1)
     else:
+        # If not found, alert the user and attempt to update
         print(language_module.error5)
         time.sleep(4)
         with open("./config/version.cfg", "w") as f:
             f.write(language_module.status3)
         exec(open("./update.py").read())
-
+        
+    # Check if update.py script exists
     if os.path.exists("./update.py"):
         print(language_module.config2)
     else:
@@ -35,7 +37,7 @@ def configC(language_module):
         version = fp.read()
         return version
 
-
+# Get the color scheme from the config file
 def colorSchemeGrabber(config):
     print("Grabbing Color Configuration")
     try:
@@ -47,7 +49,7 @@ def colorSchemeGrabber(config):
         print(f"Could not read configuration file: {e}")
         return Fore.RED
 
-
+# Delete __pycache__ directories
 def delete_pycache(root_dir):
     """
     Recursively searches for and deletes __pycache__ folders within the specified directory.
@@ -63,7 +65,7 @@ def delete_pycache(root_dir):
             # Delete the __pycache__ folder
             shutil.rmtree(pycache_path)
 
-
+# Ask user about update checks
 def ask_update_check(config, colorScheme, language_module):
     try:
         cfu = input(language_module.config4)
@@ -79,7 +81,7 @@ def ask_update_check(config, colorScheme, language_module):
         outstanding_config_updates(config)
         exit(1)
 
-
+# Prompt user at random to enable updates
 def random_enable_updates(config, language_module):
     getNum = random.randint(1, 10)
     # asks the user if they want to enable updates
@@ -95,7 +97,7 @@ def random_enable_updates(config, language_module):
         else:
             print(language_module.idk2)
 
-
+# Process various config-related tasks
 def configUpdateStuff(colorScheme, config, browser, language_module, argument):
     config.read("./config/config.ini")
     print_first_launch_messages(config, colorScheme, language_module)
@@ -112,26 +114,26 @@ def configUpdateStuff(colorScheme, config, browser, language_module, argument):
     random_enable_updates(config, language_module)
     display_random_tip(config, language_module)
 
-
+# Display a random tip if enabled in config
 def display_random_tip(config, language_module):
     if config.get("Personalizations", "showtips") == "yes":
         # this gets the random tip to display on the screen
         randomTip = random.choice(open("./config/tips.txt").readlines())
         print(randomTip)
 
-
+# Check if this is the first application launch
 def is_first_launch(config, browser, language_module):
     if config.get("main", "firstlaunch") == "yes":
         outstanding_config_updates(config, browser)
 
-
+# Perform outstanding config updates
 def outstanding_config_updates(config, browser=None):
     if browser and browser == "MSEdgeHTM":
         config.set("main", "browser", "Edge")
     config.set("main", "firstlaunch", "no")
     save_config(config)
 
-
+# Make random decisions/events at app launch
 def decide_random_events(config, colorScheme, language_module):
     x = random.randint(1, 4)
     if x == 3:
@@ -139,7 +141,7 @@ def decide_random_events(config, colorScheme, language_module):
     elif x == 2:
         print(language_module.prompt4)
 
-
+# Print messages on the first launch
 def print_first_launch_messages(config, colorScheme, language_module):
     if config.get("main", "firstlaunch") == "yes":
         print(
@@ -153,7 +155,7 @@ def print_first_launch_messages(config, colorScheme, language_module):
         print(language_module.prompt2)
         print()
 
-
+# Print a separator in command line interface
 def print_separator():
     print(
         Fore.RESET
@@ -162,30 +164,30 @@ def print_separator():
         """
     )
 
-
+# Save the updated configuration 
 def save_config(config):
     with open("./config/config.ini", "w") as f:
         config.write(f)
 
-
+# Print system keys from configuration
 def syskeys(config):
     print("Here are your system keys.")
     print(str(config.get("main", "privatekey")))
     print(str(config.get("main", "syscrypt")))
 
-
+# Get global default download path from configuration
 def globalPath(config):
     config.read("./config/config.ini")
     path = config.get("main", "defaultDlPath")
     return path
 
-
+# Clearing directory contents
 def dirDump(mydir):
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:
         os.remove(os.path.join(mydir, f))
 
-
+# Create needed folders on startup
 def create_folders(folder_list, language_module):
     for folder in folder_list:
         if not os.path.exists(folder):
@@ -195,7 +197,7 @@ def create_folders(folder_list, language_module):
             print(f"{language_module.config8}{folder}")
 
 
-# this is the module that edits the configuration file. needs to be cleaned up tho
+# VALID_CHOICES holds possible valid inputs for configuration
 VALID_CHOICES = {
     "checkforupdates": ["yes", "no"],
     "showtips": ["yes", "no"],
@@ -205,7 +207,7 @@ VALID_CHOICES = {
     "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"],
 }
 
-
+# Display config options
 def display_options(config, section, language_module):
     print("Options:")
     print("=====================================================")
@@ -224,12 +226,12 @@ def display_options(config, section, language_module):
     print(f"{language_module.configOptionB} ")
     print("=====================================================")
 
-
+# Update configuration with new values
 def update_config(config, section, option_key, new_value):
     config.set(section, option_key, str(new_value))
     save_config(config)
 
-
+# Editor function to modify config settings
 def config_editor(config, language_module):
     selected_option_key = {
         "1": ("main", "checkforupdates"),
