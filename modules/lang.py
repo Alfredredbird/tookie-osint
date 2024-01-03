@@ -5,6 +5,7 @@ config = ConfigParser()
 CONFIG_INI_PATH = "./config/config.ini"
 LANG_PATH = "./lang/"
 
+
 def load_language(language_code):
     try:
         language_path = f"{LANG_PATH}{language_code}.py"
@@ -16,6 +17,7 @@ def load_language(language_code):
     except FileNotFoundError:
         print(f"Language file not found for {language_code}. Using default.")
         return None
+
 
 def get_language(config):
     try:
@@ -29,6 +31,7 @@ def get_language(config):
         print("Language File Error. Please Restart Alfred To Fix This")
         raise
     return lang
+
 
 language_code = get_language(config)
 language_m = load_language(language_code)

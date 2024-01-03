@@ -105,13 +105,13 @@ def configUpdateStuff(colorScheme, config, browser, language_module, argument):
     # Handle arguments to prevent update prompts
     if any(vars(argument).values()):
         return
-        
+
     if config.get("main", "checkforupdates") == "yes":
         ask_update_check(config, colorScheme, language_module)
-    
+
     random_enable_updates(config, language_module)
     display_random_tip(config, language_module)
-    
+
 
 def display_random_tip(config, language_module):
     if config.get("Personalizations", "showtips") == "yes":
@@ -131,7 +131,7 @@ def outstanding_config_updates(config, browser=None):
     config.set("main", "firstlaunch", "no")
     save_config(config)
 
-    
+
 def decide_random_events(config, colorScheme, language_module):
     x = random.randint(1, 4)
     if x == 3:
@@ -142,18 +142,22 @@ def decide_random_events(config, colorScheme, language_module):
 
 def print_first_launch_messages(config, colorScheme, language_module):
     if config.get("main", "firstlaunch") == "yes":
-        print(colorScheme + language_module.note + Fore.RESET + language_module.warning3)
+        print(
+            colorScheme + language_module.note + Fore.RESET + language_module.warning3
+        )
         print()
     if config.get("main", "prerelease") == "yes":
-        print(colorScheme + language_module.note + Fore.RESET + language_module.warning4)
+        print(
+            colorScheme + language_module.note + Fore.RESET + language_module.warning4
+        )
         print(language_module.prompt2)
         print()
 
 
 def print_separator():
     print(
-        Fore.RESET +
-        """
+        Fore.RESET
+        + """
 ===========================================================================
         """
     )
