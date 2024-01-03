@@ -74,23 +74,16 @@ browser = get_default_browser()
 print(language_module.browser + browser)
 # gets the version of Alfred
 version = versionToPass
+# Initialize the encryption key and cipher suite
+encryption_key = generate_encryption_key()
+cipher_suite = create_cipher(encryption_key)
 # gets the info to encrypt
-syskey = (
-    platform.system()
-    + platform.release()
-    + "-AlfredVer-"
-    + version
-    + "-"
-    + platform.python_version()
-    + "-"
-    + browser
-    + language_code
-)
+sys_info = f"{platform.system()}{platform.release()}-AlfredVer-{version}-{platform.python_version()}-{browser}{language_code}"
 # encrypts the key
-encrypted_text = encrypt(syskey)
+encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
 print(language_module.encrypt1)
 # logs the key
-saveInfo(config, encrypted_text)
+save_encryption_info(config, encryption_key, encrypted_sys_info)
 # this prints the start up screen and passes the verion varaible in
 logo(colorScheme, "", version, config)
 # does config stuff
@@ -301,7 +294,7 @@ if fastMode == 3:
 # prints ui stuff
 print(Fore.GREEN + f"{language_module.scan1}" + uname + Fore.RESET)
 print("===========================================================")
-if webscrape == True:
+if webscrape:
     print(Fore.RED + language_module.note + Fore.RESET + language_module.warning2)
     print("===========================================================")
 print("")
