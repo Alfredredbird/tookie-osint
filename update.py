@@ -6,10 +6,13 @@ import requests
 # Refactor global variables
 config_version_path = "./config/version.cfg"
 config_udfl_path = "./config/udfl"
-alfred_update_path = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+alfred_update_path = (
+    "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+)
 alfred_install_path = "/alfred/"
 gitfile_location = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
 dl_count = 0
+
 
 class Updater:
     def __init__(self):
@@ -17,18 +20,18 @@ class Updater:
         self.udfl_list = self.read_file_lines(config_udfl_path)
 
     def read_file(self, file_path):
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             return file.read().strip()
 
     def read_file_lines(self, file_path):
-        with open(file_path, 'r') as file:
+        with open(file_path, "r") as file:
             return [line.strip() for line in file]
 
     def save_file_from_url(self, url, destination):
         try:
             response = requests.get(url, allow_redirects=True)
             os.makedirs(os.path.dirname(destination), exist_ok=True)
-            with open(destination, 'wb') as file:
+            with open(destination, "wb") as file:
                 file.write(response.content)
             return True
         except Exception as e:
@@ -49,7 +52,7 @@ class Updater:
     def process_update(self, remote_version):
         print("Fetching Updates!")
         self.delete_files()
-        self.save_file_from_url(gitfile_location + 'config/udfl', config_udfl_path)
+        self.save_file_from_url(gitfile_location + "config/udfl", config_udfl_path)
         udfl = self.read_file_lines(config_udfl_path)
         self.download_files(udfl)
         self.verify_and_exec(udfl)
@@ -82,15 +85,16 @@ class Updater:
     def progress_bar_manual(self, current, total, length=40, fill="#"):
         percent = (current / total) * 100
         filled_length = int(length * percent / 100)
-        bar = fill * filled_length + '-' * (length - filled_length)
+        bar = fill * filled_length + "-" * (length - filled_length)
         print(f"\rProgress: [{bar}] {percent:.2f}% Complete", end="\r", flush=True)
 
     def reinstall(self):
         print("Reinstalling.....!")
         self.delete_files()
-        self.save_file_from_url(gitfile_location + 'config/udfl', config_udfl_path)
+        self.save_file_from_url(gitfile_location + "config/udfl", config_udfl_path)
         self.download_files(self.udfl_list)
         self.verify_and_exec(self.udfl_list)
+
 
 # Usage of the class
 choice = input("Update or reinstall? [U/r]: ").lower()

@@ -64,5 +64,6 @@ def main():
     print_encrypted_and_decrypted(encrypted_sys_info.decode(), decrypted_sys_info)
     save_encryption_info(config, key, encrypted_sys_info)
 
+
 if __name__ == "__main__":
     main()
