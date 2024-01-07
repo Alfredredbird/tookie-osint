@@ -40,83 +40,47 @@ def redirects1(modes, input1):
 
 
 def list_proxys(colorScheme):
+    # Dictionary to map proxy types to file names
+    proxy_types = {  
+        "http": "http.txt",
+        "socks4": "socks4.txt",
+        "socks5": "socks5.txt",
+    }
+
     input2 = input("TYPE:  ⤷ ")
-    # check if the directory exists
     if input2 == "":
         lol = 1
-    if input2 == "http":
-        if os.path.exists("./proxys/http.txt"):
-            file1 = open("./proxys/http.txt", "r")
-            Lines = file1.readlines()
-
-            count = 0
-            L = [Lines]
-
-            for line in Lines:
-                count += 1
-                print("Proxy {}: {}".format(count, line.strip()))
+    # Retrieve file name from dictionary
+    file_name = proxy_types.get(input2)  
+    if file_name:
+        file_path = f"./proxys/{file_name}"
+        if os.path.exists(file_path):
+            with open(file_path, "r") as file:
+                Lines = file.readlines()
+                for count, line in enumerate(Lines, 1):
+                    print(f"Proxy {count}: {line.strip()}")
         else:
-            print(colorScheme + "Cant Find The Proxy File!")
+            print(colorScheme + f"Cant Find The Proxy File for {input2}!")
             print(Fore.RESET)
-
-    elif input2 == "socks4":
-        if os.path.exists("./proxys/socks4.txt"):
-            file1 = open("./proxys/socks4.txt", "r")
-            Lines = file1.readlines()
-
-            count = 0
-            L = [Lines]
-
-            for line in Lines:
-                count += 1
-                print("Proxy {}: {}".format(count, line.strip()))
-        else:
-            print(colorScheme + "Cant Find The Proxy File!")
-            print(Fore.RESET)
-
-    elif input2 == "socks5":
-        if os.path.exists("./proxys/socks5.txt"):
-            file1 = open("./proxys/socks5.txt", "r")
-            Lines = file1.readlines()
-
-            count = 0
-            L = [Lines]
-
-            for line in Lines:
-                count += 1
-                print("Proxy {}: {}".format(count, line.strip()))
-
-        else:
-            print(colorScheme + "Cant Find The Proxy File!")
-            print(Fore.RESET)
+    else:
+        # Case for invalid type
+        print(colorScheme + "Invalid proxy type!") 
+        print(Fore.RESET)
 
 
 def read_save(colorScheme, slectpath):
-    if slectpath == "":
-        dir_path = Path.home() / "Downloads"
-
-        file_name = "usernames.alfred"
-        file_path = os.path.join(dir_path, file_name)
-    if slectpath != "":
-        file_path = os.path.join(slectpath)
-    # check if the directory exists
+    # Determine file path based on the select_path input
+    file_path = Path.home() / "Downloads" / "usernames.alfred" if slectpath == "" else slectpath
+    
+    # Check if the file exists and read it
     if os.path.exists(file_path):
-        # reads the file
-        file = open(file_path, "r+")
-        file1 = open(file_path, "r")
-        Lines = file1.readlines()
-
-        count = 0
-        L = [Lines]
-
-        for line in Lines:
-            count += 1
-            print("Captured {}: {}".format(count, line.strip()))
-
-        file.close()
-
+        with open(file_path, "r") as file:
+            lines = file.readlines()
+        
+        for line_number, line in enumerate(lines, start=1):
+            print(f"Captured {line_number}: {line.strip()}")
     else:
-        print(colorScheme + "Cant Find The Save File!")
+        print(colorScheme + "Can't Find The Save File!")
         print(Fore.RESET)
 
 
@@ -146,10 +110,10 @@ def ping(colorScheme):
 
 
 def qexit():
-    exitInput = input("Exit? [Y/N]")
-    if exitInput == "Y" or exitInput == "y":
+    exitInput = input("Exit? [Y/N]").lower()
+    if exitInput == "y":
         exit(0)
-    if exitInput == "N" or exitInput == "n":
+    if exitInput == "n":
         print("Continuing....")
 
 
@@ -175,13 +139,13 @@ def proxyCheck(colorScheme, modes, input1):
 
                 print("")
                 print("     Save Proxy To File?")
-                saveProxy = input("         [Y/n]?  ⤷ ")
-                if saveProxy == "Y" or saveProxy == "y":
+                saveProxy = input("         [Y/n]?  ⤷ ").lower()
+                if saveProxy == "y":
                     with open("proxyList.txt", "a") as fp:
                         fp.write(" \n" + input2 + ":" + input3)
                         fp.close()
 
-                elif saveProxy == "N" or saveProxy == "n":
+                elif saveProxy == "n":
                     print(
                         "Continuing"
                         + Fore.RED
@@ -283,28 +247,28 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
         if input1 != "":
             # if there is a problem with this code its prob this
             if "-tp" in input1:
-                torPassword = input("Tor Password:  ⤷")
+                torPassword = input("Tor Password:  ⤷").lower()
             if "-s" in input1:
-                input2 = input("Are You Sure? [Y/N]? ⤷ ")
+                input2 = input("Are You Sure? [Y/N]? ⤷ ").lower()
                 if input2 == "":
                     lol = 1
                 if input2 != "":
-                    if input2 == "Y" or input2 == "y":
-                        input3 = input("100% Sure? [Y/N]? ⤷ ")
+                    if input2 == "y":
+                        input3 = input("100% Sure? [Y/N]? ⤷ ").lower()
                         if input2 != "":
-                            if input2 == "Y" or input2 == "y":
+                            if input2 == "y":
                                 #  modes += input1
                                 #  inputnum += input2
                                 print("Ok..")
                                 start = True
-                            if input2 == "N" or input2 == "n":
+                            if input2 == "n":
                                 test = False
                                 input1 = ""
                                 print("Ok! Returing To Alfred.")
                                 time.sleep(2)
                                 return test
 
-                    if input2 == "N" or input2 == "n":
+                    if input2 == "n":
                         test = False
                         input1 = ""
                         print("Ok! Returing To Alfred.")
@@ -314,7 +278,7 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
         if "" in input1 and inputnum != "":
             test = True
         inputnum = ""
-    if start == True:
+    if start:
         try:
             with open("sites.json", "r") as f:
                 for jsonObj in f:
@@ -363,7 +327,7 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                             )
                             f.write("[" + "+" + "] " + siteN + uname + "\n")
 
-                    except ConnectionError():
+                    except ConnectionError:
                         print("Connection Error!")
 
 
@@ -482,21 +446,32 @@ def get_random_string(length):
 
 
 def emptyModule():
-    """This Module is empty and does nothing. Its for when Alfred needs to return something"""
+    """
+    This Module is empty and does nothing. Its for when Alfred needs to return something
+    """
     return True
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Alfred OSINT Tool (Command-Line)")
-    parser.add_argument("-s", "--scan", action="store_true", help="Run Alfred scan")
     parser.add_argument(
-        "-u", "--username", help="Specify target username(s) (comma-separated)"
+        "-s", "--scan",
+        action="store_true",
+        help="Run Alfred scan")
+    parser.add_argument(
+        "-u", "--username", 
+        type=str,
+        help="Specify target username(s) (comma-separated)"
     )
     parser.add_argument(
-        "-f", "--fast", action="store_true", help="Run Alfred with a fast scan"
+        "-f", "--fast",
+        action="store_true",
+        help="Run Alfred with a fast scan"
     )
     parser.add_argument(
-        "-w", "--webscrape", action="store_true", help="Run Alfred with the webscraper"
+        "-w", "--webscrape",
+        action="store_true",
+        help="Run Alfred with the webscraper"
     )
 
     return parser.parse_args()
