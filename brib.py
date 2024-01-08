@@ -65,10 +65,14 @@ folders_to_create = [
     "sites",
     "lang",
     "alfred",
+    "plugins",
 ]
 create_folders(folders_to_create, language_module)
 # Grabs The Color Scheme From The Config File
 colorScheme = colorSchemeGrabber(config)
+#loads the plugins and runs them
+#not fully supported yet
+pluginMangager()
 # gets the defualt browser and system information
 browser = get_default_browser()
 print(language_module.browser + browser)

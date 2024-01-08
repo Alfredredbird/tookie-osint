@@ -121,7 +121,7 @@ def read_save(colorScheme, slectpath):
 
 
 def ping(colorScheme):
-    headers = {"User-Agent": config["main"]["useragent"]}
+    headers = {"User-Agent": config["Personalizations"]["useragent"]}
     print(colorScheme + "Defaults to HTTPS.")
 
     print(Fore.RESET + " ")
