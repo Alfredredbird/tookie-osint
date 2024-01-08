@@ -1,6 +1,6 @@
-Brib.py Was A Spelling Error XD
+Brib.py Was A Spelling Error
 First Input The Username Then The options
-Make Sure To Update Alfred :D
+Make Sure To Update Alfred
 The WiKi Is A Cool Place
 Alfred A Advanced OSINT Tool
 Alfred Is Made For Python 3.12
@@ -13,4 +13,4 @@ You Can Change Theses Tips If You Want
 Who's Joe?
 What If The World Is Flat?
 You Can Change The Color Scheme
-Alfred Now Comes With Plugins :D
+Alfred Now Comes With Plugins 

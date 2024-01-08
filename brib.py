@@ -204,9 +204,10 @@ else:
                 else:
                     print(language_module.idk1)
             # this is the function that starts Alfred.
-            if "-s" in input1 and uname == "":
-                uname = input("Please enter a target before continuing: ").lower()
-                uname_list = [item.strip() for item in uname.split(",")]
+            if "-s" in input1:
+                if uname == "":
+                 uname = input("Please enter a target before continuing: ").lower()
+                 uname_list = [item.strip() for item in uname.split(",")]
                 if uname != "":
                     input2 = input("[Y/N]? ⤷ ").lower()
                     if input2 == "y":
@@ -323,10 +324,6 @@ with open(file_path, "a") as f:
                 )
                 i += 1
 
-
-# calculates the percentage
-def is_what_percent_of(num_a, num_b):
-    return (num_a / num_b) * 100
 
 
 print(

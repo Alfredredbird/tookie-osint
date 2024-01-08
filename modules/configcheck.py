@@ -258,6 +258,7 @@ def display_options(config, section, language_module):
     print(
         f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}"
     )
+    #proper translations will be added soon
     print(f"[7] Plugin Folder: {config.get('main','pluginfolder')}")
     print("=====================================================")
     print(f"{language_module.configOptionA} ")
