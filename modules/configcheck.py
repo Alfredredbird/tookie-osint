@@ -3,46 +3,12 @@ import os
 import random
 import shutil
 import time
+
 import requests
 from colorama import *
-import importlib
+
 from lang.en import *
 from modules.lang import *
-
-#does stuff involving plugins
-class PluginManager:
-    config = configparser.ConfigParser()
-    config.read("./config/config.ini")
-    pluginFolder = config.get("main", "pluginfolder")
-    def __init__(self, plugins_directory=pluginFolder):
-        self.plugins = {}
-        self.plugins_directory = plugins_directory
-
-    def load_plugins(self):
-        # Get a list of all files in the plugins directory
-        plugin_files = [f[:-3] for f in os.listdir(self.plugins_directory) if f.endswith('.py')]
-
-        for plugin_name in plugin_files:
-            try:
-                module = importlib.import_module(f"{self.plugins_directory}.{plugin_name}")
-                self.plugins[plugin_name] = module
-                print(f"Plugin '{plugin_name}' loaded successfully.")
-            except ImportError as e:
-                print(f"Failed to load plugin '{plugin_name}': {e}")
-
-    def run_plugins(self):
-        for plugin_name, module in self.plugins.items():        
-            module.run()
-
-def pluginMangager():
-    
-    plugin_manager = PluginManager()
-
-    # Load plugins from the specified directory
-    plugin_manager.load_plugins()
-
-    # Run loaded plugins
-    plugin_manager.run_plugins()
 
 
 # This Module does config stuff
@@ -239,7 +205,6 @@ VALID_CHOICES = {
     "defaultdlpath": [],
     "language": ["en", "ar", "de", "es", "fr", "hi", "il", "it", "ru"],
     "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"],
-    "plugins": [],
 }
 
 # Display config options
@@ -253,7 +218,9 @@ def display_options(config, section, language_module):
     print(f"{language_module.configOption3} {config.get('main', 'defaultdlpath')}")
     print(f"{language_module.configOption4} {config.get('main', 'browser')}")
     print(f"{language_module.configOption5} {config.get('main', 'language')}")
-    print(f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}")
+    print(
+        f"{language_module.configOption6} {config.get('Personalizations', 'colorscheme')}"
+    )
     print("=====================================================")
     print(f"{language_module.configOptionA} ")
     print(f"{language_module.configOptionB} ")
@@ -273,12 +240,10 @@ def config_editor(config, language_module):
         "4": ("main", "browser"),
         "5": ("main", "language"),
         "6": ("Personalizations", "colorscheme"),
-        "7": ("main", "pluginfolder"),
         "A": ("main", "option_A"),
         "B": ("main", "option_B"),
         "a": ("main", "option_A"),
         "b": ("main", "option_B"),
-        
     }
     config = configparser.ConfigParser()
     config.read("./config/config.ini")
@@ -339,4 +304,3 @@ def handle_option_A(config):
 # Your function for option B
 def handle_option_B(config):
     syskeys(config)
-
