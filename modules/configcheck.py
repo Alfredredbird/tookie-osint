@@ -274,7 +274,7 @@ def update_config(config, section, option_key, new_value):
 def config_editor(config, language_module):
     selected_option_key = {
         "1": ("main", "checkforupdates"),
-        "2": ("main", "showtips"),
+        "2": ("Personalizations", "showtips"),
         "3": ("main", "defaultdlpath"),
         "4": ("main", "browser"),
         "5": ("main", "language"),
