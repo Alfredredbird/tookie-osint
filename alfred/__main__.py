@@ -25,6 +25,6 @@ def main():
     else:
         os.system("python3 brib.py")
 
+
 if __name__ == "__main__":
     main()
-

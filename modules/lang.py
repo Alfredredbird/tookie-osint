@@ -2,12 +2,13 @@ import importlib.util
 from configparser import ConfigParser
 
 config = ConfigParser()
+CONFIG_INI_PATH = "./config/config.ini"
+LANG_PATH = "./lang/"
 
 
 def load_language(language_code):
-    langp = "./lang/"
     try:
-        language_path = f"{langp}{language_code}.py"
+        language_path = f"{LANG_PATH}{language_code}.py"
         print(f"Attempting to load language file: {language_path}")
         spec = importlib.util.spec_from_file_location(language_code, language_path)
         language_module = importlib.util.module_from_spec(spec)
@@ -18,14 +19,19 @@ def load_language(language_code):
         return None
 
 
-def getLang(config):
+def get_language(config):
     try:
-        config.read("./config/config.ini")
+        with open(CONFIG_INI_PATH, "r") as config_file:
+            config.read_file(config_file)
         lang = config.get("main", "language")
-    except UnboundLocalError:
+    except FileNotFoundError:
+        print("The configuration file was not found.")
+        raise
+    except KeyError:
         print("Language File Error. Please Restart Alfred To Fix This")
+        raise
     return lang
 
 
-language_code = getLang(config)
+language_code = get_language(config)
 language_m = load_language(language_code)

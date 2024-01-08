@@ -11,7 +11,7 @@ import tqdm
 from modules.lang import *
 
 config = ConfigParser()
-language_code = getLang(config)
+language_code = get_language(config)
 language_module = load_language(language_code)
 
 SEPARATOR = "<SEPARATOR>"
