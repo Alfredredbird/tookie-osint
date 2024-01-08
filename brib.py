@@ -48,6 +48,7 @@ version = ""
 modes = ""
 inputnum = ""
 ars = ""
+uname = ""
 date = datetime.date.today()
 # These stores the loaded site info
 siteList = []
@@ -106,8 +107,7 @@ if argument:
 
 if any(vars(argument).values()):
     holder += 1
-    if argument.scan:
-        if uname == "":
+    if argument.scan and uname == "":
             print("You must provide a username")
             exit(99)
     if not argument.scan:
@@ -197,26 +197,24 @@ else:
                     globalPath(config) + "javascript_files.txt", ".js", count
                 )
                 dv = input(f"{language_module.confirm1}")
-                if "Y" in dv or "y" in dv:
+                if "y" in dv:
                     siteD = input(f"{language_module.prompt1}")
                     imgandVidDownlaod(siteD)
-                elif "N" in dv or "n" in dv:
+                elif "n" in dv:
                     print("Ok!")
                 else:
                     print(language_module.idk1)
             # this is the function that starts Alfred.
-            if "-s" in input1:
-                if uname == "":
-                    uname = input("Please enter a target before continuing: ")
-                    uname_list = [item.strip() for item in uname.split(",")]
+            if "-s" in input1 and uname == "":
+                uname = input("Please enter a target before continuing: ").lower()
+                uname_list = [item.strip() for item in uname.split(",")]
                 if uname != "":
-                    input2 = input("[Y/N]? ⤷ ")
-                    if input2 != "":
-                        if input2 == "Y" or input2 == "y":
-                            modes += input1
-                            inputnum += input2
-                        if input2 == "N" or input2 == "n":
-                            holder = 1
+                    input2 = input("[Y/N]? ⤷ ").lower()
+                    if input2 == "y":
+                        modes += input1
+                        inputnum += input2
+                    if input2 == "n":
+                        holder = 1
 
             # Your scanning logic here
             if "-ec" in input1:
@@ -240,9 +238,9 @@ else:
                             count += 1
                             print("Lines {}: {}".format(count, line.strip()))
                         file.close()
-                    except PermissionError():
+                    except PermissionError:
                         print(language_module.error1)
-                    except TypeError():
+                    except TypeError:
                         print(language_module.error2)
                 else:
                     print(Fore.RED + f"{language_module.error3}" + Fore.RESET)
@@ -342,8 +340,8 @@ print(f"{language_module.save1} ./captured/{uname}.alfred")
 if any(vars(argument).values()):
     holder += 1
 else:
-    startagain = input(f"{language_module.confirm2}")
-    if "Y" in startagain or "y" in startagain:
+    startagain = input(f"{language_module.confirm2}").lower()
+    if "y" in startagain:
         exec(open("brib.py").read())
-    elif "N" in startagain or "n" in startagain:
+    elif "n" in startagain:
         exit()

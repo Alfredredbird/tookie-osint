@@ -176,7 +176,7 @@ def siteListGen(
                         + "/"
                         + str(trys)
                     )
-                except KeyboardInterrupt():
+                except KeyboardInterrupt:
                     print(language_module.status6)
                 # tbh its 11 at night rn and idk what i+=1 does
                 i += 1
