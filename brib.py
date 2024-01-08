@@ -58,6 +58,7 @@ colorScheme = colorSchemeGrabber(config)
 pluginMangager()
 # gets the defualt browser and system information
 browser = get_default_browser()
+saveBrowser(config, browser)
 # gets the version of Alfred
 version = versionToPass
 # loads the language
@@ -77,10 +78,10 @@ siteList, siteErrors, siteNSFW = [], [], []
 
 # checks that the folders exist. if not it creates them
 create_folders(
-    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "alfred"],
+    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "alfred","plugins"],
     language_module
 )
-
+argument = parse_args()
 # Prints the initial UI elements
 print(language_module.browser + browser)
 print(language_module.encrypt1)
@@ -89,7 +90,7 @@ print()
 configUpdateStuff(colorScheme, config, browser, language_module, argument)
 
 # Handle command line arguments
-argument = parse_args()
+
 if argument.username:
     # this is the variable that gets the username
     uname_list = [item.strip() for item in argument.username.split(",")]
