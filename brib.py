@@ -26,8 +26,8 @@ from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
 
-# cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
-# variables
+
+# Variables
 domain_extensions = False
 alist = True
 test = False
@@ -40,41 +40,25 @@ count = 0
 holder = 0
 siteProgcounter = 0
 ec = 0
-console = Console()
-config = ConfigParser()
-argument = parse_args()
 slectpath = ""
 version = ""
 modes = ""
 inputnum = ""
 ars = ""
 uname = ""
-date = datetime.date.today()
-# These stores the loaded site info
-siteList = []
-siteErrors = []
-siteNSFW = []
-# loads the language
-language_module = language_m
-# checks that the folders exist. if not it creates them
-folders_to_create = [
-    "config",
-    "captured",
-    "downloadedSites",
-    "modules",
-    "proxys",
-    "sites",
-    "lang",
-    "alfred",
-]
-create_folders(folders_to_create, language_module)
+
+# cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
+# Initialization and configuration setup
+console = Console()
+config = ConfigParser()
 # Grabs The Color Scheme From The Config File
 colorScheme = colorSchemeGrabber(config)
 # gets the defualt browser and system information
 browser = get_default_browser()
-print(language_module.browser + browser)
 # gets the version of Alfred
 version = versionToPass
+# loads the language
+language_module = language_m
 # Initialize the encryption key and cipher suite
 encryption_key = generate_encryption_key()
 cipher_suite = create_cipher(encryption_key)
@@ -82,26 +66,37 @@ cipher_suite = create_cipher(encryption_key)
 sys_info = f"{platform.system()}{platform.release()}-AlfredVer-{version}-{platform.python_version()}-{browser}{language_code}"
 # encrypts the key
 encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
-print(language_module.encrypt1)
 # logs the key
 save_encryption_info(config, encryption_key, encrypted_sys_info)
-# this prints the start up screen and passes the verion varaible in
+date = datetime.date.today()
+# These stores the loaded site info
+siteList, siteErrors, siteNSFW = [], [], []
+
+# checks that the folders exist. if not it creates them
+create_folders(
+    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "alfred"],
+    language_module
+)
+
+# Prints the initial UI elements
+print(language_module.browser + browser)
+print(language_module.encrypt1)
 logo(colorScheme, "", version, config)
-# does config stuff
 print()
 configUpdateStuff(colorScheme, config, browser, language_module, argument)
-# this is the variable that gets the username
+
+# Handle command line arguments
+argument = parse_args()
 if argument.username:
-    uname = argument.username
-    uname_list = [item.strip() for item in uname.split(",")]
-if not argument.username:
+    # this is the variable that gets the username
+    uname_list = [item.strip() for item in argument.username.split(",")]
+else:
     uname = input(f"{language_module.target}")
     # this removes the comma and puts the usernames into a list
     uname_list = [item.strip() for item in uname.split(",")]
 
 # This is where Alfred gathers the inputed options and then run them.
 # Not all of the options execute on input.
-
 if argument:
     input1 = "0"
 
@@ -247,7 +242,7 @@ else:
                     exit(69)
             if "--Wiki" in input1:
                 wiki(language_module)
-                logo(uname, version, config)
+                logo(colorScheme, uname, version, config)
             # code to display all error codes
             if "-a" in input1:
                 modes += input1

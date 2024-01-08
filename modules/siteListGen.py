@@ -158,7 +158,6 @@ def siteListGen(
                     requests.exceptions.BaseHTTPError,
                     requests.exceptions.SSLError,
                     requests.exceptions.TooManyRedirects,
-                    requests.exceptions.TooManyRedirects,
                     requests.exceptions.RetryError,
                     TypeError,
                     requests.exceptions.ChunkedEncodingError,
