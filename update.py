@@ -3,7 +3,7 @@ import time
 import requests
 
 
-# Refactor global variables
+# Global variables
 config_version_path = "./config/version.cfg"
 config_udfl_path = "./config/udfl"
 alfred_update_path = (
@@ -58,12 +58,13 @@ class Updater:
         self.verify_and_exec(udfl)
 
     def delete_files(self):
-        for file_path in self.udfl_list:
-            if "update.py" not in file_path:
-                try:
-                    os.remove(file_path)
-                except FileNotFoundError:
-                    print(f"Skipping: {file_path}")
+        if self.udfl_list is not None and isinstance(self.udfl_list, list):
+            for file_path in self.udfl_list:
+                if "update.py" not in file_path:
+                    try:
+                        os.remove(file_path)
+                    except FileNotFoundError:
+                        print(f"Skipping: {file_path}")
 
     def download_files(self, file_list):
         global dl_count

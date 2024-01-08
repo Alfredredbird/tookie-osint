@@ -26,8 +26,8 @@ from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
 
-# cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
-# variables
+
+# Variables
 domain_extensions = False
 alist = True
 test = False
@@ -40,40 +40,25 @@ count = 0
 holder = 0
 siteProgcounter = 0
 ec = 0
-console = Console()
-config = ConfigParser()
-argument = parse_args()
 slectpath = ""
 version = ""
 modes = ""
 inputnum = ""
 ars = ""
-date = datetime.date.today()
-# These stores the loaded site info
-siteList = []
-siteErrors = []
-siteNSFW = []
-# loads the language
-language_module = language_m
-# checks that the folders exist. if not it creates them
-folders_to_create = [
-    "config",
-    "captured",
-    "downloadedSites",
-    "modules",
-    "proxys",
-    "sites",
-    "lang",
-    "alfred",
-]
-create_folders(folders_to_create, language_module)
+uname = ""
+
+# cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
+# Initialization and configuration setup
+console = Console()
+config = ConfigParser()
 # Grabs The Color Scheme From The Config File
 colorScheme = colorSchemeGrabber(config)
 # gets the defualt browser and system information
 browser = get_default_browser()
-print(language_module.browser + browser)
 # gets the version of Alfred
 version = versionToPass
+# loads the language
+language_module = language_m
 # Initialize the encryption key and cipher suite
 encryption_key = generate_encryption_key()
 cipher_suite = create_cipher(encryption_key)
@@ -81,33 +66,43 @@ cipher_suite = create_cipher(encryption_key)
 sys_info = f"{platform.system()}{platform.release()}-AlfredVer-{version}-{platform.python_version()}-{browser}{language_code}"
 # encrypts the key
 encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
-print(language_module.encrypt1)
 # logs the key
 save_encryption_info(config, encryption_key, encrypted_sys_info)
-# this prints the start up screen and passes the verion varaible in
+date = datetime.date.today()
+# These stores the loaded site info
+siteList, siteErrors, siteNSFW = [], [], []
+
+# checks that the folders exist. if not it creates them
+create_folders(
+    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "alfred"],
+    language_module
+)
+
+# Prints the initial UI elements
+print(language_module.browser + browser)
+print(language_module.encrypt1)
 logo(colorScheme, "", version, config)
-# does config stuff
 print()
 configUpdateStuff(colorScheme, config, browser, language_module, argument)
-# this is the variable that gets the username
+
+# Handle command line arguments
+argument = parse_args()
 if argument.username:
-    uname = argument.username
-    uname_list = [item.strip() for item in uname.split(",")]
-if not argument.username:
+    # this is the variable that gets the username
+    uname_list = [item.strip() for item in argument.username.split(",")]
+else:
     uname = input(f"{language_module.target}")
     # this removes the comma and puts the usernames into a list
     uname_list = [item.strip() for item in uname.split(",")]
 
 # This is where Alfred gathers the inputed options and then run them.
 # Not all of the options execute on input.
-
 if argument:
     input1 = "0"
 
 if any(vars(argument).values()):
     holder += 1
-    if argument.scan:
-        if uname == "":
+    if argument.scan and uname == "":
             print("You must provide a username")
             exit(99)
     if not argument.scan:
@@ -197,26 +192,24 @@ else:
                     globalPath(config) + "javascript_files.txt", ".js", count
                 )
                 dv = input(f"{language_module.confirm1}")
-                if "Y" in dv or "y" in dv:
+                if "y" in dv:
                     siteD = input(f"{language_module.prompt1}")
                     imgandVidDownlaod(siteD)
-                elif "N" in dv or "n" in dv:
+                elif "n" in dv:
                     print("Ok!")
                 else:
                     print(language_module.idk1)
             # this is the function that starts Alfred.
-            if "-s" in input1:
-                if uname == "":
-                    uname = input("Please enter a target before continuing: ")
-                    uname_list = [item.strip() for item in uname.split(",")]
+            if "-s" in input1 and uname == "":
+                uname = input("Please enter a target before continuing: ").lower()
+                uname_list = [item.strip() for item in uname.split(",")]
                 if uname != "":
-                    input2 = input("[Y/N]? ⤷ ")
-                    if input2 != "":
-                        if input2 == "Y" or input2 == "y":
-                            modes += input1
-                            inputnum += input2
-                        if input2 == "N" or input2 == "n":
-                            holder = 1
+                    input2 = input("[Y/N]? ⤷ ").lower()
+                    if input2 == "y":
+                        modes += input1
+                        inputnum += input2
+                    if input2 == "n":
+                        holder = 1
 
             # Your scanning logic here
             if "-ec" in input1:
@@ -240,16 +233,16 @@ else:
                             count += 1
                             print("Lines {}: {}".format(count, line.strip()))
                         file.close()
-                    except PermissionError():
+                    except PermissionError:
                         print(language_module.error1)
-                    except TypeError():
+                    except TypeError:
                         print(language_module.error2)
                 else:
                     print(Fore.RED + f"{language_module.error3}" + Fore.RESET)
                     exit(69)
             if "--Wiki" in input1:
                 wiki(language_module)
-                logo(uname, version, config)
+                logo(colorScheme, uname, version, config)
             # code to display all error codes
             if "-a" in input1:
                 modes += input1
@@ -342,8 +335,8 @@ print(f"{language_module.save1} ./captured/{uname}.alfred")
 if any(vars(argument).values()):
     holder += 1
 else:
-    startagain = input(f"{language_module.confirm2}")
-    if "Y" in startagain or "y" in startagain:
+    startagain = input(f"{language_module.confirm2}").lower()
+    if "y" in startagain:
         exec(open("brib.py").read())
-    elif "N" in startagain or "n" in startagain:
+    elif "n" in startagain:
         exit()
