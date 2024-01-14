@@ -1,15 +1,23 @@
 import os
+import time
 import requests
+
+
+# Global variables
+config_version_path = "./config/version.cfg"
+config_udfl_path = "./config/udfl"
+alfred_update_path = (
+    "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+)
+alfred_install_path = "/alfred/"
+gitfile_location = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
+dl_count = 0
+
 
 class Updater:
     def __init__(self):
-        # Global variables
-        self.config_version_path = "./config/version.cfg"
-        self.config_udfl_path = "./config/udfl"
-        self.alfred_update_path = "https://raw.githubusercontent.com/EliteGreyIT67/alfred/main/config/version.cfg"
-        self.gitfile_location = "https://raw.githubusercontent.com/EliteGreyIT67/alfred/main/"
-        self.version = self.read_file(self.config_version_path)
-        self.udfl_list = self.read_file_lines(self.config_udfl_path)
+        self.version = self.read_file(config_version_path)
+        self.udfl_list = self.read_file_lines(config_udfl_path)
 
     def read_file(self, file_path):
         with open(file_path, "r") as file:
@@ -19,55 +27,82 @@ class Updater:
         with open(file_path, "r") as file:
             return [line.strip() for line in file]
 
-    def delete_files(self):
-        for file_path in self.udfl_list:
-            try:
-                if "update.py" not in file_path:
-                    os.remove(file_path)
-            except FileNotFoundError:
-                pass # Ignore files that are not found
-
-    def download_files(self, file_list):
-        print("Downloading Files")
-        for file_path in file_list:
-            try:
-                response = requests.get(self.gitfile_location + file_path, allow_redirects=True)
-                os.makedirs(os.path.dirname(file_path), exist_ok=True)
-                with open(file_path, "wb") as file:
-                    file.write(response.content)
-            except Exception as e:
-                print(f"Error saving file from {file_path}: {e}")
+    def save_file_from_url(self, url, destination):
+        try:
+            response = requests.get(url, allow_redirects=True)
+            os.makedirs(os.path.dirname(destination), exist_ok=True)
+            with open(destination, "wb") as file:
+                file.write(response.content)
+            return True
+        except Exception as e:
+            print(f"Error saving file from {url}: {e}")
+            return False
 
     def update(self):
-        print("Checking for updates...")
         try:
-            remote_version = requests.get(self.alfred_update_path).text.strip()
-            if remote_version != self.version:
-                print("Update available!")
-                self.delete_files()
-                self.download_files(self.udfl_list)
-                with open(self.config_version_path, "w") as file:
-                    file.write(remote_version) # update the version file
-                print("Update Done! Restarting...")
-                os.execv(__file__, []) # Restart the script
-            else:
-                print("You're on the latest version!")
+            remote_version = requests.get(alfred_update_path).text.strip()
         except requests.ConnectionError:
-            print("Unable to check for update, please try again later.")
+            print("Failed to fetch updates. (-1)")
+            return
+        if remote_version != self.version:
+            self.process_update(remote_version)
+        else:
+            print("You're on the latest version!")
+
+    def process_update(self, remote_version):
+        print("Fetching Updates!")
+        self.delete_files()
+        self.save_file_from_url(gitfile_location + "config/udfl", config_udfl_path)
+        udfl = self.read_file_lines(config_udfl_path)
+        self.download_files(udfl)
+        self.verify_and_exec(udfl)
+
+    def delete_files(self):
+        if self.udfl_list is not None and isinstance(self.udfl_list, list):
+            for file_path in self.udfl_list:
+                if "update.py" not in file_path:
+                    try:
+                        os.remove(file_path)
+                    except FileNotFoundError:
+                        print(f"Skipping: {file_path}")
+
+    def download_files(self, file_list):
+        global dl_count
+        print("Downloading Files")
+        for file_path in file_list:
+            url = gitfile_location + file_path
+            if self.save_file_from_url(url, file_path):
+                dl_count += 1
+                self.progress_bar_manual(dl_count, len(file_list))
+
+    def verify_and_exec(self, file_list):
+        missing_files = [f for f in file_list if not os.path.exists(f)]
+        for file_path in missing_files:
+            self.save_file_from_url(gitfile_location + file_path, file_path)
+        if not missing_files:
+            print("Update Done!")
+            exec(open("brib.py").read())
+
+    def progress_bar_manual(self, current, total, length=40, fill="#"):
+        percent = (current / total) * 100
+        filled_length = int(length * percent / 100)
+        bar = fill * filled_length + "-" * (length - filled_length)
+        print(f"\rProgress: [{bar}] {percent:.2f}% Complete", end="\r", flush=True)
 
     def reinstall(self):
-        print("Reinstalling...")
+        print("Reinstalling.....!")
         self.delete_files()
+        self.save_file_from_url(gitfile_location + "config/udfl", config_udfl_path)
         self.download_files(self.udfl_list)
-        os.execv(__file__, []) # Restart the script
+        self.verify_and_exec(self.udfl_list)
 
-# Execution logic
-if __name__ == "__main__":
-    updater = Updater()
-    choice = input("Update or reinstall? [U/r]: ").lower()
-    if choice == "u":
-        updater.update()
-    elif choice == "r":
-        updater.reinstall()
-    else:
-        print("Invalid choice. Exiting...")
+
+# Usage of the class
+choice = input("Update or reinstall? [U/r]: ").lower()
+updater = Updater()
+if choice == "u":
+    updater.update()
+elif choice == "r":
+    updater.reinstall()
+else:
+    print("Not sure what you meant... I'll ask later")
