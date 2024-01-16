@@ -16,24 +16,33 @@ class PluginManager:
     config = configparser.ConfigParser()
     config.read("./config/config.ini")
     pluginFolder = config.get("main", "pluginfolder")
+    
     def __init__(self, plugins_directory=pluginFolder):
-        self.plugins = {}
-        self.plugins_directory = plugins_directory
+        self._plugins_directory = plugins_directory
+        self._plugins = {}
 
     def load_plugins(self):
-        # Get a list of all files in the plugins directory
-        plugin_files = [f[:-3] for f in os.listdir(self.plugins_directory) if f.endswith('.py')]
+        for plugin_name in self._get_plugin_files():
+            self._load_single_plugin(plugin_name)
 
-        for plugin_name in plugin_files:
-            try:
-                module = importlib.import_module(f"{self.plugins_directory}.{plugin_name}")
-                self.plugins[plugin_name] = module
-                print(f"Plugin '{plugin_name}' loaded successfully.")
-            except ImportError as e:
-                print(f"Failed to load plugin '{plugin_name}': {e}")
+    # Get a list of all files in the plugins directory
+    def _get_plugin_files(self):
+        return [
+            f[:-3] for f in os.listdir(self._plugins_directory)
+            if f.endswith('.py') and not f.startswith("__")
+        ]
 
+    def _load_single_plugin(self, plugin_name):
+        try:
+            module = importlib.import_module(f"{self._plugins_directory}.{plugin_name}")
+            self._plugins[plugin_name] = module
+            print(f"Plugin '{plugin_name}' loaded successfully.")
+        except ImportError as e:
+            print(f"Failed to load plugin '{plugin_name}': {e}")
+            pass  # Handle or log errors as needed
+            
     def run_plugins(self):
-        for plugin_name, module in self.plugins.items():        
+        for module in self._plugins.values():
             module.run()
 
 def pluginMangager():
@@ -271,75 +280,83 @@ def update_config(config, section, option_key, new_value):
     save_config(config)
 
 # Editor function to modify config settings
-def config_editor(config, language_module):
-    selected_option_key = {
+def config_editor(config: configparser.ConfigParser, language_module) -> bool:
+    """
+    Edits configuration options based on user input.
+    """
+
+    OPTION_MAPPING = {
         "1": ("main", "checkforupdates"),
         "2": ("Personalizations", "showtips"),
         "3": ("main", "defaultdlpath"),
         "4": ("main", "browser"),
         "5": ("main", "language"),
         "6": ("Personalizations", "colorscheme"),
-        "7": ("main","pluginfolder"),
+        "7": ("main", "pluginfolder"),
         "A": ("main", "option_A"),
         "B": ("main", "option_B"),
         "a": ("main", "option_A"),
         "b": ("main", "option_B"),
     }
-    config = configparser.ConfigParser()
-    config.read("./config/config.ini")
-    edit_config_answer = input(language_module.config5)
 
-    if edit_config_answer.lower() == "y":
-        display_options(
-            config, "main", language_module
-        )  # Use 'main' as default section
+    if input(language_module.config5).lower() == "y":
+        display_options(config, "main", language_module)  # Display initial options
 
-        edit_config_index = input(language_module.config6)
-        selected_option = selected_option_key.get(edit_config_index)
+        while True:
+            edit_config_index = input(language_module.config6)
+            selected_option = OPTION_MAPPING.get(edit_config_index)
 
-        if selected_option:
-            section, option_key = selected_option
-            if option_key == "custom_config":
-                custom_section = input("Enter the custom configuration section: ")
-                custom_config_key = input("Enter the custom configuration key: ")
-                value = config.get(custom_section, custom_config_key)
-                print(
-                    f"Custom Configuration: {custom_section}.{custom_config_key}: {value}"
-                )
-            elif option_key == "option_A":
-                handle_option_A(config)
-            elif option_key == "option_B":
-                handle_option_B(config)
-            else:
-                valid_choices = (
-                    VALID_CHOICES[option_key] if option_key in VALID_CHOICES else None
-                )
-                if not valid_choices:
-                    new_value = input(f"{option_key.capitalize()}: ⤷ ")
-                    update_config(config, section, option_key, new_value)
+            if selected_option:
+                section, option_key = selected_option
+
+                if option_key == "custom_config":
+                    handle_custom_config(config)
+                elif option_key in ("option_A", "option_B"):
+                    handle_special_options(config, option_key)
                 else:
-                    new_value = input(
-                        f"{option_key.capitalize()} ({'/'.join(valid_choices)}): ⤷ "
-                    )
-                    if new_value in valid_choices:
-                        update_config(config, section, option_key, new_value)
-                    else:
-                        print(
-                            f"Invalid choice. Please choose from {', '.join(valid_choices)}"
-                        )
-        else:
-            print("Invalid option selected.")
+                    handle_standard_option(config, section, option_key)
+
+                break  # Exit loop after successful option handling
+
+            else:
+                print("Invalid option selected.")
+
         return True
 
-    elif edit_config_answer.lower() == "n":
+    else:
         print("Aww ok")
+        return False
 
+# Helper functions for clarity
+def handle_custom_config(config):
+    custom_section = input("Enter the custom configuration section: ")
+    custom_config_key = input("Enter the custom configuration key: ")
+    value = config.get(custom_section, custom_config_key)
+    print(f"Custom Configuration: {custom_section}.{custom_config_key}: {value}")
+
+def handle_special_options(config, option_key):
+    if option_key == "option_A":
+        handle_option_A(config)
+    elif option_key == "option_B":
+        handle_option_B(config)
+
+def handle_standard_option(config, section, option_key):
+    valid_choices = VALID_CHOICES.get(option_key)
+    new_value = get_user_input_with_choices(option_key, valid_choices)
+    update_config(config, section, option_key, new_value)
+
+def get_user_input_with_choices(option_key, valid_choices):
+    choices_str = f"({'/'.join(valid_choices)})" if valid_choices else ""
+    new_value = input(f"{option_key.capitalize()} {choices_str}: ⤷ ")
+    if valid_choices and new_value not in valid_choices:
+        print(f"Invalid choice. Please choose from {', '.join(valid_choices)}")
+        new_value = get_user_input_with_choices(option_key, valid_choices)  # Recurse until valid
+    return new_value
 
 # Your function for option A
 def handle_option_A(config):
     dirDump(str(config.get("main", "defaultdlpath")))
     delete_pycache("./")
-
 
 # Your function for option B
 def handle_option_B(config):
