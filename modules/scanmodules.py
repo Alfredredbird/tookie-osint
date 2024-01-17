@@ -14,6 +14,11 @@ config.read("./config/config.ini")
 
 date = datetime.date.today()
 
+# gets driver from the config
+config.read("./config/config.ini")
+selected_webdriver = config.get("main", "browser")
+scraper = WebScraper(selected_webdriver)
+
 
 # scan logic
 def Startscan(
@@ -33,7 +38,7 @@ def Startscan(
 ):
     try:
         headers = {"User-Agent": config["Personalizations"]["useragent"]}
-        
+
         # Timeout and proxies settings based on the mode flags
         timeout_setting = 1.5
         allow_redirects_setting = ars if "-d" in modes else False
@@ -47,7 +52,7 @@ def Startscan(
             proxies=proxies_setting,
             json=False, # Assuming json=False is default for all requests
         )
-        
+
         if not webscrape:
             result = ""
         if webscrape:
@@ -55,12 +60,9 @@ def Startscan(
             error_to_find = siteErrors
             # combineds to make url
             website_url = siteN + uname
-            # gets driver from the config
-            config.read("./config/config.ini")
-            selected_webdriver = config.get("main", "browser")
             if selected_webdriver:
-                result = scrape(
-                    website_url, error_to_find, selected_webdriver, language_module
+                result = scraper.scrape(
+                    website_url, error_to_find, language_module
                 )
 
             # print(result)
@@ -176,7 +178,7 @@ def Startscan(
         if response.status_code == 406 and "-N" not in modes and result == "No":
             print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
             f.write("[" + "+" + "] " + siteN + uname + "\n")
-            
+
         if not webscrape and "-a" in modes and 300 <= response.status_code <= 510:
             print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
             f.write(str(date) + "[" + "-" + "] " + siteN + uname + "\n")
