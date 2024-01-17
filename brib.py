@@ -57,7 +57,7 @@ colorScheme = colorSchemeGrabber(config)
 #not fully supported yet
 pluginMangager()
 # gets the defualt browser and system information
-browser = get_default_browser()
+browser = WebScraper.get_default_browser()
 saveBrowser(config, browser)
 # gets the version of Alfred
 version = versionToPass
