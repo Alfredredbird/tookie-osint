@@ -154,6 +154,7 @@ There Is A Lot Lol
 - [ ] WebUi
 - [X] Webscraper
 - [ ] Phone Number OSINT
+- [ ] Custom Plugins
       
 
 # 🍿 Showcase
@@ -242,6 +243,10 @@ There has been several articles written about our tool. Feal free to check them 
      <tr>
         <th>JOEE txt</th>
         <th>https://www.joeetxt.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
+    </tr>
+    <tr>
+        <th>internet intelligence</th>
+        <th>https://internetintelligence.eu/alfred-a-powerful-osint-tool-for-social-media-account-discovery/</th>
     </tr>
   
   
