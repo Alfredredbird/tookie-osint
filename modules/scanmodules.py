@@ -17,8 +17,14 @@ date = datetime.date.today()
 # gets driver from the config
 config.read("./config/config.ini")
 selected_webdriver = config.get("main", "browser")
-scraper = WebScraper(selected_webdriver)
 
+try:
+ scraper = WebScraper(selected_webdriver)
+except selenium.exceptions.common.NoSuchDriverException:
+    print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(")    
+except Exception as e:
+    print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(")
+            
 
 # scan logic
 def Startscan(

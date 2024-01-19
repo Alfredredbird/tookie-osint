@@ -131,8 +131,8 @@ class WebScraper:
                 # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
                 return there
         except selenium.exceptions.common.NoSuchDriverException:
-            print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :()")    
+            print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(e)")    
         except Exception as e:
-            print(f"{WebScraper.language_module.error11}{e}")
+            print(f"{language_module.error11}{e}")
             return None
 
