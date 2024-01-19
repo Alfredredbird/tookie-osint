@@ -1,7 +1,9 @@
 #soon to be fully implemented
-def run():
-   #plugins need to have the module be nammed "run()" in order to be used.
+#plugins need to have the module be nammed "run()" in order to be used.
    #the below function will be fully available after some changes
+def run(lol):
+   """-lol"""
+   
    return
 
 

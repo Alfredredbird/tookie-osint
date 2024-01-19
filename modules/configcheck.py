@@ -255,6 +255,7 @@ VALID_CHOICES = {
 
 # Display config options
 def display_options(config, section, language_module):
+    print("")
     print("Options:")
     print("=====================================================")
     print(f"{language_module.configOption1} {config.get('main', 'checkforupdates')}")

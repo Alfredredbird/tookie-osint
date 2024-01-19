@@ -5,6 +5,7 @@ import subprocess
 from configparser import ConfigParser
 
 from selenium import webdriver
+import selenium
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.options import Options as EdgeOptions
@@ -115,6 +116,8 @@ def scrape(url, target_error_message, selected_webdriver, language_module):
             # line 138 is for dev testing
             # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
             return there
+    except selenium.common.exceptions.NoSuchDriverException:
+        print("Uh Oh. I Dont Think Your Device Supports The WebScraper.")    
     except Exception as e:
         print(f"{language_module.error11}{e}")
         return None

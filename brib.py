@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import print_function
-
+from pypresence import Presence
+import time
 import argparse
 import datetime
 import os
@@ -26,7 +27,17 @@ from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
 
+application_id = "1197727494866997361"
 
+# Set up the client
+RPC = Presence(application_id)
+RPC.connect()
+RPC.update(
+        state="Starting Alfred",
+        details="Starting Alfred",
+        large_image="alfred",  # You need to set up assets in your Discord Developer Portal
+        large_text="Alfred OSINT",
+    )
 # Variables
 domain_extensions = False
 alist = True
@@ -55,7 +66,7 @@ config = ConfigParser()
 colorScheme = colorSchemeGrabber(config)
 #loads the plugins and runs them
 #not fully supported yet
-pluginMangager()
+# pluginMangager()
 # gets the defualt browser and system information
 browser = get_default_browser()
 saveBrowser(config, browser)
@@ -167,6 +178,7 @@ else:
                 "-m": [emptyModule, []],
                 "-N": [emptyModule, []],
                 "-Tor": [darkAlfred, [colorScheme, console, uname]],
+                
             }
             valid = [key for key in action.keys()]
             option_matched = False
@@ -299,6 +311,12 @@ print("")
 siteCount = 0
 # opens the save file and writes working sites to it
 with open(file_path, "a") as f:
+    RPC.update(
+        state=f"Searching For {uname} With Alfred",
+        details=f"Searching For {uname} With Alfred",
+        large_image="alfred",  # You need to set up assets in your Discord Developer Portal
+        large_text="Alfred OSINT",
+    )
     for site in siteList:
         siteCount += 1
         with console.status(language_module.status1) as status:
@@ -320,7 +338,7 @@ with open(file_path, "a") as f:
                     webscrape,
                     siteErrors,
                     date,
-                    language_module,
+                    language_module
                 )
                 i += 1
 
