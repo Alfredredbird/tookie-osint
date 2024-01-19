@@ -2,6 +2,7 @@ import datetime
 import json
 from configparser import ConfigParser
 from urllib.parse import urljoin
+from selenium.common.exceptions import NoSuchDriverException
 
 import requests
 from bs4 import BeautifulSoup as bs
@@ -20,7 +21,7 @@ selected_webdriver = config.get("main", "browser")
 
 try:
  scraper = WebScraper(selected_webdriver)
-except selenium.exceptions.common.NoSuchDriverException:
+except selenium.common.NoSuchDriverException:
     print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(")    
 except Exception as e:
     print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(")
