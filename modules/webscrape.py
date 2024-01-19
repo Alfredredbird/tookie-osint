@@ -11,6 +11,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.remote.remote_connection import LOGGER
+from selenium.common.exceptions import NoSuchDriverException
+
 
 class WebScraper:
     selected_webdriver = ""
