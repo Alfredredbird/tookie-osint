@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from __future__ import print_function
-from pypresence import Presence
 import time
 import argparse
 import datetime
@@ -300,7 +299,7 @@ print("")
 siteCount = 0
 # opens the save file and writes working sites to it
 with open(file_path, "a") as f:
-    
+
     for site in siteList:
         siteCount += 1
         with console.status(language_module.status1) as status:
