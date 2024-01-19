@@ -473,5 +473,7 @@ def parse_args():
         action="store_true",
         help="Run Alfred with the webscraper"
     )
+    
+    
 
     return parser.parse_args()
