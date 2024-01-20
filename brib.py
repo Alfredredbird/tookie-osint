@@ -17,6 +17,7 @@ from colorama import Back, Fore, Style
 from rich.console import Console
 
 from lang.en import *
+from modules.plugin import *
 from modules.configcheck import *
 from modules.crypt import *
 from modules.lang import *
@@ -50,6 +51,8 @@ uname = ""
 # Initialization and configuration setup
 console = Console()
 config = ConfigParser()
+#updates config file if new plugins are found.
+pluginUpdater()
 # Grabs The Color Scheme From The Config File
 colorScheme = colorSchemeGrabber(config)
 #loads the plugins and runs them
@@ -166,6 +169,8 @@ else:
                 "-m": [emptyModule, []],
                 "-N": [emptyModule, []],
                 "-Tor": [darkAlfred, [colorScheme, console, uname]],
+                "--extensions": [print_and_run_plugins, []],
+                "-ex": [print_and_run_plugins, []],
                 
             }
             valid = [key for key in action.keys()]
