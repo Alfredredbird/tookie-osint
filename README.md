@@ -154,7 +154,7 @@ There Is A Lot Lol
 - [ ] WebUi
 - [X] Webscraper
 - [ ] Phone Number OSINT
-- [ ] Custom Plugins
+- [X] Custom Plugins
       
 
 # 🍿 Showcase
