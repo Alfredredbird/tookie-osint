@@ -13,7 +13,7 @@
 
 
 
-# 🔎 Overview
+# 🔎 Overview (We Changed Our Logo)
 Alfred has a simple-to-use UI and is really straightforward. 
 The main idea of Alfred is to discover usernames that are requested from an input.
 Alfred is successful at this task almost 90% of the time.
