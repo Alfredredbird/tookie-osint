@@ -51,10 +51,7 @@ The requirements will be automatically installed.
     python3 alfred
 
 
-# 📦 Install With Pip
 
-    pip install alfred-osint
-  Ussage can be found Here: https://github.com/Alfredredbird/alfred/wiki/Modules  
 
 # 📦 Discord Bot
     As our community was mass reported, our bot has come to a end. 
