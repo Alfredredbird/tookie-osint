@@ -54,7 +54,7 @@ The requirements will be automatically installed.
 
 
 # 📦 Discord Bot
-    As our community was mass reported, our bot has come to a end. 
+    As our community was mass reported, and now our bot has come to a end. 
     With the hard descion, we will not be providing our tool in Discord anymore. 
     Our community discord server has also been delted as a result.
    
