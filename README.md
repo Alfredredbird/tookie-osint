@@ -38,7 +38,6 @@ The requirements will be automatically installed.
     cd alfred && sudo pip3 install -r requirements.txt
     python3 alfred
 
-    or download the Windows Installer Here: https://github.com/Alfredredbird/alfred/releases/download/v2.2(a)/alfred-installer.exe
 
 # 📦 Termux Install
     
