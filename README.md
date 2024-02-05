@@ -152,7 +152,7 @@ There Is A Lot Lol
 - [ ] Pip Package (in beta)
 - [ ] WebUi
 - [X] Webscraper
-- [ ] Phone Number OSINT
+- [X] Phone Number OSINT
 - [X] Custom Plugins
       
 
