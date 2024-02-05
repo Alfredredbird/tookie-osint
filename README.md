@@ -1,5 +1,4 @@
-![IMG_4910](https://github.com/Alfredredbird/alfred/assets/105014217/04eb051d-15c3-4a32-b10b-dcdb12fee881)
-
+![alfredlogo-512x512 better text](https://github.com/Alfredredbird/alfred/assets/105014217/0b76dea4-3bed-4906-8d8b-b0af325aa146)
 
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Alfredredbird/alfred)
