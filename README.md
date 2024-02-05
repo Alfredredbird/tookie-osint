@@ -3,7 +3,6 @@
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Alfredredbird/alfred)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/alfred)
-![Discord](https://img.shields.io/discord/809533983444566119?label=Online%20Discord%20Users&color=%235865F2)
 ![GitHub forks](https://img.shields.io/github/forks/alfredredbird/alfred?logoColor=ffff&color=%23ff0000)
 ![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/alfred?color=%2332cd32)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -58,9 +57,9 @@ The requirements will be automatically installed.
   Ussage can be found Here: https://github.com/Alfredredbird/alfred/wiki/Modules  
 
 # 📦 Discord Bot
-    Alfred can be ran on Discord with our new Discord Bot. You can freely test out 
-    Alfred without needing to install or setup anything! 
-   [Bot Invite Link]( https://discord.com/api/oauth2/authorize?client_id=987410115219062855&permissions=8&scope=bot%20applications.commands)
+    As our community was mass reported, our bot has come to a end. 
+    With the hard descion, we will not be providing our tool in Discord anymore. 
+    Our community discord server has also been delted as a result.
    
 
 # 💻 Tested OS
