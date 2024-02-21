@@ -38,3 +38,4 @@ lang/ar.py
 lang/de.py
 alfred/__main__.py
 plugins/phonenumberosint.py
+webui/webui.py
