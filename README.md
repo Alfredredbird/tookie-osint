@@ -149,6 +149,8 @@ There Is A Lot Lol
 - [X] Webscraper
 - [X] Phone Number OSINT
 - [X] Custom Plugins
+- [ ] Detailed Reports
+- [ ] GUI
       
 
 # 🍿 Showcase
