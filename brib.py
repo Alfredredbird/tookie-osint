@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import print_function
-
+import time
 import argparse
 import datetime
 import os
@@ -17,6 +17,7 @@ from colorama import Back, Fore, Style
 from rich.console import Console
 
 from lang.en import *
+from modules.plugin import *
 from modules.configcheck import *
 from modules.crypt import *
 from modules.lang import *
@@ -46,16 +47,17 @@ modes = ""
 inputnum = ""
 ars = ""
 uname = ""
-
 # cool arrow because I keep forgetting what UNICODE arrow I used. ⤷
 # Initialization and configuration setup
 console = Console()
 config = ConfigParser()
+#updates config file if new plugins are found.
+pluginUpdater()
 # Grabs The Color Scheme From The Config File
 colorScheme = colorSchemeGrabber(config)
 #loads the plugins and runs them
 #not fully supported yet
-pluginMangager()
+# pluginMangager()
 # gets the defualt browser and system information
 browser = WebScraper.get_default_browser()
 saveBrowser(config, browser)
@@ -167,6 +169,9 @@ else:
                 "-m": [emptyModule, []],
                 "-N": [emptyModule, []],
                 "-Tor": [darkAlfred, [colorScheme, console, uname]],
+                "--extensions": [print_and_run_plugins, []],
+                "-ex": [print_and_run_plugins, []],
+                
             }
             valid = [key for key in action.keys()]
             option_matched = False
@@ -299,6 +304,7 @@ print("")
 siteCount = 0
 # opens the save file and writes working sites to it
 with open(file_path, "a") as f:
+
     for site in siteList:
         siteCount += 1
         with console.status(language_module.status1) as status:
@@ -320,7 +326,7 @@ with open(file_path, "a") as f:
                     webscrape,
                     siteErrors,
                     date,
-                    language_module,
+                    language_module
                 )
                 i += 1
 

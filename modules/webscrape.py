@@ -5,11 +5,14 @@ import subprocess
 from configparser import ConfigParser
 
 from selenium import webdriver
+import selenium
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.remote.remote_connection import LOGGER
+from selenium.common.exceptions import NoSuchDriverException
+
 
 class WebScraper:
     selected_webdriver = ""
@@ -129,7 +132,9 @@ class WebScraper:
                 # line 138 is for dev testing
                 # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
                 return there
+        except selenium.exceptions.common.NoSuchDriverException:
+            print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(e)")    
         except Exception as e:
-            print(f"{WebScraper.language_module.error11}{e}")
+            print(f"{language_module.error11}{e}")
             return None
 

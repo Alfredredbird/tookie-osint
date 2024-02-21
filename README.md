@@ -1,10 +1,8 @@
-![IMG_4910](https://github.com/Alfredredbird/alfred/assets/105014217/04eb051d-15c3-4a32-b10b-dcdb12fee881)
-
+![alfredlogo-512x512 better text](https://github.com/Alfredredbird/alfred/assets/105014217/0b76dea4-3bed-4906-8d8b-b0af325aa146)
 
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Alfredredbird/alfred)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/alfred)
-![Discord](https://img.shields.io/discord/809533983444566119?label=Online%20Discord%20Users&color=%235865F2)
 ![GitHub forks](https://img.shields.io/github/forks/alfredredbird/alfred?logoColor=ffff&color=%23ff0000)
 ![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/alfred?color=%2332cd32)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -14,11 +12,11 @@
 
 
 
-# 🔎 Overview
+# 🔎 Overview (We Changed Our Logo)
 Alfred has a simple-to-use UI and is really straightforward. 
 The main idea of Alfred is to discover usernames that are requested from an input.
-Alfred is successful at this task almost 90% of the time.
-Our tool was created by me and is available for your use. 
+Alfred is similar to the tool called Sherlock. It discovers all the user accounts across different websites and Alfred is successful at this task almost 80% of the time.
+Our tool was created by me and the community and is available for your use. 
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
 Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
 
@@ -40,7 +38,6 @@ The requirements will be automatically installed.
     cd alfred && sudo pip3 install -r requirements.txt
     python3 alfred
 
-    or download the Windows Installer Here: https://github.com/Alfredredbird/alfred/releases/download/v2.2(a)/alfred-installer.exe
 
 # 📦 Termux Install
     
@@ -53,15 +50,12 @@ The requirements will be automatically installed.
     python3 alfred
 
 
-# 📦 Install With Pip
 
-    pip install alfred-osint
-  Ussage can be found Here: https://github.com/Alfredredbird/alfred/wiki/Modules  
 
 # 📦 Discord Bot
-    Alfred can be ran on Discord with our new Discord Bot. You can freely test out 
-    Alfred without needing to install or setup anything! 
-   [Bot Invite Link]( https://discord.com/api/oauth2/authorize?client_id=987410115219062855&permissions=8&scope=bot%20applications.commands)
+    As our community was mass reported, and now our bot has come to an end. 
+    With the hard decision, we will not be providing our tool in Discord anymore. 
+    Our community discord server has also been deleted as a result.
    
 
 # 💻 Tested OS
@@ -151,9 +145,12 @@ There Is A Lot Lol
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
 - [ ] Pip Package (in beta)
-- [ ] WebUi
+- [ ] WebUi (Scheduled)
 - [X] Webscraper
-- [ ] Phone Number OSINT
+- [X] Phone Number OSINT
+- [X] Custom Plugins
+- [ ] Detailed Reports
+- [ ] GUI
       
 
 # 🍿 Showcase
@@ -243,6 +240,10 @@ There has been several articles written about our tool. Feal free to check them 
         <th>JOEE txt</th>
         <th>https://www.joeetxt.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
     </tr>
+    <tr>
+        <th>internet intelligence</th>
+        <th>https://internetintelligence.eu/alfred-a-powerful-osint-tool-for-social-media-account-discovery/</th>
+    </tr>
   
   
 
@@ -252,7 +253,7 @@ There has been several articles written about our tool. Feal free to check them 
 # 📘 contact
 
 - Twitter: https://twitter.com/Alfredredbird1
-- Discord Server: https://discord.gg/m2RSZ2Hhx5
+- Discord: alfredredbird2
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 

@@ -29,6 +29,7 @@ modules/configcheck.py
 modules/webscrape.py
 modules/crypt.py
 modules/lang.py
+modules/plugin.py
 lang/en.py
 lang/it.py
 lang/il.py

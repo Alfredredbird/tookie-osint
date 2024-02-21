@@ -122,7 +122,8 @@ def ask_update_check(config, colorScheme, language_module):
             print(language_module.idk2)
             print_separator()
     except KeyboardInterrupt:
-        saveBrowser(config,str(get_default_browser()))
+        broswer = config.get("main", "browser")
+        saveBrowser(config,str(broswer))
         exit(1)
 
 # Prompt user at random to enable updates
@@ -255,6 +256,7 @@ VALID_CHOICES = {
 
 # Display config options
 def display_options(config, section, language_module):
+    print("")
     print("Options:")
     print("=====================================================")
     print(f"{language_module.configOption1} {config.get('main', 'checkforupdates')}")
