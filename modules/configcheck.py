@@ -358,6 +358,7 @@ def get_user_input_with_choices(option_key, valid_choices):
 # Your function for option A
 def handle_option_A(config):
     dirDump(str(config.get("main", "defaultdlpath")))
+    dirDump("/captured")
     delete_pycache("./")
 
 # Your function for option B
