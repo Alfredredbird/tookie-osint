@@ -262,4 +262,5 @@ Want to partner with the Alfred project? Feel free to reach out.
 
 Partners:
 - [GHPM](https://github.com/smoke-wolf/GitHub-Package-Manager) ~ Smoke-Wolf
+- [GXSUID](https://github.com/mrofcodyx/gxsuid)
 - EliteGreyIT
