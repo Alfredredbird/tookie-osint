@@ -25,15 +25,33 @@
         <h2>Results:</h2>
         <p id="result-text"></p>
     </div>
-
     <script>
-        function runProgress(event) {
-            event.preventDefault();  // Prevent the default form submission behavior
-            console.log("Progress function called");
+        async function runProgress(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            const formData = new FormData(document.getElementById('myForm'));
             document.getElementById("progress-container").style.display = "block";
             document.getElementById("result-container").style.display = "none";
-            return true;
+            
+            try {
+                const response = await fetch("/", {
+                    method: 'POST',
+                    body: formData,
+                });
+                const resultData = await response.json(); // Assumes the server returns JSON
+            
+                if(response.ok) {
+                    console.log("Result: ", resultData);
+                    document.getElementById("result-text").innerText = resultData.result;
+                    document.getElementById("result-container").style.display = "block";
+                } else {
+                    console.error("Error from server", resultData);
+                }
+            } catch (error) {
+                console.error("Failed to fetch", error);
+            }
+            document.getElementById("progress-container").style.display = "none";
         }
     </script>
+
 </body>
 </html>

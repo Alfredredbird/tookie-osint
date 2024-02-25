@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import os
 import time
 
@@ -21,7 +21,9 @@ def index():
         entered_text1 = request.form.get('text_input1', '')  # Use get to avoid KeyError
         save_to_history(entered_text1)  # Save the entered text to history file
         result_text = process_data(entered_text1)
-        return render_template('index.html', result=result_text)
+        # return render_template('index.html', result=result_text)
+        # Instead of rendering a template, return JSON
+        return jsonify({'result': result_text})
 
     return render_template('index.html', result=None)
 
