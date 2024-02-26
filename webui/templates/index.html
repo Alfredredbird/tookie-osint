@@ -7,8 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alfred OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </head>
 <body>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <h1>Alfred OSINT Web-UI</h1>
     <form method="post" id="myForm" onsubmit="return runProgress(event)">
         <label for="text_input1">Target:</label>

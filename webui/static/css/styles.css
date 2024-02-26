@@ -6,8 +6,17 @@ body {
     margin: 20px;
 }
 
-h1 {
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+h1, h1.dark-mode {
     color: #333;
+}
+
+body.dark-mode h1 {
+    color: #f0f0f0; /* Adjust the color for dark mode */
 }
 
 form {
@@ -17,9 +26,17 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode form {
+    background-color: #f3f3e7; /* Adjust the color for dark mode */
+}
+
 label {
     display: block;
     margin-bottom: 8px;
+}
+
+body.dark-mode label {
+    color: #333; /* Adjust the color for dark mode */
 }
 
 input[type="text"] {
@@ -29,7 +46,7 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button {
+button, button.dark-mode {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
@@ -38,6 +55,10 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, button:hover.dark-mode {
     background-color: #45a049;
+}
+
+button.dark-mode:hover {
+    background-color: #bf3434;
 }
