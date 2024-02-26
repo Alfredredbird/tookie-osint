@@ -190,7 +190,12 @@ Usage: [USERNAME]                               //\    //\
         -S  |        | Downloads A Webpage's HTML File
         -u  |        | Prints The Requested Username
 ------------+--------+------------------------------------------        
-       
+     [MODES]:        | Modes are used when running python3 alfred
+            |        | Example: python3 alfred -w
+            |        |
+        -w  |        | Runs The Alfred WebUI 
+------------+--------+------------------------------------------    
+
 """
     )
 

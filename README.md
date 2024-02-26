@@ -145,7 +145,7 @@ There Is A Lot Lol
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
 - [ ] Pip Package (in beta)
-- [ ] WebUi (Scheduled)
+- [X] WebUi (in beta)
 - [X] Webscraper
 - [X] Phone Number OSINT
 - [X] Custom Plugins
