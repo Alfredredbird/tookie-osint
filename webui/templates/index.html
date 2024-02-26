@@ -15,6 +15,7 @@
     </script>
 </head>
 <body>
+    <button type="github" onclick="window.location.href='https://github.com/alfredredbird/alfred'">GitHub</button>
     <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <h1>Alfred OSINT Web-UI</h1>
     <form method="post" id="myForm" onsubmit="return runProgress(event)">
@@ -23,7 +24,6 @@
         <label for="text_input2">Options:</label>
         <input type="text" id="text_input2" name="text_input2">
         <button type="submit">Run</button>
-        <button type="github" onclick="window.location.href='https://github.com/alfredredbird/alfred'">GitHub<button>
     </form>
 
     <div id="progress-container" style="display:none;">
