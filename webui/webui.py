@@ -3,6 +3,9 @@ import os
 import time
 import subprocess
 import logging
+import webbrowser
+
+
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 # Define the directory for file storage and templates
@@ -13,6 +16,8 @@ template_directory = os.path.join(base_directory, 'templates')
 os.makedirs(storage_directory, exist_ok=True)
 # Set the template folder
 app.template_folder = template_directory
+
+webbrowser.open("127.0.0.1:5000")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
