@@ -38,6 +38,19 @@ def process_data(text1,options=""):
     # Path to your brib.py script
     brib_script_path = "brib.py"
     
+    
+    
+    file_path = 'captured/.txt'
+    # Open the file and clear it
+    try:
+            with open(file_path, 'w') as file:
+                # Read the contents of the file
+                file.write("")
+    except FileNotFoundError:
+                print(f"The file at {file_path} was not found.")
+    except Exception as e:
+            print(f"An error occurred: {e}")
+    
     try:
         # Execute the script with subprocess.run
         if os.name == "nt":
@@ -45,9 +58,8 @@ def process_data(text1,options=""):
         else:
           result = subprocess.run(['python3', brib_script_path, '-u', text1, '-s',options], capture_output=True, text=True, check=True)
          # Specify the file path
-        file_path = 'captured/.txt'
+        
 
-        # Open the file in read mode ('r')
         try:
             with open(file_path, 'r') as file:
                 # Read the contents of the file
