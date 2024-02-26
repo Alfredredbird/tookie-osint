@@ -27,7 +27,6 @@ from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
 
-
 # Variables
 domain_extensions = False
 alist = True
@@ -55,9 +54,6 @@ config = ConfigParser()
 pluginUpdater()
 # Grabs The Color Scheme From The Config File
 colorScheme = colorSchemeGrabber(config)
-#loads the plugins and runs them
-#not fully supported yet
-# pluginMangager()
 # gets the defualt browser and system information
 browser = WebScraper.get_default_browser()
 saveBrowser(config, browser)
@@ -92,7 +88,6 @@ print()
 configUpdateStuff(colorScheme, config, browser, language_module, argument)
 
 # Handle command line arguments
-
 if argument.username:
     # this is the variable that gets the username
     uname_list = [item.strip() for item in argument.username.split(",")]
@@ -108,7 +103,7 @@ if argument:
 
 if any(vars(argument).values()):
     holder += 1
-    if argument.scan and uname == "":
+    if argument.scan and uname_list == "":
             print("You must provide a username")
             exit(99)
     if not argument.scan:
