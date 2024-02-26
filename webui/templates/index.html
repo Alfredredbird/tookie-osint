@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web UI Example</title>
+    <title>Alfred OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Web UI Example</h1>
+    <h1>Alfred OSINT Web-UI</h1>
     <form method="post" id="myForm" onsubmit="return runProgress(event)">
-        <label for="text_input1">Enter Text 1:</label>
+        <label for="text_input1">Target:</label>
         <input type="text" id="text_input1" name="text_input1">
         <button type="submit">Run</button>
     </form>
