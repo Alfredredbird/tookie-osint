@@ -277,9 +277,9 @@ if os.path.exists("./captured/"):
 else:
     print(f"{language_module.error4}")
 #sets the custom site file argument
-if argument.othersite:
+if argument.otherfile:
     fastMode = 2
-    slectpath = argument.othersite
+    slectpath = argument.otherfile
     # determins what list of sites to use.
 if fastMode == 0:
     # fastmode0 is the default scan mode
