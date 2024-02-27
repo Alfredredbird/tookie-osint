@@ -108,7 +108,7 @@ def process_data(text1,options=""):
     # Path to your brib.py script
     brib_script_path = "brib.py"
     
-    
+    target = text1
     
     file_path = 'captured/.txt'
     # Open the file and clear it
@@ -124,9 +124,15 @@ def process_data(text1,options=""):
     try:
         # Execute the script with subprocess.run
         if os.name == "nt":
-         result = subprocess.run(['python.exe', brib_script_path, '-u', text1,'-s', options], capture_output=True, text=True, check=True)
+            if options == "":
+                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], capture_output=True, text=True, check=True)
+            else:    
+              result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', options], capture_output=True, text=True, check=True)
         else:
-          result = subprocess.run(['python3', brib_script_path, '-u', text1, '-s',options], capture_output=True, text=True, check=True)
+            if options == "":
+                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], capture_output=True, text=True, check=True)
+            else:    
+              result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',options], capture_output=True, text=True, check=True)
          # Specify the file path
         
 
@@ -154,4 +160,4 @@ def save_to_history(entered_text):
         history_file.write(entered_text + '\n')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0',debug=False)

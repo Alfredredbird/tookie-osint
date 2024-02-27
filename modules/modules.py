@@ -478,6 +478,11 @@ def parse_args():
         type=str,
         help="Specify custom site list"
     )
+    parser.add_argument(
+        "-a", "--all",
+        action="store_true",
+        help="Shows all scanned sites"
+    )
     
 
     return parser.parse_args()

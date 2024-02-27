@@ -266,6 +266,9 @@ else:
             test = True
         inputnum = ""
 
+if argument.all:
+    modes = "-a"
+
 # creates the save file
 file_name = uname + ".txt"
 file_path = os.path.join("./captured/", file_name)
