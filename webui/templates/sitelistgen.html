@@ -1,0 +1,81 @@
+<!-- webui/templates/input_display.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site List Maker - Alfred OSINT Web-UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/siteliststyle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Site List Maker</h1>
+        <div id="display_container"></div>
+        <label for="user_input1">Website URL:</label>
+        <input type="text" id="user_input1" name="user_input1" oninput="updateDisplay(this.value)" onkeydown="handleEnter(event)">
+        <br>
+        <label for="user_input2">Is NSFW?:</label>
+        <input type="text" id="user_input2" name="user_input2" oninput="updateDisplay(this.value)" onkeydown="handleEnter(event)">
+        <br>
+        <label for="user_input3">Error Code/Message:</label>
+        <input type="text" id="user_input3" name="user_input3" oninput="updateDisplay(this.value)" onkeydown="handleEnter(event)">
+        <button onclick="saveInputs()">Save</button>
+        <button onclick="saveFile()">Save File</button>
+    </div>
+
+    <script>
+        let savedData = []; // Global variable to hold accumulated data
+    
+        function updateDisplay(value) {
+            // Reflect input value
+            document.activeElement.value = value;
+        }
+    
+        function handleEnter(event) {
+            if (event.key === 'Enter') {
+                saveInputs();
+            }
+        }
+    
+        function saveInputs() {
+            const userInput1 = document.getElementById('user_input1').value;
+            const userInput2 = document.getElementById('user_input2').value;
+            const userInput3 = document.getElementById('user_input3').value || 'Unknown'; // Use 'Unknown' if empty
+    
+            // Check if Text Box 1 and Text Box 2 have values
+            if (userInput1.trim() !== '' && userInput2.trim() !== '') {
+                // Accumulate data for saving
+                savedData.push({"site": userInput1, "nsfw": userInput2, "errorMessage": userInput3});
+    
+                // Display the inputs in the page
+                const newParagraph = document.createElement('p');
+                newParagraph.innerText = `Text Box 1: ${userInput1}\nText Box 2: ${userInput2}\nText Box 3: ${userInput3}`;
+                document.getElementById('display_container').appendChild(newParagraph);
+    
+                // Clear all input boxes after pressing Enter
+                document.getElementById('user_input1').value = '';
+                document.getElementById('user_input2').value = '';
+                document.getElementById('user_input3').value = '';
+            } else {
+                alert('Please enter text in both Text Box 1 and Text Box 2 before saving.');
+            }
+        }
+    
+        function saveFile() {
+            // Create a Blob with the JSON data
+            const blob = new Blob([JSON.stringify(savedData, null, 2)], { type: 'application/json' });
+    
+            // Create a link element and trigger a click event to download the file
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'saved_data.json';
+            a.click();
+    
+            // Optionally reset savedData if you want to clear after saving
+            // savedData = [];
+        }
+    </script>
+    
+</body>
+</html>

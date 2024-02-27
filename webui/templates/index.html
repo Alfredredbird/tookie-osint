@@ -8,6 +8,7 @@
     <title>Alfred OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <button onclick="editConfig()">Edit Config</button>
+    <button onclick="redirectToInputDisplay()">Site List Maker</button>
     <script>
         // Function to toggle dark mode
         function toggleDarkMode() {
@@ -16,6 +17,9 @@
         function editConfig() {
             // Redirect to the configuration editing page
             window.location.href = '{{ url_for("edit_config") }}';  
+        }
+        function redirectToInputDisplay() {
+            window.location.href = '{{ url_for("sitelistgen") }}';
         }
     </script>
 </head>

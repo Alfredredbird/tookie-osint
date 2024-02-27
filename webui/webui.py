@@ -63,7 +63,9 @@ def edit_config():
 
     return render_template('edit_config.html', config=config)
 
-
+@app.route('/sitelistgen')
+def sitelistgen():
+    return render_template('sitelistgen.html')
 
 
 
