@@ -7,10 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alfred OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <button onclick="editConfig()">Edit Config</button>
     <script>
         // Function to toggle dark mode
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
+        }
+        function editConfig() {
+            // Redirect to the configuration editing page
+            window.location.href = '/edit-config';  // Replace '/edit-config' with your actual configuration editing page URL
         }
     </script>
 </head>
@@ -113,7 +118,7 @@
             document.getElementById("progress-container").style.display = "none";
         }
     </script>
-
+    
 
 
     <div id="contributors-card" style="display:none;">

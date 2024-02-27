@@ -1,0 +1,27 @@
+<!-- webui/templates/edit_config.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Config - Alfred OSINT Web-UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/configstyles.css') }}">
+
+</head>
+<body>
+    <h1>Edit Configuration</h1>
+    <form method="post" action="/save-config">
+        <!-- Example input fields, replace with your actual configuration options -->
+        <label for="config_option1">Config Option 1:</label>
+        <input type="text" id="config_option1" name="config_option1">
+
+        <label for="config_option2">Config Option 2:</label>
+        <input type="text" id="config_option2" name="config_option2">
+
+        <!-- Add more input fields as needed -->
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
