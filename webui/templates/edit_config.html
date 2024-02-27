@@ -6,22 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Config - Alfred OSINT Web-UI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/configstyles.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/configstyles.css') }}">
 </head>
 <body>
-    <h1>Edit Configuration</h1>
-    <form method="post" action="/save-config">
-        <!-- Example input fields, replace with your actual configuration options -->
-        <label for="config_option1">Config Option 1:</label>
-        <input type="text" id="config_option1" name="config_option1">
-
-        <label for="config_option2">Config Option 2:</label>
-        <input type="text" id="config_option2" name="config_option2">
-
-        <!-- Add more input fields as needed -->
-
+    <div class="container">
+        <h1>Edit Alfred Configuration File</h1>
+        
+        <form method="post" action="{{ url_for('edit_config') }}">
+        {% for section, options in config.items() %}
+            <h2>{{ section }}</h2>
+            {% for option, value in options.items() %}
+                <label for="{{ section }}_{{ option }}">{{ option }}:</label>
+                <input type="text" id="{{ section }}_{{ option }}" name="{{ section }}_{{ option }}" value="{{ value }}">
+                <br>
+            {% endfor %}
+        {% endfor %}
         <button type="submit">Save Changes</button>
-    </form>
+       </form>
+    </div>
 </body>
 </html>

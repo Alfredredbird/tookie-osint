@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import os
 import time
 import subprocess
 import logging
 import webbrowser
+import configparser
+
 
 webbrowser.open("http://127.0.0.1:5000")
 app = Flask(__name__)
@@ -33,6 +35,72 @@ def index():
         return jsonify({'result': out_put})
 
     return render_template('index.html', result=None)
+
+@app.route('/edit_config', methods=['GET', 'POST'])
+def edit_config():
+    config = load_config()  # Load the configuration
+
+    if request.method == 'POST':
+        # Process the configuration changes here
+        for field_name, new_value in request.form.items():
+            # Skip CSRF token and other form fields
+            if field_name.startswith('_'):
+                continue
+
+            # Split field name into section and option
+            field_parts = field_name.split('_', 1)
+            
+            if len(field_parts) == 2:
+                section, option = field_parts
+                # Save the configuration changes dynamically
+                save_config_changes(section, option, new_value)
+            else:
+                # Handle the case where the field name doesn't contain an underscore
+                print(f"Invalid field name: {field_name}")
+
+        # Redirect to the index page
+        return redirect(url_for('index'))
+
+    return render_template('edit_config.html', config=config)
+
+
+
+
+
+def load_config():
+    config = configparser.ConfigParser()
+    config_path = "config/config.ini"
+
+    if not os.path.exists(config_path):
+        # Handle the case where the config file doesn't exist
+        return None
+
+    config.read(config_path)
+    return config
+
+def save_config_changes(section, option_name, new_value):
+    config_path = "config/config.ini"
+    config = configparser.ConfigParser()
+    config.read(config_path)
+
+    # Convert the new value to a string
+    new_value = str(new_value)
+
+    # Update the specified section and option
+    config.set(section, option_name, new_value)
+
+    print(f"Configuration change saved: {section}.{option_name} - {new_value}")
+    print(f"Config file path: {config_path}")
+
+    with open(config_path, 'w') as config_file:
+        config.write(config_file)
+
+    print(f"Config content after changes:\n{open(config_path).read()}")
+
+    # Save the changes back to the config object (optional)
+    config.read(config_path)
+
+
 
 def process_data(text1,options=""):
     # Path to your brib.py script
