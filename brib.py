@@ -276,7 +276,11 @@ if os.path.exists("./captured/"):
     print(f"{language_module.status2}")
 else:
     print(f"{language_module.error4}")
-# determins what list of sites to use.
+#sets the custom site file argument
+if argument.othersite:
+    fastMode = 2
+    slectpath = argument.othersite
+    # determins what list of sites to use.
 if fastMode == 0:
     # fastmode0 is the default scan mode
     scanFileList(siteList, "./sites/sites.json", language_module)

@@ -473,7 +473,11 @@ def parse_args():
         action="store_true",
         help="Run Alfred with the webscraper"
     )
-    
+    parser.add_argument(
+        "-o", "--otherfile", 
+        type=str,
+        help="Specify custom site list"
+    )
     
 
     return parser.parse_args()
