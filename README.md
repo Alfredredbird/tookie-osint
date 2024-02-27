@@ -181,10 +181,6 @@ Make a pull request or a bug report with the site and we will add it. :D
         <th>Contributors</th>
         <th>https://github.com/Alfredredbird/alfred/graphs/contributors</th>
     </tr>
-    <tr>
-        <th>Discord Server</th>
-        <th>https://discord.gg/m2RSZ2Hhx5</th>
-    </tr>
 </table>
 
 # 📙 Articles
