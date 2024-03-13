@@ -339,7 +339,14 @@ print(
 ===========================================================
      """
 )
-print(f"{language_module.save1} ./captured/{uname}.alfred")
+
+
+
+print(f"{language_module.save1} ./captured/{uname}.txt")
+mkcsv = input("Make Output List Into CSV? [Y/n]: ")
+if mkcsv == "y":
+    csvmaker(f"captured/{uname}.txt", f"captured/{uname}.csv")
+
 # Asks to be ran again if there are no arguments
 if any(vars(argument).values()):
     holder += 1

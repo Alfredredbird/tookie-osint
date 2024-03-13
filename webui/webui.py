@@ -127,12 +127,12 @@ def process_data(text1,options=""):
             if options == "":
                 result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], capture_output=True, text=True, check=True)
             else:    
-              result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', options], capture_output=True, text=True, check=True)
+              result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', str(options)], capture_output=True, text=True, check=True)
         else:
             if options == "":
                 result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], capture_output=True, text=True, check=True)
             else:    
-              result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',options], capture_output=True, text=True, check=True)
+              result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',str(options)], capture_output=True, text=True, check=True)
          # Specify the file path
         
 

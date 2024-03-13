@@ -6,6 +6,7 @@ import os
 import random
 import string
 import time
+import csv
 from configparser import ConfigParser
 from os import listdir
 from os.path import isfile, join
@@ -486,3 +487,30 @@ def parse_args():
     
 
     return parser.parse_args()
+
+
+
+def csvmaker(input_file, output_file):
+    # Open the input text file for reading
+    with open(input_file, 'r') as txt_file:
+        # Read lines from the text file
+        lines = txt_file.readlines()
+
+    # Remove newline characters from each line
+    lines = [line.strip() for line in lines]
+
+    # Split each line into date and URL
+    data = [(line[:10], line[12:]) for line in lines]
+
+    # Open the output CSV file for writing
+    with open(output_file, 'w', newline='') as csv_file:
+        # Create a CSV writer
+        csv_writer = csv.writer(csv_file)
+
+        # Write header to the CSV file
+        csv_writer.writerow(['Date', 'URL'])
+
+        # Write data to the CSV file
+        csv_writer.writerows(data)
+    print("Done With CSV!")
+
