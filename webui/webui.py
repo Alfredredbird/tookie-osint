@@ -7,7 +7,7 @@ import webbrowser
 import configparser
 
 
-webbrowser.open("http://127.0.0.1:5000")
+# webbrowser.open("http://127.0.0.1:5000")
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 # Define the directory for file storage and templates
@@ -159,5 +159,6 @@ def save_to_history(entered_text):
     with open(history_file_path, 'a') as history_file:
         history_file.write(entered_text + '\n')
 
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=False)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True)
