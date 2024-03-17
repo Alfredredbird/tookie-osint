@@ -20,7 +20,7 @@ Our tool was created by me and the community and is available for your use.
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
 Please note that Alfred was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Alfred as perfect as I can and make it easy for new programmers to understand. Also take note that Alfred is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
 
-![image](https://github.com/Alfredredbird/alfred/assets/105014217/91d3410d-354b-40ef-b272-6407cba09267)
+![image](https://github.com/Alfredredbird/alfred/assets/105014217/9777570f-281c-4db4-b7c2-f3c412839c47)
 
 
 
@@ -159,7 +159,8 @@ There Is A Lot Lol
 Alfred has a wide variety of options to use.
 Typing -h twice shows the help menu.
 
-<img width="434" alt="imaasdasdasage" src="https://github.com/Alfredredbird/alfred/assets/105014217/756d0b3b-6c37-425d-ae98-7ab00befb77d">
+![image](https://github.com/Alfredredbird/alfred/assets/105014217/92001f0a-788b-4b80-aa36-ad62c9dcb43c)
+
 
 # ⁉️ Need Help?
 Check out https://github.com/Alfredredbird/alfred/issues or the WiKi for help.
