@@ -9,3 +9,4 @@ wget
 selenium
 cryptography
 phonenumbers
+Flask==3.0.2

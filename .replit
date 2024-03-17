@@ -1,5 +1,5 @@
 modules = ["python-3.10:v18-20230807-322e88b"]
-run = "python3 alfred"
+run = "python3 alfred -w"
 
 [nix]
 channel = "stable-23_05"
@@ -12,7 +12,11 @@ requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
 deploymentTarget = "static"
-publicDir = "/"
+publicDir = "./webui"
+
+[[ports]]
+localPort = 5000
+externalPort = 5000
 
 [[ports]]
 localPort = 8080
