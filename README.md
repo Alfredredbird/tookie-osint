@@ -160,7 +160,7 @@ Typing -h twice shows the help menu.
 Check out https://github.com/Alfredredbird/alfred/issues or the WiKi for help.
 Still Need Help? Contact Below :D
 
-# 🤔 Cant Find The Site Your Looking For?
+# 🤔 Cant Find The WebSite Your Looking For?
 Make a pull request or a bug report with the site and we will add it. :D
 
 # 📗 Info:
