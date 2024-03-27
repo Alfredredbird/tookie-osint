@@ -147,6 +147,7 @@ There Is A Lot Lol
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
+- [ ] Acurate Results
       
 
 # 🍿 Showcase
