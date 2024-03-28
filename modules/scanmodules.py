@@ -3,7 +3,7 @@ import json
 from configparser import ConfigParser
 from urllib.parse import urljoin
 from selenium.common.exceptions import NoSuchDriverException
-
+import random
 import requests
 from bs4 import BeautifulSoup as bs
 from colorama import *
@@ -42,10 +42,17 @@ def Startscan(
     siteErrors,
     date,
     language_module,
+    randomheaders
 ):
     try:
-        headers = {"User-Agent": config["Personalizations"]["useragent"]}
-
+        if config["main"]["userandomuseragents"] == "no":
+            header = {"User-Agent": config["Personalizations"]["useragent"]}
+        elif config["main"]["userandomuseragents"] == "yes" and os.path.exists("proxys/headers.txt"):
+            header = {"User-Agent": str(random.choice(randomheaders))}
+            if "-a" in modes:
+                print(header)
+        elif not os.path.exists("proxys/headers.txt"):
+            header = {"User-Agent": config["Personalizations"]["useragent"]}
         # Timeout and proxies settings based on the mode flags
         timeout_setting = 1.5
         allow_redirects_setting = ars if "-d" in modes else False
@@ -53,7 +60,7 @@ def Startscan(
 
         response = requests.get(
             siteN + uname,
-            headers=headers,
+            headers=header,
             timeout=timeout_setting,
             allow_redirects=allow_redirects_setting,
             proxies=proxies_setting,
@@ -77,55 +84,31 @@ def Startscan(
             print(response.status_code)
         if response.status_code == 200 and result == "No":
             siteProgcounter += 1
-    except (
-        requests.exceptions.SSLError,
-        requests.exceptions.HTTPError,
-        requests.exceptions.ConnectTimeout,
-        requests.exceptions.ReadTimeout,
-        requests.exceptions.RetryError,
-        requests.exceptions.ProxyError,
-        requests.exceptions.ConnectionError,
-        requests.exceptions.InvalidHeader,
-        requests.exceptions.InvalidURL,
-        requests.exceptions.TooManyRedirects,
-        requests.exceptions.ChunkedEncodingError,
-        requests.exceptions.ContentDecodingError,
-    ):
-        connection_error = 1
-        if "-a" in modes:
-            print("[" + Fore.YELLOW + "E" + Fore.RESET + "] " + siteN + uname)
-            f.write(str(date) + "[" + "E" + "] " + siteN + uname + "\n")
-        cError += 1
-        return cError
-    except KeyboardInterrupt:
-        print("""===========================================================""")
-        print(language_module.status7)
-
-        f.close
-        print(language_module.save2)
-        exit(99)
     
-    if webscrape:
+    
+        if webscrape:
             if response.status_code >= 200 and response.status_code <= 399 and result == "No":
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
-
+                return str(date) + "[" + "+" + "] " + siteN + uname
             if response.status_code >= 400 and response.status_code <= 500 and result == "Yes":
                 print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date) + "[" + "-" + "] " + siteN + uname + "\n")
-
+                return str(date) + "[" + "-" + "] " + siteN + uname 
 
         
 
-    if not webscrape:
+        if not webscrape:
             if response.status_code >= 200 and "-N" not in modes and response.status_code <= 399:
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
-
+                return str(date) + "[" + "+" + "] " + siteN + uname
+            
             if response.status_code >= 400 and response.status_code <= 500 and "-a" in modes:
                 print("[" + Fore.RED + "-" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date) + "[" + "-" + "] " + siteN + uname + "\n")
-
+                return str(date) + "[" + "-" + "] " + siteN + uname
+            
             if "-N" in modes:
                 if response.status_code == 200 and siteNSFW == "true":
                     print(
@@ -148,7 +131,8 @@ def Startscan(
                         + uname
                         + "             NSFW"
                         + "\n"
-                    )
+                    ) 
+                    return str(date)+"["+"+"+ "] "+ siteN + uname + "             NSFW"
                 elif response.status_code == 200 and siteNSFW == "Unknown":
                     print(
                         "["
@@ -171,16 +155,43 @@ def Startscan(
                         + "             NSFW?"
                         + "\n"
                     )
+                    return str(date)+"["+"+"+ "] "+ siteN + uname + "             NSFW?"
                 elif response.status_code == 200 and siteNSFW == "false":    
                     print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                     f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
-
+                    return str(date) + "[" + "+" + "] " + siteN + uname
        
 
 
 
 
+    except (
+        requests.exceptions.SSLError,
+        requests.exceptions.HTTPError,
+        requests.exceptions.ConnectTimeout,
+        requests.exceptions.ReadTimeout,
+        requests.exceptions.RetryError,
+        requests.exceptions.ProxyError,
+        requests.exceptions.ConnectionError,
+        requests.exceptions.InvalidHeader,
+        requests.exceptions.InvalidURL,
+        requests.exceptions.TooManyRedirects,
+        requests.exceptions.ChunkedEncodingError,
+        requests.exceptions.ContentDecodingError,
+    ):
+        connection_error = 1
+        if "-a" in modes:
+            print("[" + Fore.YELLOW + "E" + Fore.RESET + "] " + siteN + uname)
+            f.write(str(date) + "[" + "E" + "] " + siteN + uname + "\n")
+            return str(date) + "[" + "E" + "] " + siteN + uname
+        
+    except KeyboardInterrupt:
+        print("""===========================================================""")
+        print(language_module.status7)
 
+        f.close
+        print(language_module.save2)
+        exit(99)
               
 
 

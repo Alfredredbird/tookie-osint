@@ -30,7 +30,7 @@ def decrypt_text(cipher_suite, encrypted_text):
     return cipher_suite.decrypt(encrypted_text).decode()
 
 
-def print_encrypted_and_decrypted(encrypted_text):
+def print_encrypted_and_decrypted(encrypted_text, ):
     """Prints the encrypted and decrypted versions of the text."""
     print("Encrypted text:", encrypted_text)
     # print("Decrypted text:", decrypted_text)
@@ -45,6 +45,7 @@ def save_encryption_info(config, private_key, sys_encrypted_key):
 
 
 key = generate_encryption_key()
+
 print("Encryption Key:", key.decode())
 cipher_suite = create_cipher(key)
 sys_info = (

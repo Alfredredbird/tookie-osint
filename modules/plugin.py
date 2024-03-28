@@ -112,7 +112,10 @@ def print_and_run_plugins():
                 selected_plugin = enabled_plugins[choice - 1]
                 plugin_dir = config.get('main', 'pluginfolder')
                 print(f"Running plugin: {selected_plugin}")
-                process = subprocess.Popen(['python3', f'{plugin_dir}/{selected_plugin}.py'])
+                if os.name == 'nt':
+                 process = subprocess.Popen(['python.exe', f'{plugin_dir}/{selected_plugin}.py'])
+                else:
+                 process = subprocess.Popen(['python3', f'{plugin_dir}/{selected_plugin}.py']) 
                 process.wait()
 
             else:

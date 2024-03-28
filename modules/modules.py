@@ -4,6 +4,7 @@ import http.client
 import json
 import os
 import random
+import socket
 import string
 import time
 import csv
@@ -412,6 +413,11 @@ def download_videos(video_urls, output_directory):
         except Exception as e:
             print(f"Error downloading video: {e}")
 
+# Get global default download path from configuration
+def globalPath(config):
+    config.read("./config/config.ini")
+    path = config.get("main", "defaultDlPath")
+    return path
 
 # Main function
 def imgandVidDownlaod(input2):
@@ -484,13 +490,16 @@ def parse_args():
         action="store_true",
         help="Shows all scanned sites"
     )
-    
-
+    parser.add_argument(
+        "-d", "--debug",
+        action="store_true",
+        help="Runs Alfred In Debug Mode"
+    )
     return parser.parse_args()
 
 
 
-def csvmaker(input_file, output_file):
+def csvmaker(input_file, output_file, string_list):
     # Open the input text file for reading
     with open(input_file, 'r') as txt_file:
         # Read lines from the text file
@@ -504,13 +513,75 @@ def csvmaker(input_file, output_file):
 
     # Open the output CSV file for writing
     with open(output_file, 'w', newline='') as csv_file:
+
+        #checks and counts how many sites work and dont
+        minus_count = 0
+        plus_count = 0
+        for s in string_list:
+            minus_count += s.count('-')
+            plus_count += s.count('+')
+            
         # Create a CSV writer
         csv_writer = csv.writer(csv_file)
-
         # Write header to the CSV file
         csv_writer.writerow(['Date', 'URL'])
-
         # Write data to the CSV file
         csv_writer.writerows(data)
-    print("Done With CSV!")
 
+    print("Done With CSV!")
+    print("Working: " + str(plus_count) + " Not Working: " + str(minus_count))
+
+
+
+def loadHeaders(config):
+    headers = []
+    try:
+     with open("proxys/headers.txt") as h:
+        for line in h:
+            headers.append(line.strip())
+     return headers
+    except Exception as e:
+        try:
+         install = input("Looks Like You Dont Have A User Agent File! Want To Download One? (948kb) [y/n]: ")
+         if install.lower() == "y":
+            response = requests.get("https://raw.githubusercontent.com/Alfredredbird/user-agentl-ist/main/header.txt")
+    
+            # Check if the request was successful (status code 200)
+            if response.status_code == 200:
+                # Extract text content from the response
+                text_content = response.text
+                lines = text_content.splitlines()
+                text_content = '\n'.join(lines)
+                # Create the directory if it doesn't exist
+                directory = os.path.dirname("proxys/")
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+
+                # Write the text content to the file
+                with open("proxys/headers.txt", 'w', encoding='utf-8') as file:
+                    file.write(text_content)
+                print(f"Agent File Saved To {"proxys/headers.txt"}")
+                time.sleep(3)
+            else:
+                print(f"Failed to fetch content from https://raw.githubusercontent.com/Alfredredbird/user-agentl-ist/main/header.txt. Status code: {response.status_code}")
+
+         else:    
+          print("Ok! Now Using User Agent In Config File.")
+          return config.get("main","userandomuseragents")
+        except KeyboardInterrupt:
+            print("Ok! Now Using User Agent In Config File.")
+            return config.get("main","userandomuseragents")
+
+def get_local_ip():
+    try:
+        # Create a socket object
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # Connect to a public DNS server (Google's)
+        s.connect(("8.8.8.8", 80))
+        # Get the socket's own address
+        ip = s.getsockname()[0]
+        s.close()
+        return ip
+    except Exception as e:
+        print(f"Error: {e}")
+        return None

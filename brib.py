@@ -50,15 +50,19 @@ uname = ""
 # Initialization and configuration setup
 console = Console()
 config = ConfigParser()
+#sets up command line arguments
+argument = parse_args()
 #updates config file if new plugins are found.
 pluginUpdater()
 # Grabs The Color Scheme From The Config File
-colorScheme = colorSchemeGrabber(config)
+colorScheme = colorSchemeGrabber(config, argument)
 # gets the defualt browser and system information
 browser = WebScraper.get_default_browser()
 saveBrowser(config, browser)
 # gets the version of Alfred
 version = versionToPass
+#headers for Alfred to use
+randomheaders = loadHeaders(config)
 # loads the language
 language_module = language_m
 # Initialize the encryption key and cipher suite
@@ -79,7 +83,6 @@ create_folders(
     ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "alfred","plugins"],
     language_module
 )
-argument = parse_args()
 # Prints the initial UI elements
 print(language_module.browser + browser)
 print(language_module.encrypt1)
@@ -304,6 +307,7 @@ if webscrape:
     print("===========================================================")
 print("")
 siteCount = 0
+results = []
 # opens the save file and writes working sites to it
 with open(file_path, "a") as f:
 
@@ -313,9 +317,10 @@ with open(file_path, "a") as f:
             siteN = site["site"]
             siteNSFW = site["nsfw"]
             siteErrors = site["errorMessage"]
-            i = 0
+            i = 0 
+            
             for item in uname_list:
-                Startscan(
+                scanr =  Startscan(
                     modes,
                     siteN,
                     uname_list[i],
@@ -328,10 +333,11 @@ with open(file_path, "a") as f:
                     webscrape,
                     siteErrors,
                     date,
-                    language_module
+                    language_module,
+                    randomheaders
                 )
                 i += 1
-
+                results.append(str(scanr))
 
 
 print(
@@ -345,7 +351,7 @@ print(
 print(f"{language_module.save1} ./captured/{uname}.txt")
 mkcsv = input("Make Output List Into CSV? [Y/n]: ")
 if mkcsv == "y":
-    csvmaker(f"captured/{uname}.txt", f"captured/{uname}.csv")
+    csvmaker(f"captured/{uname}.txt", f"captured/{uname}.csv", results)
 
 # Asks to be ran again if there are no arguments
 if any(vars(argument).values()):

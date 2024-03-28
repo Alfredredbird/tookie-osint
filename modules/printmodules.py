@@ -1,3 +1,4 @@
+import configparser
 import os
 import platform
 import time
@@ -108,6 +109,9 @@ def logo(colorScheme, uname, version, config):
             + "                               "
             + "                                "
         )
+        print("")
+        print("     " + "Local IP:" + "                                    ")
+        print("     "+ get_local_ip())
         print("")
     if uname != "":
         print(

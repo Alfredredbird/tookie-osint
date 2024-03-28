@@ -1,4 +1,5 @@
 import configparser
+import importlib
 import os
 import random
 import shutil
@@ -10,7 +11,10 @@ from colorama import *
 from lang.en import *
 from modules.lang import *
 from modules.webscrape import *
+from alfred.__main__ import parse_args
 
+
+argument = parse_args()
 #does stuff involving plugins
 class PluginManager:
     config = configparser.ConfigParser()
@@ -60,7 +64,8 @@ def pluginMangager():
 def configC(language_module):
     # checks if the nesasary files exist
     if os.path.exists("./config/config.ini"):
-        print(language_module.config1)
+        
+         print(language_module.config1)
     else:
         # If not found, alert the user and attempt to update
         print(language_module.error5)
@@ -71,7 +76,8 @@ def configC(language_module):
         
     # Check if update.py script exists
     if os.path.exists("./update.py"):
-        print(language_module.config2)
+        
+         print(language_module.config2)
     else:
         print(language_module.error5)
         exit(1)
@@ -82,8 +88,9 @@ def configC(language_module):
         return version
 
 # Get the color scheme from the config file
-def colorSchemeGrabber(config):
-    print("Grabbing Color Configuration")
+def colorSchemeGrabber(config, argument):
+    if argument.debug == True:
+     print("Grabbing Color Configuration")
     try:
         config.read("config/config.ini")
         color = config.get("Personalizations", "colorScheme").upper()
@@ -147,17 +154,18 @@ def configUpdateStuff(colorScheme, config, browser, language_module, argument):
     config.read("./config/config.ini")
     print_first_launch_messages(config, colorScheme, language_module)
     decide_random_events(config, colorScheme, language_module)
-    is_first_launch(config, browser, language_module)
+    
 
     # Handle arguments to prevent update prompts
     if any(vars(argument).values()):
         return
 
-    if config.get("main", "checkforupdates") == "yes":
+    if config.get("main", "checkforupdates") == "yes" and config.get("main", "firstlaunch") == "no":
         ask_update_check(config, colorScheme, language_module)
 
     random_enable_updates(config, language_module)
     display_random_tip(config, language_module)
+    is_first_launch(config, browser, language_module)
 
 # Display a random tip if enabled in config
 def display_random_tip(config, language_module):
@@ -358,7 +366,7 @@ def get_user_input_with_choices(option_key, valid_choices):
 # Your function for option A
 def handle_option_A(config):
     dirDump(str(config.get("main", "defaultdlpath")))
-    dirDump("/captured")
+    dirDump("captured")
     delete_pycache("./")
 
 # Your function for option B
