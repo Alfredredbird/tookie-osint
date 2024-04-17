@@ -108,7 +108,7 @@ The requirements will be automatically installed.
     </tr>
 </table>
 
-# 📖 Requirments
+# 📖 Requirements
 
 There Is A Lot Lol
 
