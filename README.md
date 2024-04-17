@@ -8,7 +8,7 @@
 
 [![Run on Repl.it](https://replit.com/badge/github/tookie-osintredbird/tookie-osint)](https://replit.com/new/github/tookie-osintredbird/tookie-osint)
 
-
+# Our repo is temporarily back for some time. it will be called "tookie-osint" untill this is fully settled.
 
 # 🔎 Overview (We Changed Our Logo)
 tookie-osint has a simple-to-use UI and is really straightforward. 
