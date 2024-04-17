@@ -9,11 +9,9 @@ import time
 from configparser import ConfigParser
 from pathlib import Path
 from socket import socket
-from time import sleep
-from timeit import default_timer
 
 from alive_progress import *
-from colorama import Back, Fore, Style
+from colorama import Fore
 from rich.console import Console
 
 from lang.en import *

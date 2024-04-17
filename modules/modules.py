@@ -560,7 +560,7 @@ def loadHeaders(config):
                 # Write the text content to the file
                 with open("proxys/headers.txt", 'w', encoding='utf-8') as file:
                     file.write(text_content)
-                print(f"Agent File Saved To {"proxys/headers.txt"}")
+                print(f"Agent File Saved To proxys/headers.txt")
                 time.sleep(3)
             else:
                 print(f"Failed to fetch content from https://raw.githubusercontent.com/alfredredbird/user-agentl-ist/main/header.txt. Status code: {response.status_code}")
