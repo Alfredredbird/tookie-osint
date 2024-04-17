@@ -18,19 +18,19 @@ Our tool was created by me and the community and is available for your use.
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
 Please note that tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
 
-![image](https://github.com/tookie-osintredbird/tookie-osint/assets/105014217/9777570f-281c-4db4-b7c2-f3c412839c47)
+![image](https://github.com/alfredredbird/tookie-osint/assets/105014217/9777570f-281c-4db4-b7c2-f3c412839c47)
 
 
 
 # 📦 Installation
 The requirements will be automatically installed.
 
-    git clone https://github.com/tookie-osintredbird/tookie-osint
+    git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint && sudo pip3 install -r requirements.txt
     python3 tookie-osint
 
 # 📦 Manual Install 
-    download the latest release from: https://github.com/tookie-osintredbird/tookie-osint/releases.
+    download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
     then extract the zip or tar.gz
     
     cd tookie-osint && sudo pip3 install -r requirements.txt
@@ -42,7 +42,7 @@ The requirements will be automatically installed.
     termux-setup-storage
     ln -s storage/downloads Downloads
     
-    git clone https://github.com/tookie-osintredbird/tookie-osint
+    git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint && pip3 install -r requirements.txt
 
     python3 tookie-osint
@@ -153,11 +153,11 @@ There Is A Lot Lol
 tookie-osint has a wide variety of options to use.
 Typing -h twice shows the help menu.
 
-![image](https://github.com/tookie-osintredbird/tookie-osint/assets/105014217/92001f0a-788b-4b80-aa36-ad62c9dcb43c)
+![image](https://github.com/alfredredbird/tookie-osint/assets/105014217/92001f0a-788b-4b80-aa36-ad62c9dcb43c)
 
 
 # ⁉️ Need Help?
-Check out https://github.com/tookie-osintredbird/tookie-osint/issues or the WiKi for help.
+Check out https://github.com/alfredredbird/tookie-osint/issues or the WiKi for help.
 Still Need Help? Contact Below :D
 
 # 🤔 Cant Find The WebSite Your Looking For?
@@ -168,15 +168,15 @@ Make a pull request or a bug report with the site and we will add it. :D
 <table>
     <tr>
         <th>Wiki</th>
-        <th>https://github.com/tookie-osintredbird/tookie-osint/wiki</th>
+        <th>https://github.com/alfredredbird/tookie-osint/wiki</th>
     </tr>
    <tr>
         <th>Releases</th>
-        <th>https://github.com/tookie-osintredbird/tookie-osint/releases</th>
+        <th>https://github.com/alfredredbird/tookie-osint/releases</th>
     </tr>
     <tr>
         <th>Contributors</th>
-        <th>https://github.com/tookie-osintredbird/tookie-osint/graphs/contributors</th>
+        <th>https://github.com/alfredredbird/tookie-osint/graphs/contributors</th>
     </tr>
 </table>
 
