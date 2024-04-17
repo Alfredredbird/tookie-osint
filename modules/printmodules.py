@@ -53,7 +53,7 @@ def logo(colorScheme, uname, version, config):
         + """
               By Jeffrey Montanari        """
         + """
-              Twiter: @tookie-osintredbird1        """
+              Twiter: @alfredredbird1        """
         + colorScheme
         + """               """
         + Fore.RESET
@@ -235,7 +235,7 @@ def wiki(language_module):
         selected_option = list(config.items("Links"))[option_index]
         print(f"{language_module.wikilist}{selected_option[1]}")
     except (ValueError, IndexError):
-        print(f"{language_module.idk3} https://github.com/tookie-osintredbird/tookie-osint/wiki/")
+        print(f"{language_module.idk3} https://github.com/alfredredbird1/tookie-osint/wiki/")
 
     returntotookie-osint(5, language_module)
     return True
