@@ -1,3 +1,5 @@
+![Tookie-osint-logo-480x480](https://github.com/Alfredredbird/tookie-osint/assets/105014217/4f5ff6ab-4a61-4046-89c9-2aa3c1b863d2)
+
 
 
 ![GitHub contributors](https://img.shields.io/github/contributors/alfredredbird/tookie-osint)
@@ -8,15 +10,15 @@
 
 [![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
 
-# Our repo is temporarily back for some time. it will be called "tookie-osint" untill this is fully settled.
+# Our repo is temporarily back for some time. it will be called "Tookie-osint" untill this is fully settled.
 
-# 🔎 Overview (We Changed Our Logo)
-tookie-osint has a simple-to-use UI and is really straightforward. 
-The main idea of tookie-osint is to discover usernames that are requested from an input.
-tookie-osint is similar to the tool called Sherlock. It discovers all the user accounts across different websites and tookie-osint is successful at this task almost 80% of the time.
+# 🔎 Overview (We Had To Rebrand)
+Tookie-osint has a simple-to-use UI and is really straightforward. 
+The main idea of Tookie-osint is to discover usernames that are requested from an input.
+Tookie-osint is similar to the tool called Sherlock. It discovers all the user accounts across different websites and Tookie-osint is successful at this task almost 80% of the time.
 Our tool was created by me and the community and is available for your use. 
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
-Please note that tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
+Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
 
 
 
@@ -148,7 +150,7 @@ There Is A Lot Lol
       
 
 # 🍿 Showcase
-tookie-osint has a wide variety of options to use.
+Tookie-osint has a wide variety of options to use.
 Typing -h twice shows the help menu.
 
 
@@ -191,7 +193,7 @@ There has been several articles written about our tool. Feal free to check them 
 
    <tr>
         <th>Speka Media</th>
-        <th>https://speka.media/rozrobniki-predstavili-tookie-osint-vidkritu-utilitu-dlya-osint-pygwkp</th>
+        <th>https://speka.media/rozrobniki-predstavili-alfred-vidkritu-utilitu-dlya-osint-pygwkp</th>
     </tr>
     <tr>
         <th>Sibnet</th>
@@ -199,16 +201,16 @@ There has been several articles written about our tool. Feal free to check them 
     </tr>
     <tr>
         <th>NetRunner</th>
-        <th>https://blog.netrunner.lol/tookie-osint-advanced-osint-info-gathering-tool-afc1a7afd8a3</th>
+        <th>https://blog.netrunner.lol/alfred-advanced-osint-info-gathering-tool-afc1a7afd8a3</th>
     </tr>
 
    <tr>
         <th>gebutcher</th>
-        <th>https://gebutcher.blogspot.com/2023/10/Osinttookie-osint.html?m=1</th>
+        <th>https://gebutcher.blogspot.com/2023/10/Osintalfred.html?m=1</th>
     </tr>
      <tr>
         <th>Iguru</th>
-        <th>https://iguru.gr/tookie-osint-ena-proigmeno-osint-programma/</th>
+        <th>https://iguru.gr/alfred-ena-proigmeno-osint-programma/</th>
     </tr>
     <tr>
         <th>Medevel</th>
@@ -224,15 +226,15 @@ There has been several articles written about our tool. Feal free to check them 
     </tr>
     <tr>
         <th>Xhref</th>
-        <th>  https://xhref.blogspot.com/2023/10/tookie-osint-utilitas-open-source-untuk-osint.html</th>
+        <th>  https://xhref.blogspot.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
     </tr>
      <tr>
         <th>JOEE txt</th>
-        <th>https://www.joeetxt.com/2023/10/tookie-osint-utilitas-open-source-untuk-osint.html</th>
+        <th>https://www.joeetxt.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
     </tr>
     <tr>
         <th>internet intelligence</th>
-        <th>https://internetintelligence.eu/tookie-osint-a-powerful-osint-tool-for-social-media-account-discovery/</th>
+        <th>https://internetintelligence.eu/alfred-a-powerful-osint-tool-for-social-media-account-discovery/</th>
     </tr>
   
   
@@ -247,8 +249,10 @@ There has been several articles written about our tool. Feal free to check them 
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 
+
 # 🤝 Partnership
 Want to partner with the tookie-osint project? Feel free to reach out.
+
 
 Partners:
 - [GHPM](https://github.com/smoke-wolf/GitHub-Package-Manager) ~ Smoke-Wolf
