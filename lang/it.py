@@ -3,9 +3,9 @@
 
 encrypt1 = "Chiave di cifratura in corso..."
 
-title1 = "Grazie mille ai nostri partner!"
+title1 = "Grazie mille ai nostri collaboratori!"
 
-disclamer = " Desclaimer: Non tutti i siti e/o i proxy sono garantiti per funzionare! n Utilizzandoti, tieni pienamente conto delle tue azioni"
+disclamer = " Desclaimer: Non tutti i siti e/o i proxy sono garantiti a funzionare! Durnate l'utilizzo, sei tu il responsabile delle tue azioni"
 
 targetusernames = "I nomi utente di destinazione: "
 
@@ -13,7 +13,7 @@ version = "Versione"
 
 config1 = "Il file di configurazione esiste "
 config2 = "Aggiorna file esistente "
-config3 = "La cartella esiste gia: "
+config3 = "La cartella esiste già: "
 config4 = "Controlla gli aggiornamenti? [Y/n]: ⤷ "
 config5 = "Modificare la configurazione? [Y/n]: ⤷ "
 config6 = "Cosa vuoi cambiare? ⤷ "
@@ -25,7 +25,7 @@ configOption2 = "[2] Mostra suggerimenti: "
 configOption3 = "[3] Percorso di download del sito: "
 configOption4 = "[4] Browser: "
 configOption5 = "[5] Lingua: "
-configOption6 = "[6] ColorScheme: "
+configOption6 = "[6] Schema di Colori: "
 configOptionA = (
     "[A] Ripulisci tookie-osint. (In questo modo vengono rimossi i file temporanei)"
 )
@@ -42,34 +42,34 @@ configOption4Message = """Tipi supportati:
 configOption5Message = """
             Inserisci il codice della tua lingua
             Lingua supportata:
-                it = italiano
+                it = Italiano
                 en = Inglese
                 il = Ebraico
                 es = Spagnolo
-                fr = francese 
-                ar = arabo
-                de = tedesco
+                fr = Francese 
+                ar = Arabo
+                de = Tedesco
                 ru = Russo
                 hi = Hindi
                          """
 configOptionAMessage = "Fatto!"
-configOptionBMessage = "Benvenuto nel menu sviluppatore!"
+configOptionBMessage = "Benvenuto nel menù sviluppatore!"
 
 configOption1Message2 = (
-    "Va bene! [verificareaggiornamenti] È impostato per No. Passando a Sì"
+    "Va bene! [verificare aggiornamenti] È impostato su No. Cambiando a Sì"
 )
-configOption2Message2 = "Ok! [suggerimenti] È impostato per No. Passando a Sì"
+configOption2Message2 = "Ok! [suggerimenti] È impostato su No. Cambiando a Sì"
 configOptionBMessage2 = (
     "NON dare le seguenti chiavi a nessuno se non a uno sviluppatore tookie-osint."
 )
-configOptionBMessage3 = "chiave privata: "
+configOptionBMessage3 = "Chiave Privata: "
 configOptionBMessage4 = "syscrypt: "
 
 target = "Obiettivo del: ⤷ "
 browser = "Browser: "
 
-file_not_found = "File not found: {filename}"
-permission_denied = "Permission denied for {operation} on {path}"
+file_not_found = "File non trovato: {filename}"
+permission_denied = "Permesso negato per {operation} in {path}"
 
 note = "Nota! "
 path = "PERCORSO: ⤷ "
@@ -113,7 +113,7 @@ save2 = "Risultati salvati su file"
 error1 = "Errore di autorizzazione"
 error2 = "Tipo Errore"
 error3 = "Non riesco a trovare il file di salvataggio!"
-error4 = "La directory non esiste."
+error4 = "La cartella non esiste."
 error5 = "Impossibile trovare i file necessari. Tentativo di reinstallare tookie-osint"
 error6 = "Uh oh errore! Sembra che la connessione non sembri funzionare. Controlla la tua connessione o il proxy, quindi riprova:"
 error7 = "Impossibile trovare il file del sito"
@@ -129,7 +129,7 @@ fileshare3 = "Ricettazione"
 wikiOption1 = "[1] Installazione"
 wikiOption2 = "[2] Opzioni"
 wikiOption3 = "[3] Errori"
-wikiOption4 = "[4] tookie-osint Oscuro"
+wikiOption4 = "[4] tookie-osint Scuro"
 wikiOption5 = "[5] Moduli"
 
 wikilist = "Puoi trovare informazioni su di esso qui: "
