@@ -240,14 +240,14 @@ There has been several articles written about our tool. Feal free to check them 
  
 </table>
 
-# 📘 contact
+# 📘 Contact
 
 - Twitter: https://twitter.com/alfredredbird1
 - Discord: alfredredbird2
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 
-# 🤝 partnership
+# 🤝 Partnership
 Want to partner with the tookie-osint project? Feel free to reach out.
 
 Partners:
