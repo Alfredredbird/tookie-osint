@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import subprocess
 import http.client
 import json
 import os
@@ -585,3 +586,4 @@ def get_local_ip():
     except Exception as e:
         print(f"Error: {e}")
         return None
+
