@@ -6,11 +6,11 @@ import requests
 # Global variables
 config_version_path = "./config/version.cfg"
 config_udfl_path = "./config/udfl"
-alfred_update_path = (
-    "https://raw.githubusercontent.com/Alfredredbird/alfred/main/config/version.cfg"
+tookie-osint_update_path = (
+    "https://raw.githubusercontent.com/tookie-osintredbird/tookie-osint/main/config/version.cfg"
 )
-alfred_install_path = "/alfred/"
-gitfile_location = "https://raw.githubusercontent.com/Alfredredbird/alfred/main/"
+tookie-osint_install_path = "/tookie-osint/"
+gitfile_location = "https://raw.githubusercontent.com/tookie-osintredbird/tookie-osint/main/"
 dl_count = 0
 
 
@@ -40,7 +40,7 @@ class Updater:
 
     def update(self):
         try:
-            remote_version = requests.get(alfred_update_path).text.strip()
+            remote_version = requests.get(tookie-osint_update_path).text.strip()
         except requests.ConnectionError:
             print("Failed to fetch updates. (-1)")
             return

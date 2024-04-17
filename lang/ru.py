@@ -26,7 +26,7 @@ configOption3 = "[3] Путь для загрузки сайтов: "
 configOption4 = "[4] Браузер: "
 configOption5 = "[5] Язык: "
 configOption6 = "[6] ColorScheme: "
-configOptionA = "[A] Очистить Alfred. (Удаляет временные файлы)"
+configOptionA = "[A] Очистить tookie-osint. (Удаляет временные файлы)"
 configOptionB = "[B] Инструменты разработчика."
 
 configOption1Message = "OK! [checkforupdates] установлен на Да. Меняю на Нет"
@@ -56,7 +56,7 @@ configOptionBMessage = "Добро пожаловать в меню разраб
 configOption1Message2 = "OK! [checkforupdates] установлен на Нет. Меняю на Да"
 configOption2Message2 = "OK! [showtips] установлен на Нет. Меняю на Да"
 configOptionBMessage2 = (
-    "НЕ сообщайте следующие ключи никому, кроме разработчика Alfred."
+    "НЕ сообщайте следующие ключи никому, кроме разработчика tookie-osint."
 )
 configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
@@ -71,8 +71,8 @@ note = "Примечание! "
 path = "ПУТЬ: ⤷ "
 warning1 = "Сайты могут не разрешать скачивать файлы своего сайта. Используйте на свой страх и риск."
 warning2 = " Использование веб-скрапинга довольно медленное."
-warning3 = " Это ваш первый запуск :D Возможно, вам потребуется перезапустить Alfred, чтобы использовать все модули"
-warning4 = " Вы используете предварительную версию Alfred!"
+warning3 = " Это ваш первый запуск :D Возможно, вам потребуется перезапустить tookie-osint, чтобы использовать все модули"
+warning4 = " Вы используете предварительную версию tookie-osint!"
 warning5 = "Пожалуйста, введите цель, прежде чем продолжить: "
 
 confirm1 = "Хотите загрузить изображения/видео? [Y/n] ⤷ "

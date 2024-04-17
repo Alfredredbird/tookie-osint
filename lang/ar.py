@@ -26,7 +26,7 @@ configOption3 = "[3] مسار تنزيل الموقع: "
 configOption4 = "[4] المستعرض: "
 configOption5 = "[5] اللغة: "
 configOption6 = "[6] ColorScheme: "
-configOptionA = "[A] تنظيف Alfred. (يزيل الملفات المؤقتة)"
+configOptionA = "[A] تنظيف tookie-osint. (يزيل الملفات المؤقتة)"
 configOptionB = "[B] أدوات المطور."
 
 configOption1Message = "حسنا! [checkforupdates] تم تعيينه على نعم. يتغير إلى لا"
@@ -55,7 +55,7 @@ configOptionBMessage = "مرحبا بك في قائمة المطور!"
 
 configOption1Message2 = "حسنا! [checkforupdates] تم تعيينه على لا. يتغير إلى نعم"
 configOption2Message2 = "حسنا! [showtips] تم تعيينه على لا. يتغير إلى نعم"
-configOptionBMessage2 = "لا تعطي المفاتيح التالية لأي شخص غير مطور Alfred."
+configOptionBMessage2 = "لا تعطي المفاتيح التالية لأي شخص غير مطور tookie-osint."
 configOptionBMessage3 = "privatekey: "
 configOptionBMessage4 = "syscrypt: "
 
@@ -72,9 +72,9 @@ warning1 = (
 )
 warning2 = "استخدام Webscraper بطيء جدًا."
 warning3 = (
-    "هذا هو إطلاقك الأول: D قد تحتاج إلى إعادة تشغيل Alfred لاستخدام جميع الوحدات"
+    "هذا هو إطلاقك الأول: D قد تحتاج إلى إعادة تشغيل tookie-osint لاستخدام جميع الوحدات"
 )
-warning4 = "أنت تستخدم إصدارًا مسبقًا من Alfred!"
+warning4 = "أنت تستخدم إصدارًا مسبقًا من tookie-osint!"
 warning5 = "الرجاء إدخال هدف قبل المتابعة:"
 
 confirm1 = "هل تريد تنزيل الصور / مقاطع الفيديو؟ [Y / n] ⤷ "
@@ -98,7 +98,7 @@ scan1 = "البحث عن مواقع تحتوي على: "
 status1 = "يعمل...."
 status2 = "إنشاء / الكتابة فوق ملف الحفظ."
 status3 = "إعادة التثبيت............"
-status4 = "العودة إلى Alfred قريبًا ..."
+status4 = "العودة إلى tookie-osint قريبًا ..."
 status5 = "اختبار....."
 status6 = "توقف ..... تم حفظها في captured / working.txt"
 status7 = "توقف........"
@@ -110,7 +110,7 @@ error1 = "خطأ في الإذن"
 error2 = "خطأ في النوع"
 error3 = "لا يمكن العثور على ملف الحفظ!"
 error4 = "الدليل غير موجود."
-error5 = "لا يمكن العثور على الملفات الضرورية. محاولة إعادة تثبيت Alfred"
+error5 = "لا يمكن العثور على الملفات الضرورية. محاولة إعادة تثبيت tookie-osint"
 error6 = (
     "أوه خطأ! يبدو أن الاتصال لا يعمل. تحقق من اتصالك أو الوكيل ، ثم حاول مرة أخرى:"
 )
@@ -127,7 +127,7 @@ fileshare3 = "استلام"
 wikiOption1 = "[1] التثبيت"
 wikiOption2 = "[2] خيارات"
 wikiOption3 = "[3] أخطاء"
-wikiOption4 = "[4] Alfred Dark"
+wikiOption4 = "[4] tookie-osint Dark"
 wikiOption5 = "[5] وحدات"
 
 wikilist = "يمكنك العثور على معلومات عنها هنا: "

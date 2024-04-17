@@ -51,7 +51,7 @@ cipher_suite = create_cipher(key)
 sys_info = (
     platform.system()
     + platform.release()
-    + "-AlfredVer-"
+    + "-tookie-osintVer-"
     + versionToPass
     + "-"
     + platform.python_version()

@@ -53,7 +53,7 @@ def logo(colorScheme, uname, version, config):
         + """
               By Jeffrey Montanari        """
         + """
-              Twiter: @alfredredbird1        """
+              Twiter: @tookie-osintredbird1        """
         + colorScheme
         + """               """
         + Fore.RESET
@@ -74,7 +74,7 @@ def logo(colorScheme, uname, version, config):
         print(
             "     "
             + "OS:"
-            + f"                                      Alfred {language_module.version}:"
+            + f"                                      tookie-osint {language_module.version}:"
         )
         print(
             "     "
@@ -158,7 +158,7 @@ Usage: [USERNAME]                               //\    //\
 ------------+--------+------------------------------------------
      [FILES]:        |
         -r  | --read | (Reads Last Search Results) 
-        -ls |   ls   | Prints The Files In ./alfred
+        -ls |   ls   | Prints The Files In ./tookie-osint
        -Cat |        | Reads The Inputed File
    --Config |        | Edits The Config. 
      --Wiki |        | Prints Wiki Pages 
@@ -175,7 +175,7 @@ Usage: [USERNAME]                               //\    //\
         -m  |        | Runs A Scan From The Big Site List
         -O  |        | Checks Accounts From A List
         -d  |        | (Allows Redirects "Might Not Be Accutate")
-        -w  |        | (Allows Alfred To Webscrape)
+        -w  |        | (Allows tookie-osint To Webscrape)
 ------------+--------+------------------------------------------
    [PROXIES]:        |                                          
         -c  |        | (Connects To A Proxy Server)             
@@ -194,10 +194,10 @@ Usage: [USERNAME]                               //\    //\
         -S  |        | Downloads A Webpage's HTML File
         -u  |        | Prints The Requested Username
 ------------+--------+------------------------------------------        
-     [MODES]:        | Modes are used when running python3 alfred
-            |        | Example: python3 alfred -w
+     [MODES]:        | Modes are used when running python3 tookie-osint
+            |        | Example: python3 tookie-osint -w
             |        |
-        -w  |        | Runs The Alfred WebUI 
+        -w  |        | Runs The tookie-osint WebUI 
 ------------+--------+------------------------------------------    
 
 """
@@ -222,7 +222,7 @@ def wiki(language_module):
             "link1": "Instalations",
             "link2": "Ussage/Options",
             "link3": "Errors",
-            "link4": "Dark-Alfred",
+            "link4": "Dark-tookie-osint",
             "link5": "Modules",
         }.get(option.lower(), "Unknown")
 
@@ -235,13 +235,13 @@ def wiki(language_module):
         selected_option = list(config.items("Links"))[option_index]
         print(f"{language_module.wikilist}{selected_option[1]}")
     except (ValueError, IndexError):
-        print(f"{language_module.idk3} https://github.com/Alfredredbird/alfred/wiki/")
+        print(f"{language_module.idk3} https://github.com/tookie-osintredbird/tookie-osint/wiki/")
 
-    returntoAlfred(5, language_module)
+    returntotookie-osint(5, language_module)
     return True
 
 
-def returntoAlfred(seconds, language_module):
+def returntotookie-osint(seconds, language_module):
     print(language_module.status4)
     time.sleep(seconds)
 

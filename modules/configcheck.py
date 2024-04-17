@@ -11,7 +11,7 @@ from colorama import *
 from lang.en import *
 from modules.lang import *
 from modules.webscrape import *
-from alfred.__main__ import parse_args
+from tookie-osint.__main__ import parse_args
 
 
 argument = parse_args()

@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-Alfred: Alfred is an advanced OSINT information gathering tool
+tookie-osint: tookie-osint is an advanced OSINT information gathering tool
 """
 
 import os
@@ -9,25 +9,25 @@ import sys
 import argparse
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Alfred OSINT Tool (Command-Line)")
+    parser = argparse.ArgumentParser(description="tookie-osint OSINT Tool (Command-Line)")
     
     parser.add_argument(
         "-w", "--webui",
         action="store_true",
-        help="Run Alfred with the webui"
+        help="Run tookie-osint with the webui"
     )
     return parser.parse_args()
 
 
 def main():
-    print("Alfred is starting...")
+    print("tookie-osint is starting...")
     args = parse_args()
     # Check if the user is using the correct version of Python
     python_version = sys.version.split()[0]
 
     if sys.version_info < (3, 10):
         print(
-            f"Alfred requires Python 3.10+\nYou are using Python {python_version}, which is not supported by Alfred"
+            f"tookie-osint requires Python 3.10+\nYou are using Python {python_version}, which is not supported by tookie-osint"
         )
         sys.exit(1)
 

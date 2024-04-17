@@ -36,7 +36,7 @@ webscrape = False
 fastMode = 0
 cError = 0
 count = 0
-# holder is just something Alfred can return when Alfred needs to return nothing.
+# holder is just something tookie-osint can return when tookie-osint needs to return nothing.
 holder = 0
 siteProgcounter = 0
 ec = 0
@@ -59,9 +59,9 @@ colorScheme = colorSchemeGrabber(config, argument)
 # gets the defualt browser and system information
 browser = WebScraper.get_default_browser()
 saveBrowser(config, browser)
-# gets the version of Alfred
+# gets the version of tookie-osint
 version = versionToPass
-#headers for Alfred to use
+#headers for tookie-osint to use
 randomheaders = loadHeaders(config)
 # loads the language
 language_module = language_m
@@ -69,7 +69,7 @@ language_module = language_m
 encryption_key = generate_encryption_key()
 cipher_suite = create_cipher(encryption_key)
 # gets the info to encrypt
-sys_info = f"{platform.system()}{platform.release()}-AlfredVer-{version}-{platform.python_version()}-{browser}{language_code}"
+sys_info = f"{platform.system()}{platform.release()}-tookie-osintVer-{version}-{platform.python_version()}-{browser}{language_code}"
 # encrypts the key
 encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
 # logs the key
@@ -80,7 +80,7 @@ siteList, siteErrors, siteNSFW = [], [], []
 
 # checks that the folders exist. if not it creates them
 create_folders(
-    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "alfred","plugins"],
+    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "tookie-osint","plugins"],
     language_module
 )
 # Prints the initial UI elements
@@ -99,7 +99,7 @@ else:
     # this removes the comma and puts the usernames into a list
     uname_list = [item.strip() for item in uname.split(",")]
 
-# This is where Alfred gathers the inputed options and then run them.
+# This is where tookie-osint gathers the inputed options and then run them.
 # Not all of the options execute on input.
 if argument:
     input1 = "0"
@@ -166,7 +166,7 @@ else:
                 "-f": [emptyModule, []],
                 "-m": [emptyModule, []],
                 "-N": [emptyModule, []],
-                "-Tor": [darkAlfred, [colorScheme, console, uname]],
+                "-Tor": [darktookie-osint, [colorScheme, console, uname]],
                 "--extensions": [print_and_run_plugins, []],
                 "-ex": [print_and_run_plugins, []],
                 
@@ -206,7 +206,7 @@ else:
                     print("Ok!")
                 else:
                     print(language_module.idk1)
-            # this is the function that starts Alfred.
+            # this is the function that starts tookie-osint.
             if "-s" in input1:
                 if uname == "":
                  uname = input("Please enter a target before continuing: ").lower()

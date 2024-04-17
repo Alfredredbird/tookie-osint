@@ -1,6 +1,6 @@
 import importlib.util
 from configparser import ConfigParser
-from alfred.__main__ import parse_args
+from tookie-osint.__main__ import parse_args
 from modules.modules import *
 
 argument = parse_args()
@@ -32,7 +32,7 @@ def get_language(config):
         print("The configuration file was not found.")
         raise
     except KeyError:
-        print("Language File Error. Please Restart Alfred To Fix This")
+        print("Language File Error. Please Restart tookie-osint To Fix This")
         raise
     return lang
 

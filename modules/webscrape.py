@@ -23,7 +23,7 @@ class WebScraper:
         print("Initializing WebScraper.")
         self.selected_webdriver = selected_webdriver
         if(selected_webdriver not in ["Chrome", "Firefox", "Edge"]):
-            print(f"Alfred doesn't recognize webdriver {selected_webdriver}!")
+            print(f"tookie-osint doesn't recognize webdriver {selected_webdriver}!")
             print("We're going to try to use Chrome.")
             selected_webdriver = "Chrome"
 

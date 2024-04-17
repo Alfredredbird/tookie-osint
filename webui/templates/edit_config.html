@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Config - Alfred OSINT Web-UI</title>
+    <title>Edit Config - tookie-osint OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/configstyles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Edit Alfred Configuration File</h1>
+        <h1>Edit tookie-osint Configuration File</h1>
         
         <form method="post" action="{{ url_for('edit_config') }}">
         {% for section, options in config.items() %}

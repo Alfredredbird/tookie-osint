@@ -72,7 +72,7 @@ def list_proxys(colorScheme):
 
 def read_save(colorScheme, slectpath):
     # Determine file path based on the select_path input
-    file_path = Path.home() / "Downloads" / "usernames.alfred" if slectpath == "" else slectpath
+    file_path = Path.home() / "Downloads" / "usernames.tookie-osint" if slectpath == "" else slectpath
     
     # Check if the file exists and read it
     if os.path.exists(file_path):
@@ -187,8 +187,8 @@ def timeoutC(modes, input1):
                 input1.replace("-t", "")
 
 
-def darkAlfred(colorScheme, console, uname):
-    # clears the terminal when Dark Alfred is ran
+def darktookie-osint(colorScheme, console, uname):
+    # clears the terminal when Dark tookie-osint is ran
     os.system("cls" if os.name == "nt" else "clear")
     test = False
     lol = 0
@@ -235,7 +235,7 @@ def darkAlfred(colorScheme, console, uname):
         """
 Caution! By Using This Might Expose
 You To Dangerous Websites Or Content.
-Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
+Read More On The Doc's https://github.com/tookie-osintredbird/tookie-osint/wiki
 """
     )
     print(
@@ -266,14 +266,14 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
                             if input2 == "n":
                                 test = False
                                 input1 = ""
-                                print("Ok! Returing To Alfred.")
+                                print("Ok! Returing To tookie-osint.")
                                 time.sleep(2)
                                 return test
 
                     if input2 == "n":
                         test = False
                         input1 = ""
-                        print("Ok! Returing To Alfred.")
+                        print("Ok! Returing To tookie-osint.")
                         time.sleep(2)
                         return test
 
@@ -295,7 +295,7 @@ Read More On The Doc's https://github.com/Alfredredbird/alfred/wiki
             exit(-9)
 
         dir_path = Path.home() / "Downloads"
-        file_name = "usernames.alfred"
+        file_name = "usernames.tookie-osint"
         file_path = os.path.join(dir_path, file_name)
         # check if the directory exists
         if os.path.exists(dir_path):
@@ -340,7 +340,7 @@ def printFiles():
 
 
 def dirList():
-    # gets the files in ./alfred
+    # gets the files in ./tookie-osint
     my_list = printFiles()
     columns = 3
     spaces = "      "
@@ -454,17 +454,17 @@ def get_random_string(length):
 
 def emptyModule():
     """
-    This Module is empty and does nothing. Its for when Alfred needs to return something
+    This Module is empty and does nothing. Its for when tookie-osint needs to return something
     """
     return True
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Alfred OSINT Tool (Command-Line)")
+    parser = argparse.ArgumentParser(description="tookie-osint OSINT Tool (Command-Line)")
     parser.add_argument(
         "-s", "--scan",
         action="store_true",
-        help="Run Alfred scan")
+        help="Run tookie-osint scan")
     parser.add_argument(
         "-u", "--username", 
         type=str,
@@ -473,12 +473,12 @@ def parse_args():
     parser.add_argument(
         "-f", "--fast",
         action="store_true",
-        help="Run Alfred with a fast scan"
+        help="Run tookie-osint with a fast scan"
     )
     parser.add_argument(
         "-w", "--webscrape",
         action="store_true",
-        help="Run Alfred with the webscraper"
+        help="Run tookie-osint with the webscraper"
     )
     parser.add_argument(
         "-o", "--otherfile", 
@@ -493,7 +493,7 @@ def parse_args():
     parser.add_argument(
         "-d", "--debug",
         action="store_true",
-        help="Runs Alfred In Debug Mode"
+        help="Runs tookie-osint In Debug Mode"
     )
     return parser.parse_args()
 
@@ -544,7 +544,7 @@ def loadHeaders(config):
         try:
          install = input("Looks Like You Dont Have A User Agent File! Want To Download One? (948kb) [y/n]: ")
          if install.lower() == "y":
-            response = requests.get("https://raw.githubusercontent.com/Alfredredbird/user-agentl-ist/main/header.txt")
+            response = requests.get("https://raw.githubusercontent.com/tookie-osintredbird/user-agentl-ist/main/header.txt")
     
             # Check if the request was successful (status code 200)
             if response.status_code == 200:
@@ -563,7 +563,7 @@ def loadHeaders(config):
                 print(f"Agent File Saved To {"proxys/headers.txt"}")
                 time.sleep(3)
             else:
-                print(f"Failed to fetch content from https://raw.githubusercontent.com/Alfredredbird/user-agentl-ist/main/header.txt. Status code: {response.status_code}")
+                print(f"Failed to fetch content from https://raw.githubusercontent.com/tookie-osintredbird/user-agentl-ist/main/header.txt. Status code: {response.status_code}")
 
          else:    
           print("Ok! Now Using User Agent In Config File.")
