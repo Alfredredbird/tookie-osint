@@ -1,6 +1,6 @@
+![Tookie-osint-logo-newtext-480x480](https://github.com/Alfredredbird/tookie-osint/assets/105014217/67bab5b4-f537-4f05-8a7b-c9fc3a16d256)
 
 
-![Tookie-osint-logo-newtext](https://github.com/Alfredredbird/tookie-osint/assets/105014217/a222ffb2-8c0c-46e3-8fc1-fb3d10ec0d69)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/alfredredbird/tookie-osint)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/tookie-osint)
