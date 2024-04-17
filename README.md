@@ -10,9 +10,9 @@
 
 [![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
 
-# Our repo is temporarily back for some time. it will be called "Tookie-osint" untill this is fully settled.
+# (We Had To Rebrand)
 
-# 🔎 Overview (We Had To Rebrand)
+# 🔎 Overview 
 Tookie-osint has a simple-to-use UI and is really straightforward. 
 The main idea of Tookie-osint is to discover usernames that are requested from an input.
 Tookie-osint is similar to the tool called Sherlock. It discovers all the user accounts across different websites and Tookie-osint is successful at this task almost 80% of the time.
