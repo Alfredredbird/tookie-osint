@@ -1,12 +1,12 @@
 
 
-![GitHub contributors](https://img.shields.io/github/contributors/tookie-osintredbird/tookie-osint)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/tookie-osintredbird/tookie-osint)
-![GitHub forks](https://img.shields.io/github/forks/tookie-osintredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
-![GitHub Repo stars](https://img.shields.io/github/stars/tookie-osintredbird/tookie-osint?color=%2332cd32)
+![GitHub contributors](https://img.shields.io/github/contributors/alfredredbird/tookie-osint)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/tookie-osint)
+![GitHub forks](https://img.shields.io/github/forks/alfredredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
+![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/tookie-osint?color=%2332cd32)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-[![Run on Repl.it](https://replit.com/badge/github/tookie-osintredbird/tookie-osint)](https://replit.com/new/github/tookie-osintredbird/tookie-osint)
+[![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
 
 # Our repo is temporarily back for some time. it will be called "tookie-osint" untill this is fully settled.
 
@@ -245,8 +245,8 @@ There has been several articles written about our tool. Feal free to check them 
 
 # 📘 contact
 
-- Twitter: https://twitter.com/tookie-osintredbird1
-- Discord: tookie-osintredbird2
+- Twitter: https://twitter.com/alfredredbird1
+- Discord: alfredredbird2
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 
