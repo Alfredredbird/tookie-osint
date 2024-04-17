@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tookie-osint OSINT Web-UI</title>
+    <title>Tookie OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <button onclick="editConfig()">Edit Config</button>
     <button onclick="redirectToInputDisplay()">Site List Maker</button>
@@ -24,9 +24,9 @@
     </script>
 </head>
 <body>
-    <button type="github" onclick="window.location.href='https://github.com/tookie-osintredbird/tookie-osint'">GitHub</button>
+    <button type="github" onclick="window.location.href='https://github.com/alfredredbird/tookie-osint'">GitHub</button>
     <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    <h1>tookie-osint OSINT Web-UI</h1>
+    <h1>Tookie OSINT Web-UI</h1>
     <form method="post" id="myForm" onsubmit="return runProgress(event)">
         <label for="text_input1">Target:</label>
         <input type="text" id="text_input1" name="text_input1">
@@ -133,7 +133,7 @@
     <script>
         async function fetchContributors() {
             try {
-                const response = await fetch("https://api.github.com/repos/tookie-osintredbird/tookie-osint/contributors");
+                const response = await fetch("https://api.github.com/repos/alfredredbird/tookie-osint/contributors");
                 const contributorsData = await response.json();
                 const contributorsList = document.getElementById("contributors-list");
 

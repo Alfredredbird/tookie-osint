@@ -1,19 +1,18 @@
 import importlib.util
 from configparser import ConfigParser
-from tookie-osint.__main__ import parse_args
+
 from modules.modules import *
 
-argument = parse_args()
+
 config = ConfigParser()
 CONFIG_INI_PATH = "./config/config.ini"
 LANG_PATH = "./lang/"
 
 
-def load_language(language_code,argument):
+def load_language(language_code):
     try:
         language_path = f"{LANG_PATH}{language_code}.py"
-        if argument.debug == True:
-         print(f"Attempting to load language file: {language_path}")
+        
         spec = importlib.util.spec_from_file_location(language_code, language_path)
         language_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(language_module)
@@ -38,4 +37,4 @@ def get_language(config):
 
 
 language_code = get_language(config)
-language_m = load_language(language_code, argument)
+language_m = load_language(language_code)

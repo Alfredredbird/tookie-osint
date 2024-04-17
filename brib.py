@@ -166,7 +166,7 @@ else:
                 "-f": [emptyModule, []],
                 "-m": [emptyModule, []],
                 "-N": [emptyModule, []],
-                "-Tor": [darktookie-osint, [colorScheme, console, uname]],
+                "-Tor": [darktookie, [colorScheme, console, uname]],
                 "--extensions": [print_and_run_plugins, []],
                 "-ex": [print_and_run_plugins, []],
                 

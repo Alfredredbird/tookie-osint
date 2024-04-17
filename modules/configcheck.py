@@ -11,10 +11,7 @@ from colorama import *
 from lang.en import *
 from modules.lang import *
 from modules.webscrape import *
-from tookie-osint.__main__ import parse_args
 
-
-argument = parse_args()
 #does stuff involving plugins
 class PluginManager:
     config = configparser.ConfigParser()

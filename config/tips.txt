@@ -1,10 +1,10 @@
 Brib.py Was A Spelling Error
 First Input The Username Then The options
-Make Sure To Update tookie-osint
+Make Sure To Update Tookie-osint
 The WiKi Is A Cool Place
-tookie-osint A Advanced OSINT Tool
-tookie-osint Is Made For Python 3.12
-Did You Know, tookie-osint Is A Parrot
+Tookie-osint A Advanced OSINT Tool
+Tookie-osint Is Made For Python 3.12
+Did You Know, Tookie Is A Parrot
 The Developer Is Lazy
 Parrots Are Cool
 You Can Edit The Config File
@@ -13,4 +13,4 @@ You Can Change Theses Tips If You Want
 Who's Joe?
 What If The World Is Flat?
 You Can Change The Color Scheme
-tookie-osint Now Comes With Plugins 
+Tookie-osint Now Comes With Plugins 

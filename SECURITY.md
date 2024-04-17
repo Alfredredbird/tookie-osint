@@ -26,5 +26,5 @@ have tried it out.
 ## Reporting a Vulnerability
 Kindly Make Sure You Download A Oficial Copy Of tookie-osint From Our Site Because We Cannot Check Other Repos For Malware.
 
-If You Have A Problem, Please Make A Issue At https://github.com/tookie-osintredbird/tookie-osint/issues Or Reach Out To Us With The Provided Contact Info.
+If You Have A Problem, Please Make A Issue At https://github.com/alfredredbird/tookie-osint/issues Or Reach Out To Us With The Provided Contact Info.
 Thanks For Your Time And Apriciation.

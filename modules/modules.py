@@ -187,7 +187,7 @@ def timeoutC(modes, input1):
                 input1.replace("-t", "")
 
 
-def darktookie-osint(colorScheme, console, uname):
+def darktookie(colorScheme, console, uname):
     # clears the terminal when Dark tookie-osint is ran
     os.system("cls" if os.name == "nt" else "clear")
     test = False
@@ -219,9 +219,9 @@ def darktookie-osint(colorScheme, console, uname):
                ,@╦     └└─    ╓@╠╩`
                 "╚╠╠▒▒φφφφ@▒╠╠╩╙
 
-░▒█▀▀▄░█▀▀▄░█▀▀▄░█░▄░░░█▀▀▄░█░░█▀▀░█▀▀▄░█▀▀░█▀▄
-░▒█░▒█░█▄▄█░█▄▄▀░█▀▄░░▒█▄▄█░█░░█▀░░█▄▄▀░█▀▀░█░█
-░▒█▄▄█░▀░░▀░▀░▀▀░▀░▀░░▒█░▒█░▀▀░▀░░░▀░▀▀░▀▀▀░▀▀░
+    ░█▀▄▒▄▀▄▒█▀▄░█▄▀░░░▀█▀░▄▀▄░▄▀▄░█▄▀░█▒██▀░░
+    ▒█▄▀░█▀█░█▀▄░█▒█▒░░▒█▒░▀▄▀░▀▄▀░█▒█░█░█▄▄▒░
+
  """
     )
     print("Searching The DarkWeb For Usernames With: " + uname + ".")
@@ -235,7 +235,7 @@ def darktookie-osint(colorScheme, console, uname):
         """
 Caution! By Using This Might Expose
 You To Dangerous Websites Or Content.
-Read More On The Doc's https://github.com/tookie-osintredbird/tookie-osint/wiki
+Read More On The Doc's https://github.com/alfredredbird/tookie-osint/wiki
 """
     )
     print(
@@ -544,7 +544,7 @@ def loadHeaders(config):
         try:
          install = input("Looks Like You Dont Have A User Agent File! Want To Download One? (948kb) [y/n]: ")
          if install.lower() == "y":
-            response = requests.get("https://raw.githubusercontent.com/tookie-osintredbird/user-agentl-ist/main/header.txt")
+            response = requests.get("https://raw.githubusercontent.com/alfredredbird/user-agentl-ist/main/header.txt")
     
             # Check if the request was successful (status code 200)
             if response.status_code == 200:
@@ -563,7 +563,7 @@ def loadHeaders(config):
                 print(f"Agent File Saved To {"proxys/headers.txt"}")
                 time.sleep(3)
             else:
-                print(f"Failed to fetch content from https://raw.githubusercontent.com/tookie-osintredbird/user-agentl-ist/main/header.txt. Status code: {response.status_code}")
+                print(f"Failed to fetch content from https://raw.githubusercontent.com/alfredredbird/user-agentl-ist/main/header.txt. Status code: {response.status_code}")
 
          else:    
           print("Ok! Now Using User Agent In Config File.")
