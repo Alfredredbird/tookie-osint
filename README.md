@@ -251,7 +251,7 @@ There has been several articles written about our tool. Feal free to check them 
 - Twitter: https://twitter.com/alfredredbird1
 - Discord: alfredredbird2
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
-- Discord Support Server: https://discord.gg/2WvtfwQjVc
+- Discord Support Server: https://discord.gg/2WvtfwQjVc (we do community CTFs)
 
 
 
