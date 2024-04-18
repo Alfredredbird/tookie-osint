@@ -7,6 +7,8 @@
 ![GitHub forks](https://img.shields.io/github/forks/alfredredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
 ![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/tookie-osint?color=%2332cd32)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Discord](https://img.shields.io/discord/1229923929959960616?logo=discord&color=%237289da&link=https%3A%2F%2Fdiscord.gg%2F2WvtfwQjVc)
+
 
 [![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
 
@@ -159,7 +161,7 @@ Typing -h twice shows the help menu.
 
 # ⁉️ Need Help?
 Check out https://github.com/alfredredbird/tookie-osint/issues or the WiKi for help.
-Still Need Help? Contact Below :D
+Still Need Help? Contact And Discord Server Below :D
 
 # 🤔 Cant Find The WebSite Your Looking For?
 Make a pull request or a bug report with the site and we will add it. :D
