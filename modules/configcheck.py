@@ -257,6 +257,7 @@ VALID_CHOICES = {
     "defaultdlpath": [],
     "language": ["en", "ar", "de", "es", "fr", "hi", "il", "it", "ru"],
     "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"],
+    "userandomuseragents": ["yes", "no"],
 }
 
 # Display config options
@@ -276,6 +277,7 @@ def display_options(config, section, language_module):
     )
     #proper translations will be added soon
     print(f"[7] Plugin Folder: {config.get('main','pluginfolder')}")
+    print(f"[8] Use Random User Agents: {config.get('main','userandomuseragents')}")
     print("=====================================================")
     print(f"{language_module.configOptionA} ")
     print(f"{language_module.configOptionB} ")
@@ -300,6 +302,7 @@ def config_editor(config: configparser.ConfigParser, language_module) -> bool:
         "5": ("main", "language"),
         "6": ("Personalizations", "colorscheme"),
         "7": ("main", "pluginfolder"),
+        "8": ("main", "userandomuseragents"),
         "A": ("main", "option_A"),
         "B": ("main", "option_B"),
         "a": ("main", "option_A"),
