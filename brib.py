@@ -164,7 +164,6 @@ else:
                 "--Wiki": [emptyModule, []],
                 "-a": [emptyModule, []],
                 "-f": [emptyModule, []],
-                "-m": [emptyModule, []],
                 "-N": [emptyModule, []],
                 "-Tor": [darktookie, [colorScheme, console, uname]],
                 "--extensions": [print_and_run_plugins, []],
@@ -257,9 +256,6 @@ else:
             # code to do a fast scan
             if "-f" in input1:
                 fastMode = 1
-            # code to run a LOOOOOOOOOONG scan
-            if "-m" in input1:
-                fastMode = 3
             # code to show NSFW sites
             if "-N" in input1:
                 modes += input1
@@ -296,9 +292,6 @@ if fastMode == 1:
 if fastMode == 2:
     # fastmode2 is the scan from custom site list
     scanFileList(siteList, slectpath, language_module)
-if fastMode == 3:
-    # fastmode2 is the scan from custom site list
-    scanFileList(siteList, "./sites/Megasites.json", language_module)
 # prints ui stuff
 print(Fore.GREEN + f"{language_module.scan1}" + uname + Fore.RESET)
 print("===========================================================")
