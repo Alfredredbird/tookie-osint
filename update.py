@@ -6,10 +6,10 @@ import requests
 # Global variables
 config_version_path = "./config/version.cfg"
 config_udfl_path = "./config/udfl"
-tookie-osint_update_path = (
+tookie_osint_update_path = (
     "https://raw.githubusercontent.com/alfredredbird/tookie-osint/main/config/version.cfg"
 )
-tookie-osint_install_path = "/tookie-osint/"
+tookie_osint_install_path = "/tookie-osint/"
 gitfile_location = "https://raw.githubusercontent.com/alfredredbird/tookie-osint/main/"
 dl_count = 0
 
@@ -40,7 +40,7 @@ class Updater:
 
     def update(self):
         try:
-            remote_version = requests.get(tookie-osint_update_path).text.strip()
+            remote_version = requests.get(tookie_osint_update_path).text.strip()
         except requests.ConnectionError:
             print("Failed to fetch updates. (-1)")
             return
