@@ -149,7 +149,8 @@ There Is A Lot Lol
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [ ] Acurate Results
+- [ ] More Acurate Results (in beta)
+- [ ] Auto Open Descovered URLs
       
 
 # 🍿 Showcase
