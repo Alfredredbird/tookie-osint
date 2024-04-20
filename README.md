@@ -136,6 +136,7 @@ There Is A Lot Lol
 - [x] German
 - [x] Hindi
 - [x] Russian
+- [x] Portuguese
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
