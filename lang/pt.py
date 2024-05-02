@@ -49,6 +49,7 @@ configOption5Message = """
                 de = Alemão (German)
                 ru = Russo (Russian/Русский)
                 hi = Hindi
+                pt = português (Portuguese)
                          """
 configOptionAMessage = "Feito!"
 configOptionBMessage = "Bem-vindo ao menu das ferramentas de programador!"

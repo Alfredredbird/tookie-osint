@@ -51,6 +51,7 @@ configOption5Message = """
                 de = Tedesco
                 ru = Russo
                 hi = Hindi
+                pt = portoghese
                          """
 configOptionAMessage = "Fatto!"
 configOptionBMessage = "Benvenuto nel menù sviluppatore!"

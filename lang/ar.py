@@ -49,6 +49,7 @@ configOption5Message = """
    de = German
    ru = الروسية
    hi = هندي
+   pt = البرتغالية
 """
 configOptionAMessage = "تمت!"
 configOptionBMessage = "مرحبا بك في قائمة المطور!"
