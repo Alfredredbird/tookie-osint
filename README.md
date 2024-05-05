@@ -248,6 +248,10 @@ There has been several articles written about our tool. Feal free to check them 
  
 </table>
 
+# 🎬 Tutorials
+
+- https://www.youtube.com/watch?v=crMN_SI7n40&t=2s
+
 # 📘 Contact
 
 - Twitter: https://twitter.com/alfredredbird1
