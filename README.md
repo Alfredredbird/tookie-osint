@@ -146,7 +146,7 @@ There Is A Lot Lol
 - [X] Webscraper
 - [X] Phone Number OSINT
 - [X] Custom Plugins
-- [ ] Detailed Reports
+- [ ] Detailed Reports (in beta)
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
