@@ -265,7 +265,7 @@ Want to partner with the tookie-osint project? Feel free to reach out.
 
 
 Partners:
-- [X-OSINT](https://github.com/TermuxHackz/X-osint)  
+- [X-OSINT](https://github.com/TermuxHackz/X-osint) ~ TermuxHackz
 - [GHPM](https://github.com/smoke-wolf/GitHub-Package-Manager) ~ Smoke-Wolf
 - [GXSUID](https://github.com/mrofcodyx/gxsuid) ~ mr_ofcodyx
 - EliteGreyIT
