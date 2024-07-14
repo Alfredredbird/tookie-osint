@@ -15,7 +15,7 @@ import subprocess
 from alive_progress import *
 from colorama import Fore
 from rich.console import Console
-
+# custom modules
 from lang.en import *
 from modules.plugin import *
 from modules.configcheck import *
@@ -26,6 +26,9 @@ from modules.printmodules import *
 from modules.scanmodules import *
 from modules.siteListGen import *
 from modules.webscrape import *
+from modules.report import *
+from modules.webhook import *
+from datetime import date
 
 # Variables
 domain_extensions = False
@@ -72,15 +75,20 @@ cipher_suite = create_cipher(encryption_key)
 sys_info = f"{platform.system()}{platform.release()}-tookie-osintVer-{version}-{platform.python_version()}-{browser}{language_code}"
 # encrypts the key
 encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
+# Loads the webhook from the config
+webhook_url = str(config.get('main','discordwebhookurl'))
+
+
+
 # logs the key
 save_encryption_info(config, encryption_key, encrypted_sys_info)
-date = datetime.date.today()
+date = date.today()
 # These stores the loaded site info
 siteList, siteErrors, siteNSFW = [], [], []
 
 # checks that the folders exist. if not it creates them
 create_folders(
-    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "tookie-osint","plugins"],
+    ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "tookie-osint","plugins","reports"],
     language_module
 )
 # Prints the initial UI elements
@@ -327,10 +335,13 @@ with open(file_path, "a") as f:
                     siteErrors,
                     date,
                     language_module,
-                    randomheaders
+                    randomheaders,
+                    webhook_url
                 )
                 i += 1
                 results.append(str(scanr))
+
+                
 
 
 print(
@@ -345,6 +356,14 @@ print(f"{language_module.save1} ./captured/{uname}.txt")
 mkcsv = input("Make Output List Into CSV? [Y/n]: ")
 if mkcsv == "y":
     csvmaker(f"captured/{uname}.txt", f"captured/{uname}.csv", results)
+
+print("================================")
+print(f"Starting Report With ./captured/{uname}.txt")
+# gets urls from file
+reportUrls = extract_urls(f"./captured/{uname}.txt")
+# Runs the report
+report(reportUrls,uname)
+
 
 # Asks to be ran again if there are no arguments
 if any(vars(argument).values()):

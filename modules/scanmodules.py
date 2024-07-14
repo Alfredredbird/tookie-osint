@@ -7,7 +7,7 @@ import random
 import requests
 from bs4 import BeautifulSoup as bs
 from colorama import *
-
+from modules.webhook import *
 from modules.webscrape import *
 from modules.configcheck import *
 config = ConfigParser()
@@ -42,7 +42,8 @@ def Startscan(
     siteErrors,
     date,
     language_module,
-    randomheaders
+    randomheaders,
+    webhook_url
 ):
     try:
         if config["main"]["userandomuseragents"] == "no":
@@ -102,6 +103,8 @@ def Startscan(
             if response.status_code >= 200 and "-N" not in modes and response.status_code <= 399:
                 print("[" + Fore.GREEN + "+" + Fore.RESET + "] " + siteN + uname)
                 f.write(str(date) + "[" + "+" + "] " + siteN + uname + "\n")
+                if webhook_url != "none":
+                 send_webhook_message(webhook_url, uname, f"{siteN}{uname}")
                 return str(date) + "[" + "+" + "] " + siteN + uname
             
             if response.status_code >= 400 and response.status_code <= 500 and "-a" in modes:

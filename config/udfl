@@ -29,6 +29,8 @@ modules/webscrape.py
 modules/crypt.py
 modules/lang.py
 modules/plugin.py
+modules/webhook.py
+modules/report.py
 lang/en.py
 lang/it.py
 lang/il.py
