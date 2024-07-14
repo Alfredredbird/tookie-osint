@@ -141,17 +141,17 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
-- [ ] Pip Package (in beta)
 - [X] WebUi (in beta)
 - [X] Webscraper
 - [X] Phone Number OSINT
 - [X] Custom Plugins
-- [ ] Detailed Reports
+- [ ] Detailed Reports (in beta)
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
 - [ ] More Acurate Results (in beta)
 - [ ] Auto Open Descovered URLs
+- [ ] Web Hooks
       
 
 # 🍿 Showcase
@@ -248,12 +248,15 @@ There has been several articles written about our tool. Feal free to check them 
  
 </table>
 
+# 🎬 Tutorials
+
+- https://www.youtube.com/watch?v=crMN_SI7n40&t=2s
+
 # 📘 Contact
 
 - Twitter: https://twitter.com/alfredredbird1
-- Discord: alfredredbird2
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
-- Discord Support Server: https://discord.gg/2WvtfwQjVc (we do community CTFs)
+
 
 
 
@@ -262,6 +265,7 @@ Want to partner with the tookie-osint project? Feel free to reach out.
 
 
 Partners:
+- [X-OSINT](https://github.com/TermuxHackz/X-osint) ~ TermuxHackz
 - [GHPM](https://github.com/smoke-wolf/GitHub-Package-Manager) ~ Smoke-Wolf
 - [GXSUID](https://github.com/mrofcodyx/gxsuid) ~ mr_ofcodyx
 - EliteGreyIT
