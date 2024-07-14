@@ -141,7 +141,6 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
-- [ ] Pip Package (in beta)
 - [X] WebUi (in beta)
 - [X] Webscraper
 - [X] Phone Number OSINT
@@ -152,6 +151,7 @@ There Is A Lot Lol
 - [ ] GUI
 - [ ] More Acurate Results (in beta)
 - [ ] Auto Open Descovered URLs
+- [ ] Web Hooks
       
 
 # 🍿 Showcase
