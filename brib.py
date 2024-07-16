@@ -357,12 +357,16 @@ mkcsv = input("Make Output List Into CSV? [Y/n]: ")
 if mkcsv == "y":
     csvmaker(f"captured/{uname}.txt", f"captured/{uname}.csv", results)
 
-print("================================")
-print(f"Starting Report With ./captured/{uname}.txt")
-# gets urls from file
-reportUrls = extract_urls(f"./captured/{uname}.txt")
-# Runs the report
-report(reportUrls,uname)
+
+doreport = input("Do You Want To Run A Report? [Y/n]: ")
+
+if "y" in doreport.lower():
+ print("================================")
+ print(f"Starting Report With ./captured/{uname}.txt")
+ # gets urls from file
+ reportUrls = extract_urls(f"./captured/{uname}.txt")
+ # Runs the report
+ report(reportUrls,uname)
 
 
 # Asks to be ran again if there are no arguments
