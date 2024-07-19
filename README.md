@@ -242,6 +242,11 @@ There has been several articles written about our tool. Feal free to check them 
         <th>internet intelligence</th>
         <th>https://internetintelligence.eu/alfred-a-powerful-osint-tool-for-social-media-account-discovery/</th>
     </tr>
+    <tr>
+        <th>Kali Linux Tutorials</th>
+        <th>https://kalilinuxtutorials.com/tookie-osint/</th>
+    </tr>
+    
   
   
 
