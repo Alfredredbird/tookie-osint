@@ -50,7 +50,9 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
 
+# 📦 Termux Install
 
+Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
 
    
 
@@ -152,7 +154,8 @@ There Is A Lot Lol
 - [ ] More Acurate Results (in beta)
 - [ ] Auto Open Descovered URLs
 - [ ] Web Hooks
-      
+- [x] Headless mode
+- [x] Automation      
 
 # 🍿 Showcase
 Tookie-osint has a wide variety of options to use.
