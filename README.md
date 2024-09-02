@@ -249,10 +249,13 @@ There has been several articles written about our tool. Feal free to check them 
         <th>Kali Linux Tutorials</th>
         <th>https://kalilinuxtutorials.com/tookie-osint/</th>
     </tr>
-    
+    <tr>
+        <th>Hacks.gr</th>
+        <th>https://en.hacks.gr/tookie-osint-ergaleio-sullogis-kai-analysis-dimosion-dedomenon/
+</th>
+    </tr>
   
   
-
  
 </table>
 
