@@ -50,7 +50,9 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
 
+# 📦 Termux Install
 
+Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
 
    
 
@@ -152,7 +154,8 @@ There Is A Lot Lol
 - [ ] More Acurate Results (in beta)
 - [ ] Auto Open Descovered URLs
 - [ ] Web Hooks
-      
+- [x] Headless mode
+- [x] Automation      
 
 # 🍿 Showcase
 Tookie-osint has a wide variety of options to use.
@@ -242,9 +245,17 @@ There has been several articles written about our tool. Feal free to check them 
         <th>internet intelligence</th>
         <th>https://internetintelligence.eu/alfred-a-powerful-osint-tool-for-social-media-account-discovery/</th>
     </tr>
+    <tr>
+        <th>Kali Linux Tutorials</th>
+        <th>https://kalilinuxtutorials.com/tookie-osint/</th>
+    </tr>
+    <tr>
+        <th>Hacks.gr</th>
+        <th>https://en.hacks.gr/tookie-osint-ergaleio-sullogis-kai-analysis-dimosion-dedomenon/
+</th>
+    </tr>
   
   
-
  
 </table>
 
