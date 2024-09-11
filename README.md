@@ -50,7 +50,7 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
 
-# 📦 Termux Install
+# 🖋 Scripting With Tookie
 
 Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
 
