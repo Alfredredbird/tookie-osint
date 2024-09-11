@@ -268,7 +268,10 @@ There has been several articles written about our tool. Feal free to check them 
 - Twitter: https://twitter.com/alfredredbird1
 - LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
+# 🛠 Other Tools
 
+Other tools in the fleet:
+- Bibi-Bird (beta): https://github.com/alfredredbird/Bibi-Bird
 
 
 # 🤝 Partnership
