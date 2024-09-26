@@ -252,8 +252,13 @@ There has been several articles written about our tool. Feal free to check them 
     <tr>
         <th>Hacks.gr</th>
         <th>https://en.hacks.gr/tookie-osint-ergaleio-sullogis-kai-analysis-dimosion-dedomenon/
-</th>
+    </th>
+        <tr>
+        <th>JJ Gallego</th>
+        <th>https://medium.com/cyberscribers-exploring-cybersecurity/osint-for-nicknames-tookie-osint-1364a3c87acf</th>
     </tr>
+    </tr>
+    
   
   
  
