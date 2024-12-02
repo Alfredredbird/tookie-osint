@@ -7,6 +7,7 @@ import time
 
 import requests
 from colorama import *
+import urllib
 
 from lang.en import *
 from modules.lang import *
@@ -118,7 +119,26 @@ def ask_update_check(config, colorScheme, language_module):
     try:
         cfu = input(language_module.config4)
         if cfu.lower() in ("y", "yes"):
-            exec(open("./update.py").read())
+            with open("config/version.cfg", "r") as f:
+                url = "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/refs/heads/main/config/version.cfg"
+
+                response = requests.get(url)
+                if response.status_code == 200:
+                    data = response.text.strip()  # Remove any extra whitespace or newline characters
+                    currentver = f.readline().strip()  # Read the first line and strip it too
+                    print("")
+                    print(f"Current version: {currentver}")
+                    print(f"Remote version: {data}")
+
+                    if currentver != data:
+                        print("Download new version at https://github.com/Alfredredbird/tookie-osint")
+                        print("")
+                    else:
+                        print("Latest version installed!")
+                        print("")
+                else:
+                    print(f"Failed to fetch new version data. Status code: {response.status_code}")
+                    print("")
         elif cfu.lower() in ("n", "no"):
             print(language_module.prompt5)
             print_separator()
