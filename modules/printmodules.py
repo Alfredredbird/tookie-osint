@@ -250,3 +250,6 @@ def returntotookie(seconds, language_module):
 
 def unameinfo(uname, language_module):
     print(language_module.rqUname + uname)
+
+def emailinfo(uname):
+    print(uname)

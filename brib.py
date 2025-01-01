@@ -4,6 +4,7 @@ import time
 import argparse
 import datetime
 import os
+import re
 import site
 import time
 from configparser import ConfigParser
@@ -111,7 +112,20 @@ else:
     uname = input(f"{language_module.target}")
     # this removes the comma and puts the usernames into a list
     uname_list = [item.strip() for item in uname.split(",")]
-
+    
+    email = re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', uname)
+    if email:
+        print("Email OSINT isnt supported just yet.")
+        # remove exit when ready to send to full production
+        email = True
+        # email_sites = get_site_names()
+        # print(email_sites)
+        # WebScraper.email_scrape()
+        print("Quitting.....")
+        exit()
+    else:
+        pass
+    
 # This is where tookie-osint gathers the inputed options and then run them.
 # Not all of the options execute on input.
 if argument:
@@ -132,8 +146,9 @@ if any(vars(argument).values()):
         webscrape = True
 else:
     while test != True:
-        input1 = input("⤷ ")
-        if input1 != "":
+        if email != True:
+         input1 = input("⤷ ")
+         if input1 != "":
             # the options follow a simple ruleset
             # first you need the input ex: "-ls" then you need the function it will run ex: dirList
             # lastly, you need the inputs or anything you want to pass into the function ex: [modes, input1]
@@ -272,11 +287,44 @@ else:
             # code to show NSFW sites
             if "-N" in input1:
                 modes += input1
-        # checks for empty input
-        # it will keep printing ⤷ until -s is entered and Y is entered
-        if "" in input1 and inputnum != "":
+         # checks for empty input
+         # it will keep printing ⤷ until -s is entered and Y is entered
+         if "" in input1 and inputnum != "":
             test = True
-        inputnum = ""
+         inputnum = ""
+         
+        else:
+         # email osint options
+         input3 = input("⤷ ")
+         if input3 != "": 
+             # will add actions later
+            action = {
+                 "-s": [emptyModule, []],
+                 "-u": [emailinfo, [uname]],
+             }
+            valid = [key for key in action.keys()]
+            option_matched = False
+            for option in valid:
+                if option in input3:
+                    args = action[option][1]
+                    action[option][0](*args)
+                    option_matched = True
+                    break  # Exit the loop if a matching option is found
+
+            if not option_matched:
+                print(f"Invalid option: '{input3}' Try --help for more information")
+            # this is the function that starts tookie-osint.
+            if "-s" in input3:
+              inputnum += "idk"
+              emailSiteName = get_site_names()
+              # this is temporary, i need to add it to the lines below
+              print(emailSiteName)
+              exit()
+
+                
+         if "" in input3 and inputnum != "":
+            test = True
+            inputnum = ""
 
 if argument.all:
     modes = "-a"

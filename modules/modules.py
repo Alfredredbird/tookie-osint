@@ -587,3 +587,16 @@ def get_local_ip():
         print(f"Error: {e}")
         return None
 
+def get_site_names(json_path="sites/emailsites.json"):
+    try:
+        with open(json_path, "r") as file:
+            data = json.load(file)
+        # Return the keys of the JSON object as a list
+        return list(data.keys())
+    except FileNotFoundError:
+        print(f"File not found: {json_path}")
+        return []
+    except json.JSONDecodeError:
+        print("Error decoding JSON.")
+        return []
+    

@@ -2,6 +2,7 @@ import logging
 import os
 import platform
 import subprocess
+import json
 from configparser import ConfigParser
 
 from selenium import webdriver
@@ -137,4 +138,38 @@ class WebScraper:
         except Exception as e:
             print(f"{language_module.error11}{e}")
             return None
+        
+    def load_json(file_path):
+     try:
+        with open(file_path, 'r') as file:
+            return json.load(file)
+     except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+        return None
+     except json.JSONDecodeError as e:
+        print(f"Error: Failed to parse JSON - {e}")
+        return None    
+   
+    
+    def email_scrape():
+        # path the json file
+        json_file_path = "sites/emailsites.json"
+        data = WebScraper.load_json(json_file_path)
+        site_name = "Monkeytype"
+        if site_name not in data:
+            print(f"Site '{site_name}' not found.")
+            return None
+
+        site_data = data[site_name][0]
+        login_url = site_data.get("login")
+        error_message = site_data.get("error")
+        fields = site_data.get("feilds", {})
+        login_field = fields.get("login")
+        password_field = fields.get("password")
+        
+        print(f"Login URL: {login_url}")
+        print(f"Error Message: {error_message}")
+        print(f"Login Field: {login_field}")
+        print(f"Password Field: {password_field}")
+        print("----------------------------------------------------------------")
 
