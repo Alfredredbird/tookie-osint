@@ -148,6 +148,7 @@ There Is A Lot Lol
 - [X] Phone Number OSINT
 - [X] Custom Plugins
 - [ ] Detailed Reports (in beta)
+- [ ] Email OSINT (in beta)
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
