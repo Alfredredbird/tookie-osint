@@ -296,7 +296,7 @@ Read More On The Doc's https://github.com/alfredredbird/tookie-osint/wiki
             exit(-9)
 
         dir_path = Path.home() / "Downloads"
-        file_name = "usernames.tookie-osint"
+        file_name = "usernames.txt"
         file_path = os.path.join(dir_path, file_name)
         # check if the directory exists
         if os.path.exists(dir_path):
