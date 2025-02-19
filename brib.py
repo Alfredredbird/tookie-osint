@@ -78,20 +78,18 @@ sys_info = f"{platform.system()}{platform.release()}-tookie-osintVer-{version}-{
 encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
 # Loads the webhook from the config
 webhook_url = str(config.get('main','discordwebhookurl'))
-
-def run_script():
+# runs the rpc client
+def run_rpc():
     exec(open('discordrpc.py').read())
 if str(config.get('Plugins',"discordrpc")) == "true":
     #RPC Thread
-    thread = threading.Thread(target=run_script)
+    thread = threading.Thread(target=run_rpc)
     thread.start()
-
 # logs the key
 save_encryption_info(config, encryption_key, encrypted_sys_info)
 date = date.today()
 # These stores the loaded site info
 siteList, siteErrors, siteNSFW = [], [], []
-
 # checks that the folders exist. if not it creates them
 create_folders(
     ["config", "captured", "downloadedSites", "modules", "proxys", "sites", "lang", "tookie-osint","plugins","reports"],
@@ -103,7 +101,6 @@ print(language_module.encrypt1)
 logo(colorScheme, "", version, config)
 print()
 configUpdateStuff(colorScheme, config, browser, language_module, argument)
-
 # Handle command line arguments
 if argument.username:
     # this is the variable that gets the username
