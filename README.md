@@ -139,7 +139,7 @@ There Is A Lot Lol
 - [x] Hindi
 - [x] Russian
 - [x] Portuguese
-
+- [X] Indonesian 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
