@@ -90,4 +90,4 @@ prompt5 = "Oke, saya akan bertanya nanti..."
 prompt6 = " Situs-situs ini tidak berfungsi:"
 
 download1 = "Mengunduh "
-updates = "Pemb
+updates = "Pemb "
