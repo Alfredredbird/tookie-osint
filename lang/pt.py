@@ -50,6 +50,7 @@ configOption5Message = """
                 ru = Russo (Russian/Русский)
                 hi = Hindi
                 pt = português (Portuguese)
+                id = Indonesia
                          """
 configOptionAMessage = "Feito!"
 configOptionBMessage = "Bem-vindo ao menu das ferramentas de programador!"
