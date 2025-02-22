@@ -50,6 +50,7 @@ configOption5Message = """
    ru = الروسية
    hi = هندي
    pt = البرتغالية
+   id = Indonesia
 """
 configOptionAMessage = "تمت!"
 configOptionBMessage = "مرحبا بك في قائمة المطور!"
