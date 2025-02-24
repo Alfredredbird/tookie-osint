@@ -183,12 +183,15 @@ Usage: [USERNAME]                               //\    //\
         -c  |        | (Connects To A Proxy Server)             
             |        |      Format [Type] [Ip] [Port]           
             |        |                                          
-        -lp |        | (Gives A List Of Posible Working Proxys) 
+        -lp |        | (Gives A List Of Installed Proxys) 
+            |        | (Proxies Must Be In The Format Of IP:Port)
+            |        | (Proxy Files Must Be Named Acordingly)
+            |        |
             |        | Types:                                  
             |        |                                          
-            |        |       http   ⥴ /http.txt                 
-            |        |       socks4 ⥴ /socks4.txt               
-            |        |       socks5 ⥴ /socks5.txt               
+            |        |       http   ⥴ proxys/http.txt                 
+            |        |       socks4 ⥴ proxys/socks4.txt               
+            |        |       socks5 ⥴ proxys/socks5.txt               
             |        |                                          
 ------------+--------+------------------------------------------
      [OTHER]:        |
