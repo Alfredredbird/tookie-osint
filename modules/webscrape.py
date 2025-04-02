@@ -133,7 +133,7 @@ class WebScraper:
                 # line 138 is for dev testing
                 # print(f"Error message '{target_error_message}' not found on the page. '{url}'")
                 return there
-        except selenium.exceptions.common.NoSuchDriverException:
+        except selenium.common.exceptions.NoSuchDriverException:
             print("Uh Oh! Looks Like Your Device Does Not Support Our WebScraper :(e)")    
         except Exception as e:
             print(f"{language_module.error11}{e}")
