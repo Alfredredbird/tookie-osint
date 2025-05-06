@@ -106,8 +106,7 @@ status2 = "Luodaan/yli kirjoitetaan tallennustiedostoa."
 status3 = "Asennetaan uudelleen..."
 status4 = "Palataan pian tookie-osintiin..."
 status5 = "Testataan..."
-status6 = "Pysäytetään... Tallennettu tiedostoon captured/working.txt!
-"
+status6 = "Pysäytetään... Tallennettu tiedostoon captured/working.txt!"
 status7 = "Pysäytetään..."
 
 save1 = "Tallennettiin tulokset"
