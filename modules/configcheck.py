@@ -275,7 +275,7 @@ VALID_CHOICES = {
     "showtips": ["yes", "no"],
     "browser": ["Firefox", "Edge", "Chrome"],
     "defaultdlpath": [],
-    "language": ["en", "ar", "de", "es", "fr", "hi", "il", "it", "ru", "pt", 'id'],
+    "language": ["en", "ar", "de", "es", "fr", "hi", "il", "it", "ru", "pt", 'id','fi],
     "colorscheme": ["RED", "GREEN", "BLUE", "WHITE", "YELLOW", "BLACK"],
     "userandomuseragents": ["yes", "no"],
 }
