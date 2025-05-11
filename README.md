@@ -141,6 +141,8 @@ There Is A Lot Lol
 - [x] Portuguese
 - [X] Indonesian
 - [X] Finish
+- [X] chinese traditional
+      
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
