@@ -35,20 +35,20 @@ configOption1Message = (
 configOption2Message = "Ok! [showtips] ist auf Ja eingestellt. Wird in Nein geändert."
 configOption3Message = "Neuer Pfad: ⤷ "
 configOption4Message = """Unterstützte Typen:
-                          Feuerfuchs
-                          Rand
-                          Chrom
+                          Firefox
+                          Edge
+                          Chrome
                           """
 configOption5Message = """
              Bitte geben Sie Ihren Sprachcode ein
-             Unterstützte Sprache:
+             Unterstützte Sprachen:
                  it = Italienisch
                  en = Englisch
                  il = Hebräisch
                  es = Spanisch
                  fr = Französisch
                  ar = Arabisch
-                 de = deutsch
+                 de = Deutsch
                  ru = Russisch
                  hi = Hindi
                  pt = Portugiesisch
@@ -71,11 +71,11 @@ target = "Ziel: ⤷ "
 browser = "Browser: "
 
 file_not_found = "Datei nicht gefunden: {filename}"
-permission_denied = "Berechtigung für {operation} auf {path} verweigert"
+permission_denied = "Berechtigung für {operation} in {path} verweigert"
 
 note = "Hinweis! "
 path = "PFAD: ⤷ "
-warning1 = "Viele Websites erlauben das Herunterladen ihrer Site-Dateien nicht. Nutzung auf eigene Gefahr."
+warning1 = "Viele Webseiten untersagen das Herunterladen ihrer Dateien. Nutzung auf eigene Gefahr."
 warning2 = "Die Verwendung des Webscrapers ist ziemlich langsam."
 warning3 = "Dies ist Ihr erster Start :D Möglicherweise müssen Sie tookie-osint neu starten, um alle Module nutzen zu können."
 warning4 = "Sie verwenden eine Vorabversion von tookie-osint!"

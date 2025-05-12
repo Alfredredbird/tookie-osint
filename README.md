@@ -50,7 +50,7 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
     
-# 📦 Other Linux Instalations
+# 📦 Other Linux Installations
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint
     python3 -m venv venv
