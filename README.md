@@ -50,7 +50,7 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
     
-# 📦 Other Linux Instalations
+# 📦 Other Linux Installations
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint
     python3 -m venv venv
@@ -164,8 +164,8 @@ There Is A Lot Lol
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [ ] More Acurate Results (in beta)
-- [ ] Auto Open Descovered URLs
+- [ ] More Accurate Results (in beta)
+- [ ] Auto Open Discovered URLs
 - [ ] Web Hooks
 - [x] Headless mode
 - [x] Automation      
