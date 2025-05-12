@@ -49,6 +49,15 @@ The requirements will be automatically installed.
     cd tookie-osint && pip3 install -r requirements.txt
 
     python3 tookie-osint
+    
+# 📦 Other Linux Instalations
+    git clone https://github.com/alfredredbird/tookie-osint
+    cd tookie-osint
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install -r requirements.txt
+    python3 tookie-osint
+
 
 # 🖋 Scripting With Tookie
 
