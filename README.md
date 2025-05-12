@@ -164,8 +164,8 @@ There Is A Lot Lol
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [ ] More Acurate Results (in beta)
-- [ ] Auto Open Descovered URLs
+- [ ] More Accurate Results (in beta)
+- [ ] Auto Open Discovered URLs
 - [ ] Web Hooks
 - [x] Headless mode
 - [x] Automation      
