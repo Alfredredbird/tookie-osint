@@ -284,7 +284,6 @@ There has been several articles written about our tool. Feal free to check them 
 # 📘 Contact
 
 - Twitter: https://twitter.com/alfredredbird1
-- LinkedIn: https://www.linkedin.com/in/jeffrey-montanari-7178a1290/
 
 # 🛠 Other Tools
 
