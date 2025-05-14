@@ -107,7 +107,7 @@ def save_config_changes(section, option_name, new_value):
 def process_data(text1,options=""):
     # Path to your brib.py script
     brib_script_path = "brib.py"
-    
+
     target = text1
     
     file_path = 'captured/.txt'
@@ -125,14 +125,14 @@ def process_data(text1,options=""):
         # Execute the script with subprocess.run
         if os.name == "nt":
             if options == "":
-                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], capture_output=True, text=True, check=True)
-            else:    
-              result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', str(options)], capture_output=True, text=True, check=True)
+                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
+            else:
+              result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', str(options)], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
         else:
             if options == "":
-                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], capture_output=True, text=True, check=True)
+                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
             else:    
-              result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',str(options)], capture_output=True, text=True, check=True)
+              result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',str(options)], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
          # Specify the file path
         
 
