@@ -125,14 +125,14 @@ def process_data(text1,options=""):
         # Execute the script with subprocess.run
         if os.name == "nt":
             if options == "":
-                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
+                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
             else:
-              result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', str(options)], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
+                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', str(options)], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
         else:
             if options == "":
-                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
+                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
             else:    
-              result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',str(options)], input="y\n\y\nn", capture_output=True, text=True, check=True, timeout=300)
+                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',str(options)], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
          # Specify the file path
         
 

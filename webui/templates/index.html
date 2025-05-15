@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tookie OSINT Web-UI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <button onclick="editConfig()">Edit Config</button>
-    <button onclick="redirectToInputDisplay()">Site List Maker</button>
+
     <script>
         // Function to toggle dark mode
         function toggleDarkMode() {
@@ -24,167 +23,210 @@
     </script>
 </head>
 <body>
-    <button type="github" onclick="window.location.href='https://github.com/alfredredbird/tookie-osint'">GitHub</button>
-    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <!-- Navbar-->
+    <div>
+        <button onclick="editConfig()">Edit Config</button>
+        <button onclick="redirectToInputDisplay()">Site List Maker</button>
+        <button onclick="window.location.href='https://github.com/alfredredbird/tookie-osint'">GitHub</button>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
     <h1>Tookie OSINT Web-UI</h1>
-    <form method="post" id="myForm" onsubmit="return runProgress(event)">
-        <label for="text_input1">Target:</label>
-        <input type="text" id="text_input1" name="text_input1">
-        <label for="text_input2">Options:</label>
-        <input type="text" id="text_input2" name="text_input2">
-        <button type="submit">Run</button>
-    </form>
 
-    <div id="progress-container" style="display:none;">
-        <p>Processing... Please Wait...</p>
-        <progress id="progress-bar" max="100"></progress>
+    <div class="main-container">
+        <!-- Left panel -->
+        <div class="left-panel">
+            <div class="panel">
+                <form method="post" id="myForm" onsubmit="return runProgress(event)">
+                    <label for="text_input1">Target:</label>
+                    <input class="text_input" type="text" id="text_input1" name="text_input1"><br><br>
+                    <label for="text_input2">Options:</label>
+                    <input class="text_input"  type="text" id="text_input2" name="text_input2"><br><br>
+                    <button type="submit">Run</button>
+                </form>
+            </div>
+
+            <div id="contributors-card" class="panel contributors-panel">
+                <h2>Many Thanks To Our Contributors:</h2>
+
+                <div id="contributors-loading" class="contributors-loading">
+                    <p>Loading contributors...</p>
+                    <progress></progress>
+                </div>
+                
+                <div id="contributors-list" class="contributors-container scrollable-list"></div>
+            </div>
+        </div>
+
+        <!-- Right panel -->
+        <div class="right-panel panel">
+
+            <h2>Results:</h2>
+
+            <div id="progress-container">
+                <p>Processing... Please Wait...</p>
+                <progress id="progress-bar" max="100"></progress>
+            </div>
+
+            <div id="result-container">
+                <ul id="result-list"></ul>
+                <p id="result-text"></p>
+            </div>
+        </div>
     </div>
-
-    <div id="result-container" style="display:none;">
-        <h2>Results:</h2>
-        <ul id="result-list"></ul>
-        <p id="result-text"></p>
-    </div>
-    <script>
-        async function runProgress(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-            const formData = new FormData(document.getElementById('myForm'));
-            document.getElementById("progress-container").style.display = "block";
-            document.getElementById("result-container").style.display = "none";
-            
-            try {
-                const response = await fetch("/", {
-                    method: 'POST',
-                    body: formData,
-                });
-                const resultData = await response.json(); // Assumes the server returns JSON
-            
-                if(response.ok) {
-                    console.log("Result: ", resultData);
-    
-                    // Clear previous results
-                    const resultList = document.getElementById("result-list");
-                    resultList.innerHTML = "";
-    
-                    // Create a table
-                    const table = document.createElement('table');
-                    table.border = '1';
-    
-                    // Split the result by newlines and create table rows
-                    const resultsArray = resultData.result.split('\n');
-                    resultsArray.forEach(result => {
-                        const tableRow = document.createElement('tr');
-    
-                        // Check if the line contains a date and link
-                        if (result.match(/^\d{4}-\d{2}-\d{2}\[.*\]\shttps:\/\/.*$/)) {
-                            // Extract date and link
-                            const [date, link] = result.split('[+] ');
-    
-                            // Create table cells for date, status, and link
-                            const dateCell = document.createElement('td');
-                            dateCell.textContent = date;
-    
-                            const statusCell = document.createElement('td');
-                            statusCell.textContent = '[+]';
-    
-                            const linkCell = document.createElement('td');
-                            linkCell.textContent = link;
-    
-                            // Append cells to the table row
-                            tableRow.appendChild(dateCell);
-                            tableRow.appendChild(statusCell);
-                            tableRow.appendChild(linkCell);
-                        } else {
-                            // For other lines, create a single cell
-                            const cell = document.createElement('td');
-                            cell.colSpan = 3; // Span across all columns
-                            cell.textContent = result;
-                            
-                            // Append the cell to the table row
-                            tableRow.appendChild(cell);
-                        }
-    
-                        // Append the table row to the table
-                        table.appendChild(tableRow);
-                    });
-    
-                    // Append the table to the result list container
-                    resultList.appendChild(table);
-    
-                    document.getElementById("result-container").style.display = "block";
-                } else {
-                    console.error("Error from server", resultData);
-                }
-            } catch (error) {
-                console.error("Failed to fetch", error);
-            }
-    
-            document.getElementById("progress-container").style.display = "none";
-        }
-    </script>
-    
-
-
-    <div id="contributors-card" style="display:none;">
-        <h2>Many Thanks To Our Contributors:</h2>
-        <div id="contributors-list" class="contributors-container"></div>
-    </div>
-
-    <script>
-        async function fetchContributors() {
-            try {
-                const response = await fetch("https://api.github.com/repos/alfredredbird/tookie-osint/contributors");
-                const contributorsData = await response.json();
-                const contributorsList = document.getElementById("contributors-list");
-
-                // Fetch detailed information for each contributor
-                for (const contributor of contributorsData) {
-                    const detailedResponse = await fetch(`https://api.github.com/users/${contributor.login}`);
-                    const detailedData = await detailedResponse.json();
-
-                    // Create a card for each contributor
-                    const card = document.createElement("div");
-                    card.className = "contributor-card";
-
-                    // Add contributor image
-                    const image = document.createElement("img");
-                    image.src = detailedData.avatar_url;
-                    image.alt = "Contributor Image";
-                    image.className = "contributor-image";
-
-                    // Add clickable contributor name
-                    const name = document.createElement("a");
-                    name.href = detailedData.html_url;  // Link to the contributor's GitHub profile
-                    name.textContent = detailedData.login;
-                    name.target = "_blank";  // Open the link in a new tab
-
-                    // Add contributor followers
-                    const followers = document.createElement("p");
-                    followers.textContent = `Followers: ${detailedData.followers}`;
-
-                    // Create a container for details
-                    const detailsContainer = document.createElement("div");
-                    detailsContainer.className = "contributor-details";
-
-                    // Append elements to the card
-                    detailsContainer.appendChild(name);
-                    detailsContainer.appendChild(followers);
-
-                    card.appendChild(image);
-                    card.appendChild(detailsContainer);
-
-                    // Append the card to the contributors list
-                    contributorsList.appendChild(card);
-                }
-
-                document.getElementById("contributors-card").style.display = "block";
-            } catch (error) {
-                console.error("Failed to fetch contributors", error);
-            }
-        }
-
-        // Call this function to fetch and display contributors
-        fetchContributors();
-    </script>
 </body>
+
+<script>
+    async function runProgress(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        const formData = new FormData(document.getElementById('myForm'));
+        document.getElementById("progress-container").style.display = "block";
+        
+        try {
+            const response = await fetch("/", {
+                method: 'POST',
+                body: formData,
+            });
+            const resultData = await response.json(); // Assumes the server returns JSON
+        
+            if(response.ok) {
+                console.log("Result: ", resultData);
+
+                // Clear previous results
+                const resultList = document.getElementById("result-list");
+                resultList.innerHTML = "";
+
+                // Create a table
+                const table = document.createElement('table');
+                table.border = '1';
+
+                // Split the result by newlines and create table rows
+                const resultsArray = resultData.result.split('\n');
+                resultsArray.forEach(result => {
+                    const tableRow = document.createElement('tr');
+
+                    // Check if the line contains a date and link
+                    if (result.match(/^\d{4}-\d{2}-\d{2}\[.*\]\shttps:\/\/.*$/)) {
+                        // Extract date and link
+                        const [date, link] = result.split('[+] ');
+
+                        // Create table cells for date, status, and link
+                        const dateCell = document.createElement('td');
+                        dateCell.textContent = date;
+
+                        const statusCell = document.createElement('td');
+                        statusCell.textContent = '[+]';
+
+                        const linkCell = document.createElement('td');
+                        linkCell.textContent = link;
+
+                        // Append cells to the table row
+                        tableRow.appendChild(dateCell);
+                        tableRow.appendChild(statusCell);
+                        tableRow.appendChild(linkCell);
+                    } else {
+                        // For other lines, create a single cell
+                        const cell = document.createElement('td');
+                        cell.colSpan = 3; // Span across all columns
+                        cell.textContent = result;
+                        
+                        // Append the cell to the table row
+                        tableRow.appendChild(cell);
+                    }
+
+                    // Append the table row to the table
+                    table.appendChild(tableRow);
+                });
+
+                // Append the table to the result list container
+                resultList.appendChild(table);
+
+                document.getElementById("result-container").style.display = "block";
+            } else {
+                console.error("Error from server", resultData);
+            }
+        } catch (error) {
+            console.error("Failed to fetch", error);
+        }
+
+        document.getElementById("progress-container").style.display = "none";
+    }
+</script>
+
+<script>
+    async function fetchContributors() {
+        const loader = document.getElementById("contributors-loading");
+        const contributorsList = document.getElementById("contributors-list");
+        const contributorsCard = document.getElementById("contributors-card");
+
+        try {
+            loader.style.display = "flex";
+            contributorsList.style.display = "none";
+            contributorsCard.style.display = "block";
+
+
+            contributorsList.innerHTML = "";
+
+            const response = await fetch("https://api.github.com/repos/alfredredbird/tookie-osint/contributors");
+            const contributorsData = await response.json();
+
+
+
+
+            // Fetch detailed information for each contributor
+            for (const contributor of contributorsData) {
+                const detailedResponse = await fetch(`https://api.github.com/users/${contributor.login}`);
+                const detailedData = await detailedResponse.json();
+
+                // Create a card for each contributor
+                const card = document.createElement("div");
+                card.className = "contributor-card";
+
+                // Add contributor image
+                const image = document.createElement("img");
+                image.src = detailedData.avatar_url;
+                image.alt = "Contributor Image";
+                image.className = "contributor-image";
+
+                // Add clickable contributor name
+                const name = document.createElement("a");
+                name.href = detailedData.html_url;  // Link to the contributor's GitHub profile
+                name.textContent = detailedData.login;
+                name.target = "_blank";  // Open the link in a new tab
+
+                // Add contributor followers
+                const followers = document.createElement("p");
+                followers.textContent = `Followers: ${detailedData.followers}`;
+
+                // Create a container for details
+                const detailsContainer = document.createElement("div");
+                detailsContainer.className = "contributor-details";
+
+                // Append elements to the card
+                detailsContainer.appendChild(name);
+                detailsContainer.appendChild(followers);
+
+                card.appendChild(image);
+                card.appendChild(detailsContainer);
+
+                // Append the card to the contributors list
+                contributorsList.appendChild(card);
+            }
+
+            loader.style.display = "none";
+            contributorsList.style.display = "flex";
+        } catch (error) {
+            console.error("Failed to fetch contributors", error);
+            loader.innerHTML = "<p>Error loading contributors...</p>";
+        }
+    }
+
+    // Call this function to fetch and display contributors
+    window.onload = () => {
+        fetchContributors();
+    };
+
+</script>
+
 </html>

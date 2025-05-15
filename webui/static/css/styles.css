@@ -2,40 +2,99 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 20px;
-    color: #000000; /* Set the default text color to black */
+    color: #000000;
 }
 
 body.dark-mode {
-    background-color: #333;
+    background-color: #121212;
     color: #fff;
 }
 
-h1, h1.dark-mode {
-    color: #333;
-}
-
-body.dark-mode h1 {
-    color: #f0f0f0; /* Adjust the color for dark mode */
-}
-
-form {
+.panel {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-body.dark-mode form {
-    background-color: #f3f3e7; /* Adjust the color for dark mode */
+body.dark-mode .panel {
+    background-color: #444444;
+}
+
+.main-container {
+    display: flex;
+    gap: 40px;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 20px;
+}
+
+.right-panel {
+    width: 60%;
+    min-height: 600px;
+    max-height: 600px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contributors-panel {
+    height: 300px; 
+    overflow: hidden;
+}
+
+.scrollable-list {
+    overflow-y: auto;
+    max-height: 240px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+h1 h2 p {
+    color: #121212;
+}
+
+body.dark-mode h1 h2 p {
+    color: #f0f0f0;
+}
+
+form {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
+    color: #121212;
 }
 
 body.dark-mode label {
-    color: #333; /* Adjust the color for dark mode */
+    color: #f0f0f0; 
+}
+
+.text_input {
+    background-color: #f0f0f0;
+    border-width: 0;
+    border-radius: 5px;
+}
+
+body.dark-mode .text_input {
+    background-color: #888888;
+}
+
+body.dark-mode label {
+    color: #333;
 }
 
 input[type="text"] {
@@ -45,16 +104,18 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button, button.dark-mode {
+button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
 }
 
-button:hover, button:hover.dark-mode {
+button:hover {
     background-color: #45a049;
 }
 
@@ -66,62 +127,76 @@ table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-    background-color: #ffffff; /* Set your desired table background color */
-    border-radius: 10px; /* Set the border-radius for rounded edges */
-    overflow: hidden; /* Clip the rounded corners */
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th, td {
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
-    color: inherit; /* Inherit the color from the parent element */
+    color: inherit;
 }
-
 
 body.dark-mode th,
 body.dark-mode td {
-    color: #333; /* Set the text color to black in dark mode */
+    color: #333;
 }
 
 
-
-.contributors-container {
-    display: flex;
-    flex-wrap: wrap;  /* Allow cards to wrap to the next line */
-    justify-content: space-between;  /* Add space between cards */
+#progress-container,
+#result-container {
+    display: none;
 }
 
-.contributor-card {
-    width: calc(10.3333% - 10px);  /* Set width for three cards per row with margin */
-    margin-bottom: 10px;  /* Add margin between rows */
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9; /* Set background color for the card */
+/* Contributor styling */
+.contributors-container .contributor-card {
+    width: 100px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+body.dark-mode .contributor-card {
+    background: #888888;
 }
 
 .contributor-image {
-    width: 100%;  /* Make the image fill the width of the card */
-    height: auto;  /* Maintain aspect ratio */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
 }
 
 .contributor-details {
     padding: 5px;
 }
 
-/* Style the links */
+.contributor-details p {
+    margin: 0;
+    font-size: 0.75em;
+}
+
 .contributor-details a {
-    color: #007bff;  /* Set link color to blue */
-    text-decoration: none;  /* Remove underlines from links */
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.75em;
 }
 
 .contributor-details a:hover {
-    text-decoration: underline;  /* Underline links on hover */
+    text-decoration: underline;
 }
 
-.contributor-details p {
-    color: #333;  /* Set text color for paragraphs */
+.contributors-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: #555;
 }
