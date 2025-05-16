@@ -1,3 +1,25 @@
+:root {
+    --color-bg-light: #f5f5f5;
+    --color-bg-dark: #121212;
+    --color-bg2-light: #f0f0f0;
+    --color-bg2-dark: #444444;
+
+    --color-text-light: #000000;
+    --color-text-dark: #ffffff;
+
+    --color-primary: #4caf50;
+    --color-primary-hover: #45a049;
+
+    --color-primary-dark: #760e9c;
+    --color-primary-dark-hover: #44045c;
+
+    --color-card-bg-light: #f9f9f9;
+    --color-card-bg-dark: #888888;
+
+    --color-link: #007bff;
+    --color-border: #dddddd;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -6,12 +28,12 @@ body {
 }
 
 body.dark-mode {
-    background-color: #121212;
+    background-color: var(--color-bg-dark);
     color: #fff;
 }
 
 .panel {
-    background-color: #fff;
+    background-color: var(--color-text-dark);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -19,7 +41,7 @@ body.dark-mode {
 }
 
 body.dark-mode .panel {
-    background-color: #444444;
+    background-color: var(--color-bg2-dark);
 }
 
 .main-container {
@@ -38,20 +60,23 @@ body.dark-mode .panel {
     width: 60%;
     min-height: 600px;
     max-height: 600px;
+    margin: 0 auto; 
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding: 0;
+    /*align-items: stretch;*/
 }
 
 .contributors-panel {
-    height: 300px; 
+    height: 350px; 
     overflow: hidden;
 }
 
 .scrollable-list {
     overflow-y: auto;
-    max-height: 240px;
+    max-height: 300px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -59,11 +84,11 @@ body.dark-mode .panel {
 }
 
 h1 h2 p {
-    color: #121212;
+    color: var(--color-bg-dark);
 }
 
 body.dark-mode h1 h2 p {
-    color: #f0f0f0;
+    color: var(--color-bg2-light)
 }
 
 form {
@@ -76,25 +101,21 @@ form {
 label {
     display: block;
     margin-bottom: 8px;
-    color: #121212;
+    color: var(--color-bg2-dark);
 }
 
 body.dark-mode label {
-    color: #f0f0f0; 
+    color: var(--color-bg2-light); 
 }
 
 .text_input {
-    background-color: #f0f0f0;
+    background-color: var(--color-card-bg-light);
     border-width: 0;
     border-radius: 5px;
 }
 
 body.dark-mode .text_input {
-    background-color: #888888;
-}
-
-body.dark-mode label {
-    color: #333;
+    background-color: var(--color-card-bg-dark);
 }
 
 input[type="text"] {
@@ -105,8 +126,8 @@ input[type="text"] {
 }
 
 button {
-    background-color: #4caf50;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -116,20 +137,26 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--color-primary-hover);
 }
 
-button.dark-mode:hover {
-    background-color: #bf3434;
+body.dark-mode button {
+    background-color: var(--color-primary-dark);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--color-primary-dark-hover);
 }
 
 table {
     width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 10px;
+    /*table-layout: auto;  */  
+    background-color: var(--color-card-bg-light);
+    border-radius: 25px;
     overflow: hidden;
+    border-collapse: collapse; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th, td {
@@ -137,6 +164,7 @@ th, td {
     padding: 8px;
     text-align: left;
     color: inherit;
+    
 }
 
 body.dark-mode th,
@@ -150,10 +178,14 @@ body.dark-mode td {
     display: none;
 }
 
+#result-list {
+    width: 100%;
+}
+
 /* Contributor styling */
 .contributors-container .contributor-card {
     width: 100px;
-    background: #f9f9f9;
+    background: var(--color-card-bg-light);
     border-radius: 6px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -162,7 +194,7 @@ body.dark-mode td {
 }
 
 body.dark-mode .contributor-card {
-    background: #888888;
+    background: var(--color-card-bg-dark);
 }
 
 .contributor-image {
@@ -181,7 +213,7 @@ body.dark-mode .contributor-card {
 }
 
 .contributor-details a {
-    color: #007bff;
+    color: var(--color-link); 
     text-decoration: none;
     font-size: 0.75em;
 }
@@ -198,5 +230,5 @@ body.dark-mode .contributor-card {
     height: 100%;
     padding: 20px;
     text-align: center;
-    color: #555;
+    color: var(--color-text-light);
 }

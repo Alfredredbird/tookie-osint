@@ -62,8 +62,6 @@
         <!-- Right panel -->
         <div class="right-panel panel">
 
-            <h2>Results:</h2>
-
             <div id="progress-container">
                 <p>Processing... Please Wait...</p>
                 <progress id="progress-bar" max="100"></progress>
@@ -99,7 +97,7 @@
 
                 // Create a table
                 const table = document.createElement('table');
-                table.border = '1';
+                table.border = '0';
 
                 // Split the result by newlines and create table rows
                 const resultsArray = resultData.result.split('\n');
@@ -107,7 +105,7 @@
                     const tableRow = document.createElement('tr');
 
                     // Check if the line contains a date and link
-                    if (result.match(/^\d{4}-\d{2}-\d{2}\[.*\]\shttps:\/\/.*$/)) {
+                    if (result.match(/^\d{4}-\d{2}-\d{2}\[.*\]\shttps?:\/\/.*$/)) {
                         // Extract date and link
                         const [date, link] = result.split('[+] ');
 
@@ -119,7 +117,25 @@
                         statusCell.textContent = '[+]';
 
                         const linkCell = document.createElement('td');
-                        linkCell.textContent = link;
+
+                        // Create a span to show the link text
+                        const linkText = document.createElement('span');
+                        linkText.textContent = link + " ";
+
+                        // Create the "Open" button
+                        const openButton = document.createElement('button');
+                        openButton.textContent = "Open";
+                        openButton.onclick = () => {
+                            window.open(link, '_blank');
+                        };
+                        openButton.style.marginLeft = "10px"; 
+                        openButton.style.height = "23px";
+                        openButton.style.padding = "2px"; 
+
+                        // Append text and button to the cell
+                        linkCell.appendChild(linkText);
+                        linkCell.appendChild(openButton);
+
 
                         // Append cells to the table row
                         tableRow.appendChild(dateCell);
