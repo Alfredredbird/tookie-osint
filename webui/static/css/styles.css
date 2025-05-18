@@ -1,41 +1,121 @@
+:root {
+    --color-bg-light: #f5f5f5;
+    --color-bg-dark: #121212;
+    --color-bg2-light: #f0f0f0;
+    --color-bg2-dark: #444444;
+
+    --color-text-light: #000000;
+    --color-text-dark: #ffffff;
+
+    --color-primary: #4caf50;
+    --color-primary-hover: #45a049;
+
+    --color-primary-dark: #760e9c;
+    --color-primary-dark-hover: #44045c;
+
+    --color-card-bg-light: #f9f9f9;
+    --color-card-bg-dark: #888888;
+
+    --color-link: #007bff;
+    --color-border: #dddddd;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     margin: 20px;
-    color: #000000; /* Set the default text color to black */
+    color: #000000;
 }
 
 body.dark-mode {
-    background-color: #333;
+    background-color: var(--color-bg-dark);
     color: #fff;
 }
 
-h1, h1.dark-mode {
-    color: #333;
-}
-
-body.dark-mode h1 {
-    color: #f0f0f0; /* Adjust the color for dark mode */
-}
-
-form {
-    background-color: #fff;
+.panel {
+    background-color: var(--color-text-dark);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-body.dark-mode form {
-    background-color: #f3f3e7; /* Adjust the color for dark mode */
+body.dark-mode .panel {
+    background-color: var(--color-bg2-dark);
+}
+
+.main-container {
+    display: flex;
+    gap: 40px;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 20px;
+}
+
+.right-panel {
+    width: 60%;
+    min-height: 600px;
+    max-height: 600px;
+    margin: 0 auto; 
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    /*align-items: stretch;*/
+}
+
+.contributors-panel {
+    height: 350px; 
+    overflow: hidden;
+}
+
+.scrollable-list {
+    overflow-y: auto;
+    max-height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-right: 5px;
+}
+
+h1 h2 p {
+    color: var(--color-bg-dark);
+}
+
+body.dark-mode h1 h2 p {
+    color: var(--color-bg2-light)
+}
+
+form {
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
+    color: var(--color-bg2-dark);
 }
 
 body.dark-mode label {
-    color: #333; /* Adjust the color for dark mode */
+    color: var(--color-bg2-light); 
+}
+
+.text_input {
+    background-color: var(--color-card-bg-light);
+    border-width: 0;
+    border-radius: 5px;
+}
+
+body.dark-mode .text_input {
+    background-color: var(--color-card-bg-dark);
 }
 
 input[type="text"] {
@@ -45,83 +125,110 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button, button.dark-mode {
-    background-color: #4caf50;
-    color: #fff;
+button {
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
 }
 
-button:hover, button:hover.dark-mode {
-    background-color: #45a049;
+button:hover {
+    background-color: var(--color-primary-hover);
 }
 
-button.dark-mode:hover {
-    background-color: #bf3434;
+body.dark-mode button {
+    background-color: var(--color-primary-dark);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--color-primary-dark-hover);
 }
 
 table {
     width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    background-color: #ffffff; /* Set your desired table background color */
-    border-radius: 10px; /* Set the border-radius for rounded edges */
-    overflow: hidden; /* Clip the rounded corners */
+    /*table-layout: auto;  */  
+    background-color: var(--color-card-bg-light);
+    border-radius: 25px;
+    overflow: hidden;
+    border-collapse: collapse; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th, td {
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
-    color: inherit; /* Inherit the color from the parent element */
+    color: inherit;
+    
 }
-
 
 body.dark-mode th,
 body.dark-mode td {
-    color: #333; /* Set the text color to black in dark mode */
+    color: #333;
 }
 
 
-
-.contributors-container {
-    display: flex;
-    flex-wrap: wrap;  /* Allow cards to wrap to the next line */
-    justify-content: space-between;  /* Add space between cards */
+#progress-container,
+#result-container {
+    display: none;
 }
 
-.contributor-card {
-    width: calc(10.3333% - 10px);  /* Set width for three cards per row with margin */
-    margin-bottom: 10px;  /* Add margin between rows */
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9; /* Set background color for the card */
+#result-list {
+    width: 100%;
+}
+
+/* Contributor styling */
+.contributors-container .contributor-card {
+    width: 100px;
+    background: var(--color-card-bg-light);
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+body.dark-mode .contributor-card {
+    background: var(--color-card-bg-dark);
 }
 
 .contributor-image {
-    width: 100%;  /* Make the image fill the width of the card */
-    height: auto;  /* Maintain aspect ratio */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
 }
 
 .contributor-details {
     padding: 5px;
 }
 
-/* Style the links */
+.contributor-details p {
+    margin: 0;
+    font-size: 0.75em;
+}
+
 .contributor-details a {
-    color: #007bff;  /* Set link color to blue */
-    text-decoration: none;  /* Remove underlines from links */
+    color: var(--color-link); 
+    text-decoration: none;
+    font-size: 0.75em;
 }
 
 .contributor-details a:hover {
-    text-decoration: underline;  /* Underline links on hover */
+    text-decoration: underline;
 }
 
-.contributor-details p {
-    color: #333;  /* Set text color for paragraphs */
+.contributors-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: var(--color-text-light);
 }
