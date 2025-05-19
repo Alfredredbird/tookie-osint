@@ -149,7 +149,7 @@ There Is A Lot Lol
 - [x] Russian
 - [x] Portuguese
 - [X] Indonesian
-- [X] Finish
+- [X] Finnish
 - [X] chinese traditional
       
 # 📕 Upcoming Features
