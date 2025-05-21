@@ -200,6 +200,8 @@ def is_first_launch(config, browser, language_module):
 def saveBrowser(config, browser=None):
     if browser == "MSEdgeHTM":
         config.set("main", "browser", "Edge")
+    elif browser == "firefox_firefox.desktop":
+        config.set("main", "browser", "Firefox")
     else:
         config.set("main", "browser", browser)    
     config.set("main", "firstlaunch", "no")
