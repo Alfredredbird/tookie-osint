@@ -204,6 +204,9 @@ def saveBrowser(config, browser=None):
         config.set("main", "browser", "Firefox")
     else:
         config.set("main", "browser", browser)    
+    save_config(config)
+
+def setfirstlaunch(config):
     config.set("main", "firstlaunch", "no")
     save_config(config)
 

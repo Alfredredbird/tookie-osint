@@ -100,7 +100,10 @@ print(language_module.browser + browser)
 print(language_module.encrypt1)
 logo(colorScheme, "", version, config)
 print()
+# stuff relating to updating the config
 configUpdateStuff(colorScheme, config, browser, language_module, argument)
+# sets the first launch to false
+setfirstlaunch(config)
 # Handle command line arguments
 if argument.username:
     # this is the variable that gets the username
