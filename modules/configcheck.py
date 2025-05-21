@@ -393,6 +393,20 @@ def handle_option_A(config):
     dirDump(str(config.get("main", "defaultdlpath")))
     dirDump("captured")
     delete_pycache("./")
+    try:
+     req = requests.get("https://raw.githubusercontent.com/Alfredredbird/tookie-osint/refs/heads/main/config/config.ini")
+    except Exception:
+     print("Couldnt fetch default config.")
+    try:
+     with open("./config/config.ini", "w") as f:
+         if req.status_code == 200:
+          f.writelines(req.text)
+          f.close()
+          print("Reset config.ini")
+         else:
+          f.close()
+    except Exception:
+     print("Error resetting config.ini")
 
 # Your function for option B
 def handle_option_B(config):
