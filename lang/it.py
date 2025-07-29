@@ -40,19 +40,22 @@ configOption4Message = """Tipi supportati:
                          Chrome
                          """
 configOption5Message = """
-            Inserisci il codice della tua lingua
-            Lingua supportata:
+            Inserisci il tuo codice lingua.
+            Lingue supportate:
                 it = Italiano
                 en = Inglese
                 il = Ebraico
                 es = Spagnolo
-                fr = Francese 
+                fr = Francese
                 ar = Arabo
                 de = Tedesco
                 ru = Russo
                 hi = Hindi
-                pt = portoghese
-                id = Indonesia
+                pt = Portoghese
+                id = Indonesiano
+                ja = Giapponese
+                zh_cn = Cinese semplificato
+                fa = Farsi
                          """
 configOptionAMessage = "Fatto!"
 configOptionBMessage = "Benvenuto nel menù sviluppatore!"

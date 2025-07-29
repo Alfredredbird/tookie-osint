@@ -14,13 +14,13 @@
 
 # (We Had To Rebrand)
 
-# 🔎 Overview 
-Tookie-osint has a simple-to-use UI and is really straightforward. 
+# 🔎 Overview
+Tookie-osint has a simple-to-use UI and is really straightforward.
 The main idea of Tookie-osint is to discover usernames that are requested from an input.
 Tookie-osint is similar to the tool called Sherlock. It discovers all the user accounts across different websites and Tookie-osint is successful at this task almost 80% of the time.
-Our tool was created by me and the community and is available for your use. 
+Our tool was created by me and the community and is available for your use.
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
-Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D 
+Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D
 
 ![image](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
 
@@ -32,24 +32,24 @@ The requirements will be automatically installed.
     cd tookie-osint && sudo pip3 install -r requirements.txt
     python3 tookie-osint
 
-# 📦 Manual Install 
+# 📦 Manual Install
     download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
     then extract the zip or tar.gz
-    
+
     cd tookie-osint && sudo pip3 install -r requirements.txt
     python3 tookie-osint
 
 
 # 📦 Termux Install
-    
+
     termux-setup-storage
     ln -s storage/downloads Downloads
-    
+
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint && pip3 install -r requirements.txt
 
     python3 tookie-osint
-    
+
 # 📦 Other Linux Installations
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint
@@ -63,7 +63,7 @@ The requirements will be automatically installed.
 
 Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
 
-   
+
 
 # 💻 Tested OS
 
@@ -126,8 +126,8 @@ Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-T
 
 There Is A Lot Lol
 
-- colorama 
-- requests 
+- colorama
+- requests
 - richconsole
 - alive_progress
 - torrequest
@@ -135,14 +135,14 @@ There Is A Lot Lol
 - bs4
 - selenium
 - cryptography
-  
+
 # 🗣️Supported Languages
 (we need translators 😭)
 - [x] English
 - [x] Italian
-- [x] Hebrew 
+- [x] Hebrew
 - [x] Spanish
-- [x] French 
+- [x] French
 - [x] Arabic
 - [x] German
 - [x] Hindi
@@ -150,8 +150,11 @@ There Is A Lot Lol
 - [x] Portuguese
 - [X] Indonesian
 - [X] Finnish
-- [X] chinese traditional
-      
+- [X] Chinese traditional
+- [x] Chinese Simplified
+- [x] Japanese
+- [x] Farsi
+
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
@@ -168,7 +171,7 @@ There Is A Lot Lol
 - [ ] Auto Open Discovered URLs
 - [ ] Web Hooks
 - [x] Headless mode
-- [x] Automation      
+- [x] Automation
 
 # 🍿 Showcase
 Tookie-osint has a wide variety of options to use.
@@ -271,10 +274,10 @@ There has been several articles written about our tool. Feal free to check them 
         <th>https://medium.com/cyberscribers-exploring-cybersecurity/osint-for-nicknames-tookie-osint-1364a3c87acf</th>
     </tr>
     </tr>
-    
-  
-  
- 
+
+
+
+
 </table>
 
 # 🎬 Tutorials

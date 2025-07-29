@@ -38,21 +38,24 @@ configOption4Message = """Tipos compatibles:
                          Chrome
                          """
 configOption5Message = """
-            indique su código de idioma
-            Idioma compatible:
-                it = italiano
-                en = inglés
-                il = hebreo 
-                es = español
-                fr = francés 
-                ar = árabe
-                de = alemán
+            Por favor, ingrese su código de idioma.
+            Idiomas soportados:
+                it = Italiano
+                en = Inglés
+                il = Hebreo
+                es = Español
+                fr = Francés
+                ar = Árabe
+                de = Alemán
                 ru = Ruso
                 hi = Hindi
                 pt = Portugués
-                id = Indonesia
+                id = Indonesio
+                ja = Japonés
+                zh_cn = Chino simplificado
+                fa = Farsí
                          """
-configOptionAMessage = "Hecho!"
+configOptionAMessage = "¡Hecho!"
 configOptionBMessage = "¡Bienvenido al menú de desarrolladores!"
 
 configOption1Message2 = "¡Ok! [checkforupdates] está configurado en No. Cambiando a Sí"

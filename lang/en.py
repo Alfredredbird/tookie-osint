@@ -51,6 +51,9 @@ configOption5Message = """
                 hi = Hindi
                 pt = Portuguese
                 id = Indonesia
+                ja = Japanese
+                zh_cn = Simplified Chinese
+                fa = Farsi
                          """
 configOptionAMessage = "Done!"
 configOptionBMessage = "Welcome to the developer menu!"

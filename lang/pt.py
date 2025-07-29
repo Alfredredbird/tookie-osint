@@ -38,19 +38,22 @@ configOption4Message = """Navegadores compatíveis:
                          Chrome
                          """
 configOption5Message = """
-            Introduz a linguagem que queres utilizar
-            Linguagens:
-                it = Italiano (Italian)
-                en = Inglês (English)
-                il = Hebraico (Hebrew)
-                es = Espanhol (Spanish)
-                fr = Francês (French)
-                ar = Árabe (Arabic)
-                de = Alemão (German)
-                ru = Russo (Russian/Русский)
-                hi = Hindi
-                pt = português (Portuguese)
-                id = Indonesia
+            Por favor, insira o seu código de idioma.
+            Idiomas suportados:
+                it = Italiano
+                en = Inglês
+                il = Hebraico
+                es = Espanhol
+                fr = Francês
+                ar = Árabe
+                de = Alemão
+                ru = Russo
+                hi = Híndi
+                pt = Português
+                id = Indonésio
+                ja = Japonês
+                zh_cn = Chinês Simplificado
+                fa = Farsi
                          """
 configOptionAMessage = "Feito!"
 configOptionBMessage = "Bem-vindo ao menu das ferramentas de programador!"

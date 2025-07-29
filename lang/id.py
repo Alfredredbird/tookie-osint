@@ -51,6 +51,9 @@ configOption5Message = """
                 hi = Hindi
                 pt = Portugis
                 id = Indonesia
+                ja = Jepang
+                zh_cn = Cina Sederhana
+                fa = Farsi
                          """
 configOptionAMessage = "Selesai!"
 configOptionBMessage = "Selamat datang di menu pengembang!"
