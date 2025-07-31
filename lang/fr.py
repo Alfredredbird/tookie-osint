@@ -39,8 +39,8 @@ configOption4Message = """
                          Chrome
                          """
 configOption5Message = """
-            Veuillez saisir votre code de langue
-            Langues prises en charge :
+            Veuillez entrer votre code de langue.
+            Langues prises en charge:
                 it = Italien
                 en = Anglais
                 il = Hébreu
@@ -51,7 +51,10 @@ configOption5Message = """
                 ru = Russe
                 hi = Hindi
                 pt = Portugais
-                id = Indonesia
+                id = Indonésien
+                ja = Japonais
+                zh_cn = Chinois simplifié
+                fa = Farsi
                          """
 configOptionAMessage = "Fait!"
 configOptionBMessage = "Bienvenue dans le menu développeur!"

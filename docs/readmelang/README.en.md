@@ -12,21 +12,6 @@
 
 [![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
 
-
-## 🌐 Language
-
-> Select your language / 言語を選択してください / 选择你的语言 / Sélectionnez votre langue / Seleccione su idioma / Wählen Sie Ihre Sprache / Выберите язык / اختر لغتك / زبان خود را انتخاب کنید / Selecione seu idioma / Scegli la tua lingua / 선택 언어 / Pilih bahasa Anda / בחר את השפה שלך / अपनी भाषा चुनें / Valitse kieli / 選擇您的語言
-
-| [English](README.en.md) | [日本語](README.ja.md) | [简体中文](README.zh-cn.md) | [繁體中文](README.zh-tw.md) | [Français](README.fr.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [Русский](README.ru.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [فارسی](README.fa.md) | [العربية](README.ar.md) | [हिन्दी](README.hi.md) | [Suomi](README.fi.md) | [עברית](README.he.md) |
-| [Bahasa Indonesia](README.id.md) |
-
-<!--
-デバッグ用: 言語切り替えテーブルが正しく表示されているか確認してください。
-If you find any issues with the language links, please open an issue or PR.
--->
-
-
-
 # (We Had To Rebrand)
 
 # 🔎 Overview
@@ -289,7 +274,6 @@ There has been several articles written about our tool. Feal free to check them 
         <th>https://medium.com/cyberscribers-exploring-cybersecurity/osint-for-nicknames-tookie-osint-1364a3c87acf</th>
     </tr>
     </tr>
-
 
 
 

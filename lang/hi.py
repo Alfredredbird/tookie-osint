@@ -37,20 +37,25 @@ configOption4Message = """समर्थित प्रकार:
                        Edge
                        Chrome
                        """
-configOption5Message = """कृपया अपनी भाषा कोड दर्ज करें
-समर्थित भाषा:
-    it = इतालवी
-    en = अंग्रेज़ी
-    il = हिब्रू
-    es = स्पेनिश
-    fr = फ़्रेंच
-    ar = अरबी
-    de = जर्मन
-    ru = रूसी
-    hi = हिंदी
-    pt = पुर्तगाली
-                       """
-configOptionAMessage = "पूरा हुआ!"
+configOption5Message = """
+            कृपया अपनी भाषा कोड दर्ज करें।
+            समर्थित भाषाएँ:
+                it = इतालवी
+                en = अंग्रेज़ी
+                il = यहूदी
+                es = स्पेनिश
+                fr = फ्रेंच
+                ar = अरबी
+                de = जर्मन
+                ru = रूसी
+                hi = हिंदी
+                pt = पुर्तगाली
+                id = इंडोनेशियाई
+                ja = जापानी
+                zh_cn = सरलीकृत चीनी
+                fa = फारसी
+                         """
+configOptionAMessage = "हो गया!"
 configOptionBMessage = "डेवलपर मेनू में आपका स्वागत है!"
 
 configOption1Message2 = "ठीक है! [checkforupdates] नो के लिए सेट है। यस में बदल रहा है"

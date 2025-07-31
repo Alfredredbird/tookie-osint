@@ -38,22 +38,24 @@ configOption4Message = """支援的種類:
                          Chrome
                          """
 configOption5Message = """
-            請輸入你的語言代碼.
-            支援的語言:
-                it = 義大利語
+            請輸入您的語言代碼。
+            支持的語言：
+                it = 意大利語
                 en = 英語
-                il = 希伯來文
+                il = 希伯來語
                 es = 西班牙語
                 fr = 法語
                 ar = 阿拉伯語
-                de = 德文
-                ru = 俄羅斯語
+                de = 德語
+                ru = 俄語
                 hi = 印地語
                 pt = 葡萄牙語
-                id = 印尼文
-                tw = 繁體中文
+                id = 印度尼西亞語
+                ja = 日語
+                zh_cn = 簡體中文
+                fa = 波斯語
                          """
-configOptionAMessage = "完成!"
+configOptionAMessage = "完成！"
 configOptionBMessage = "歡迎來到開發者頁面!"
 
 configOption1Message2 = "好的, [檢查更新] 設為停用，更改為啟用中"

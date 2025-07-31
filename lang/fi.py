@@ -38,22 +38,24 @@ configOption4Message = """Tuetut selain tyypit:
                          Chrome
                          """
 configOption5Message = """
-            Please enter your language code.
-            Supported languages:
-                it = Italian
-                en = English
-                il = Hebrew
-                es = Spanish
-                fi = Finnish
-                fr = French
-                ar = Arabic
-                de = German
-                ru = Russian
-                hi = Hindi
-                pt = Portuguese
-                id = Indonesia
+            Anna kielikoodisi.
+            Tuetut kielet:
+                it = italia
+                en = englanti
+                il = heprea
+                es = espanja
+                fr = ranska
+                ar = arabia
+                de = saksa
+                ru = venäjä
+                hi = hindi
+                pt = portugali
+                id = indonesia
+                ja = japani
+                zh_cn = yksinkertaistettu kiina
+                fa = farsi
                          """
-configOptionAMessage = "Valmista!"
+configOptionAMessage = "Valmis!"
 configOptionBMessage = "Tervetuloa kehittäjävalikkoon!"
 
 configOption1Message2 = "Oke, [tarkistapäivitykset] asetettu ei. Vaihdetaan kyllä."

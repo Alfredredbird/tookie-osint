@@ -40,20 +40,23 @@ configOption4Message = """Unterstützte Typen:
                           Chrome
                           """
 configOption5Message = """
-             Bitte geben Sie Ihren Sprachcode ein
-             Unterstützte Sprachen:
-                 it = Italienisch
-                 en = Englisch
-                 il = Hebräisch
-                 es = Spanisch
-                 fr = Französisch
-                 ar = Arabisch
-                 de = Deutsch
-                 ru = Russisch
-                 hi = Hindi
-                 pt = Portugiesisch
-                 id = Indonesia
-                          """
+            Bitte geben Sie Ihren Sprachcode ein.
+            Unterstützte Sprachen:
+                it = Italienisch
+                en = Englisch
+                il = Hebräisch
+                es = Spanisch
+                fr = Französisch
+                ar = Arabisch
+                de = Deutsch
+                ru = Russisch
+                hi = Hindi
+                pt = Portugiesisch
+                id = Indonesisch
+                ja = Japanisch
+                zh_cn = Vereinfachtes Chinesisch
+                fa = Farsi
+                         """
 configOptionAMessage = "Fertig!"
 configOptionBMessage = "Willkommen im Entwicklermenü!"
 

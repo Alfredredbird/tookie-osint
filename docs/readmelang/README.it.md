@@ -2,60 +2,45 @@
 
 
 
-![GitHub contributors](https://img.shields.io/github/contributors/alfredredbird/tookie-osint)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/tookie-osint)
-![GitHub forks](https://img.shields.io/github/forks/alfredredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
-![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/tookie-osint?color=%2332cd32)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![Contributori GitHub](https://img.shields.io/github/contributors/alfredredbird/tookie-osint)
+![Dimensioni del codice GitHub in byte](https://img.shields.io/github/languages/code-size/alfredredbird/tookie-osint)
+![Fork GitHub](https://img.shields.io/github/forks/alfredredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
+![Stelle del repository GitHub](https://img.shields.io/github/stars/alfredredbird/tookie-osint?color=%2332cd32)
+[![Stile del codice: nero](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![Discord](https://img.shields.io/discord/1229923929959960616?logo=discord&color=%237289da&link=https%3A%2F%2Fdiscord.gg%2F2WvtfwQjVc)
 
 
-[![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
+[![Esegui su Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
+
+# (Abbiamo dovuto fare un rebranding)
+
+# 🔎 Panoramica
+Tookie-osint ha un'interfaccia utente semplice da usare ed è davvero intuitivo.
+L'idea principale di Tookie-osint è scoprire i nomi utente richiesti da un input.
+Tookie-osint è simile allo strumento chiamato Sherlock. Scopre tutti gli account utente su diversi siti Web e Tookie-osint ha successo in questo compito quasi l'80% delle volte.
+Il nostro strumento è stato creato da me e dalla community ed è disponibile per il tuo uso.
+Non mi assumo alcuna responsabilità per eventuali azioni dannose e/o responsabilità causate dal mio strumento. :(
+Si prega di notare che Tookie-osint è stato creato per aiutare i nuovi programmatori o pentester ad entrare nel mondo dell'OSINT. Il mio obiettivo finale è rendere Tookie-osint il più perfetto possibile e renderlo facile da capire per i nuovi programmatori. Si noti inoltre che Tookie-osint è ottimizzato per Python 3.12. Se vuoi contribuire, fai un fork e fai una pull request per inviare le tue modifiche. :D
+
+![immagine](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
 
 
-## 🌐 Language
-
-> Select your language / 言語を選択してください / 选择你的语言 / Sélectionnez votre langue / Seleccione su idioma / Wählen Sie Ihre Sprache / Выберите язык / اختر لغتك / زبان خود را انتخاب کنید / Selecione seu idioma / Scegli la tua lingua / 선택 언어 / Pilih bahasa Anda / בחר את השפה שלך / अपनी भाषा चुनें / Valitse kieli / 選擇您的語言
-
-| [English](README.en.md) | [日本語](README.ja.md) | [简体中文](README.zh-cn.md) | [繁體中文](README.zh-tw.md) | [Français](README.fr.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [Русский](README.ru.md) | [Português](README.pt.md) | [Italiano](README.it.md) | [فارسی](README.fa.md) | [العربية](README.ar.md) | [हिन्दी](README.hi.md) | [Suomi](README.fi.md) | [עברית](README.he.md) |
-| [Bahasa Indonesia](README.id.md) |
-
-<!--
-デバッグ用: 言語切り替えテーブルが正しく表示されているか確認してください。
-If you find any issues with the language links, please open an issue or PR.
--->
-
-
-
-# (We Had To Rebrand)
-
-# 🔎 Overview
-Tookie-osint has a simple-to-use UI and is really straightforward.
-The main idea of Tookie-osint is to discover usernames that are requested from an input.
-Tookie-osint is similar to the tool called Sherlock. It discovers all the user accounts across different websites and Tookie-osint is successful at this task almost 80% of the time.
-Our tool was created by me and the community and is available for your use.
-I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
-Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D
-
-![image](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
-
-
-# 📦 Installation
-The requirements will be automatically installed.
+# 📦 Installazione
+I requisiti verranno installati automaticamente.
 
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint && sudo pip3 install -r requirements.txt
     python3 tookie-osint
 
-# 📦 Manual Install
-    download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
-    then extract the zip or tar.gz
+# 📦 Installazione manuale
+    scarica l'ultima versione da: https://github.com/alfredredbird/tookie-osint/releases.
+    quindi estrai il file zip o tar.gz
 
     cd tookie-osint && sudo pip3 install -r requirements.txt
     python3 tookie-osint
 
 
-# 📦 Termux Install
+# 📦 Installazione di Termux
 
     termux-setup-storage
     ln -s storage/downloads Downloads
@@ -65,7 +50,7 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
 
-# 📦 Other Linux Installations
+# 📦 Altre installazioni Linux
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint
     python3 -m venv venv
@@ -74,18 +59,18 @@ The requirements will be automatically installed.
     python3 tookie-osint
 
 
-# 🖋 Scripting With Tookie
+# 🖋 Scripting con Tookie
 
-Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
+Per maggiori dettagli, consulta [Qui](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie).
 
 
 
-# 💻 Tested OS
+# 💻 Sistemi operativi testati
 
 <table>
     <tr>
-        <th>Operative system</th>
-        <th> Version </th>
+        <th>Sistema operativo</th>
+        <th> Versione </th>
     </tr>
     <tr>
         <td>MacOS</td>
@@ -137,9 +122,9 @@ Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-T
     </tr>
 </table>
 
-# 📖 Requirements
+# 📖 Requisiti
 
-There Is A Lot Lol
+Ce ne sono tanti Lol
 
 - colorama
 - requests
@@ -151,58 +136,58 @@ There Is A Lot Lol
 - selenium
 - cryptography
 
-# 🗣️Supported Languages
-(we need translators 😭)
-- [x] English
-- [x] Italian
-- [x] Hebrew
-- [x] Spanish
-- [x] French
-- [x] Arabic
-- [x] German
+# 🗣️Lingue supportate
+(abbiamo bisogno di traduttori 😭)
+- [x] Inglese
+- [x] Italiano
+- [x] Ebraico
+- [x] Spagnolo
+- [x] Francese
+- [x] Arabo
+- [x] Tedesco
 - [x] Hindi
-- [x] Russian
-- [x] Portuguese
-- [X] Indonesian
-- [X] Finnish
-- [X] Chinese traditional
-- [x] Chinese Simplified
-- [x] Japanese
+- [x] Russo
+- [x] Portoghese
+- [X] Indonesiano
+- [X] Finlandese
+- [X] Cinese tradizionale
+- [x] Cinese semplificato
+- [x] Giapponese
 - [x] Farsi
 
-# 📕 Upcoming Features
- (They Are Great First Issues :D)
-- [ ] Tor Searching (in beta)
+# 📕 Funzionalità imminenti
+ (Sono ottimi primi numeri :D)
+- [ ] Ricerca Tor (in beta)
 - [X] WebUi (in beta)
 - [X] Webscraper
-- [X] Phone Number OSINT
-- [X] Custom Plugins
-- [ ] Detailed Reports (in beta)
-- [ ] Email OSINT (in beta)
+- [X] OSINT numero di telefono
+- [X] Plugin personalizzati
+- [ ] Rapporti dettagliati (in beta)
+- [ ] OSINT e-mail (in beta)
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [ ] More Accurate Results (in beta)
-- [ ] Auto Open Discovered URLs
+- [ ] Risultati più accurati (in beta)
+- [ ] Apertura automatica degli URL scoperti
 - [ ] Web Hooks
-- [x] Headless mode
-- [x] Automation
+- [x] Modalità headless
+- [x] Automazione
 
-# 🍿 Showcase
-Tookie-osint has a wide variety of options to use.
-Typing -h twice shows the help menu.
+# 🍿 Vetrina
+Tookie-osint ha una vasta gamma di opzioni da utilizzare.
+Digitando -h due volte viene visualizzato il menu di aiuto.
 
-![image](https://github.com/Alfredredbird/tookie-osint/assets/105014217/7429b51c-e021-4bbb-8596-676240bce573)
+![immagine](https://github.com/Alfredredbird/tookie-osint/assets/105014217/7429b51c-e021-4bbb-8596-676240bce573)
 
 
-# ⁉️ Need Help?
-Check out https://github.com/alfredredbird/tookie-osint/issues or the WiKi for help.
-Still Need Help? Contact And Discord Server Below :D
+# ⁉️ Hai bisogno di aiuto?
+Consulta https://github.com/alfredredbird/tookie-osint/issues o la WiKi per assistenza.
+Hai ancora bisogno di aiuto? Contatta e server Discord qui sotto :D
 
-# 🤔 Cant Find The WebSite Your Looking For?
-Make a pull request or a bug report with the site and we will add it. :D
+# 🤔 Non riesci a trovare il sito web che stai cercando?
+Fai una pull request o una segnalazione di bug con il sito e lo aggiungeremo. :D
 
-# 📗 Info:
+# 📗 Informazioni:
 
 <table>
     <tr>
@@ -210,17 +195,17 @@ Make a pull request or a bug report with the site and we will add it. :D
         <th>https://github.com/alfredredbird/tookie-osint/wiki</th>
     </tr>
    <tr>
-        <th>Releases</th>
+        <th>Rilasci</th>
         <th>https://github.com/alfredredbird/tookie-osint/releases</th>
     </tr>
     <tr>
-        <th>Contributors</th>
+        <th>Contributori</th>
         <th>https://github.com/alfredredbird/tookie-osint/graphs/contributors</th>
     </tr>
 </table>
 
-# 📙 Articles
-There has been several articles written about our tool. Feal free to check them out :D  Theses articles belong to their respectful owners.
+# 📙 Articoli
+Ci sono stati diversi articoli scritti sul nostro strumento. Sentiti libero di controllarli :D Questi articoli appartengono ai loro rispettivi proprietari.
 <table>
     <tr>
         <th>Habr</th>
@@ -292,28 +277,27 @@ There has been several articles written about our tool. Feal free to check them 
 
 
 
-
 </table>
 
-# 🎬 Tutorials
+# 🎬 Tutorial
 
 - https://www.youtube.com/watch?v=crMN_SI7n40&t=2s
 - https://www.youtube.com/watch?v=8ciMPAJMB2g
-# 📘 Contact
+# 📘 Contatti
 
 - Twitter: https://twitter.com/alfredredbird1
 
-# 🛠 Other Tools
+# 🛠 Altri strumenti
 
-Other tools in the fleet:
+Altri strumenti della flotta:
 - Bibi-Bird (beta): https://github.com/alfredredbird/Bibi-Bird
 
 
 # 🤝 Partnership
-Want to partner with the tookie-osint project? Feel free to reach out.
+Vuoi collaborare con il progetto tookie-osint? Sentiti libero di contattarci.
 
 
-Partners:
+Partner:
 - [X-OSINT](https://github.com/TermuxHackz/X-osint) ~ TermuxHackz
 - [GHPM](https://github.com/smoke-wolf/GitHub-Package-Manager) ~ Smoke-Wolf
 - [GXSUID](https://github.com/mrofcodyx/gxsuid) ~ mr_ofcodyx

@@ -39,20 +39,24 @@ configOption4Message = """
    Chrome
 """
 configOption5Message = """
-الرجاء إدخال رمز اللغة الخاص بك
-اللغة المدعومة:
-   it = Italian
-   en = English
-   il = Hebrew 
-   ar = Arabic 
-   es = Spanish
-   de = German
-   ru = الروسية
-   hi = هندي
-   pt = البرتغالية
-   id = Indonesia
-"""
-configOptionAMessage = "تمت!"
+            الرجاء إدخال رمز لغتك.
+            اللغات المدعومة:
+                it = الإيطالية
+                en = الإنجليزية
+                il = العبرية
+                es = الإسبانية
+                fr = الفرنسية
+                ar = العربية
+                de = الألمانية
+                ru = الروسية
+                hi = الهندية
+                pt = البرتغالية
+                id = الإندونيسية
+                ja = اليابانية
+                zh_cn = الصينية المبسطة
+                fa = الفارسية
+                         """
+configOptionAMessage = "تم!"
 configOptionBMessage = "مرحبا بك في قائمة المطور!"
 
 configOption1Message2 = "حسنا! [checkforupdates] تم تعيينه على لا. يتغير إلى نعم"
