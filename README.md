@@ -307,6 +307,7 @@ There has been several articles written about our tool. Feal free to check them 
 
 Other tools in the fleet:
 - Bibi-Bird (beta): https://github.com/alfredredbird/Bibi-Bird
+- Open-Wrechs: https://github.com/Alfredredbird/Open-Wrecks
 
 
 # 🤝 Partnership
