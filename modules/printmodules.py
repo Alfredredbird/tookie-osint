@@ -53,7 +53,7 @@ def logo(colorScheme, uname, version, config):
                  """
         + Fore.RESET
         + """
-              By Jeffrey Montanari        """
+              By Alfredredbird        """
         + """
               Twiter: @alfredredbird1        """
         + colorScheme
