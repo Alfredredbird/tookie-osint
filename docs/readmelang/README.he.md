@@ -22,7 +22,7 @@ Tookie-osint דומה לכלי שנקרא שרלוק. הוא מגלה את כל 
 אני לא לוקח אחריות על כל פעולה זדונית ו/או אחריות שנגרמה על ידי הכלי שלי. :(
 שימו לב ש-Tookie-osint נוצר כדי לעזור למתכנתים חדשים או לבודקי חדירות להיכנס לעולם ה-OSINT. המטרה הסופית שלי היא להפוך את Tookie-osint למושלם ככל האפשר ולהקל על מתכנתים חדשים להבין אותו. שימו לב גם ש-Tookie-osint מותאם לפייתון 3.12. אם ברצונך לתרום, צור פיצול ובצע בקשת משיכה כדי להגיש את השינויים שלך. :D
 
-![תמונה](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
+<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 # 📦 התקנה

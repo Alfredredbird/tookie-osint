@@ -22,7 +22,7 @@ Tookie-osint は Sherlock というツールに似ています。さまざまな
 私のツールによって引き起こされた悪意のある行為や責任については一切責任を負いません。:(
 Tookie-osint は、新しいプログラマーやペンテスターが OSINT の世界に参入するのを支援するために作成されたことに注意してください。私の最終的な目標は、Tookie-osint をできる限り完璧にし、新しいプログラマーが理解しやすいようにすることです。また、Tookie-osint は Python 3.12 に最適化されていることにも注意してください。貢献したい場合は、フォークを作成し、プルリクエストを送信して変更を送信してください。:D
 
-![画像](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
+<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 # 📦 インストール

@@ -22,7 +22,7 @@ Alat kami dibuat oleh saya dan komunitas dan tersedia untuk Anda gunakan.
 Saya tidak bertanggung jawab atas tindakan jahat dan/atau tanggung jawab yang disebabkan oleh alat saya. :(
 Harap dicatat bahwa Tookie-osint dibuat untuk membantu programmer atau pentester baru masuk ke dunia OSINT. Tujuan akhir saya adalah membuat Tookie-osint sesempurna mungkin dan membuatnya mudah dipahami oleh programmer baru. Perhatikan juga bahwa Tookie-osint dioptimalkan untuk Python 3.12. Jika Anda ingin berkontribusi, buat fork dan buat pull request untuk mengirimkan perubahan Anda. :D
 
-![gambar](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
+<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 # 📦 Instalasi

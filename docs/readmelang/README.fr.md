@@ -22,7 +22,7 @@ Notre outil a été créé par moi et la communauté et est disponible pour votr
 Je n'assume aucune responsabilité pour les actions malveillantes et/ou la responsabilité causées par mon outil. :(
 Veuillez noter que Tookie-osint a été créé pour aider les nouveaux programmateurs ou pentesteurs à entrer dans le monde de l'OSINT. Mon objectif à terme est de rendre Tookie-osint aussi parfait que possible et de le rendre facile à comprendre pour les nouveaux programmateurs. Notez également que Tookie-osint est optimisé pour Python 3.12. Si vous souhaitez contribuer, créez un fork et effectuez une pull request pour soumettre vos modifications. :D
 
-![image](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
+<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 # 📦 Installation

@@ -22,7 +22,7 @@ Tookie-osint 类似于一个名为 Sherlock 的工具。它会发现不同网站
 对于因我的工具造成的任何恶意行为和/或责任，我概不负责。:(
 请注意，Tookie-osint 的创建是为了帮助新的程序员或渗透测试人员进入 OSINT 的世界。我的最终目标是让 Tookie-osint 尽可能完美，并让新的程序员易于理解。另请注意，Tookie-osint 已针对 Python 3.12 进行了优化。如果您想做出贡献，请创建一个分支并提出拉取请求以提交您的更改。:D
 
-![图片](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
+<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 # 📦 安装

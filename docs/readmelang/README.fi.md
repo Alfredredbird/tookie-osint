@@ -22,7 +22,7 @@ Työkalumme on minun ja yhteisön luoma, ja se on käytettävissäsi.
 En ota vastuuta mistään haitallisista toimista ja/tai vastuusta, joka aiheutuu työkalustani. :(
 Huomaa, että Tookie-osint luotiin auttamaan uusia ohjelmoijia tai pentestereitä pääsemään OSINT-maailmaan. Pitkän aikavälin tavoitteenani on tehdä Tookie-osintista niin täydellinen kuin mahdollista ja tehdä siitä helppo ymmärtää uusille ohjelmoijille. Huomaa myös, että Tookie-osint on optimoitu Python 3.12:lle. Jos haluat osallistua, tee haara ja tee vetopyyntö lähettääksesi muutoksesi. :D
 
-![kuva](https://github.com/Alfredredbird/tookie-osint/assets/105014217/380da10a-ff65-4137-a213-7bdd0dfdb9ed)
+<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 # 📦 Asennus
