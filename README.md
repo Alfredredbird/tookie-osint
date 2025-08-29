@@ -41,11 +41,14 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 
 
 
-# 📦 Installation
+# 📦 Linux Installation
 The requirements will be automatically installed.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
+    cd tookie-osint
+    python3 -m venv venv
+    source venv/bin/activate
+    pip3 install -r requirements.txt
     python3 tookie-osint
 
 # 📦 Manual Install
@@ -66,14 +69,12 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
 
-# 📦 Other Linux Installations
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint
-    python3 -m venv venv
-    source venv/bin/activate
-    pip3 install -r requirements.txt
-    python3 tookie-osint
+# 📦 Other Installations
+You can find more install instructions on the Wiki.
 
+    git clone https://github.com/alfredredbird/tookie-osint
+    cd tookie-osint && sudo pip3 install -r requirements.txt
+    python3 tookie-osint
 
 # 🖋 Scripting With Tookie
 
