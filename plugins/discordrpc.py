@@ -19,4 +19,4 @@ try:
  except KeyboardInterrupt:
     RPC.close()
 except Exception:
-    print("Cant start Discord RPC :(")
+    continue
