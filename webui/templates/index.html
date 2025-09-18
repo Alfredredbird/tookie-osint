@@ -76,98 +76,76 @@
 </body>
 
 <script>
-    async function runProgress(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-        const formData = new FormData(document.getElementById('myForm'));
-        document.getElementById("progress-container").style.display = "block";
-        
-        try {
-            const response = await fetch("/", {
-                method: 'POST',
-                body: formData,
-            });
-            const resultData = await response.json(); // Assumes the server returns JSON
-        
-            if(response.ok) {
-                console.log("Result: ", resultData);
+async function runProgress(event) {
+    event.preventDefault();
+    const formData = new FormData(document.getElementById('myForm'));
+    document.getElementById("progress-container").style.display = "block";
 
-                // Clear previous results
-                const resultList = document.getElementById("result-list");
-                resultList.innerHTML = "";
+    try {
+        // Start job
+        const response = await fetch("/", {
+            method: "POST",
+            body: formData,
+        });
+        const resultData = await response.json();
 
-                // Create a table
-                const table = document.createElement('table');
-                table.border = '0';
+        if (response.ok) {
+            const jobId = resultData.job_id;
+            console.log("Started job:", jobId);
 
-                // Split the result by newlines and create table rows
-                const resultsArray = resultData.result.split('\n');
-                resultsArray.forEach(result => {
-                    const tableRow = document.createElement('tr');
+            // Clear previous results
+            document.getElementById("result-list").innerHTML = "";
 
-                    // Check if the line contains a date and link
-                    if (result.match(/^\d{4}-\d{2}-\d{2}\[.*\]\shttps?:\/\/.*$/)) {
-                        // Extract date and link
-                        const [date, link] = result.split('[+] ');
-
-                        // Create table cells for date, status, and link
-                        const dateCell = document.createElement('td');
-                        dateCell.textContent = date;
-
-                        const statusCell = document.createElement('td');
-                        statusCell.textContent = '[+]';
-
-                        const linkCell = document.createElement('td');
-
-                        // Create a span to show the link text
-                        const linkText = document.createElement('span');
-                        linkText.textContent = link + " ";
-
-                        // Create the "Open" button
-                        const openButton = document.createElement('button');
-                        openButton.textContent = "Open";
-                        openButton.onclick = () => {
-                            window.open(link, '_blank');
-                        };
-                        openButton.style.marginLeft = "10px"; 
-                        openButton.style.height = "23px";
-                        openButton.style.padding = "2px"; 
-
-                        // Append text and button to the cell
-                        linkCell.appendChild(linkText);
-                        linkCell.appendChild(openButton);
-
-
-                        // Append cells to the table row
-                        tableRow.appendChild(dateCell);
-                        tableRow.appendChild(statusCell);
-                        tableRow.appendChild(linkCell);
-                    } else {
-                        // For other lines, create a single cell
-                        const cell = document.createElement('td');
-                        cell.colSpan = 3; // Span across all columns
-                        cell.textContent = result;
-                        
-                        // Append the cell to the table row
-                        tableRow.appendChild(cell);
-                    }
-
-                    // Append the table row to the table
-                    table.appendChild(tableRow);
-                });
-
-                // Append the table to the result list container
-                resultList.appendChild(table);
-
-                document.getElementById("result-container").style.display = "block";
-            } else {
-                console.error("Error from server", resultData);
-            }
-        } catch (error) {
-            console.error("Failed to fetch", error);
+            // Start polling the API
+            pollJob(jobId);
+        } else {
+            console.error("Error from server", resultData);
         }
-
-        document.getElementById("progress-container").style.display = "none";
+    } catch (error) {
+        console.error("Failed to fetch", error);
     }
+}
+
+
+let lastLineCount = 0;
+
+async function pollJob(jobId) {
+    try {
+        const response = await fetch(`/api/${jobId}`);
+        const data = await response.json();
+
+        if (response.ok) {
+            const resultsArray = data.result.split("\n");
+
+            const resultList = document.getElementById("result-list");
+
+            // Only append new lines
+            for (let i = lastLineCount; i < resultsArray.length; i++) {
+                const result = resultsArray[i];
+                if (!result.trim()) continue;
+
+                const li = document.createElement("li");
+                li.textContent = result;
+                resultList.appendChild(li);
+            }
+
+            lastLineCount = resultsArray.length;
+
+            // polling until job is done
+            if (!data.done) {
+                setTimeout(() => pollJob(jobId), 2000);
+            } else {
+                document.getElementById("progress-container").style.display = "none";
+                console.log("Job finished:", jobId);
+            }
+        } else {
+            console.error("Polling error:", data);
+        }
+    } catch (err) {
+        console.error("Failed to poll job", err);
+    }
+}
+
 </script>
 
 <script>

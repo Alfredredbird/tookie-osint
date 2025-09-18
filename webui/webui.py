@@ -5,7 +5,8 @@ import subprocess
 import logging
 import webbrowser
 import configparser
-
+import threading
+import uuid
 
 # webbrowser.open("http://127.0.0.1:5000")
 app = Flask(__name__)
@@ -19,20 +20,22 @@ os.makedirs(storage_directory, exist_ok=True)
 # Set the template folder
 app.template_folder = template_directory
 
-
+jobs = {}
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        entered_text1 = request.form.get('text_input1')  # Use get to avoid KeyError
+        entered_text1 = request.form.get('text_input1')
         entered_options1 = request.form.get('text_input2')
-        app.logger.debug(f'logged input: {entered_text1}')
-        app.logger.debug(f'logged options: {entered_options1}')
-        save_to_history(entered_text1)  # Save the entered text to history file
-        out_put = process_data(entered_text1,entered_options1)
-        # return render_template('index.html', result=result_text)
-        # Instead of rendering a template, return JSON
-        return jsonify({'result': out_put})
+
+        job_id = str(uuid.uuid4())
+        jobs[job_id] = {"status": "inprogress", "result": None}
+
+        # Run in background
+        thread = threading.Thread(target=run_job, args=(job_id, entered_text1, entered_options1))
+        thread.start()
+
+        return jsonify({"job_id": job_id, "status": "inprogress"})
 
     return render_template('index.html', result=None)
 
@@ -104,60 +107,73 @@ def save_config_changes(section, option_name, new_value):
 
 
 
-def process_data(text1,options=""):
-    # Path to your brib.py script
+
+
+def process_data(job_id, text1, options=""):
     brib_script_path = "brib.py"
 
-    target = text1
-    
-    file_path = 'captured/.txt'
-    # Open the file and clear it
-    try:
-            with open(file_path, 'w') as file:
-                # Read the contents of the file
-                file.write("")
-    except FileNotFoundError:
-                print(f"The file at {file_path} was not found.")
-    except Exception as e:
-            print(f"An error occurred: {e}")
-    
-    try:
-        # Execute the script with subprocess.run
-        if os.name == "nt":
-            if options == "":
-                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s'], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
-            else:
-                result = subprocess.run(['python.exe', brib_script_path, '-u', str(target),'-s', str(options)], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
-        else:
-            if options == "":
-                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s'], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
-            else:    
-                result = subprocess.run(['python3', brib_script_path, '-u', str(target), '-s',str(options)], input="n\nn", capture_output=True, text=True, check=True, timeout=300)
-         # Specify the file path
-        
+    if os.name == "nt":
+        cmd = ['python.exe', brib_script_path, '-u', str(text1), '-s']
+        if options: 
+            cmd.append(str(options))
+    else:
+        cmd = ['python3', brib_script_path, '-u', str(text1), '-s']
+        if options: 
+            cmd.append(str(options))
 
-        try:
-            with open(file_path, 'r') as file:
-                # Read the contents of the file
-                file_contents = file.read()
+    process = subprocess.Popen(
+        cmd,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1
+    )
 
-                # Print the contents
-                print(file_contents)
-                result_text = file_contents
-        except FileNotFoundError:
-                print(f"The file at {file_path} was not found.")
-        except Exception as e:
-            print(f"An error occurred: {e}")
-    except subprocess.CalledProcessError as e:
-        # If an error occurs, print both stdout and stderr
-        result_text = f"Error running script:\nSTDOUT: {e.stdout}\nSTDERR: {e.stderr}"
-    
-    return result_text
+    try:
+        process.stdin.write("n\nn")
+        process.stdin.flush()
+    except Exception:
+        pass
+    finally:
+        if process.stdin:
+            process.stdin.close()
+
+    jobs[job_id]["result"] = ""  # initialize
+    for line in iter(process.stdout.readline, ''):
+        line = line.strip()
+        if line:
+            print(f"[LIVE] {line}")
+            jobs[job_id]["result"] += line + "\n"   # keep appending live
+    process.stdout.close()
+
+    process.wait()
+    jobs[job_id]["status"] = "done"
+
 
 def save_to_history(entered_text):
     history_file_path = os.path.join(base_directory, 'storage/history.txt')
     with open(history_file_path, 'a') as history_file:
         history_file.write(entered_text + '\n')
+
+@app.route('/api/<job_id>', methods=['GET'])
+def get_job(job_id):
+    job = jobs.get(job_id)
+    if not job:
+        return jsonify({"error": "Job not found"}), 404
+    return jsonify({
+    "status": job["status"],
+    "result": job["result"],
+    "done": job["status"] == "done"
+})
+
+
+def run_job(job_id, text1, options=""):
+    try:
+        process_data(job_id, text1, options)
+    except Exception as e:
+        jobs[job_id]["status"] = "error"
+        jobs[job_id]["result"] = str(e)
 
 
 if __name__ == '__main__':

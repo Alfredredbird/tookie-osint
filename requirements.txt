@@ -13,3 +13,5 @@ Flask==3.0.2
 datetime
 pypresence
 alive-progress
+threading
+uuid
