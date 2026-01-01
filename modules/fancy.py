@@ -1,6 +1,6 @@
 import os
 from colorama import Fore
-
+from modules.modules import get_info
 # prints logo
 def logo(user=""):
     print(
@@ -41,6 +41,9 @@ def logo(user=""):
         + Fore.RESET
         + ""
         )
+    print("    ==============================================")
+    if "dev" in str(get_info()):
+      print("            THIS IS A DEV BUILD: " + get_info())
+      print("    ==============================================")
     if user != "":
-        print("Target: " + user)
-    
+        print("    Target: " + Fore.GREEN + user + Fore.RESET)

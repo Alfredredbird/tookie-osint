@@ -28,9 +28,14 @@ userfile = args.userfile
 threads = args.threads
 debug = args.debug
 
+#asks to download request agent file
+get_header_file(debug)
+# makes system direcotries
+make_sys_dirs(debug)
 # prints logo
 logo(user)
-
+# gets basic system info for the logo
+get_system_data()
 # data loading
 sites = load_sites(debug)
 # debuging options
