@@ -28,7 +28,7 @@ If you find any issues with the language links, please open an issue or PR.
 
 
 # (Tookie-OSINT is being rebuilt)
-Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. 
+Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. (Check dev branch)
 
 # 🔎 Overview
 Tookie-osint has a simple-to-use UI and is really straightforward.
