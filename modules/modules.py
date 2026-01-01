@@ -1,5 +1,6 @@
 import os
 import json
+import random
 import platform
 import requests
 from colorama import Fore
@@ -123,3 +124,8 @@ def make_sys_dirs(debug=False):
             if debug:
              print(dir + " folder is here")
             continue
+
+
+def load_user_agents(path="sites/headers.txt"):
+    with open(path, "r") as f:
+        return [line.strip() for line in f if line.strip()]

@@ -16,6 +16,7 @@ parser.add_argument("-u", "--user",required=True)
 parser.add_argument("-U", "--userfile",)
 parser.add_argument("-t", "--threads",)
 parser.add_argument("-d", "--debug", action='store_true')
+parser.add_argument("-sk", "--skipheaders", action='store_true')
 parser.add_argument("-p", "--proxy", type=str)
 parser.add_argument("-N", "--nsfw", action='store_true')
 
@@ -27,6 +28,7 @@ user = args.user
 userfile = args.userfile
 threads = args.threads
 debug = args.debug
+skip_headers = args.skipheaders
 
 #asks to download request agent file
 get_header_file(debug)
@@ -43,16 +45,29 @@ if debug:
   print("DEBUG")
   print("Opening Scan File")
 
+# loads user agents
+user_agents = []
+if not skip_headers:
+    user_agents = load_user_agents()
 # writes scan file
 scan_file(user,0)
 # Main Function
 for site in sites:
     url = site + user
     try:
-     request = requests.get(url)
+     # headers is none if using -sk
+     headers = None
+     if not skip_headers:
+      headers = {
+        "User-Agent": random.choice(user_agents)
+     }
+
+     request = requests.get(url, headers=headers)
      code = request.status_code
+     # debug 
      if debug:
         print(f"Hit: {url} Code: {code}")
+        print("Agent: " + str(headers))
      try:
       scan_file(user,1,sitestring(url,user,code, False))
      except Exception as e:
