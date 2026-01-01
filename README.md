@@ -7,26 +7,13 @@
 ![GitHub forks](https://img.shields.io/github/forks/alfredredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
 ![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/tookie-osint?color=%2332cd32)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-![Discord](https://img.shields.io/discord/1229923929959960616?logo=discord&color=%237289da&link=https%3A%2F%2Fdiscord.gg%2F2WvtfwQjVc)
-
-
-[![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
-
-
-## 🌐 Language
-
-> Select your language / 言語を選択してください / 选择你的语言 / Sélectionnez votre langue / Seleccione su idioma / Wählen Sie Ihre Sprache / Выберите язык / اختر لغتك / زبان خود را انتخاب کنید / Selecione seu idioma / Scegli la tua lingua / 선택 언어 / Pilih bahasa Anda / בחר את השפה שלך / अपनी भाषा चुनें / Valitse kieli / 選擇您的語言
-
-| [English](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.en.md) | [日本語](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ja.md) | [简体中文](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.zh-cn.md) | [繁體中文](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.zh-tw.md) | [Français](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fr.md) | [Español](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.es.md) | [Deutsch](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.de.md) | [Русский](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ru.md) | [Português](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.pt.md) | [Italiano](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.it.md) | [فارسی](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fa.md) | [العربية](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ar.md) | [हिन्दी](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.hi.md) | [Suomi](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fi.md) | [עברית](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.he.md) |
-| [Bahasa Indonesia](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.id.md) |
-
-<!--
-デバッグ用: 言語切り替えテーブルが正しく表示されているか確認してください。
-If you find any issues with the language links, please open an issue or PR.
--->
 
 
 
+
+# THIS IS A DEV BRANCH
+# NOTHING HERE IS FINAL AND IS MOST LIKELY BROKEN AND OR BUGGY
+# PLEASE GO TO THE MAIN BRANCH FOR A STABLE BUILD
 # (Tookie-OSINT is being rebuilt)
 Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. 
 
