@@ -144,35 +144,35 @@ There Is A Lot Lol
 # 🗣️Supported Languages
 (we need translators 😭)
 - [x] English
-- [x] Italian
-- [x] Hebrew
-- [x] Spanish
-- [x] French
-- [x] Arabic
-- [x] German
-- [x] Hindi
-- [x] Russian
-- [x] Portuguese
-- [X] Indonesian
-- [X] Finnish
-- [X] Chinese traditional
-- [x] Chinese Simplified
-- [x] Japanese
-- [x] Farsi
+- [] Italian
+- [] Hebrew
+- [] Spanish
+- [] French
+- [] Arabic
+- [] German
+- [] Hindi
+- [] Russian
+- [] Portuguese
+- [] Indonesian
+- [] Finnish
+- [] Chinese traditional
+- [] Chinese Simplified
+- [] Japanese
+- [] Farsi
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (in beta)
-- [X] WebUi (in beta)
-- [X] Webscraper
-- [X] Phone Number OSINT
-- [X] Custom Plugins
+- [] WebUi (in beta)
+- [] Webscraper
+- [] Phone Number OSINT
+- [] Custom Plugins
 - [ ] Detailed Reports (in beta)
 - [ ] Email OSINT (in beta)
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [ ] More Accurate Results (in beta)
+- [X] More Accurate Results (in beta)
 - [ ] Auto Open Discovered URLs
 - [ ] Web Hooks
 - [x] Headless mode
