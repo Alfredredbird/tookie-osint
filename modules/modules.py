@@ -1,4 +1,5 @@
 import os
+import csv
 import json
 import random
 import platform
@@ -65,7 +66,7 @@ def sitestring(url, user, code, colored=True):
             symbol = Fore.YELLOW + "E" + Fore.RESET
         return f"[{symbol}] {url}{user}"
 
-def get_system_data():
+def get_system_data(threads):
     # gets basic system info
     arc = platform.machine()
     typ = platform.system()
@@ -79,6 +80,7 @@ def get_system_data():
       print("    OS:" + Fore.BLUE + typ + Fore.RESET)
     print("    System: " + Fore.RED + str(node) + Fore.RESET)
     print("    Python Version: " + Fore.BLUE + str(pyv) + Fore.RESET)
+    print("    Threads: " + Fore.GREEN + str(threads) + Fore.RESET)
     print("    ==============================================")
 
 # grabs header file from github
@@ -129,3 +131,53 @@ def make_sys_dirs(debug=False):
 def load_user_agents(path="sites/headers.txt"):
     with open(path, "r") as f:
         return [line.strip() for line in f if line.strip()]
+
+# scan sites
+def scan_site(site, user, debug, skip_headers, user_agents):
+    url = site + user
+    result = {
+        "url": url,
+        "found": False,
+        "status": None
+    }
+
+    try:
+        headers = None
+        if not skip_headers:
+            headers = {"User-Agent": random.choice(user_agents)}
+
+        r = requests.get(url, headers=headers, timeout=10)
+        code = r.status_code
+
+        result["status"] = code
+        result["found"] = 200 <= code <= 305
+
+        if debug:
+            print(f"[DEBUG] Hit: {url} Code: {code}")
+
+        print(sitestring(site, user, code))
+        return result
+
+    except requests.RequestException as e:
+        if debug:
+            print(f"[!] Skipping {url}: {e}")
+        return result
+
+# file writing related functions
+def write_txt(user, results):
+    with open(f"{user}.txt", "w") as f:
+        f.write(f"Tookie-OSINT {get_info()}\n\n")
+        f.write("found url\n")
+        for r in results:
+            f.write(f"{str(r['found']).lower():<6} {r['url']}\n")
+
+def write_csv(user, results):
+    with open(f"{user}.csv", "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["found", "url", "status"])
+        for r in results:
+            writer.writerow([r["found"], r["url"], r["status"]])
+
+def write_json(user, results):
+    with open(f"{user}.json", "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
