@@ -31,6 +31,9 @@ Examples:
 
   Skip random headers:
     python3 brib.py -u alfred --skipheaders
+
+  Use webscraper:
+    python3 brib.py -u alfred -W
 """)
 #arguments
 # parser.add_argument("-h", "--help",)
