@@ -69,6 +69,8 @@ make_sys_dirs(debug)
 # prints logo
 logo(user)
 # gets basic system info for the logo
+if webscrape:
+    threads = 1
 get_system_data(threads)
 # data loading
 sites = load_sites(debug)
