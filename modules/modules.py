@@ -196,8 +196,8 @@ def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, del
 
     if debug:
         print("[*] Loading sites with error messages...")
-
-    with open("sites/sites.json", "r", encoding="utf-8") as f:
+    sites_file = os.path.join(BASE_DIR, "sites", "sites.json")
+    with open(sites_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     for entry in data:
