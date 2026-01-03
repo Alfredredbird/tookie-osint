@@ -4,8 +4,9 @@ import argparse
 
 from colorama import Fore
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from modules.modules import *
 from modules.fancy import *
+from modules.webscraper import *
+from modules.modules import *
 
 
 
@@ -35,20 +36,18 @@ parser.add_argument("-u", "--user",required=True,help="Username to scan")
 parser.add_argument("-U", "--userfile",help="File path to username file")
 parser.add_argument("-t", "--threads", type=int, default=2, help="Threads. Defualt is 2")
 parser.add_argument("-d", "--debug", action='store_true',help="Allows debugging options")
-parser.add_argument("-sk", "--skipheaders", action='store_true',help="skips using random user agents.")
+parser.add_argument("-sk", "--skipheaders", action='store_true',help="skips using random user agents")
 parser.add_argument("-p", "--proxy", type=str, help="proxy")
 parser.add_argument("-N", "--nsfw", action='store_true',help="Points out NSFW sites")
+parser.add_argument("-W", "--webscraper", action='store_true',help="Toggles uses the webscraper")
 parser.add_argument(
     "-o", "--output",
     choices=["txt", "csv", "json"],
     default="txt",
     help="Output format (txt, csv, json)"
 )
-parser.add_argument(
-    "-a", "--all",
-    action='store_true',
-    help="Shows all results (negitive and positive)"
-)
+parser.add_argument("-D", "--delay", type=int, help="Delay webscraper should wait for the page to load")
+parser.add_argument("-a", "--all", action='store_true', help="Shows all results (negitive and positive)")
 
 #initializes the arg parser as a variable
 args = parser.parse_args()
@@ -59,7 +58,8 @@ threads = args.threads
 debug = args.debug
 skip_headers = args.skipheaders
 output_format = args.output
-
+webscrape = args.webscraper
+delay = args.delay
 #asks to download request agent file
 get_header_file(debug)
 # makes system direcotries
@@ -85,7 +85,8 @@ if not skip_headers:
 # Main Function
 results = []
 
-with ThreadPoolExecutor(max_workers=threads) as executor:
+if not webscrape:
+ with ThreadPoolExecutor(max_workers=threads) as executor:
     futures = [
         executor.submit(
             scan_site, site, user, debug, skip_headers, user_agents
@@ -100,7 +101,17 @@ with ThreadPoolExecutor(max_workers=threads) as executor:
     except KeyboardInterrupt:
         print("Stopping!")
         executor.shutdown(wait=False)
-        
+
+if webscrape:
+    try:
+        scan_webscraper(user, debug, skip_headers, user_agents, delay)
+    except KeyboardInterrupt:
+        print("\nStopping web scraper...")
+    finally:
+        close_driver()
+
+
+
 if output_format == "txt":
     write_txt(user, results)
 elif output_format == "csv":

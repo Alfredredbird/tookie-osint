@@ -1,4 +1,5 @@
 colorama 
 requests
 argparse
-platform
+selenium 
+webdriver-manager

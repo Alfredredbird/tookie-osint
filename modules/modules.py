@@ -5,6 +5,7 @@ import random
 import platform
 import requests
 from colorama import Fore
+from modules.webscraper import *
 
 #loads sites from the json
 def load_sites(debug=False):
@@ -181,3 +182,30 @@ def write_csv(user, results):
 def write_json(user, results):
     with open(f"{user}.json", "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
+
+
+def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, delay=None):
+    """
+    loads sites/sites.json and calls check_site with URL + errorMessage.
+    user: the username to append to the site URL
+    """
+    if user_agents is None:
+        user_agents = []
+
+    if debug:
+        print("[*] Loading sites with error messages...")
+
+    with open("sites/sites.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    for entry in data:
+        site_url = entry.get("site", "")
+        error_message = entry.get("errorMessage", "No error message defined")
+        url = site_url + user
+
+        if delay:
+            check_site(url, error_message, delay)
+        else:
+            check_site(url, error_message)
+        if debug:
+            print(f"Expected error message: {error_message}")    
