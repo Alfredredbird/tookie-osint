@@ -29,15 +29,15 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 
 
 
-# 📦 Linux Installation
+# 📦 Linux Installation for the dev build
 The requirements will be automatically installed.
 
-    git clone https://github.com/alfredredbird/tookie-osint
+    git clone --branch dev --single-branch https://github.com/alfredredbird/tookie-osint.git
     cd tookie-osint
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 # 📦 Manual Install
     download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
