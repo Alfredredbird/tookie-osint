@@ -7,12 +7,13 @@ import requests
 from colorama import Fore
 from modules.webscraper import *
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #loads sites from the json
 def load_sites(debug=False):
     if debug:
         print("Opening site list file")
-
-    with open("sites/sites.json", "r", encoding="utf-8") as f:
+    sites_file = os.path.join(BASE_DIR, "sites", "sites.json")
+    with open(sites_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     urls = [entry["site"] for entry in data]
@@ -24,7 +25,8 @@ def load_sites(debug=False):
 
 # grabs version info and such
 def get_info():
- with open("config/version", "r") as f:
+ version_file = os.path.join(BASE_DIR, "config", "version")
+ with open(version_file, "r") as f:
     lines = f.readline()
     f.close()
     return lines
