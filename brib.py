@@ -84,7 +84,7 @@ logo(user)
 # gets basic system info for the logo
 if webscrape:
     threads = 1
-get_system_data(threads,skipheaders)
+get_system_data(threads,skip_headers)
 # data loading
 sites = load_sites(debug)
 # debuging options

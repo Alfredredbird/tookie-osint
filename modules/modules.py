@@ -273,6 +273,7 @@ def check_update():
             return False, latest_version
         else:
             print(f"[!] Update available! Local: {local_version} → Latest: {latest_version}")
+            time.sleep(1)
             return True, latest_version
 
     except requests.RequestException as e:
