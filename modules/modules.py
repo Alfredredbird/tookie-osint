@@ -102,11 +102,12 @@ def get_system_data(threads):
 # grabs header file from github
 def get_header_file(debug=False):
     url = "https://raw.githubusercontent.com/Alfredredbird/user-agentl-ist/refs/heads/main/header.txt"
-    save_path = "sites/headers.txt"
+    # Use BASE_DIR here
+    save_path = os.path.join(BASE_DIR, "sites", "headers.txt")
 
     if os.path.isfile(save_path):
         if debug:
-         print("[+] headers.txt already exists, skipping download")
+            print("[+] headers.txt already exists, skipping download")
         return
 
     choice = input(
@@ -127,7 +128,7 @@ def get_header_file(debug=False):
         with open(save_path, "w", encoding="utf-8") as f:
             f.write(response.text)
 
-        print("[+] headers.txt downloaded successfully")
+        print(f"[+] headers.txt downloaded successfully at {save_path}")
 
     except requests.RequestException as e:
         print(f"[!] Failed to download headers.txt: {e}")
@@ -144,9 +145,12 @@ def make_sys_dirs(debug=False):
             continue
 
 
-def load_user_agents(path="sites/headers.txt"):
-    with open(path, "r") as f:
+def load_user_agents(path=None):
+    if path is None:
+        path = os.path.join(BASE_DIR, "sites", "headers.txt")
+    with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
+
 
 # scan sites
 def scan_site(site, user, debug, skip_headers, user_agents):
