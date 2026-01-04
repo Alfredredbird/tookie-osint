@@ -76,7 +76,7 @@ if args.webscraper and args.threads != parser.get_default("threads"):
 #asks to download request agent file
 get_header_file(debug)
 # makes system direcotries
-make_sys_dirs(debug)
+# make_sys_dirs(debug)
 # prints logo
 logo(user)
 # gets basic system info for the logo
