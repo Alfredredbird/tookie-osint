@@ -82,7 +82,7 @@ def sitestring(url, user, code, colored=True):
             symbol = Fore.YELLOW + "E" + Fore.RESET
         return f"[{symbol}] {url}{user}"
 
-def get_system_data(threads):
+def get_system_data(threads,skipheaders):
     # gets basic system info
     arc = platform.machine()
     typ = platform.system()
@@ -97,6 +97,10 @@ def get_system_data(threads):
     print("    System: " + Fore.RED + str(node) + Fore.RESET)
     print("    Python Version: " + Fore.BLUE + str(pyv) + Fore.RESET)
     print("    Threads: " + Fore.GREEN + str(threads) + Fore.RESET)
+    if skipheaders:
+     print("    Headers Loaded: 0")
+    else:
+     print("    Headers Loaded: " + str(count_header_lines()))
     print("    ==============================================")
 
 # grabs header file from github
@@ -144,6 +148,15 @@ def make_sys_dirs(debug=False):
              print(dir + " folder is here")
             continue
 
+def count_header_lines(path=None):
+    if path is None:
+        path = os.path.join(BASE_DIR, "sites", "headers.txt")
+    count = 0
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip(): 
+                count += 1
+    return count
 
 def load_user_agents(path=None):
     if path is None:
@@ -242,3 +255,26 @@ def write_to_file(output_format):
         write_csv(user, results)
     elif output_format == "json":
         write_json(user, results)
+
+def check_update():
+    
+    # Checks if a new version of Tookie-OSINT is available.
+    
+    remote_url = "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/refs/heads/dev/config/version"
+    local_version = get_info().strip()
+
+    try:
+        response = requests.get(remote_url, timeout=10)
+        response.raise_for_status()
+        latest_version = response.text.strip()
+
+        if latest_version == local_version:
+            print(f"[✓] You are running the latest version: {local_version}")
+            return False, latest_version
+        else:
+            print(f"[!] Update available! Local: {local_version} → Latest: {latest_version}")
+            return True, latest_version
+
+    except requests.RequestException as e:
+        print(f"[!] Failed to check for updates: {e}")
+        return False, local_version

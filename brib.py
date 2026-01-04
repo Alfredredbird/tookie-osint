@@ -73,6 +73,8 @@ if args.webscraper and args.threads != parser.get_default("threads"):
         status=1,
         message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n"
     )
+# checks for update
+check_update()
 #asks to download request agent file
 get_header_file(debug)
 # makes system direcotries
@@ -82,7 +84,7 @@ logo(user)
 # gets basic system info for the logo
 if webscrape:
     threads = 1
-get_system_data(threads)
+get_system_data(threads,skipheaders)
 # data loading
 sites = load_sites(debug)
 # debuging options
