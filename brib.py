@@ -65,6 +65,14 @@ skip_headers = args.skipheaders
 output_format = args.output
 webscrape = args.webscraper
 delay = args.delay
+allsites = args.all
+#makes sure threads is not used with the webscraper
+if args.webscraper and args.threads != parser.get_default("threads"):
+    parser.print_help()
+    parser.exit(
+        status=1,
+        message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n"
+    )
 #asks to download request agent file
 get_header_file(debug)
 # makes system direcotries
@@ -107,10 +115,20 @@ if not webscrape:
             results.append(res)
     except KeyboardInterrupt:
         print("Stopping!")
+        if output_format == "txt":
+            write_txt(user, results)
+        elif output_format == "csv":
+            write_csv(user, results)
+        elif output_format == "json":
+            write_json(user, results)
         executor.shutdown(wait=False)
+        exit(1)
 
 if webscrape:
     try:
+      if allsites:
+        scan_webscraper(user, debug, skip_headers, user_agents, delay,allsites)
+      else:
         scan_webscraper(user, debug, skip_headers, user_agents, delay)
     except KeyboardInterrupt:
         print("\nStopping web scraper...")

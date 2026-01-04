@@ -1,11 +1,24 @@
 import os
 import csv
+import sys
 import json
 import random
+import signal
 import platform
 import requests
+import threading
 from colorama import Fore
 from modules.webscraper import *
+
+# shutdown event
+shutdown_event = threading.Event()
+def handle_sigint(sig, frame):
+    print("\n[!] Interrupted, shutting stopping...")
+    shutdown_event.set()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_sigint)
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #loads sites from the json
@@ -137,6 +150,8 @@ def load_user_agents(path="sites/headers.txt"):
 
 # scan sites
 def scan_site(site, user, debug, skip_headers, user_agents):
+    if shutdown_event.is_set():
+        return None
     url = site + user
     result = {
         "url": url,
@@ -150,6 +165,9 @@ def scan_site(site, user, debug, skip_headers, user_agents):
             headers = {"User-Agent": random.choice(user_agents)}
 
         r = requests.get(url, headers=headers, timeout=10)
+        if shutdown_event.is_set():
+            return None
+
         code = r.status_code
 
         result["status"] = code
@@ -186,7 +204,7 @@ def write_json(user, results):
         json.dump(results, f, indent=2)
 
 
-def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, delay=None):
+def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, delay=None,allsites=False):
     """
     loads sites/sites.json and calls check_site with URL + errorMessage.
     user: the username to append to the site URL
@@ -206,8 +224,17 @@ def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, del
         url = site_url + user
 
         if delay:
-            check_site(url, error_message, delay)
+            check_site(url, error_message,allsites, delay)
         else:
-            check_site(url, error_message)
+            check_site(url, error_message,allsites)
         if debug:
             print(f"Expected error message: {error_message}")    
+
+
+def write_to_file(output_format):
+    if output_format == "txt":
+        write_txt(user, results)
+    elif output_format == "csv":
+        write_csv(user, results)
+    elif output_format == "json":
+        write_json(user, results)

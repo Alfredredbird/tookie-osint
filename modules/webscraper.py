@@ -26,7 +26,7 @@ def get_driver():
     return driver
 
 
-def check_site(url, message, delay=2):
+def check_site(url, message, allsites=False, delay=2):
     driver = get_driver()
     try:
      driver.get(url)
@@ -42,8 +42,10 @@ def check_site(url, message, delay=2):
     time.sleep(delay)
 
     if message.lower() in driver.page_source.lower():
-        print(f"[{Fore.RED}-{Fore.RESET}] {url}")
-        return False
+        if allsites:
+         print(f"[{Fore.RED}-{Fore.RESET}] {url}")
+         return False
+        pass
     else:
         print(f"[{Fore.GREEN}+{Fore.RESET}] {url}")
         return True
