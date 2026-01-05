@@ -40,24 +40,29 @@ if [[ -d "$INSTALL_DIR" ]]; then
     rm -rf "$INSTALL_DIR"
 fi
 
-# Copy project
-echo "[*] Copying files..."
+# Copy project files
+echo "[*] Copying files to $INSTALL_DIR..."
 mkdir -p "$(dirname "$INSTALL_DIR")"
 cp -r "$SOURCE_DIR" "$INSTALL_DIR"
 
-# Create launcher
+# Create virtual environment
+VENV_DIR="$INSTALL_DIR/.venv"
+echo "[*] Creating virtual environment in $VENV_DIR..."
+$PYTHON_BIN -m venv "$VENV_DIR"
+"$VENV_DIR/bin/pip" install --upgrade pip
+"$VENV_DIR/bin/pip" install -r "$INSTALL_DIR/requirements.txt"
+
+# Create launcher script
 echo "[*] Writing launcher to $BIN_PATH"
 cat << EOF > "$BIN_PATH"
 #!/usr/bin/env bash
-
 SCRIPT_DIR="$INSTALL_DIR"
 VENV_DIR="\$SCRIPT_DIR/.venv"
 
+# Ensure virtual environment exists
 if [ ! -d "\$VENV_DIR" ]; then
-    echo "[*] Creating virtual environment..."
-    $PYTHON_BIN -m venv "\$VENV_DIR"
-    "\$VENV_DIR/bin/pip" install --upgrade pip
-    "\$VENV_DIR/bin/pip" install -r "\$SCRIPT_DIR/requirements.txt"
+    echo "[!] Virtual environment missing! Please reinstall."
+    exit 1
 fi
 
 exec "\$VENV_DIR/bin/python" "\$SCRIPT_DIR/brib.py" "\$@"
