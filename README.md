@@ -34,10 +34,8 @@ The requirements will be automatically installed.
 
     git clone --branch dev --single-branch https://github.com/alfredredbird/tookie-osint.git
     cd tookie-osint
-    python3 -m venv venv
-    source venv/bin/activate
-    pip3 install -r requirements.txt
-    python3 brib.py
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Manual Install
     download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
