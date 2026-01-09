@@ -127,6 +127,7 @@ if not webscrape:
         exit(1)
 
 if webscrape:
+    is_arch()
     try:
       if allsites:
         scan_webscraper(user, debug, skip_headers, user_agents, delay,allsites)

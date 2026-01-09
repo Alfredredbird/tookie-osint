@@ -299,3 +299,15 @@ def check_update():
     except requests.RequestException as e:
         print(f"[!] Failed to check for updates: {e}")
         return False, local_version
+
+def is_arch():
+    # --- Arch Linux Package Check ---
+ if os.path.exists("/etc/arch-release"):
+    try:
+        import selenium
+        import webdriver_manager
+    except ImportError:
+        print(f"\n{Fore.YELLOW}[!] Arch Linux detected. You need to install the webdriver manger and selenium before using the webscraper.")
+        print(f"{Fore.YELLOW}    if you already have it installed, ignore this meesage.")
+        print(f"{Fore.CYAN}    Run: sudo pacman -S python-selenium python-webdriver-manager")
+        print(f"{Fore.CYAN}    Or if using an AUR helper: yay -S python-selenium python-webdriver-manager\n")
