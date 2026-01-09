@@ -82,26 +82,32 @@ def sitestring(url, user, code, colored=True):
             symbol = Fore.YELLOW + "E" + Fore.RESET
         return f"[{symbol}] {url}{user}"
 
-def get_system_data(threads,skipheaders):
-    # gets basic system info
+def get_system_data(threads, skip_headers):
+    """Print basic system information."""
     arc = platform.machine()
-    typ = platform.system()
-    pyv = platform.python_version()
+    system = platform.system()
+    python_version = platform.python_version()
     node = platform.node()
 
-    print("    CPU: " + arc)
-    if "linux" in typ.lower():
-      print("    OS:" + Fore.YELLOW + typ + Fore.RESET)
-    if "nt" in typ.lower() or "windows" in typ.lower():
-      print("    OS:" + Fore.BLUE + typ + Fore.RESET)
-    print("    System: " + Fore.RED + str(node) + Fore.RESET)
-    print("    Python Version: " + Fore.BLUE + str(pyv) + Fore.RESET)
-    print("    Threads: " + Fore.GREEN + str(threads) + Fore.RESET)
-    if skipheaders:
-     print("    Headers Loaded: 0")
+    system_lower = system.lower()
+
+    if "linux" in system_lower:
+        os_color = Fore.YELLOW
+    elif "nt" in system_lower or "windows" in system_lower:
+        os_color = Fore.BLUE
     else:
-     print("    Headers Loaded: " + str(count_header_lines()))
-    print("    ==============================================")
+        os_color = Fore.RESET
+
+    print(f"    CPU: {arc}")
+    print(f"    OS: {os_color}{system}{Fore.RESET}")
+    print(f"    System: {Fore.RED}{node}{Fore.RESET}")
+    print(f"    Python Version: {Fore.BLUE}{python_version}{Fore.RESET}")
+    print(f"    Threads: {Fore.GREEN}{threads}{Fore.RESET}")
+
+    headers_loaded = 0 if skip_headers else count_header_lines()
+    print(f"    Headers Loaded: {headers_loaded}")
+
+    print("    " + "=" * 45)
 
 # grabs header file from github
 def get_header_file(debug=False):
