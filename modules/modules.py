@@ -166,9 +166,10 @@ def load_user_agents(path=None):
 
 
 # scan sites
-def scan_site(site, user, debug, skip_headers, user_agents):
+def scan_site(site, user, debug, skip_headers, user_agents, allsites=False):
     if shutdown_event.is_set():
         return None
+
     url = site + user
     result = {
         "url": url,
@@ -186,20 +187,33 @@ def scan_site(site, user, debug, skip_headers, user_agents):
             return None
 
         code = r.status_code
+        found = 200 <= code <= 305
 
         result["status"] = code
-        result["found"] = 200 <= code <= 305
+        result["found"] = found
 
         if debug:
             print(f"[DEBUG] Hit: {url} Code: {code}")
 
-        print(sitestring(site, user, code))
-        return result
+        # 🔹 PRINT LOGIC
+        if found or allsites:
+            print(sitestring(site, user, code))
+
+        # 🔹 RETURN LOGIC
+        if found or allsites:
+            return result
+
+        return None
 
     except requests.RequestException as e:
         if debug:
             print(f"[!] Skipping {url}: {e}")
-        return result
+
+        if allsites:
+            return result
+
+        return None
+
 
 # file writing related functions
 def write_txt(user, results):

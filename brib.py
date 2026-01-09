@@ -52,7 +52,7 @@ parser.add_argument(
     help="Output format (txt, csv, json)"
 )
 parser.add_argument("-D", "--delay", type=int, help="Delay webscraper should wait for the page to load")
-parser.add_argument("-a", "--all", action='store_true', help="Shows all results (negitive and positive)")
+parser.add_argument("-a", "--all", action='store_true', help="Show all results (positive and negative)")
 
 #initializes the arg parser as a variable
 args = parser.parse_args()
@@ -106,7 +106,7 @@ if not webscrape:
  with ThreadPoolExecutor(max_workers=threads) as executor:
     futures = [
         executor.submit(
-            scan_site, site, user, debug, skip_headers, user_agents
+            scan_site, site, user, debug, skip_headers, user_agents, allsites
         )
         for site in sites
     ]
