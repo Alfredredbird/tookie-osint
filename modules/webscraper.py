@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
 
 
@@ -30,6 +31,10 @@ def check_site(url, message, allsites=False, delay=2):
     driver = get_driver()
     try:
      driver.get(url)
+    except TimeoutException:
+        print(f"[TIMEOUT] {url}")
+        return False
+
     except WebDriverException as e:
         msg = str(e)
 
