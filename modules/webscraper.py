@@ -2,6 +2,7 @@ import time
 from colorama import Fore
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from urllib3.exceptions import ReadTimeoutError
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
@@ -24,6 +25,8 @@ def get_driver():
             service=service,
             options=options
         )
+
+        driver.set_page_load_timeout(15)
     return driver
 
 
@@ -34,7 +37,9 @@ def check_site(url, message, allsites=False, delay=2):
     except TimeoutException:
         print(f"[TIMEOUT] {url}")
         return False
-
+    except ReadTimeoutError:
+        print(f"[DRIVER TIMEOUT] ChromeDriver hung on: {url}")
+        return False
     except WebDriverException as e:
         msg = str(e)
 
