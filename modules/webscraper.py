@@ -46,7 +46,8 @@ def check_site(url, message, allsites=False, delay=2):
         if "ERR_NAME_NOT_RESOLVED" in msg:
             print(f"[DNS ERROR] Could not resolve: {url}")
             return False
-        print(f"[SELENIUM ERROR] {url} -> {e}")
+        if "ERR_CONNECTION_REFUSED" in msg:
+            print(f"[SELENIUM ERROR] Connection Refuesd: {url} ")
         return False
 
     time.sleep(delay)
