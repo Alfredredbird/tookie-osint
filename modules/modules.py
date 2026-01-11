@@ -311,3 +311,7 @@ def is_arch():
         print(f"{Fore.YELLOW}    if you already have it installed, ignore this meesage.")
         print(f"{Fore.CYAN}    Run: sudo pacman -S python-selenium python-webdriver-manager")
         print(f"{Fore.CYAN}    Or if using an AUR helper: yay -S python-selenium python-webdriver-manager\n")
+
+def load_user_file(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]

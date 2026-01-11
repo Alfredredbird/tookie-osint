@@ -2,7 +2,7 @@ import os
 from colorama import Fore
 from modules.modules import get_info
 # prints logo
-def logo(user=""):
+def logo(user="", current=None, total=None):
     print(
         Fore.GREEN + """                                                      
                          ,,,,,                                    
@@ -47,3 +47,8 @@ def logo(user=""):
       print("    ==============================================")
     if user != "":
         print("    Target: " + Fore.GREEN + user + Fore.RESET)
+    if current and total:
+        print(
+            f"    User: {Fore.CYAN}{current}{Fore.RESET}/"
+            f"{Fore.CYAN}{total}{Fore.RESET}"
+        )
