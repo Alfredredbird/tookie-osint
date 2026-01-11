@@ -17,6 +17,18 @@
 # (Tookie-OSINT is being rebuilt)
 Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. 
 
+## 🌐 Language
+
+> Select your language / 言語を選択してください / 选择你的语言 / Sélectionnez votre langue / Seleccione su idioma / Wählen Sie Ihre Sprache / Выберите язык / اختر لغتك / زبان خود را انتخاب کنید / Selecione seu idioma / Scegli la tua lingua / 선택 언어 / Pilih bahasa Anda / בחר את השפה שלך / अपनी भाषा चुनें / Valitse kieli / 選擇您的語言
+
+| [English](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.en.md) | [日本語](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ja.md) | [简体中文](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.zh-cn.md) | [繁體中文](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.zh-tw.md) | [Français](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fr.md) | [Español](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.es.md) | [Deutsch](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.de.md) | [Русский](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ru.md) | [Português](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.pt.md) | [Italiano](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.it.md) | [فارسی](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fa.md) | [العربية](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ar.md) | [हिन्दी](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.hi.md) | [Suomi](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fi.md) | [עברית](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.he.md) |
+| [Bahasa Indonesia](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.id.md) |
+
+<!--
+デバッグ用: 言語切り替えテーブルが正しく表示されているか確認してください。
+If you find any issues with the language links, please open an issue or PR.
+-->
+
 # 🔎 Overview
 Tookie-osint has a simple-to-use UI and is really straightforward.
 The main idea of Tookie-osint is to discover usernames that are requested from an input.
@@ -61,11 +73,6 @@ You can find more install instructions on the Wiki.
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint && sudo pip3 install -r requirements.txt
     python3 tookie-osint
-
-# 🖋 Scripting With Tookie
-
-Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
-
 
 
 # 💻 Tested OS
@@ -129,15 +136,11 @@ Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-T
 
 There Is A Lot Lol
 
-- colorama
+- colorama 
 - requests
-- richconsole
-- alive_progress
-- torrequest
-- tqdm
-- bs4
-- selenium
-- cryptography
+- argparse
+- selenium 
+- webdriver-manager 
 
 # 🗣️Supported Languages
 (we need translators 😭)
@@ -160,9 +163,9 @@ There Is A Lot Lol
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
-- [ ] Tor Searching (in beta)
-- [] WebUi (in beta)
-- [] Webscraper
+- [ ] Tor Searching (planned)
+- [] WebUi (planned)
+- [X] Webscraper
 - [] Phone Number OSINT
 - [] Custom Plugins
 - [ ] Detailed Reports (in beta)
@@ -170,7 +173,7 @@ There Is A Lot Lol
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [X] More Accurate Results (in beta)
+- [X] More Accurate Results
 - [ ] Auto Open Discovered URLs
 - [ ] Web Hooks
 - [x] Headless mode
@@ -283,10 +286,11 @@ There has been several articles written about our tool. Feal free to check them 
 
 </table>
 
-# 🎬 Tutorials
+# 🎬 Official Tutorials
 
 - https://www.youtube.com/watch?v=crMN_SI7n40&t=2s
 - https://www.youtube.com/watch?v=8ciMPAJMB2g
+  
 # 📘 Contact
 
 - Twitter: https://twitter.com/alfredredbird1
