@@ -53,8 +53,10 @@ The requirements will be automatically installed.
     download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
     then extract the zip or tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Termux Install
@@ -142,32 +144,32 @@ There Is A Lot Lol
 - selenium 
 - webdriver-manager 
 
-# 🗣️Supported Languages
+# 🗣️Supported Wiki Languages
 (we need translators 😭)
 - [x] English
-- [] Italian
-- [] Hebrew
-- [] Spanish
-- [] French
-- [] Arabic
-- [] German
-- [] Hindi
-- [] Russian
-- [] Portuguese
-- [] Indonesian
-- [] Finnish
-- [] Chinese traditional
-- [] Chinese Simplified
-- [] Japanese
-- [] Farsi
+- [ ] Italian
+- [ ] Hebrew
+- [ ] Spanish
+- [ ] French
+- [ ] Arabic
+- [ ] German
+- [ ] Hindi
+- [ ] Russian
+- [ ] Portuguese
+- [ ] Indonesian
+- [ ] Finnish
+- [ ] Chinese traditional
+- [ ] Chinese Simplified
+- [ ] Japanese
+- [ ] Farsi
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [ ] Tor Searching (planned)
-- [] WebUi (planned)
+- [ ] WebUi (planned)
 - [X] Webscraper
-- [] Phone Number OSINT
-- [] Custom Plugins
+- [ ] Phone Number OSINT
+- [ ] Custom Plugins
 - [ ] Detailed Reports (in beta)
 - [ ] Email OSINT (in beta)
 - [x] CSV
