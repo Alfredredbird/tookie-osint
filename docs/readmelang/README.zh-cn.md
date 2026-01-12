@@ -29,15 +29,18 @@ Tookie-osint 类似于一个名为 Sherlock 的工具。它会发现不同网站
 需求将会自动安装。
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 手动安装
     从以下网址下载最新版本：https://github.com/alfredredbird/tookie-osint/releases。
     然后解压缩 zip 或 tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Termux 安装
@@ -56,7 +59,7 @@ Tookie-osint 类似于一个名为 Sherlock 的工具。它会发现不同网站
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 使用 Tookie 编写脚本

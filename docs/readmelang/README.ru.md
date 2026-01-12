@@ -29,15 +29,18 @@ Tookie-osint похож на инструмент под названием Sher
 Требования будут установлены автоматически.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Ручная установка
     скачайте последнюю версию с: https://github.com/alfredredbird/tookie-osint/releases.
     затем извлеките zip или tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Установка Termux
@@ -56,7 +59,7 @@ Tookie-osint похож на инструмент под названием Sher
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Скриптинг с помощью Tookie

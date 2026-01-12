@@ -29,15 +29,18 @@ Tookie-osint は、新しいプログラマーやペンテスターが OSINT の
 要件は自動的にインストールされます。
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 手動インストール
     最新のリリースを https://github.com/alfredredbird/tookie-osint/releases からダウンロードします。
     次に zip または tar.gz を展開します
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Termux インストール
@@ -56,7 +59,7 @@ Tookie-osint は、新しいプログラマーやペンテスターが OSINT の
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Tookie を使用したスクリプト

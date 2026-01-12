@@ -29,15 +29,18 @@
 سيتم تثبيت المتطلبات تلقائيًا.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 التثبيت اليدوي
     قم بتنزيل أحدث إصدار من: https://github.com/alfredredbird/tookie-osint/releases.
     ثم قم باستخراج ملف zip أو tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 تثبيت Termux
@@ -56,7 +59,7 @@
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 البرمجة النصية باستخدام Tookie

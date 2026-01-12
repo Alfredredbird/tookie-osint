@@ -29,15 +29,18 @@ Huomaa, että Tookie-osint luotiin auttamaan uusia ohjelmoijia tai pentestereit�
 Vaatimukset asennetaan automaattisesti.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Manuaalinen asennus
     lataa uusin julkaisu osoitteesta: https://github.com/alfredredbird/tookie-osint/releases.
     pura sitten zip- tai tar.gz-tiedosto
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Termux-asennus
@@ -56,7 +59,7 @@ Vaatimukset asennetaan automaattisesti.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Komentosarjat Tookien kanssa

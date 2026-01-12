@@ -29,15 +29,18 @@ Tookie-osint शर्लक नामक टूल के समान है�
 आवश्यकताएँ स्वचालित रूप से स्थापित हो जाएँगी।
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 मैनुअल इंस्टॉल
     से नवीनतम रिलीज़ डाउनलोड करें: https://github.com/alfredredbird/tookie-osint/releases।
     फिर ज़िप या tar.gz निकालें
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 टर्मक्स इंस्टॉल
@@ -56,7 +59,7 @@ Tookie-osint शर्लक नामक टूल के समान है�
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Tookie के साथ स्क्रिप्टिंग

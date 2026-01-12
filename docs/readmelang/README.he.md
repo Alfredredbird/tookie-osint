@@ -29,15 +29,18 @@ Tookie-osint דומה לכלי שנקרא שרלוק. הוא מגלה את כל 
 הדרישות יותקנו אוטומטית.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 התקנה ידנית
     הורד את המהדורה האחרונה מ: https://github.com/alfredredbird/tookie-osint/releases.
     לאחר מכן חלץ את ה-zip או tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 התקנת Termux
@@ -56,7 +59,7 @@ Tookie-osint דומה לכלי שנקרא שרלוק. הוא מגלה את כל 
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 סקריפטים עם Tookie

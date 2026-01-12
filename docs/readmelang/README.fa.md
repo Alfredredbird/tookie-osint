@@ -29,15 +29,18 @@ Tookie-osint شبیه به ابزاری به نام شرلوک است. این ا
 نیازمندی‌ها به طور خودکار نصب می‌شوند.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 نصب دستی
     آخرین نسخه را از اینجا دانلود کنید: https://github.com/alfredredbird/tookie-osint/releases.
     سپس فایل zip یا tar.gz را استخراج کنید
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 نصب Termux
@@ -56,7 +59,7 @@ Tookie-osint شبیه به ابزاری به نام شرلوک است. این ا
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 اسکریپت‌نویسی با Tookie

@@ -29,15 +29,18 @@ Bitte beachten Sie, dass Tookie-osint erstellt wurde, um neuen Programmierern od
 Die Anforderungen werden automatisch installiert.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Manuelle Installation
     laden Sie die neueste Version von herunter: https://github.com/alfredredbird/tookie-osint/releases.
     extrahieren Sie dann die Zip- oder tar.gz-Datei
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Termux-Installation
@@ -56,7 +59,7 @@ Die Anforderungen werden automatisch installiert.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Scripting mit Tookie

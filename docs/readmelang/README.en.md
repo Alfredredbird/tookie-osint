@@ -7,12 +7,27 @@
 ![GitHub forks](https://img.shields.io/github/forks/alfredredbird/tookie-osint?logoColor=ffff&color=%23ff0000)
 ![GitHub Repo stars](https://img.shields.io/github/stars/alfredredbird/tookie-osint?color=%2332cd32)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-![Discord](https://img.shields.io/discord/1229923929959960616?logo=discord&color=%237289da&link=https%3A%2F%2Fdiscord.gg%2F2WvtfwQjVc)
 
 
-[![Run on Repl.it](https://replit.com/badge/github/alfredredbird/tookie-osint)](https://replit.com/new/github/alfredredbird/tookie-osint)
 
-# (We Had To Rebrand)
+
+# THIS IS A DEV BRANCH
+# NOTHING HERE IS FINAL AND IS MOST LIKELY BROKEN AND OR BUGGY
+# PLEASE GO TO THE MAIN BRANCH FOR A STABLE BUILD
+# (Tookie-OSINT is being rebuilt)
+Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. 
+
+## 🌐 Language
+
+> Select your language / 言語を選択してください / 选择你的语言 / Sélectionnez votre langue / Seleccione su idioma / Wählen Sie Ihre Sprache / Выберите язык / اختر لغتك / زبان خود را انتخاب کنید / Selecione seu idioma / Scegli la tua lingua / 선택 언어 / Pilih bahasa Anda / בחר את השפה שלך / अपनी भाषा चुनें / Valitse kieli / 選擇您的語言
+
+| [English](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.en.md) | [日本語](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ja.md) | [简体中文](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.zh-cn.md) | [繁體中文](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.zh-tw.md) | [Français](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fr.md) | [Español](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.es.md) | [Deutsch](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.de.md) | [Русский](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ru.md) | [Português](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.pt.md) | [Italiano](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.it.md) | [فارسی](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fa.md) | [العربية](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.ar.md) | [हिन्दी](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.hi.md) | [Suomi](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.fi.md) | [עברית](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.he.md) |
+| [Bahasa Indonesia](https://github.com/Alfredredbird/tookie-osint/blob/main/docs/readmelang/README.id.md) |
+
+<!--
+デバッグ用: 言語切り替えテーブルが正しく表示されているか確認してください。
+If you find any issues with the language links, please open an issue or PR.
+-->
 
 # 🔎 Overview
 Tookie-osint has a simple-to-use UI and is really straightforward.
@@ -25,19 +40,23 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 <img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
-# 📦 Installation
+
+# 📦 Linux Installation for the dev build
 The requirements will be automatically installed.
 
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    git clone --branch dev --single-branch https://github.com/alfredredbird/tookie-osint.git
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Manual Install
     download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
     then extract the zip or tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
 # 📦 Termux Install
@@ -50,19 +69,15 @@ The requirements will be automatically installed.
 
     python3 tookie-osint
 
-# 📦 Other Linux Installations
+# 📦 Other Installations
+You can find more install instructions on the Wiki.
+
     git clone https://github.com/alfredredbird/tookie-osint
     cd tookie-osint
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
-
-
-# 🖋 Scripting With Tookie
-
-Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-Tookie) for more details.
-
+    python3 brib.py
 
 
 # 💻 Tested OS
@@ -126,48 +141,44 @@ Please see [Here](https://github.com/Alfredredbird/tookie-osint/wiki/Scripting-T
 
 There Is A Lot Lol
 
-- colorama
+- colorama 
 - requests
-- richconsole
-- alive_progress
-- torrequest
-- tqdm
-- bs4
-- selenium
-- cryptography
+- argparse
+- selenium 
+- webdriver-manager 
 
-# 🗣️Supported Languages
+# 🗣️Supported Wiki Languages
 (we need translators 😭)
 - [x] English
-- [x] Italian
-- [x] Hebrew
-- [x] Spanish
-- [x] French
-- [x] Arabic
-- [x] German
-- [x] Hindi
-- [x] Russian
-- [x] Portuguese
+- [X] Italian
+- [X] Hebrew
+- [X] Spanish
+- [X] French
+- [X] Arabic
+- [X] German
+- [X] Hindi
+- [X] Russian
+- [X] Portuguese
 - [X] Indonesian
 - [X] Finnish
 - [X] Chinese traditional
-- [x] Chinese Simplified
-- [x] Japanese
-- [x] Farsi
+- [X] Chinese Simplified
+- [X] Japanese
+- [X] Farsi
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
-- [ ] Tor Searching (in beta)
-- [X] WebUi (in beta)
+- [ ] Tor Searching (planned)
+- [ ] WebUi (planned)
 - [X] Webscraper
-- [X] Phone Number OSINT
-- [X] Custom Plugins
+- [ ] Phone Number OSINT
+- [ ] Custom Plugins
 - [ ] Detailed Reports (in beta)
 - [ ] Email OSINT (in beta)
 - [x] CSV
 - [ ] Url Brute Forcing
 - [ ] GUI
-- [ ] More Accurate Results (in beta)
+- [X] More Accurate Results
 - [ ] Auto Open Discovered URLs
 - [ ] Web Hooks
 - [x] Headless mode
@@ -277,12 +288,14 @@ There has been several articles written about our tool. Feal free to check them 
 
 
 
+
 </table>
 
-# 🎬 Tutorials
+# 🎬 Official Tutorials
 
 - https://www.youtube.com/watch?v=crMN_SI7n40&t=2s
 - https://www.youtube.com/watch?v=8ciMPAJMB2g
+  
 # 📘 Contact
 
 - Twitter: https://twitter.com/alfredredbird1
@@ -291,6 +304,7 @@ There has been several articles written about our tool. Feal free to check them 
 
 Other tools in the fleet:
 - Bibi-Bird (beta): https://github.com/alfredredbird/Bibi-Bird
+- Open-Wrecks: https://github.com/Alfredredbird/Open-Wrecks
 
 
 # 🤝 Partnership

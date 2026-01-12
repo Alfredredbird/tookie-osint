@@ -29,16 +29,18 @@ Harap dicatat bahwa Tookie-osint dibuat untuk membantu programmer atau pentester
 Persyaratan akan diinstal secara otomatis.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Instalasi Manual
     unduh rilis terbaru dari: https://github.com/alfredredbird/tookie-osint/releases.
     kemudian ekstrak zip atau tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
-
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 # 📦 Instalasi Termux
 
@@ -56,7 +58,7 @@ Persyaratan akan diinstal secara otomatis.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Scripting Dengan Tookie
