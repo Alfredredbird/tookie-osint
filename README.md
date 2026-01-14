@@ -9,11 +9,6 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-
-
-# THIS IS A DEV BRANCH
-# NOTHING HERE IS FINAL AND IS MOST LIKELY BROKEN AND OR BUGGY
-# PLEASE GO TO THE MAIN BRANCH FOR A STABLE BUILD
 # (Tookie-OSINT is being rebuilt)
 Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. 
 
@@ -44,7 +39,7 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 # 📦 Linux Installation for the dev build
 The requirements will be automatically installed.
 
-    git clone --branch dev --single-branch https://github.com/alfredredbird/tookie-osint.git
+    git clone https://github.com/alfredredbird/tookie-osint.git
     cd tookie-osint
     chmod +x install.sh
     sudo ./install.sh
