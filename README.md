@@ -32,7 +32,8 @@ Tookie-osint is similar to the tool called Sherlock. It discovers all the user a
 Our tool was created by me and the community and is available for your use.
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
 Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D
-<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
+<img width="769" height="1032" alt="image" src="https://github.com/user-attachments/assets/de7a5e05-d632-4199-9857-d1ca9000e8f2" />
+
 
 
 
@@ -169,13 +170,13 @@ There Is A Lot Lol
 - [ ] Web Hooks
 - [x] Headless mode
 - [x] Automation
+- [X] Threading
 
 # 🍿 Showcase
 Tookie-osint has a wide variety of options to use.
 Using `-h` shows the help menu.
 
-<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/10aa8e40-50f0-4cb7-91f2-a0adc76d25d0" />
-
+<img width="769" height="1032" alt="image" src="https://github.com/user-attachments/assets/9ed8b048-42b0-49e8-86ef-923e6a6d5851" />
 
 
 # ⁉️ Need Help?
