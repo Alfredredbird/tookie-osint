@@ -22,7 +22,7 @@ Tookie-osint は Sherlock というツールに似ています。さまざまな
 私のツールによって引き起こされた悪意のある行為や責任については一切責任を負いません。:(
 Tookie-osint は、新しいプログラマーやペンテスターが OSINT の世界に参入するのを支援するために作成されたことに注意してください。私の最終的な目標は、Tookie-osint をできる限り完璧にし、新しいプログラマーが理解しやすいようにすることです。また、Tookie-osint は Python 3.12 に最適化されていることにも注意してください。貢献したい場合は、フォークを作成し、プルリクエストを送信して変更を送信してください。:D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 インストール
@@ -43,15 +43,7 @@ Tookie-osint は、新しいプログラマーやペンテスターが OSINT の
     tookie-osint
 
 
-# 📦 Termux インストール
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 その他の Linux インストール
     git clone https://github.com/alfredredbird/tookie-osint

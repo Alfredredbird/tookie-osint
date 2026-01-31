@@ -22,7 +22,7 @@ Tookie-osint 類似於一個名為 Sherlock 的工具。它會發現不同網站
 對於因我的工具造成的任何惡意行為和/或責任，我概不負責。:(
 請注意，Tookie-osint 的創建是為了幫助新的程式設計師或滲透測試人員進入 OSINT 的世界。我的最終目標是讓 Tookie-osint 盡可能完美，並讓新的程式設計師易於理解。另請注意，Tookie-osint 已針對 Python 3.12 進行了最佳化。如果您想做出貢獻，請建立一個分支並提出拉取請求以提交您的變更。:D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 安裝
@@ -43,15 +43,7 @@ Tookie-osint 類似於一個名為 Sherlock 的工具。它會發現不同網站
     tookie-osint
 
 
-# 📦 Termux 安裝
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 其他 Linux 安裝
     git clone https://github.com/alfredredbird/tookie-osint

@@ -22,7 +22,7 @@ Il nostro strumento è stato creato da me e dalla community ed è disponibile pe
 Non mi assumo alcuna responsabilità per eventuali azioni dannose e/o responsabilità causate dal mio strumento. :(
 Si prega di notare che Tookie-osint è stato creato per aiutare i nuovi programmatori o pentester ad entrare nel mondo dell'OSINT. Il mio obiettivo finale è rendere Tookie-osint il più perfetto possibile e renderlo facile da capire per i nuovi programmatori. Si noti inoltre che Tookie-osint è ottimizzato per Python 3.12. Se vuoi contribuire, fai un fork e fai una pull request per inviare le tue modifiche. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Installazione
@@ -43,15 +43,7 @@ I requisiti verranno installati automaticamente.
     tookie-osint
 
 
-# 📦 Installazione di Termux
-
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
+#
 
 # 📦 Altre installazioni Linux
     git clone https://github.com/alfredredbird/tookie-osint

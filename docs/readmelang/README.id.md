@@ -22,7 +22,7 @@ Alat kami dibuat oleh saya dan komunitas dan tersedia untuk Anda gunakan.
 Saya tidak bertanggung jawab atas tindakan jahat dan/atau tanggung jawab yang disebabkan oleh alat saya. :(
 Harap dicatat bahwa Tookie-osint dibuat untuk membantu programmer atau pentester baru masuk ke dunia OSINT. Tujuan akhir saya adalah membuat Tookie-osint sesempurna mungkin dan membuatnya mudah dipahami oleh programmer baru. Perhatikan juga bahwa Tookie-osint dioptimalkan untuk Python 3.12. Jika Anda ingin berkontribusi, buat fork dan buat pull request untuk mengirimkan perubahan Anda. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Instalasi
@@ -42,15 +42,7 @@ Persyaratan akan diinstal secara otomatis.
     sudo ./install.sh
     tookie-osint
 
-# 📦 Instalasi Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Instalasi Linux Lainnya
     git clone https://github.com/alfredredbird/tookie-osint
