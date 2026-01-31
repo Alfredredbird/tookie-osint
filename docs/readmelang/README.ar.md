@@ -22,33 +22,28 @@
 أنا لا أتحمل أي مسؤولية عن أي أعمال ضارة و / أو مسؤولية ناتجة عن أداتي. :(
 يرجى ملاحظة أن Tookie-osint تم إنشاؤه لمساعدة المبرمجين الجدد أو مختبري الاختراق على الدخول إلى عالم OSINT. هدفي النهائي هو جعل Tookie-osint مثاليًا قدر الإمكان وجعله سهل الفهم للمبرمجين الجدد. لاحظ أيضًا أن Tookie-osint مُحسَّن لـ Python 3.12. إذا كنت ترغب في المساهمة ، فقم بإنشاء تفريع وقم بطلب سحب لإرسال تغييراتك. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 التثبيت
 سيتم تثبيت المتطلبات تلقائيًا.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 التثبيت اليدوي
     قم بتنزيل أحدث إصدار من: https://github.com/alfredredbird/tookie-osint/releases.
     ثم قم باستخراج ملف zip أو tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 تثبيت Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 تثبيتات Linux الأخرى
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 البرمجة النصية باستخدام Tookie

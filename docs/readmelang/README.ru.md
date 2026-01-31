@@ -22,33 +22,28 @@ Tookie-osint похож на инструмент под названием Sher
 Я не несу ответственности за любые злонамеренные действия и/или ответственность, вызванные моим инструментом. :(
 Обратите внимание, что Tookie-osint был создан, чтобы помочь новым программистам или пентестерам войти в мир OSINT. Моя конечная цель - сделать Tookie-osint как можно более совершенным и легким для понимания новыми программистами. Также обратите внимание, что Tookie-osint оптимизирован для Python 3.12. Если вы хотите внести свой вклад, сделайте форк и отправьте запрос на слияние, чтобы отправить свои изменения. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Установка
 Требования будут установлены автоматически.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Ручная установка
     скачайте последнюю версию с: https://github.com/alfredredbird/tookie-osint/releases.
     затем извлеките zip или tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 Установка Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Другие установки Linux
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Tookie-osint похож на инструмент под названием Sher
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Скриптинг с помощью Tookie

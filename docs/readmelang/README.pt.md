@@ -22,33 +22,28 @@ Nossa ferramenta foi criada por mim e pela comunidade e está disponível para s
 Não me responsabilizo por quaisquer ações maliciosas e/ou responsabilidades causadas pela minha ferramenta. :(
 Observe que o Tookie-osint foi criado para ajudar novos programadores ou pentesters a entrar no mundo do OSINT. Meu objetivo final é tornar o Tookie-osint o mais perfeito possível e torná-lo fácil de entender para novos programadores. Observe também que o Tookie-osint é otimizado para Python 3.12. Se você quiser contribuir, faça um fork e faça uma pull request para enviar suas alterações. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Instalação
 Os requisitos serão instalados automaticamente.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Instalação manual
     baixe a versão mais recente em: https://github.com/alfredredbird/tookie-osint/releases.
     em seguida, extraia o zip ou tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 Instalação do Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Outras instalações do Linux
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Os requisitos serão instalados automaticamente.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Script com Tookie

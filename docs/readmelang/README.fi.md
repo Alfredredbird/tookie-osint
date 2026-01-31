@@ -22,33 +22,28 @@ Työkalumme on minun ja yhteisön luoma, ja se on käytettävissäsi.
 En ota vastuuta mistään haitallisista toimista ja/tai vastuusta, joka aiheutuu työkalustani. :(
 Huomaa, että Tookie-osint luotiin auttamaan uusia ohjelmoijia tai pentestereitä pääsemään OSINT-maailmaan. Pitkän aikavälin tavoitteenani on tehdä Tookie-osintista niin täydellinen kuin mahdollista ja tehdä siitä helppo ymmärtää uusille ohjelmoijille. Huomaa myös, että Tookie-osint on optimoitu Python 3.12:lle. Jos haluat osallistua, tee haara ja tee vetopyyntö lähettääksesi muutoksesi. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Asennus
 Vaatimukset asennetaan automaattisesti.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Manuaalinen asennus
     lataa uusin julkaisu osoitteesta: https://github.com/alfredredbird/tookie-osint/releases.
     pura sitten zip- tai tar.gz-tiedosto
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 Termux-asennus
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Muut Linux-asennukset
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Vaatimukset asennetaan automaattisesti.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Komentosarjat Tookien kanssa

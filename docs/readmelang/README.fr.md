@@ -22,33 +22,28 @@ Notre outil a été créé par moi et la communauté et est disponible pour votr
 Je n'assume aucune responsabilité pour les actions malveillantes et/ou la responsabilité causées par mon outil. :(
 Veuillez noter que Tookie-osint a été créé pour aider les nouveaux programmateurs ou pentesteurs à entrer dans le monde de l'OSINT. Mon objectif à terme est de rendre Tookie-osint aussi parfait que possible et de le rendre facile à comprendre pour les nouveaux programmateurs. Notez également que Tookie-osint est optimisé pour Python 3.12. Si vous souhaitez contribuer, créez un fork et effectuez une pull request pour soumettre vos modifications. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Installation
 Les dépendances seront installées automatiquement.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Installation manuelle
     téléchargez la dernière version depuis : https://github.com/alfredredbird/tookie-osint/releases.
     extrayez ensuite le zip ou le tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 Installation de Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Autres installations Linux
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Les dépendances seront installées automatiquement.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Scripting avec Tookie

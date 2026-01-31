@@ -22,33 +22,28 @@ Tookie-osint شبیه به ابزاری به نام شرلوک است. این ا
 من هیچ مسئولیتی در قبال هرگونه اقدام مخرب و/یا مسئولیتی که توسط ابزار من ایجاد شود، بر عهده نمی‌گیرم. :(
 لطفاً توجه داشته باشید که Tookie-osint برای کمک به برنامه نویسان جدید یا آزمایشگران نفوذ برای ورود به دنیای OSINT ایجاد شده است. هدف نهایی من این است که Tookie-osint را تا حد امکان کامل کنم و درک آن را برای برنامه نویسان جدید آسان کنم. همچنین توجه داشته باشید که Tookie-osint برای پایتون 3.12 بهینه شده است. اگر می‌خواهید مشارکت کنید، یک فورک ایجاد کنید و یک درخواست کشش برای ارسال تغییرات خود ایجاد کنید. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 نصب
 نیازمندی‌ها به طور خودکار نصب می‌شوند.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 نصب دستی
     آخرین نسخه را از اینجا دانلود کنید: https://github.com/alfredredbird/tookie-osint/releases.
     سپس فایل zip یا tar.gz را استخراج کنید
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 نصب Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 سایر نصب‌های لینوکس
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Tookie-osint شبیه به ابزاری به نام شرلوک است. این ا
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 اسکریپت‌نویسی با Tookie

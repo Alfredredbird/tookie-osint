@@ -22,33 +22,28 @@ Tookie-osint 类似于一个名为 Sherlock 的工具。它会发现不同网站
 对于因我的工具造成的任何恶意行为和/或责任，我概不负责。:(
 请注意，Tookie-osint 的创建是为了帮助新的程序员或渗透测试人员进入 OSINT 的世界。我的最终目标是让 Tookie-osint 尽可能完美，并让新的程序员易于理解。另请注意，Tookie-osint 已针对 Python 3.12 进行了优化。如果您想做出贡献，请创建一个分支并提出拉取请求以提交您的更改。:D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 安装
 需求将会自动安装。
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 手动安装
     从以下网址下载最新版本：https://github.com/alfredredbird/tookie-osint/releases。
     然后解压缩 zip 或 tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 Termux 安装
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 其他 Linux 安装
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Tookie-osint 类似于一个名为 Sherlock 的工具。它会发现不同网站
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 使用 Tookie 编写脚本

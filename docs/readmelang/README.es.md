@@ -22,33 +22,28 @@ Nuestra herramienta fue creada por mí y la comunidad y está disponible para su
 No me hago responsable de ninguna acción maliciosa y/o responsabilidad causada by mi herramienta. :(
 Tenga en cuenta que Tookie-osint fue creado para ayudar a los nuevos programadores o pentesters a iniciarse en el mundo de OSINT. Mi objetivo final es hacer que Tookie-osint sea lo más perfecto posible y que sea fácil de entender para los nuevos programadores. También tenga en cuenta que Tookie-osint está optimizado para Python 3.12. Si desea contribuir, haga un fork y haga una pull request para enviar sus cambios. :D
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
 
 # 📦 Instalación
 Los requisitos se instalarán automáticamente.
 
     git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
 
 # 📦 Instalación manual
     descargue la última versión desde: https://github.com/alfredredbird/tookie-osint/releases.
     luego extraiga el zip o tar.gz
 
-    cd tookie-osint && sudo pip3 install -r requirements.txt
-    python3 tookie-osint
+    cd tookie-osint
+    chmod +x install.sh
+    sudo ./install.sh
+    tookie-osint
 
 
-# 📦 Instalación de Termux
 
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Otras instalaciones de Linux
     git clone https://github.com/alfredredbird/tookie-osint
@@ -56,7 +51,7 @@ Los requisitos se instalarán automáticamente.
     python3 -m venv venv
     source venv/bin/activate
     pip3 install -r requirements.txt
-    python3 tookie-osint
+    python3 brib.py
 
 
 # 🖋 Scripting con Tookie
