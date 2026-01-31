@@ -1,6 +1,6 @@
 ![Tookie-osint-logo-newtext-480x480](https://github.com/Alfredredbird/tookie-osint/assets/105014217/67bab5b4-f537-4f05-8a7b-c9fc3a16d256)
 
-
+# THIS IS TOOKIE-OSINT V1 AN OLD BUILD
 
 ![GitHub contributors](https://img.shields.io/github/contributors/alfredredbird/tookie-osint)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/alfredredbird/tookie-osint)
@@ -45,7 +45,7 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 # 📦 Linux Installation
 The requirements will be automatically installed.
 
-    git clone https://github.com/alfredredbird/tookie-osint
+    git clone https://github.com/alfredredbird/tookie-osint --branch tookie-osint-v
     cd tookie-osint
     python3 -m venv venv
     source venv/bin/activate
