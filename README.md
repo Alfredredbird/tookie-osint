@@ -31,8 +31,8 @@ Tookie-osint is similar to the tool called Sherlock. It discovers all the user a
 Our tool was created by me and the community and is available for your use.
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
 Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/da493d67-cde1-4ded-bf7e-af62d14dc016" />
 
-<img width="952" height="1300" alt="image" src="https://github.com/user-attachments/assets/fea15d7b-1e6d-44d7-b444-aefa56bcc6b2" />
 
 
 
@@ -53,16 +53,6 @@ The requirements will be automatically installed.
     sudo ./install.sh
     tookie-osint
 
-
-# 📦 Termux Install
-
-    termux-setup-storage
-    ln -s storage/downloads Downloads
-
-    git clone https://github.com/alfredredbird/tookie-osint
-    cd tookie-osint && pip3 install -r requirements.txt
-
-    python3 tookie-osint
 
 # 📦 Other Installations
 You can find more install instructions on the Wiki.
@@ -92,7 +82,7 @@ You can find more install instructions on the Wiki.
     </tr>
  <tr>
         <td>Termux</td>
-        <td>0.118.0</td>
+        <td>0.118.0 (broken)</td>
     </tr>
     <tr>
         <td>Kali linux</td>
@@ -181,9 +171,10 @@ There Is A Lot Lol
 
 # 🍿 Showcase
 Tookie-osint has a wide variety of options to use.
-Typing -h twice shows the help menu.
+Using `-h` shows the help menu.
 
-![image](https://github.com/Alfredredbird/tookie-osint/assets/105014217/7429b51c-e021-4bbb-8596-676240bce573)
+<img width="930" height="1056" alt="image" src="https://github.com/user-attachments/assets/10aa8e40-50f0-4cb7-91f2-a0adc76d25d0" />
+
 
 
 # ⁉️ Need Help?
