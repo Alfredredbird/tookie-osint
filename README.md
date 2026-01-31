@@ -38,7 +38,7 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 
 
 
-# 📦 Linux Installation for the dev build
+# 📦 Linux Installation
 The requirements will be automatically installed.
 
     git clone https://github.com/alfredredbird/tookie-osint.git
