@@ -280,7 +280,7 @@ def check_update():
     
     # Checks if a new version of Tookie-OSINT is available.
     
-    remote_url = "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/refs/heads/dev/config/version"
+    remote_url = "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/refs/heads/main/config/version"
     local_version = get_info().strip()
 
     try:
