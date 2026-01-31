@@ -7,12 +7,17 @@ SOURCE_DIR="$(pwd)"
 PYTHON_BIN="python3"
 # ------------------------
 
-# Detect OS
+# Detect OS / Environment
 OS="$(uname -s)"
 IS_ALPINE=false
+IS_TERMUX=false
 
 if [ -f /etc/alpine-release ]; then
     IS_ALPINE=true
+fi
+
+if [[ -n "$PREFIX" && "$PREFIX" == *"com.termux"* ]]; then
+    IS_TERMUX=true
 fi
 
 case "$OS" in
@@ -22,7 +27,12 @@ case "$OS" in
         CHOWN_CMD="chown -R root:wheel"
         ;;
     Linux*)
-        if $IS_ALPINE; then
+        if $IS_TERMUX; then
+            INSTALL_DIR="$PREFIX/opt/$PROJECT_NAME"
+            BIN_PATH="$PREFIX/bin/$PROJECT_NAME"
+            CHOWN_CMD="true"
+            PYTHON_BIN="python"
+        elif $IS_ALPINE; then
             INSTALL_DIR="/opt/$PROJECT_NAME"
             BIN_PATH="/usr/local/bin/$PROJECT_NAME"
             CHOWN_CMD="chown -R root:root"
@@ -40,11 +50,12 @@ esac
 
 echo "[*] Installing $PROJECT_NAME"
 echo "[*] OS: $OS"
-$IS_ALPINE && echo "[*] Alpine / iSH detected"
+$IS_ALPINE && echo "[*] Alpine detected"
+$IS_TERMUX && echo "[*] Termux detected"
 echo "[*] Install dir: $INSTALL_DIR"
 
-# Root check (skip on iSH since user is root)
-if [ "$EUID" -ne 0 ] && ! $IS_ALPINE; then
+# Root check (skip on Alpine & Termux)
+if [ "$EUID" -ne 0 ] && ! $IS_ALPINE && ! $IS_TERMUX; then
     echo "[!] Please run as root (sudo)"
     exit 1
 fi
@@ -64,20 +75,16 @@ cp -r "$SOURCE_DIR" "$INSTALL_DIR"
 VENV_DIR="$INSTALL_DIR/.venv"
 echo "[*] Creating virtual environment..."
 
-
-if $IS_ALPINE; then
-    if ! $PYTHON_BIN -m venv --help >/dev/null 2>&1; then
-        echo
-        echo "[!] Missing Python dependencies on Alpine / iSH"
-        echo "Run this first:"
-        echo
-        echo "apk add --no-cache python3 py3-pip py3-virtualenv git"
-        echo
-        exit 1
+if ! $PYTHON_BIN -m venv "$VENV_DIR" >/dev/null 2>&1; then
+    echo
+    echo "[!] Python venv not available"
+    if $IS_TERMUX; then
+        echo "Run:"
+        echo "pkg install python"
+    elif $IS_ALPINE; then
+        echo "apk add --no-cache python3 py3-pip py3-virtualenv"
     fi
-    $PYTHON_BIN -m venv "$VENV_DIR"
-else
-    $PYTHON_BIN -m venv "$VENV_DIR"
+    exit 1
 fi
 
 "$VENV_DIR/bin/pip" install --upgrade pip
@@ -100,7 +107,7 @@ EOF
 
 chmod +x "$BIN_PATH"
 
-# Permissions
+# Permissions (noop on Termux)
 $CHOWN_CMD "$INSTALL_DIR" || true
 
 echo "[✓] Installation complete!"

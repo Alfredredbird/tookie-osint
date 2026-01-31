@@ -9,8 +9,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-# (Tookie-OSINT is being rebuilt)
-Tookie-OSINT is being complete rebuilt 100% from scrath to add more community support and faster optimizations. 
+# (Tookie-OSINT V4 is here!)
+Tookie-OSINT has been re-written 100% from scratch for ultimate performance!
+Translations are still not ready yet.
 
 ## 🌐 Language
 
@@ -82,7 +83,7 @@ You can find more install instructions on the Wiki.
     </tr>
  <tr>
         <td>Termux</td>
-        <td>0.118.0 (broken)</td>
+        <td>0.118.0</td>
     </tr>
     <tr>
         <td>Kali linux</td>
