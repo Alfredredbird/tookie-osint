@@ -1,5 +1,0 @@
-colorama 
-requests
-argparse
-selenium 
-webdriver-manager
