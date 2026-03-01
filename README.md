@@ -12,7 +12,7 @@
 # (Tookie-OSINT V4 is here!)
 Tookie-OSINT has been re-written 100% from scratch for ultimate performance!
 Translations are still not ready yet.
-The wiki snd readme are going through some changes. 
+The wiki and readme are going through some changes. 
 
 ## 🌐 Language
 
