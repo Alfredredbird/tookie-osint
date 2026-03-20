@@ -3,7 +3,7 @@
 
 encrypt1 = "Anahtar şifreleniyor..."
 
-title1 = "Ortaklarımıza çok teşekkürler!"
+title1 = "Partnerlerimize çok teşekkürler!"
 
 disclamer = "     Uyarı: Tüm sitelerin ve/veya proxy'lerin çalışacağı garanti edilmez! \n     Bunu kullanarak, eylemlerinizin tüm sorumluluğunu üstlenirsiniz!"
 
