@@ -110,7 +110,8 @@ user_agents = []
 if not skip_headers:
     user_agents = load_user_agents()
     if not user_agents:
-        print("[!] No headers loaded. Continuing without random User-Agent headers.")
+        print("[!] No headers loaded. Continuing without random User-Agent headers. Skipping header usage.")
+        skip_headers = True
 # writes scan file (will be removed)
 # scan_file(user,0)
 
