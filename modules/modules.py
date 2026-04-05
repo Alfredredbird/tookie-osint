@@ -2,6 +2,7 @@ import os
 import csv
 import sys
 import json
+import time
 import random
 import signal
 import platform
@@ -167,6 +168,8 @@ def count_header_lines(path=None):
 def load_user_agents(path=None):
     if path is None:
         path = os.path.join(BASE_DIR, "sites", "headers.txt")
+    if not os.path.isfile(path):
+        return []
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
 
@@ -185,7 +188,7 @@ def scan_site(site, user, debug, skip_headers, user_agents, allsites=False):
 
     try:
         headers = None
-        if not skip_headers:
+        if not skip_headers and user_agents:
             headers = {"User-Agent": random.choice(user_agents)}
 
         r = requests.get(url, headers=headers, timeout=10)
@@ -268,7 +271,7 @@ def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, del
             print(f"Expected error message: {error_message}")    
 
 
-def write_to_file(output_format):
+def write_to_file(user, results, output_format):
     if output_format == "txt":
         write_txt(user, results)
     elif output_format == "csv":

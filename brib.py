@@ -72,6 +72,17 @@ output_format = args.output
 webscrape = args.webscraper
 delay = args.delay
 allsites = args.all
+
+# basic argument validation for clearer errors
+if threads < 1:
+    parser.error("-t/--threads must be 1 or greater")
+
+if delay is not None and delay < 0:
+    parser.error("-D/--delay must be 0 or greater")
+
+if args.userfile and not users:
+    parser.error("-U/--userfile does not contain any usernames")
+
 #makes sure threads is not used with the webscraper
 if args.webscraper and args.threads != parser.get_default("threads"):
     parser.print_help()
@@ -98,6 +109,9 @@ if debug:
 user_agents = []
 if not skip_headers:
     user_agents = load_user_agents()
+    if not user_agents:
+        print("[!] No headers loaded. Continuing without random User-Agent headers. Skipping header usage.")
+        skip_headers = True
 # writes scan file (will be removed)
 # scan_file(user,0)
 
@@ -146,13 +160,8 @@ for idx, user in enumerate(users, start=1):
     all_results[user] = results
 
     # write output per-user
-    if output_format == "txt":
-        write_txt(user, results)
-    elif output_format == "csv":
-        write_csv(user, results)
-    elif output_format == "json":
-        write_json(user, results)
+    write_to_file(user, results, output_format)
     
 print("    ==============================================")
 print("Scan done!")
-exit(1)
+exit(0)
