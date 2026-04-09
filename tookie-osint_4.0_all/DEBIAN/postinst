@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+pip3 install --break-system-packages --ignore-installed selenium webdriver-manager python-dotenv
+chmod +x /usr/bin/tookie-osint
+echo "[+] tookie-osint installed!"

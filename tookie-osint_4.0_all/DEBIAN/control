@@ -1,0 +1,7 @@
+Package: tookie-osint
+Version: 4.0
+Architecture: all
+Maintainer: Alfredredbird
+Depends: python3, python3-requests, chromium-driver
+Description: Username OSINT scanner
+ Scan websites for a given username across many platforms.
