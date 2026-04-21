@@ -34,7 +34,7 @@ Examples:
     tookie-osint -u alfred --skipheaders
 
   Use webscraper:
-    tookie-osint -u alfred -W
+    tookie-osint -u alfred -W -H
 
   Use a user file list
     tookie-osint -U users.txt -t 20
@@ -92,6 +92,7 @@ if args.webscraper and args.threads != parser.get_default("threads"):
         status=1,
         message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n"
     )
+
 # checks for update
 check_update()
 #asks to download request agent file

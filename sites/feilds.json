@@ -65,5 +65,102 @@
     "by": "xpath",
     "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
   }
+},
+"www.facebook.com": {
+  "followers": {
+    "by": "xpath",
+    "selector": "//strong[contains(@class,'html-strong')]/following-sibling::text()[contains(.,'Followers') or contains(.,'followers')]/preceding-sibling::strong[1]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//strong[contains(@class,'html-strong') and following-sibling::text()[normalize-space()='following' or normalize-space()=' following']]"
+  },
+  "reviews": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'x193iq5w') and contains(text(),'recommend')]"
+  }
+},
+"www.7cups.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'fw-semibold') and contains(@class,'fs-5') and contains(@class,'align-middle')]"
+  },
+  "stars": {
+    "by": "xpath",
+    "selector": "//i[contains(@class,'fa-star')]/following-sibling::span[contains(@class,'fw-normal')]"
+  },
+  "rank": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'ms-2') and contains(@class,'fw-normal') and not(contains(@class,'d-flex'))]"
+  },
+  "listens_to": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Listens to']/../span[contains(@class,'fw-semibold')]"
+  },
+  "language": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Languages']/../span[contains(@class,'fw-semibold')]"
+  },
+  "listener_since": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Listener since']/../span[contains(@class,'fw-semibold')]"
+  },
+  "last_active": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Last active']/../span[contains(@class,'fw-semibold')]"
+  },
+  "gender": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Gender']/../span[contains(@class,'fw-semibold')]"
+  }
+
+},
+"about.me": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'body-content')]//h1[@class='name']"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//h2[@class='headline']//span[@class='location'][not(.//span)]"
+  },
+  "company_link": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'glyph-commercial-building')]",
+    "attr": "href"
+  },
+  "twitter": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'social-link') and contains(@title,'Twitter')]",
+    "attr": "href"
+  },
+  "facebook": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'social-link') and contains(@title,'Facebook')]",
+    "attr": "href"
+  },
+  "linkedin": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'social-link') and contains(@title,'LinkedIn')]",
+    "attr": "href"
+  }
+},
+"independent.academia.edu": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'title-container')]//h1"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'js-profile-followees')]//p[@class='data']"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'js-profile-followers')]//p[@class='data']"
+  },
+  "public_views": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'js-profile-view-count')]"
+  }
 }
 }

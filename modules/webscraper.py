@@ -23,7 +23,9 @@ def get_driver():
         options.add_argument("--disable-gpu")            
         options.add_argument("--window-size=1920,1080")
         options.add_argument("--remote-debugging-port=0")
-        
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        options.add_experimental_option("useAutomationExtension", False)
 
         driver = webdriver.Chrome(
 
@@ -54,9 +56,13 @@ def extract_fields(driver, site_config):
                 )
             else:
                 continue
+            attr = config.get("attr")
+            results[field_name] = element.get_attribute(attr) if attr else element.text.strip()
 
             results[field_name] = element.text.strip()
-
+        except TimeoutException:
+            print(f"[!] Field '{field_name}' not found on page (timeout)")
+            results[field_name] = None
         except Exception as e:
             print(f"[DEBUG] Failed to extract {field_name}: {e}")
             results[field_name] = None
