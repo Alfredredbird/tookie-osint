@@ -55,15 +55,6 @@ The requirements will be automatically installed.
     
     sudo dpgk -i tookie-osint.deb
 
-# 📦 Manual Install
-    download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
-    then extract the zip or tar.gz
-
-    cd tookie-osint
-    chmod +x install.sh
-    sudo ./install.sh
-    tookie-osint
-
 # 📦 Other Installations
 You can find more install instructions on the Wiki.
 
