@@ -33,7 +33,8 @@ Tookie-osint is similar to the tool called Sherlock. It discovers all the user a
 Our tool was created by me and the community and is available for your use.
 I do not take responsibility for any malicious actions and/or responsibility caused by my tool. :(
 Please note that Tookie-osint was created to help new programmers or pentesters get into the world of OSINT. My end term goal is to make Tookie-osint as perfect as I can and make it easy for new programmers to understand. Also take note that Tookie-osint is optimized for Python 3.12. If you want to contribute, make a fork and make a pull request to submit your changes. :D
-<img width="769" height="1032" alt="image" src="https://github.com/user-attachments/assets/de7a5e05-d632-4199-9857-d1ca9000e8f2" />
+<img width="940" height="1299" alt="image" src="https://github.com/user-attachments/assets/bdd71b8b-2145-4d6d-9eec-36f7666a5673" />
+
 
 
 
