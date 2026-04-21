@@ -61,7 +61,7 @@ def extract_fields(driver, site_config):
 
             results[field_name] = element.text.strip()
         except TimeoutException:
-            print(f"[!] Field '{field_name}' not found on page (timeout)")
+            # print(f"[!] Field '{field_name}' not found on page (timeout)")
             results[field_name] = None
         except Exception as e:
             print(f"[DEBUG] Failed to extract {field_name}: {e}")
