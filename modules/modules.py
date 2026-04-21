@@ -39,7 +39,8 @@ def load_sites(debug=False):
 
 # loads the json feilds for scraping
 def load_fields():
-    with open("sites/feilds.json", "r") as f:
+    feilds_file = os.path.join(BASE_DIR, "sites", "feilds.json")
+    with open(feilds_file, "r") as f:
         return json.load(f)
 
 # grabs version info and such
