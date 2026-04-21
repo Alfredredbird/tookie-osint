@@ -57,6 +57,7 @@ parser.add_argument(
 )
 parser.add_argument("-D", "--delay", type=int, help="Delay webscraper should wait for the page to load")
 parser.add_argument("-a", "--all", action='store_true', help="Show all results (positive and negative)")
+parser.add_argument("-H", "--harvest", action='store_true', help="Webscrape data from the sites")
 
 #initializes the arg parser as a variable
 args = parser.parse_args()
@@ -72,7 +73,8 @@ output_format = args.output
 webscrape = args.webscraper
 delay = args.delay
 allsites = args.all
-
+# loads the feilds to scrape
+field_configs = load_fields()
 # basic argument validation for clearer errors
 if threads < 1:
     parser.error("-t/--threads must be 1 or greater")
@@ -151,7 +153,25 @@ for idx, user in enumerate(users, start=1):
 
     else:
         try:
-            scan_webscraper(user, debug, skip_headers, user_agents, delay, allsites)
+            if args.harvest:
+                scan_webscraper(
+                    user,
+                    debug=debug,
+                    field_configs=field_configs,
+                    skip_headers=skip_headers,
+                    user_agents=user_agents,
+                    delay=delay,
+                    allsites=allsites
+                )
+            else:
+                scan_webscraper(
+                    user,
+                    debug=debug,
+                    skip_headers=skip_headers,
+                    user_agents=user_agents,
+                    delay=delay,
+                    allsites=allsites
+                )
         except KeyboardInterrupt:
             print("\nStopping web scraper...")
         finally:

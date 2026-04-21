@@ -1,0 +1,69 @@
+{
+  "www.youtube.com": {
+    "username": {
+      "by": "xpath",
+      "selector": "//span[contains(@class,'ytAttributedStringWhiteSpacePreWrap') and @role='text']"
+    },
+    "handle": {
+      "by": "xpath",
+      "selector": "//yt-content-metadata-view-model//span[contains(text(),'@')]"
+    },
+    "subscribers": {
+      "by": "xpath",
+      "selector": "//yt-content-metadata-view-model//span[contains(text(),'subscriber')]"
+    }
+  },
+  "www.twitch.tv": {
+    "username": {
+      "by": "xpath",
+      "selector": "//h1[contains(@class,'ScTitleText')]"
+    },
+    "followers": {
+      "by": "xpath",
+      "selector": "//p[contains(@class,'CoreText') and contains(text(),'follower')]"
+    }
+  },
+  "m.twitch.tv": {
+    "username": {
+      "by": "xpath",
+      "selector": "//h1[contains(@class,'ScTitleText')]"
+    }
+    
+  },
+  "www.x.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//div[contains(@class,'r-adyw6z') and contains(@class,'r-135wba7')]"
+  },
+  "handle": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//span[starts-with(text(),'@')]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/following')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  }
+},
+"www.twitter.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//div[contains(@class,'r-adyw6z') and contains(@class,'r-135wba7')]"
+  },
+  "handle": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//span[starts-with(text(),'@')]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/following')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  }
+}
+}

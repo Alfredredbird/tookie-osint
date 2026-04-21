@@ -38,7 +38,6 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 
 
 
-
 # 📦 Linux Installation
 The requirements will be automatically installed.
 
@@ -46,6 +45,14 @@ The requirements will be automatically installed.
     cd tookie-osint
     chmod +x install.sh
     sudo ./install.sh
+
+# 📦 Debian Based Installation
+The requirements will be automatically installed.
+
+    download debian packaged from
+    https://github.com/Alfredredbird/tookie-osint/releases
+    
+    sudo dpgk -i tookie-osint.deb
 
 # 📦 Manual Install
     download the latest release from: https://github.com/alfredredbird/tookie-osint/releases.
@@ -55,7 +62,6 @@ The requirements will be automatically installed.
     chmod +x install.sh
     sudo ./install.sh
     tookie-osint
-
 
 # 📦 Other Installations
 You can find more install instructions on the Wiki.
@@ -161,6 +167,7 @@ There Is A Lot Lol
 - [ ] Tor Searching (planned)
 - [ ] WebUi (planned)
 - [X] Webscraper
+- [X] Data Webscrapping
 - [ ] Phone Number OSINT
 - [ ] Custom Plugins
 - [ ] Detailed Reports (in beta)

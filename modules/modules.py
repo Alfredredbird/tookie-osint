@@ -37,6 +37,11 @@ def load_sites(debug=False):
 
     return urls
 
+# loads the json feilds for scraping
+def load_fields():
+    with open("sites/feilds.json", "r") as f:
+        return json.load(f)
+
 # grabs version info and such
 def get_info():
  version_file = os.path.join(BASE_DIR, "config", "version")
@@ -244,11 +249,12 @@ def write_json(user, results):
         json.dump(results, f, indent=2)
 
 
-def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, delay=None,allsites=False):
+def scan_webscraper(user, field_configs=None, debug=False, skip_headers=False, user_agents=None, delay=None,allsites=False):
     """
     loads sites/sites.json and calls check_site with URL + errorMessage.
     user: the username to append to the site URL
     """
+   
     if user_agents is None:
         user_agents = []
 
@@ -261,12 +267,15 @@ def scan_webscraper(user, debug=False, skip_headers=False, user_agents=None, del
     for entry in data:
         site_url = entry.get("site", "")
         error_message = entry.get("errorMessage", "No error message defined")
+        domain = site_url.replace("https://", "").replace("http://", "").split("/")[0]
         url = site_url + user
 
+        site_fields = field_configs.get(domain) if field_configs else None
+
         if delay:
-            check_site(url, error_message,allsites, delay)
+            check_site(url, error_message, site_fields, allsites, delay)
         else:
-            check_site(url, error_message,allsites)
+            check_site(url, error_message, site_fields, allsites)
         if debug:
             print(f"Expected error message: {error_message}")    
 

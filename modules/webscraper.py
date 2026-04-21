@@ -7,6 +7,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = None
@@ -18,7 +20,9 @@ def get_driver():
         options.add_argument("--headless=new")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
-
+        options.add_argument("--disable-gpu")            
+        options.add_argument("--window-size=1920,1080")
+        options.add_argument("--remote-debugging-port=0")
         
 
         driver = webdriver.Chrome(
@@ -30,10 +34,40 @@ def get_driver():
     return driver
 
 
-def check_site(url, message, allsites=False, delay=2):
+
+def extract_fields(driver, site_config):
+    results = {}
+
+    for field_name, config in site_config.items():
+        try:
+            if config["by"] == "css":
+                element = WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located(
+                        (By.CSS_SELECTOR, config["selector"])
+                    )
+                )
+            elif config["by"] == "xpath":
+                element = WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located(
+                        (By.XPATH, config["selector"])
+                    )
+                )
+            else:
+                continue
+
+            results[field_name] = element.text.strip()
+
+        except Exception as e:
+            print(f"[DEBUG] Failed to extract {field_name}: {e}")
+            results[field_name] = None
+
+    return results
+
+def check_site(url, message, field_config=None, allsites=False, delay=2):
     driver = get_driver()
+
     try:
-     driver.get(url)
+        driver.get(url)
     except TimeoutException:
         print(f"[TIMEOUT] {url}")
         return False
@@ -45,21 +79,33 @@ def check_site(url, message, allsites=False, delay=2):
 
         if "ERR_NAME_NOT_RESOLVED" in msg:
             print(f"[DNS ERROR] Could not resolve: {url}")
-            return False
-        if "ERR_CONNECTION_REFUSED" in msg:
-            print(f"[SELENIUM ERROR] Connection Refuesd: {url} ")
+        elif "ERR_CONNECTION_REFUSED" in msg:
+            print(f"[SELENIUM ERROR] Connection Refused: {url}")
         return False
 
     time.sleep(delay)
 
-    if message.lower() in driver.page_source.lower():
-        if allsites:
-         print(f"[{Fore.RED}-{Fore.RESET}] {url}")
-         return False
-        pass
-    else:
+    found = message.lower() not in driver.page_source.lower()
+
+    if found:
         print(f"[{Fore.GREEN}+{Fore.RESET}] {url}")
-        return True
+    elif allsites:
+        print(f"[{Fore.RED}-{Fore.RESET}] {url}")
+
+    if found and field_config:
+        extracted = extract_fields(driver, field_config)
+
+        print(f"    {Fore.CYAN}Scraped Data:{Fore.RESET}")
+        for key, value in extracted.items():
+            print(f"      {Fore.YELLOW}{key}:{Fore.RESET} {value}")
+
+        return {
+            "url": url,
+            "found": True,
+            "data": extracted
+        }
+
+    return found
 
 def close_driver():
     global driver

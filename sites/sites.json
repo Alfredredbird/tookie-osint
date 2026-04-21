@@ -15,6 +15,11 @@
     "errorMessage": "Sorry, that page is in another castle!"
   },
   {
+    "site": "https://www.x.com/",
+    "nsfw": "false",
+    "errorMessage": "This account doesn’t exist"
+  },
+  {
     "site": "https://www.twitter.com/",
     "nsfw": "false",
     "errorMessage": "This account doesn’t exist"
