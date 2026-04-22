@@ -268,7 +268,7 @@ def scan_webscraper(user, field_configs=None, debug=False, skip_headers=False, u
     for entry in data:
         site_url = entry.get("site", "")
         error_message = entry.get("errorMessage", "No error message defined")
-        domain = site_url.replace("https://", "").replace("http://", "").split("/")[0]
+        domain = site_url.replace("https://", "").replace("http://", "").split("/")[0].removeprefix("www.")
         url = site_url + user
 
         site_fields = field_configs.get(domain) if field_configs else None

@@ -32,7 +32,7 @@ def get_driver():
             options=options
         )
 
-        driver.set_page_load_timeout(15)
+        driver.set_page_load_timeout(10)
     return driver
 
 
@@ -43,13 +43,13 @@ def extract_fields(driver, site_config):
     for field_name, config in site_config.items():
         try:
             if config["by"] == "css":
-                element = WebDriverWait(driver, 10).until(
+                element = WebDriverWait(driver, 5).until(
                     EC.presence_of_element_located(
                         (By.CSS_SELECTOR, config["selector"])
                     )
                 )
             elif config["by"] == "xpath":
-                element = WebDriverWait(driver, 10).until(
+                element = WebDriverWait(driver, 5).until(
                     EC.presence_of_element_located(
                         (By.XPATH, config["selector"])
                     )
@@ -100,15 +100,19 @@ def check_site(url, message, field_config=None, allsites=False, delay=2):
 
     if found and field_config:
         extracted = extract_fields(driver, field_config)
-
-        print(f"    {Fore.CYAN}Scraped Data:{Fore.RESET}")
-        for key, value in extracted.items():
-            print(f"      {Fore.YELLOW}{key}:{Fore.RESET} {value}")
-
+        
+        
+        found_fields = {k: v for k, v in extracted.items() if v is not None}
+        
+        if found_fields:
+            print(f"    {Fore.CYAN}Scraped Data:{Fore.RESET}")
+            for key, value in found_fields.items():
+                print(f"      {Fore.YELLOW}{key}:{Fore.RESET} {value}")
+        
         return {
             "url": url,
             "found": True,
-            "data": extracted
+            "data": extracted  
         }
 
     return found

@@ -1,5 +1,5 @@
 {
-  "www.youtube.com": {
+  "youtube.com": {
     "username": {
       "by": "xpath",
       "selector": "//span[contains(@class,'ytAttributedStringWhiteSpacePreWrap') and @role='text']"
@@ -13,7 +13,7 @@
       "selector": "//yt-content-metadata-view-model//span[contains(text(),'subscriber')]"
     }
   },
-  "www.twitch.tv": {
+  "twitch.tv": {
     "username": {
       "by": "xpath",
       "selector": "//h1[contains(@class,'ScTitleText')]"
@@ -30,7 +30,7 @@
     }
     
   },
-  "www.x.com": {
+  "x.com": {
   "username": {
     "by": "xpath",
     "selector": "//div[@data-testid='UserName']//div[contains(@class,'r-adyw6z') and contains(@class,'r-135wba7')]"
@@ -48,7 +48,7 @@
     "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
   }
 },
-"www.twitter.com": {
+"twitter.com": {
   "username": {
     "by": "xpath",
     "selector": "//div[@data-testid='UserName']//div[contains(@class,'r-adyw6z') and contains(@class,'r-135wba7')]"
@@ -66,7 +66,7 @@
     "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
   }
 },
-"www.facebook.com": {
+"facebook.com": {
   "followers": {
     "by": "xpath",
     "selector": "//strong[contains(@class,'html-strong')]/following-sibling::text()[contains(.,'Followers') or contains(.,'followers')]/preceding-sibling::strong[1]"
@@ -80,7 +80,7 @@
     "selector": "//span[contains(@class,'x193iq5w') and contains(text(),'recommend')]"
   }
 },
-"www.7cups.com": {
+"7cups.com": {
   "username": {
     "by": "xpath",
     "selector": "//span[contains(@class,'fw-semibold') and contains(@class,'fs-5') and contains(@class,'align-middle')]"
@@ -161,6 +161,113 @@
   "public_views": {
     "by": "xpath",
     "selector": "//span[contains(@class,'js-profile-view-count')]"
+  }
+},
+"airbit.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'single-producer__header__producerinfo_username')]//span[contains(@class,'tw-truncate')]"
+  },
+  "plays": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'single-producer__header__stats')]//span[contains(@class,'tw-text-base') and contains(@class,'tw-font-bold')][1]"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'single-producer__header__stats_likes')]//span[contains(@class,'tw-text-base') and contains(@class,'tw-font-bold')]"
+  },
+  "comments": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'single-producer__header__stats_comments')]//span[contains(@class,'tw-text-base') and contains(@class,'tw-font-bold')]"
+  },
+  "tier": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'tw-ml-1') and contains(@class,'tw-text-xs') and contains(@class,'tw-font-medium')]"
+  }
+},
+"allmylinks.com": {
+  "handle": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'profile-usertag')]"
+  },
+  "first_link_title": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and contains(@class,'link')]//span[contains(@class,'link-title')][1]"
+  },
+  "first_link_url": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and contains(@class,'link')][1]",
+    "attr": "href"
+  },
+  "instagram": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and .//span[@class='link-title' and normalize-space()='instagram']]",
+    "attr": "href"
+  },
+  "personal_site": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and .//span[@class='link-title' and normalize-space()='personal']]",
+    "attr": "href"
+  }
+},
+"anilist.co": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'name-wrapper')]//h1[contains(@class,'name')]"
+  },
+  "total_anime": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Total Anime']/../div[@class='value']"
+  },
+  "days_watched": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Days Watched']/../div[@class='value']"
+  },
+  "anime_mean_score": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Mean Score'][1]/../div[@class='value']"
+  },
+  "total_manga": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Total Manga']/../div[@class='value']"
+  },
+  "chapters_read": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Chapters Read']/../div[@class='value']"
+  },
+  "manga_mean_score": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Mean Score'][2]/../div[@class='value']"
+  }
+},
+"developer.apple.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-name')]//h2[contains(@class,'user-nickname')]"
+  },
+  "points": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Points')]]"
+  },
+  "posts": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Posts')]]"
+  },
+  "accepted": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Accepted')]]"
+  },
+  "apple_recommended": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Apple Recommended')]]"
+  },
+  "last_seen": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-activity-history-item')][.//span[@data-cy='lastSeen']]//span[@class='postTime']"
+  },
+  "member_for": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-activity-history-item')][.//span[@data-cy='memberFor']]//span[@class='postTime']"
   }
 }
 }
