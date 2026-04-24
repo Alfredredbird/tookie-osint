@@ -45,6 +45,9 @@ def logo(user="", current=None, total=None):
     if "dev" in str(get_info()):
       print("            THIS IS A DEV BUILD: " + get_info())
       print("    ==============================================")
+    if "fix" in str(get_info()):
+      print("            THIS IS A PATCH BUILD: " + get_info())
+      print("    ==============================================")
     if user != "":
         print("    Target: " + Fore.GREEN + user + Fore.RESET)
     if current and total:
