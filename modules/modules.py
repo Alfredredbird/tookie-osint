@@ -1,4 +1,5 @@
 import os
+import re
 import csv
 import sys
 import json
@@ -10,6 +11,27 @@ import requests
 import threading
 from colorama import Fore
 from modules.webscraper import *
+
+
+# Restrict caller-supplied usernames to a safe filename fragment before they
+# are used as output file paths. Without this, "-u ../../../tmp/x" (or any
+# -U userfile line containing path separators) would let the caller steer the
+# output file anywhere the invoking user can write. Replaces every character
+# outside [A-Za-z0-9._-] with "_", collapses ".." sequences, refuses empty
+# or dot-only results, and caps length at 128.
+_UNSAFE_FILENAME_CHARS = re.compile(r"[^A-Za-z0-9._-]")
+
+
+def _safe_filename(user):
+    if not isinstance(user, str):
+        user = str(user)
+    safe = _UNSAFE_FILENAME_CHARS.sub("_", user)
+    safe = safe.replace("..", "_")
+    safe = safe.strip(".")
+    if not safe:
+        safe = "output"
+    return safe[:128]
+
 
 # shutdown event
 shutdown_event = threading.Event()
@@ -53,14 +75,15 @@ def get_info():
 
 # scan file
 def scan_file(user, num, data=""):
+    safe_user = _safe_filename(user)
     if num == 0:
         # write header
-        with open(f"{user}.txt", "a") as scanfile:
+        with open(f"{safe_user}.txt", "a") as scanfile:
             scanfile.write(f"Tookie-OSINT {get_info()}\n\n")
             scanfile.close()
     elif num == 1:
         #write url
-        with open(f"{user}.txt", "a") as scanfile:
+        with open(f"{safe_user}.txt", "a") as scanfile:
             scanfile.write(f"{data}\n")
             scanfile.close()
 
@@ -232,21 +255,24 @@ def scan_site(site, user, debug, skip_headers, user_agents, allsites=False):
 
 # file writing related functions
 def write_txt(user, results):
-    with open(f"{user}.txt", "w") as f:
+    safe_user = _safe_filename(user)
+    with open(f"{safe_user}.txt", "w") as f:
         f.write(f"Tookie-OSINT {get_info()}\n\n")
         f.write("found url\n")
         for r in results:
             f.write(f"{str(r['found']).lower():<6} {r['url']}\n")
 
 def write_csv(user, results):
-    with open(f"{user}.csv", "w", newline="") as f:
+    safe_user = _safe_filename(user)
+    with open(f"{safe_user}.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["found", "url", "status"])
         for r in results:
             writer.writerow([r["found"], r["url"], r["status"]])
 
 def write_json(user, results):
-    with open(f"{user}.json", "w", encoding="utf-8") as f:
+    safe_user = _safe_filename(user)
+    with open(f"{safe_user}.json", "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2)
 
 
