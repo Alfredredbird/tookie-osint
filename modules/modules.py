@@ -59,10 +59,10 @@ def load_sites(debug=False):
 
     return urls
 
-# loads the json feilds for scraping
+# loads the json fields for scraping
 def load_fields():
-    feilds_file = os.path.join(BASE_DIR, "sites", "feilds.json")
-    with open(feilds_file, "r") as f:
+    fields_file = os.path.join(BASE_DIR, "sites", "fields.json")
+    with open(fields_file, "r") as f:
         return json.load(f)
 
 # grabs version info and such

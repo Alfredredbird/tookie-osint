@@ -73,7 +73,7 @@ output_format = args.output
 webscrape = args.webscraper
 delay = args.delay
 allsites = args.all
-# loads the feilds to scrape
+# loads the fields to scrape
 field_configs = load_fields()
 # basic argument validation for clearer errors
 if threads < 1:
