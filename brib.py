@@ -1,19 +1,26 @@
 #!/usr/bin/env python
 
-import os
-import requests
 import argparse
-
-from colorama import Fore
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from modules.fancy import *
-from modules.webscraper import *
-from modules.modules import *
 
+from modules.fancy import logo
+from modules.modules import (
+    check_update,
+    get_header_file,
+    get_system_data,
+    load_fields,
+    load_sites,
+    load_user_agents,
+    load_user_file,
+    scan_site,
+    scan_webscraper,
+    write_to_file,
+)
+from modules.webscraper import close_driver
 
-
-#initializes the arg parser
-parser = argparse.ArgumentParser( description="Username OSINT scanner",
+# initializes the arg parser
+parser = argparse.ArgumentParser(
+    description="Username OSINT scanner",
     prog="tookie-osint",
     formatter_class=argparse.RawTextHelpFormatter,
     epilog="""
@@ -38,30 +45,46 @@ Examples:
 
   Use a user file list
     tookie-osint -U users.txt -t 20
-""")
-#arguments
+""",
+)
+# arguments
 # parser.add_argument("-h", "--help",)
 group = parser.add_mutually_exclusive_group(required=True)
-group.add_argument("-u", "--user",help="Username to scan")
-group.add_argument("-U", "--userfile",help="File path to username file")
-parser.add_argument("-t", "--threads", type=int, default=2, help="Threads. Defualt is 2")
-parser.add_argument("-d", "--debug", action='store_true',help="Allows debugging options")
-parser.add_argument("-sk", "--skipheaders", action='store_true',help="skips using random user agents")
-parser.add_argument("-p", "--proxy", type=str, help="proxy")
-parser.add_argument("-W", "--webscraper", action='store_true',help="Toggles uses the webscraper")
+group.add_argument("-u", "--user", help="Username to scan")
+group.add_argument("-U", "--userfile", help="File path to username file")
 parser.add_argument(
-    "-o", "--output",
+    "-t", "--threads", type=int, default=2, help="Threads. Defualt is 2"
+)
+parser.add_argument(
+    "-d", "--debug", action="store_true", help="Allows debugging options"
+)
+parser.add_argument(
+    "-sk", "--skipheaders", action="store_true", help="skips using random user agents"
+)
+parser.add_argument("-p", "--proxy", type=str, help="proxy")
+parser.add_argument(
+    "-W", "--webscraper", action="store_true", help="Toggles uses the webscraper"
+)
+parser.add_argument(
+    "-o",
+    "--output",
     choices=["txt", "csv", "json"],
     default="txt",
-    help="Output format (txt, csv, json)"
+    help="Output format (txt, csv, json)",
 )
-parser.add_argument("-D", "--delay", type=int, help="Delay webscraper should wait for the page to load")
-parser.add_argument("-a", "--all", action='store_true', help="Show all results (positive and negative)")
-parser.add_argument("-H", "--harvest", action='store_true', help="Webscrape data from the sites")
+parser.add_argument(
+    "-D", "--delay", type=int, help="Delay webscraper should wait for the page to load"
+)
+parser.add_argument(
+    "-a", "--all", action="store_true", help="Show all results (positive and negative)"
+)
+parser.add_argument(
+    "-H", "--harvest", action="store_true", help="Webscrape data from the sites"
+)
 
-#initializes the arg parser as a variable
+# initializes the arg parser as a variable
 args = parser.parse_args()
-#arguments as variables
+# arguments as variables
 if args.userfile:
     users = load_user_file(args.userfile)
 else:
@@ -85,17 +108,17 @@ if delay is not None and delay < 0:
 if args.userfile and not users:
     parser.error("-U/--userfile does not contain any usernames")
 
-#makes sure threads is not used with the webscraper
+# makes sure threads is not used with the webscraper
 if args.webscraper and args.threads != parser.get_default("threads"):
     parser.print_help()
     parser.exit(
         status=1,
-        message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n"
+        message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n",
     )
 
 # checks for update
 check_update()
-#asks to download request agent file
+# asks to download request agent file
 get_header_file(debug)
 # makes system direcotries
 # make_sys_dirs(debug)
@@ -105,15 +128,17 @@ get_header_file(debug)
 sites = load_sites(debug)
 # debuging options
 if debug:
-  print("DEBUG")
-  print("Opening Scan File")
+    print("DEBUG")
+    print("Opening Scan File")
 
 # loads user agents
 user_agents = []
 if not skip_headers:
     user_agents = load_user_agents()
     if not user_agents:
-        print("[!] No headers loaded. Continuing without random User-Agent headers. Skipping header usage.")
+        print(
+            "[!] No headers loaded. Continuing without random User-Agent headers. Skipping header usage."
+        )
         skip_headers = True
 # writes scan file (will be removed)
 # scan_file(user,0)
@@ -129,7 +154,7 @@ for idx, user in enumerate(users, start=1):
     # gets basic system info for the logo
     if webscrape:
         threads = 1
-    get_system_data(threads,skip_headers)
+    get_system_data(threads, skip_headers)
 
     results = []
 
@@ -162,7 +187,7 @@ for idx, user in enumerate(users, start=1):
                     skip_headers=skip_headers,
                     user_agents=user_agents,
                     delay=delay,
-                    allsites=allsites
+                    allsites=allsites,
                 )
             else:
                 scan_webscraper(
@@ -171,7 +196,7 @@ for idx, user in enumerate(users, start=1):
                     skip_headers=skip_headers,
                     user_agents=user_agents,
                     delay=delay,
-                    allsites=allsites
+                    allsites=allsites,
                 )
         except KeyboardInterrupt:
             print("\nStopping web scraper...")
@@ -182,7 +207,7 @@ for idx, user in enumerate(users, start=1):
 
     # write output per-user
     write_to_file(user, results, output_format)
-    
+
 print("    ==============================================")
 print("Scan done!")
 exit(0)
