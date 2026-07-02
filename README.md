@@ -209,6 +209,9 @@ Make a pull request or a bug report with the site and we will add it. :D
 There has been several articles written about our tool. Feal free to check them out :D  Theses articles belong to their respectful owners.
 <table>
     <tr>
+        <th>Sherlockeye</th>
+        <th>https://sherlockeye.io/blog/tookie-osint-what-it-is-how-it-works</th>
+    <tr>
         <th>Habr</th>
         <th>https://habr.com/ru/news/757502/</th>
     </tr>
@@ -226,19 +229,6 @@ There has been several articles written about our tool. Feal free to check them 
         <th>https://info.sibnet.ru/article/646445/</th>
     </tr>
     <tr>
-        <th>NetRunner</th>
-        <th>https://blog.netrunner.lol/alfred-advanced-osint-info-gathering-tool-afc1a7afd8a3</th>
-    </tr>
-
-   <tr>
-        <th>gebutcher</th>
-        <th>https://gebutcher.blogspot.com/2023/10/Osintalfred.html?m=1</th>
-    </tr>
-     <tr>
-        <th>Iguru</th>
-        <th>https://iguru.gr/alfred-ena-proigmeno-osint-programma/</th>
-    </tr>
-    <tr>
         <th>Medevel</th>
         <th>https://medevel.com/31-osint-tools/</th>
     </tr>
@@ -246,31 +236,10 @@ There has been several articles written about our tool. Feal free to check them 
         <th>Medium</th>
         <th>https://medium.com/age-of-awareness/osint-unleashed-the-5-best-tools-for-cyber-investigators-8ff08fe9a4ba</th>
     </tr>
-     <tr>
-        <th>TechnoNews</th>
-        <th>https://techno-news.net/2023/08/28/news_7132/</th>
-    </tr>
-    <tr>
-        <th>Xhref</th>
-        <th>  https://xhref.blogspot.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
-    </tr>
-     <tr>
-        <th>JOEE txt</th>
-        <th>https://www.joeetxt.com/2023/10/alfred-utilitas-open-source-untuk-osint.html</th>
-    </tr>
-    <tr>
-        <th>internet intelligence</th>
-        <th>https://internetintelligence.eu/alfred-a-powerful-osint-tool-for-social-media-account-discovery/</th>
-    </tr>
     <tr>
         <th>Kali Linux Tutorials</th>
         <th>https://kalilinuxtutorials.com/tookie-osint/</th>
     </tr>
-    <tr>
-        <th>Hacks.gr</th>
-        <th>https://en.hacks.gr/tookie-osint-ergaleio-sullogis-kai-analysis-dimosion-dedomenon/
-    </th>
-        <tr>
         <th>JJ Gallego</th>
         <th>https://medium.com/cyberscribers-exploring-cybersecurity/osint-for-nicknames-tookie-osint-1364a3c87acf</th>
     </tr>
