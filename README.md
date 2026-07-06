@@ -53,7 +53,7 @@ The requirements will be automatically installed.
     download debian packaged from
     https://github.com/Alfredredbird/tookie-osint/releases
     
-    sudo dpgk -i tookie-osint.deb
+    sudo dpkg -i tookie-osint.deb
 
 # 📦 Other Installations
 You can find more install instructions on the Wiki.
