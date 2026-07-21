@@ -1,6 +1,6 @@
 import os
 from colorama import Fore
-from modules.modules import get_info
+from modules.modules import get_info, motd
 # prints logo
 def logo(user="", current=None, total=None):
     print(
@@ -48,6 +48,8 @@ def logo(user="", current=None, total=None):
     if "fix" in str(get_info()):
       print("            THIS IS A PATCH BUILD: " + get_info())
       print("    ==============================================")
+    # shows the message of the day. (fetches from main repo branch)
+    motd()
     if user != "":
         print("    Target: " + Fore.GREEN + user + Fore.RESET)
     if current and total:

@@ -135,7 +135,7 @@
     "errorMessage": "Page not found"
   },
   {
-    "site": "https://asciinema.org/~",
+    "site": "https://discourse.asciinema.org/u/",
     "nsfw": "false",
     "errorMessage": "This page doesn't exist. Sorry!"
   },

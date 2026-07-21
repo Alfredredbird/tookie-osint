@@ -354,3 +354,22 @@ def is_arch():
 def load_user_file(path):
     with open(path, "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
+
+def motd():
+    try:
+        request = requests.get("https://raw.githubusercontent.com/Alfredredbird/tookie-osint/main/config/motd", timeout=5)
+        req_content = request.content
+        if request.status_code == 200:
+            print({req_content})
+            print("    ==============================================" + Fore.RESET)
+  
+        else:
+            with open(os.path.join(BASE_DIR, "config", "motd"), "r", encoding="utf-8") as f:
+                motd_content = f.read()
+                print(motd_content)
+                print("    ==============================================" + Fore.RESET)
+            f.close
+            pass
+    except requests.RequestException:
+        print("Failed to fetch the message of the day.")
+        print("    ==============================================" + Fore.RESET)

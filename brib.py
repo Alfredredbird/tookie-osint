@@ -15,6 +15,7 @@ from modules.modules import (
     scan_site,
     scan_webscraper,
     write_to_file,
+    motd,
 )
 from modules.webscraper import close_driver
 
@@ -66,6 +67,9 @@ parser.add_argument(
     "-W", "--webscraper", action="store_true", help="Toggles uses the webscraper"
 )
 parser.add_argument(
+    "-sC", "--script", action="store_true", help="Disables UI and only displays results."
+)
+parser.add_argument(
     "-o",
     "--output",
     choices=["txt", "csv", "json"],
@@ -115,11 +119,12 @@ if args.webscraper and args.threads != parser.get_default("threads"):
         status=1,
         message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n",
     )
-
 # checks for update
-check_update()
+if not args.script:
+    check_update()
 # asks to download request agent file
-get_header_file(debug)
+if not args.script:
+    get_header_file(debug)
 # makes system direcotries
 # make_sys_dirs(debug)
 
@@ -149,12 +154,16 @@ all_results = {}
 total_users = len(users)
 
 for idx, user in enumerate(users, start=1):
-    print(f"\n[+] Scanning username: {user}")
-    logo(user, idx, total_users)
+    if not args.script:
+        print(f"\n[+] Scanning username: {user}")
+        logo(user, idx, total_users)
     # gets basic system info for the logo
     if webscrape:
         threads = 1
-    get_system_data(threads, skip_headers)
+
+    # displays system info for the logo
+    if not args.script:
+        get_system_data(threads, skip_headers)
 
     results = []
 
