@@ -36,7 +36,7 @@ def _safe_filename(user):
 # shutdown event
 shutdown_event = threading.Event()
 def handle_sigint(sig, frame):
-    print("\n[!] Interrupted, shutting stopping...")
+    print("\n[!] Interrupted, shutting down...")
     shutdown_event.set()
     sys.exit(0)
 
@@ -204,7 +204,7 @@ def load_user_agents(path=None):
 
 
 # scan sites
-def scan_site(site, user, debug, skip_headers, user_agents, allsites=False):
+def scan_site(site, user, debug, skip_headers, user_agents, allsites=False, args=None):
     if shutdown_event.is_set():
         return None
 
@@ -357,19 +357,19 @@ def load_user_file(path):
 
 def motd():
     try:
-        request = requests.get("https://raw.githubusercontent.com/Alfredredbird/tookie-osint/main/config/motd", timeout=5)
-        req_content = request.content
+        request = requests.get(
+            "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/main/config/motd",
+            timeout=5
+        )
+
         if request.status_code == 200:
-            print({req_content})
+            print(request.text)
             print("    ==============================================" + Fore.RESET)
-  
         else:
             with open(os.path.join(BASE_DIR, "config", "motd"), "r", encoding="utf-8") as f:
-                motd_content = f.read()
-                print(motd_content)
-                print("    ==============================================" + Fore.RESET)
-            f.close
-            pass
+                print(f.read())
+            print("    ==============================================" + Fore.RESET)
+
     except requests.RequestException:
         print("Failed to fetch the message of the day.")
         print("    ==============================================" + Fore.RESET)

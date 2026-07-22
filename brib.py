@@ -171,7 +171,7 @@ for idx, user in enumerate(users, start=1):
         with ThreadPoolExecutor(max_workers=threads) as executor:
             futures = [
                 executor.submit(
-                    scan_site, site, user, debug, skip_headers, user_agents, allsites
+                    scan_site, site, user, debug, skip_headers, user_agents, allsites, args
                 )
                 for site in sites
             ]

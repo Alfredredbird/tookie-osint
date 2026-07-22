@@ -36,8 +36,13 @@ Please note that Tookie-osint was created to help new programmers or pentesters 
 <img width="940" height="1299" alt="image" src="https://github.com/user-attachments/assets/bdd71b8b-2145-4d6d-9eec-36f7666a5673" />
 
 
+# 📦 Kali Installation
+Tookie-OSINT is now on the Kali Linux Package source!
+You can install with:
 
+    sudo apt install tookie-osint
 
+Read more [here](https://www.kali.org/tools/tookie-osint/)
 
 # 📦 Linux Installation
 The requirements will be automatically installed.
@@ -156,6 +161,7 @@ There Is A Lot Lol
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
+- [X] Scripting support
 - [ ] Tor Searching (planned)
 - [ ] WebUi (planned)
 - [X] Webscraper
