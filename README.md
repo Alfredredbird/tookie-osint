@@ -175,7 +175,7 @@ There Is A Lot Lol
 - [ ] GUI
 - [X] More Accurate Results
 - [ ] Auto Open Discovered URLs
-- [ ] Web Hooks
+- [ ] Web Hooks (next release)
 - [x] Headless mode
 - [x] Automation
 - [X] Threading
