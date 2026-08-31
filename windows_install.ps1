@@ -12,9 +12,10 @@ $Python      = "python"
 Write-Host "[*] Installing $ProjectName..."
 
 # Ensure admin
-if (-not ([Security.Principal.WindowsPrincipal]
-    [Security.Principal.WindowsIdentity]::GetCurrent()
-).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+$Identity  = [Security.Principal.WindowsIdentity]::GetCurrent()
+$Principal = New-Object Security.Principal.WindowsPrincipal($Identity)
+
+if (-not $Principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Host "[!] Please run PowerShell as Administrator"
     exit 1
 }
@@ -59,5 +60,5 @@ if ($CurrentPath -notlike "*$BinDir*") {
     )
 }
 
-Write-Host "[✓] Installation complete!"
+Write-Host "[+] Installation complete!"
 Write-Host "Restart your terminal, then run: tookie-osint"
