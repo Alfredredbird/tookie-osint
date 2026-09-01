@@ -38,7 +38,8 @@ shutdown_event = threading.Event()
 def handle_sigint(sig, frame):
     print("\n[!] Interrupted, shutting down...")
     shutdown_event.set()
-    sys.exit(0)
+    # fixes webscrpe exit bug
+    # sys.exit(0)
 
 signal.signal(signal.SIGINT, handle_sigint)
 

@@ -18,6 +18,10 @@ from modules.modules import (
     motd,
 )
 from modules.webscraper import close_driver
+from modules.files import (
+    make_restore,
+    load_restore
+)
 
 # initializes the arg parser
 parser = argparse.ArgumentParser(
@@ -85,7 +89,8 @@ parser.add_argument(
 parser.add_argument(
     "-H", "--harvest", action="store_true", help="Webscrape data from the sites"
 )
-
+# not fully implemented yet
+#load_restore()
 # initializes the arg parser as a variable
 args = parser.parse_args()
 # arguments as variables
@@ -151,6 +156,7 @@ if not skip_headers:
 # Main Function
 all_results = {}
 
+
 total_users = len(users)
 
 for idx, user in enumerate(users, start=1):
@@ -181,6 +187,7 @@ for idx, user in enumerate(users, start=1):
                     res = future.result()
                     if res:
                         results.append(res)
+                
             except KeyboardInterrupt:
                 print("Stopping!")
                 executor.shutdown(wait=False)
@@ -211,7 +218,9 @@ for idx, user in enumerate(users, start=1):
             print("\nStopping web scraper...")
         finally:
             close_driver()
-
+    # makes restore point
+    make_restore(results)
+ 
     all_results[user] = results
 
     # write output per-user

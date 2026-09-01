@@ -175,6 +175,7 @@ There Is A Lot Lol
 - [ ] GUI
 - [X] More Accurate Results
 - [ ] Auto Open Discovered URLs
+- [ ] Restore File (next release)
 - [ ] Web Hooks (next release)
 - [x] Headless mode
 - [x] Automation
