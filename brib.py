@@ -68,7 +68,7 @@ parser.add_argument(
     "-sk", "--skipheaders", action="store_true", help="Skips using random user agents"
 )
 parser.add_argument(
-    "-wh", "--webhook", type=str, help="Webhook URL for notifications"
+    "-wh", "--webhook", type=str, help="Webhook URL for notifications (in beta)"
 )
 parser.add_argument(
     "-sr", "--skiprestore", action="store_true", help="Skips the restore file"
@@ -201,7 +201,7 @@ for idx, user in enumerate(users, start=1):
                     if res:
                         results.append(res)
                         if args._get_args:
-                         send_webhook(args.webhook, user, f"Found result for username: {user} on site: {res}", type="info")
+                         send_webhook(args.webhook, user, f"Found result for username: {user} on site: {res}", type="site")
                 
             except KeyboardInterrupt:
                 print("Stopping!")

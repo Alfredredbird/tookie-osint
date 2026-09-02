@@ -59,7 +59,6 @@ def load_restore():
     return None
 
 def send_webhook(webhook_url, username, message, type="info"):
-    print("[+] Sending Webhook")
     if type == "info":
         payload = {
             "username": "Tookie-OSINT Webhook",
