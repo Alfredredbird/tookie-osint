@@ -20,7 +20,8 @@ from modules.modules import (
 from modules.webscraper import close_driver
 from modules.files import (
     make_restore,
-    load_restore
+    load_restore,
+    send_webhook
 )
 
 # initializes the arg parser
@@ -64,7 +65,13 @@ parser.add_argument(
     "-d", "--debug", action="store_true", help="Allows debugging options"
 )
 parser.add_argument(
-    "-sk", "--skipheaders", action="store_true", help="skips using random user agents"
+    "-sk", "--skipheaders", action="store_true", help="Skips using random user agents"
+)
+parser.add_argument(
+    "-wh", "--webhook", type=str, help="Webhook URL for notifications"
+)
+parser.add_argument(
+    "-sr", "--skiprestore", action="store_true", help="Skips the restore file"
 )
 parser.add_argument("-p", "--proxy", type=str, help="proxy")
 parser.add_argument(
@@ -89,8 +96,7 @@ parser.add_argument(
 parser.add_argument(
     "-H", "--harvest", action="store_true", help="Webscrape data from the sites"
 )
-# not fully implemented yet
-#load_restore()
+
 # initializes the arg parser as a variable
 args = parser.parse_args()
 # arguments as variables
@@ -133,9 +139,16 @@ if not args.script:
 # makes system direcotries
 # make_sys_dirs(debug)
 
+if args.webhook:
+    send_webhook(args.webhook, users[0], f"Scan started for username: {users[0]}")
 
-# data loading
-sites = load_sites(debug)
+# checks/loads restore file and loads sites
+if args.skiprestore:
+    sites = load_sites(debug)
+else:
+    restore_site = load_restore()
+    sites = load_sites(debug, restore_site)
+    
 # debuging options
 if debug:
     print("DEBUG")
@@ -187,6 +200,8 @@ for idx, user in enumerate(users, start=1):
                     res = future.result()
                     if res:
                         results.append(res)
+                        if args._get_args:
+                         send_webhook(args.webhook, user, f"Found result for username: {user} on site: {res}", type="info")
                 
             except KeyboardInterrupt:
                 print("Stopping!")
@@ -219,7 +234,7 @@ for idx, user in enumerate(users, start=1):
         finally:
             close_driver()
     # makes restore point
-    make_restore(results)
+    make_restore(results, user)
  
     all_results[user] = results
 

@@ -46,19 +46,40 @@ signal.signal(signal.SIGINT, handle_sigint)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #loads sites from the json
-def load_sites(debug=False):
+
+def load_sites(debug=False, start_site=None):
     if debug:
         print("Opening site list file")
+
     sites_file = os.path.join(BASE_DIR, "sites", "sites.json")
+
     with open(sites_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    urls = [entry["site"] for entry in data]
+    # If no starting site was provided, load everything
+    if start_site is None:
+        urls = [entry["site"] for entry in data]
+
+    else:
+        # Find the first entry containing the provided text
+        start_index = None
+
+        for i, entry in enumerate(data):
+            if start_site.lower() in entry["site"].lower():
+                start_index = i
+                break
+
+        if start_index is None:
+            raise ValueError(f"Could not find site: {start_site}")
+
+        # Start at the matching entry and include everything after it
+        urls = [entry["site"] for entry in data[start_index:]]
 
     if debug:
         print(f"Loaded {len(urls)} URLs")
 
     return urls
+
 
 # loads the json fields for scraping
 def load_fields():
