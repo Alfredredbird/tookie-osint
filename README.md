@@ -138,26 +138,26 @@ There Is A Lot Lol
 - selenium 
 - webdriver-manager 
 
-# 🗣️Supported Languages
+# 🗣️Supported Wiki Languages
 (we need translators 😭)
-(The following languages are ready but not implemented.)
+(The following languages may need updating)
 - [x] English
-- [ ] Italian
-- [ ] Hebrew
-- [ ] Spanish
-- [ ] French
-- [ ] Arabic
-- [ ] German
-- [ ] Hindi
-- [ ] Russian
-- [ ] Portuguese
-- [ ] Indonesian
-- [ ] Finnish
-- [ ] Chinese traditional
-- [ ] Chinese Simplified
-- [ ] Japanese
-- [ ] Farsi
-- [ ] Turkish
+- [X] Italian
+- [X] Hebrew
+- [X] Spanish
+- [X] French
+- [X] Arabic
+- [X] German
+- [X] Hindi
+- [X] Russian
+- [X] Portuguese
+- [X] Indonesian
+- [X] Finnish
+- [X] Chinese traditional
+- [X] Chinese Simplified
+- [X] Japanese
+- [X] Farsi
+- [X] Turkish
 
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
