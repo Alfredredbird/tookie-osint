@@ -3,3 +3,4 @@ requests
 argparse
 selenium 
 webdriver-manager
+flask

@@ -23,6 +23,9 @@ from modules.files import (
     load_restore,
     send_webhook
 )
+from modules.webui import (
+    run_webui
+)
 
 # initializes the arg parser
 parser = argparse.ArgumentParser(
@@ -78,6 +81,10 @@ parser.add_argument(
     "-W", "--webscraper", action="store_true", help="Toggles uses the webscraper"
 )
 parser.add_argument(
+    "-WU", "--webui", action="store_true", help="Enables the web UI for the webscraper."
+)
+
+parser.add_argument(
     "-sC", "--script", action="store_true", help="Disables UI and only displays results."
 )
 parser.add_argument(
@@ -122,6 +129,9 @@ if delay is not None and delay < 0:
 
 if args.userfile and not users:
     parser.error("-U/--userfile does not contain any usernames")
+
+if args.webui:
+    parser.error("-WU/--webui is not yet implemented. Please use -W/--webscraper instead.")
 
 # makes sure threads is not used with the webscraper
 if args.webscraper and args.threads != parser.get_default("threads"):
