@@ -171,7 +171,6 @@ There Is A Lot Lol
 - [ ] Detailed Reports (in beta)
 - [ ] Email OSINT (in beta)
 - [x] CSV
-- [ ] Url Brute Forcing
 - [ ] GUI
 - [X] More Accurate Results
 - [ ] Auto Open Discovered URLs

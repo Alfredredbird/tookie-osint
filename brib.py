@@ -136,8 +136,6 @@ if not args.script:
 # asks to download request agent file
 if not args.script:
     get_header_file(debug)
-# makes system direcotries
-# make_sys_dirs(debug)
 
 if args.webhook:
     send_webhook(args.webhook, users[0], f"Scan started for username: {users[0]}")
@@ -145,7 +143,7 @@ if args.webhook:
 # checks/loads restore file and loads sites
 if args.skiprestore:
     sites = load_sites(debug)
-else:
+if len(users) == 1 and not args.skiprestore:
     restore_site = load_restore()
     sites = load_sites(debug, restore_site)
     

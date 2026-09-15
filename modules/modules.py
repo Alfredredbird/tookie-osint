@@ -12,7 +12,7 @@ import threading
 from colorama import Fore
 from modules.webscraper import *
 
-
+# Fix for the CVE
 # Restrict caller-supplied usernames to a safe filename fragment before they
 # are used as output file paths. Without this, "-u ../../../tmp/x" (or any
 # -U userfile line containing path separators) would let the caller steer the
