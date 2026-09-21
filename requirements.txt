@@ -4,3 +4,4 @@ argparse
 selenium 
 webdriver-manager
 flask
+PySocks
