@@ -208,7 +208,7 @@ for idx, user in enumerate(users, start=1):
                     res = future.result()
                     if res:
                         results.append(res)
-                        if args._get_args:
+                        if args.webhook:
                          send_webhook(args.webhook, user, f"Found result for username: {user} on site: {res}", type="site")
                 
             except KeyboardInterrupt:
