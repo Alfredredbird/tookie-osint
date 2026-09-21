@@ -6,12 +6,40 @@ import json
 import time
 import random
 import signal
+import socket
 import platform
 import requests
 import threading
 from colorama import Fore
 from urllib.parse import urlparse
 from modules.webscraper import *
+
+# Proxy used by every request in this module, set once from the CLI flags.
+TOR_PROXY = "socks5h://127.0.0.1:9050"
+TOR_PROXY_CHROME = "socks5://127.0.0.1:9050"
+
+_PROXIES = None
+
+def proxy_endpoint(proxy=None, tor=False, for_chrome=False):
+    # socks5h resolves DNS on the Tor side so hostnames never reach the local
+    # resolver. Chrome does that itself for socks5:// and rejects socks5h.
+    if tor:
+        return TOR_PROXY_CHROME if for_chrome else TOR_PROXY
+    return proxy or None
+
+def set_proxies(proxy=None, tor=False):
+    global _PROXIES
+    endpoint = proxy_endpoint(proxy, tor)
+    _PROXIES = {"http": endpoint, "https": endpoint} if endpoint else None
+    return _PROXIES
+
+def tor_is_running(host="127.0.0.1", port=9050, timeout=3):
+    # Without this, --tor with no daemon running fails once per site.
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except OSError:
+        return False
 
 # Fix for the CVE
 # Restrict caller-supplied usernames to a safe filename fragment before they
@@ -191,7 +219,7 @@ def get_header_file(debug=False):
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     try:
         print("[*] Downloading headers.txt...")
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, timeout=10, proxies=_PROXIES)
         response.raise_for_status()
 
         with open(save_path, "w", encoding="utf-8") as f:
@@ -259,7 +287,9 @@ def control_response(site, headers):
         if site in _CONTROL_CACHE:
             return _CONTROL_CACHE[site]
     try:
-        control = requests.get(site + _CONTROL_USER, headers=headers, timeout=10)
+        control = requests.get(
+            site + _CONTROL_USER, headers=headers, timeout=10, proxies=_PROXIES
+        )
     except requests.RequestException:
         control = None
     with _CONTROL_LOCK:
@@ -323,7 +353,7 @@ def scan_site(entry, user, debug, skip_headers, user_agents, allsites=False, arg
         if not skip_headers and user_agents:
             headers = {"User-Agent": random.choice(user_agents)}
 
-        r = requests.get(url, headers=headers, timeout=10)
+        r = requests.get(url, headers=headers, timeout=10, proxies=_PROXIES)
         if shutdown_event.is_set():
             return None
 
@@ -431,7 +461,7 @@ def check_update():
     local_version = get_info().strip()
 
     try:
-        response = requests.get(remote_url, timeout=10)
+        response = requests.get(remote_url, timeout=10, proxies=_PROXIES)
         response.raise_for_status()
         latest_version = response.text.strip()
 
@@ -467,7 +497,8 @@ def motd():
     try:
         request = requests.get(
             "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/main/config/motd",
-            timeout=5
+            timeout=5,
+            proxies=_PROXIES
         )
 
         if request.status_code == 200:
