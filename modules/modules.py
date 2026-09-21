@@ -10,6 +10,7 @@ import platform
 import requests
 import threading
 from colorama import Fore
+from urllib.parse import urlparse
 from modules.webscraper import *
 
 # Fix for the CVE
@@ -56,9 +57,10 @@ def load_sites(debug=False, start_site=None):
     with open(sites_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # If no starting site was provided, load everything
+    # If no starting site was provided, load everything. The whole entry is
+    # kept, not just the url, because scan_site needs its errorMessage.
     if start_site is None:
-        urls = [entry["site"] for entry in data]
+        urls = list(data)
 
     else:
         # Find the first entry containing the provided text
@@ -73,7 +75,7 @@ def load_sites(debug=False, start_site=None):
             raise ValueError(f"Could not find site: {start_site}")
 
         # Start at the matching entry and include everything after it
-        urls = [entry["site"] for entry in data[start_index:]]
+        urls = data[start_index:]
 
     if debug:
         print(f"Loaded {len(urls)} URLs")
@@ -110,7 +112,7 @@ def scan_file(user, num, data=""):
             scanfile.close()
 
 # Assembles success/fail string
-def sitestring(url, user, code, colored=True):
+def sitestring(url, user, code, found=None, colored=True):
     if url == "":
         return "No URL"
     if user == "":
@@ -118,12 +120,17 @@ def sitestring(url, user, code, colored=True):
     if code == "":
         return "No Code or Bugged code"
 
-    if 200 <= code <= 305:
+    # The caller decides this, because it also reads the page body. Falling
+    # back to the status code keeps older callers working.
+    if found is None:
+        found = 200 <= code <= 305
+
+    if found:
         symbol = "+"
         if colored:
             symbol = Fore.GREEN + "+" + Fore.RESET
         return f"[{symbol}] {url}{user}"
-    elif 400 <= code <= 500:
+    elif code < 500:
         symbol = "-"
         if colored:
             symbol = Fore.RED + "-" + Fore.RESET
@@ -226,10 +233,84 @@ def load_user_agents(path=None):
 
 
 # scan sites
-def scan_site(site, user, debug, skip_headers, user_agents, allsites=False, args=None):
+def usable_error_message(error_message):
+    # "none" is a placeholder in sites.json, not text any page actually shows.
+    # Matching it literally is worse than useless, because "none" appears in
+    # the css of nearly every page, so those sites could never report a hit.
+    error_message = (error_message or "").strip()
+    if error_message.lower() in ("", "none", "no error message defined"):
+        return ""
+    return error_message
+
+
+# A username no one can have. Built once per run and reused for every site, so
+# a site only ever has to show us its "no such user" page a single time.
+_CONTROL_USER = "zq" + "".join(
+    random.choice("abcdefghijklmnopqrstuvwxyz0123456789") for _ in range(10)
+)
+_CONTROL_CACHE = {}
+_CONTROL_LOCK = threading.Lock()
+
+
+def control_response(site, headers):
+    # Cached per site because a -U run scans many usernames against the same
+    # list, and the control page does not change between them.
+    with _CONTROL_LOCK:
+        if site in _CONTROL_CACHE:
+            return _CONTROL_CACHE[site]
+    try:
+        control = requests.get(site + _CONTROL_USER, headers=headers, timeout=10)
+    except requests.RequestException:
+        control = None
+    with _CONTROL_LOCK:
+        _CONTROL_CACHE[site] = control
+    return control
+
+
+def same_response(r, control, user):
+    # Same status and near enough the same size means the site served the same
+    # page for a real username as for one that cannot exist, so it is telling
+    # us nothing. This catches the sites whose errorMessage is a placeholder or
+    # has gone stale, and the ones that render their error text in javascript.
+    if control is None or control.status_code != r.status_code:
+        return False
+    # Take the usernames out before measuring. Pages echo them back, and the
+    # two names are different lengths, so the echo alone would look like a
+    # difference in content on a short page.
+    a = len(r.text.replace(user, ""))
+    b = len(control.text.replace(_CONTROL_USER, ""))
+    if not a or not b:
+        return a == b
+    return abs(a - b) / max(a, b) < 0.02
+
+
+def is_found(code, body, error_message="", final_url="", user=""):
+    # Three signals, because each one alone lets false hits through. A 4xx or
+    # 5xx is a miss. A redirect that drops the username means the site sent us
+    # to a login or home page instead of a profile. And the body still has to
+    # be read, since plenty of sites answer 200 with a "no such user" page.
+    if not 200 <= code < 400:
+        return False
+
+    if final_url and user:
+        # Host and path, never the query. Login walls keep the username in a
+        # ?next= parameter, while sites like gumroad move it into a subdomain.
+        parsed = urlparse(final_url)
+        if user.lower() not in (parsed.netloc + parsed.path).lower():
+            return False
+
+    error_message = usable_error_message(error_message)
+    if not error_message:
+        return True
+    return error_message.lower() not in body.lower()
+
+
+def scan_site(entry, user, debug, skip_headers, user_agents, allsites=False, args=None):
     if shutdown_event.is_set():
         return None
 
+    site = entry["site"]
+    error_message = entry.get("errorMessage") or ""
     url = site + user
     result = {
         "url": url,
@@ -247,7 +328,12 @@ def scan_site(site, user, debug, skip_headers, user_agents, allsites=False, args
             return None
 
         code = r.status_code
-        found = 200 <= code <= 305
+        found = is_found(code, r.text, error_message, r.url, user)
+
+        # Only candidate hits are worth a second request, so the cost is one
+        # extra fetch per hit rather than one per site.
+        if found and user.lower() != _CONTROL_USER:
+            found = not same_response(r, control_response(site, headers), user)
 
         result["status"] = code
         result["found"] = found
@@ -257,7 +343,7 @@ def scan_site(site, user, debug, skip_headers, user_agents, allsites=False, args
 
         # 🔹 PRINT LOGIC
         if found or allsites:
-            print(sitestring(site, user, code))
+            print(sitestring(site, user, code, found))
 
         # 🔹 RETURN LOGIC
         if found or allsites:
