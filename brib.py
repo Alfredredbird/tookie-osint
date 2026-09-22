@@ -12,12 +12,15 @@ from modules.modules import (
     load_sites,
     load_user_agents,
     load_user_file,
+    proxy_endpoint,
     scan_site,
     scan_webscraper,
+    set_proxies,
+    tor_is_running,
     write_to_file,
     motd,
 )
-from modules.webscraper import close_driver
+from modules.webscraper import close_driver, set_driver_proxy
 from modules.files import (
     make_restore,
     load_restore,
@@ -77,6 +80,9 @@ parser.add_argument(
     "-sr", "--skiprestore", action="store_true", help="Skips the restore file"
 )
 parser.add_argument("-p", "--proxy", type=str, help="proxy")
+parser.add_argument(
+    "-tr", "--tor", action="store_true", help="Routes all traffic through Tor"
+)
 parser.add_argument(
     "-W", "--webscraper", action="store_true", help="Toggles uses the webscraper"
 )
@@ -140,6 +146,20 @@ if args.webscraper and args.threads != parser.get_default("threads"):
         status=1,
         message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n",
     )
+
+if args.tor and args.proxy:
+    parser.error("-tr/--tor cannot be used with -p/--proxy, pick one")
+
+if args.tor and not tor_is_running():
+    parser.error(
+        "-tr/--tor was given but nothing is listening on 127.0.0.1:9050. "
+        "Start Tor first, for example: systemctl start tor"
+    )
+
+# routes all requests and the webscraper through the chosen proxy
+set_proxies(args.proxy, args.tor)
+set_driver_proxy(proxy_endpoint(args.proxy, args.tor, for_chrome=True))
+
 # checks for update
 if not args.script:
     check_update()

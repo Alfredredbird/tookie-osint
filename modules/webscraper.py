@@ -12,11 +12,20 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 driver = None
+_proxy = None
+
+def set_driver_proxy(proxy):
+    # Chrome takes the proxy as a launch flag, so it has to be set before
+    # get_driver() builds the shared driver.
+    global _proxy
+    _proxy = proxy
 
 def get_driver():
     global driver
     if driver is None:
         options = Options()
+        if _proxy:
+            options.add_argument(f"--proxy-server={_proxy}")
         options.add_argument("--headless=new")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
