@@ -67,8 +67,6 @@ def extract_fields(driver, site_config):
                 continue
             attr = config.get("attr")
             results[field_name] = element.get_attribute(attr) if attr else element.text.strip()
-
-            results[field_name] = element.text.strip()
         except TimeoutException:
             # print(f"[!] Field '{field_name}' not found on page (timeout)")
             results[field_name] = None
