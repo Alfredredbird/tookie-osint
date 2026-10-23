@@ -162,7 +162,7 @@ There Is A Lot Lol
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [X] Scripting support
-- [ ] Tor Searching (planned)
+- [X] Tor Searching 
 - [ ] WebUi (planned)
 - [X] Webscraper
 - [X] Data Webscrapping
