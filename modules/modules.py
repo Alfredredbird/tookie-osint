@@ -11,7 +11,7 @@ import platform
 import requests
 import threading
 from colorama import Fore
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 from modules.webscraper import *
 
 # Proxy used by every request in this module, set once from the CLI flags.
@@ -297,6 +297,21 @@ def control_response(site, headers):
     return control
 
 
+def _mask_echoed_username(text, username, width):
+    # Mask the username only where it stands alone. Replacing every
+    # occurrence used to eat short names such as "a" or "in" out of ordinary
+    # HTML, so the candidate page and the control page shrank by different
+    # amounts and no longer looked like the same document. Both echoes are
+    # masked to the same width so the name's own length is not the difference.
+    if not text or not username:
+        return text or ""
+    pattern = re.compile(
+        r"(?<![A-Za-z0-9._-])" + re.escape(username) + r"(?![A-Za-z0-9._-])",
+        re.IGNORECASE,
+    )
+    return pattern.sub("*" * width, text)
+
+
 def same_response(r, control, user):
     # Same status and near enough the same size means the site served the same
     # page for a real username as for one that cannot exist, so it is telling
@@ -304,11 +319,9 @@ def same_response(r, control, user):
     # has gone stale, and the ones that render their error text in javascript.
     if control is None or control.status_code != r.status_code:
         return False
-    # Take the usernames out before measuring. Pages echo them back, and the
-    # two names are different lengths, so the echo alone would look like a
-    # difference in content on a short page.
-    a = len(r.text.replace(user, ""))
-    b = len(control.text.replace(_CONTROL_USER, ""))
+    width = max(len(user or ""), len(_CONTROL_USER))
+    a = len(_mask_echoed_username(r.text, user, width))
+    b = len(_mask_echoed_username(control.text, _CONTROL_USER, width))
     if not a or not b:
         return a == b
     return abs(a - b) / max(a, b) < 0.02
@@ -326,7 +339,10 @@ def is_found(code, body, error_message="", final_url="", user=""):
         # Host and path, never the query. Login walls keep the username in a
         # ?next= parameter, while sites like gumroad move it into a subdomain.
         parsed = urlparse(final_url)
-        if user.lower() not in (parsed.netloc + parsed.path).lower():
+        # Host and path are percent-decoded. A profile for "alice smith"
+        # keeps that name as alice%20smith, which the raw comparison missed.
+        location = unquote(parsed.netloc + parsed.path).lower()
+        if user.lower() not in location:
             return False
 
     error_message = usable_error_message(error_message)
