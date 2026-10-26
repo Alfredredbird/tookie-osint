@@ -1,0 +1,735 @@
+{
+  "youtube.com": {
+    "username": {
+      "by": "xpath",
+      "selector": "//span[contains(@class,'ytAttributedStringWhiteSpacePreWrap') and @role='text']"
+    },
+    "handle": {
+      "by": "xpath",
+      "selector": "//yt-content-metadata-view-model//span[contains(text(),'@')]"
+    },
+    "subscribers": {
+      "by": "xpath",
+      "selector": "//yt-content-metadata-view-model//span[contains(text(),'subscriber')]"
+    }
+  },
+  "twitch.tv": {
+    "username": {
+      "by": "xpath",
+      "selector": "//h1[contains(@class,'ScTitleText')]"
+    },
+    "followers": {
+      "by": "xpath",
+      "selector": "//p[contains(@class,'CoreText') and contains(text(),'follower')]"
+    }
+  },
+  "m.twitch.tv": {
+    "username": {
+      "by": "xpath",
+      "selector": "//h1[contains(@class,'ScTitleText')]"
+    }
+    
+  },
+  "x.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//div[contains(@class,'r-adyw6z') and contains(@class,'r-135wba7')]"
+  },
+  "handle": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//span[starts-with(text(),'@')]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/following')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  }
+},
+"twitter.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//div[contains(@class,'r-adyw6z') and contains(@class,'r-135wba7')]"
+  },
+  "handle": {
+    "by": "xpath",
+    "selector": "//div[@data-testid='UserName']//span[starts-with(text(),'@')]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/following')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'verified_followers')]//span[@class and contains(@class,'r-b88u0q')]//span"
+  }
+},
+"facebook.com": {
+  "followers": {
+    "by": "xpath",
+    "selector": "//strong[contains(@class,'html-strong')]/following-sibling::text()[contains(.,'Followers') or contains(.,'followers')]/preceding-sibling::strong[1]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//strong[contains(@class,'html-strong') and following-sibling::text()[normalize-space()='following' or normalize-space()=' following']]"
+  },
+  "reviews": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'x193iq5w') and contains(text(),'recommend')]"
+  }
+},
+"7cups.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'fw-semibold') and contains(@class,'fs-5') and contains(@class,'align-middle')]"
+  },
+  "stars": {
+    "by": "xpath",
+    "selector": "//i[contains(@class,'fa-star')]/following-sibling::span[contains(@class,'fw-normal')]"
+  },
+  "rank": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'ms-2') and contains(@class,'fw-normal') and not(contains(@class,'d-flex'))]"
+  },
+  "listens_to": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Listens to']/../span[contains(@class,'fw-semibold')]"
+  },
+  "language": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Languages']/../span[contains(@class,'fw-semibold')]"
+  },
+  "listener_since": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Listener since']/../span[contains(@class,'fw-semibold')]"
+  },
+  "last_active": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Last active']/../span[contains(@class,'fw-semibold')]"
+  },
+  "gender": {
+    "by": "xpath",
+    "selector": "//span[@class='me-2' and text()='Gender']/../span[contains(@class,'fw-semibold')]"
+  }
+
+},
+"about.me": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'body-content')]//h1[@class='name']"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//h2[@class='headline']//span[@class='location'][not(.//span)]"
+  },
+  "company_link": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'glyph-commercial-building')]",
+    "attr": "href"
+  },
+  "twitter": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'social-link') and contains(@title,'Twitter')]",
+    "attr": "href"
+  },
+  "facebook": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'social-link') and contains(@title,'Facebook')]",
+    "attr": "href"
+  },
+  "linkedin": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'social-link') and contains(@title,'LinkedIn')]",
+    "attr": "href"
+  }
+},
+"independent.academia.edu": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'title-container')]//h1"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'js-profile-followees')]//p[@class='data']"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'js-profile-followers')]//p[@class='data']"
+  },
+  "public_views": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'js-profile-view-count')]"
+  }
+},
+"airbit.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'single-producer__header__producerinfo_username')]//span[contains(@class,'tw-truncate')]"
+  },
+  "plays": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'single-producer__header__stats')]//span[contains(@class,'tw-text-base') and contains(@class,'tw-font-bold')][1]"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'single-producer__header__stats_likes')]//span[contains(@class,'tw-text-base') and contains(@class,'tw-font-bold')]"
+  },
+  "comments": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'single-producer__header__stats_comments')]//span[contains(@class,'tw-text-base') and contains(@class,'tw-font-bold')]"
+  },
+  "tier": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'tw-ml-1') and contains(@class,'tw-text-xs') and contains(@class,'tw-font-medium')]"
+  }
+},
+"allmylinks.com": {
+  "handle": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'profile-usertag')]"
+  },
+  "first_link_title": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and contains(@class,'link')]//span[contains(@class,'link-title')][1]"
+  },
+  "first_link_url": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and contains(@class,'link')][1]",
+    "attr": "href"
+  },
+  "instagram": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and .//span[@class='link-title' and normalize-space()='instagram']]",
+    "attr": "href"
+  },
+  "personal_site": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'list-item') and .//span[@class='link-title' and normalize-space()='personal']]",
+    "attr": "href"
+  }
+},
+"anilist.co": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'name-wrapper')]//h1[contains(@class,'name')]"
+  },
+  "total_anime": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Total Anime']/../div[@class='value']"
+  },
+  "days_watched": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Days Watched']/../div[@class='value']"
+  },
+  "anime_mean_score": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Mean Score'][1]/../div[@class='value']"
+  },
+  "total_manga": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Total Manga']/../div[@class='value']"
+  },
+  "chapters_read": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Chapters Read']/../div[@class='value']"
+  },
+  "manga_mean_score": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'list-stats')]//div[@class='label' and text()='Mean Score'][2]/../div[@class='value']"
+  }
+},
+"developer.apple.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-name')]//h2[contains(@class,'user-nickname')]"
+  },
+  "points": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Points')]]"
+  },
+  "posts": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Posts')]]"
+  },
+  "accepted": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Accepted')]]"
+  },
+  "apple_recommended": {
+    "by": "xpath",
+    "selector": "//span[@id='reputation-count' and .//span[contains(text(),'Apple Recommended')]]"
+  },
+  "last_seen": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-activity-history-item')][.//span[@data-cy='lastSeen']]//span[@class='postTime']"
+  },
+  "member_for": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-activity-history-item')][.//span[@data-cy='memberFor']]//span[@class='postTime']"
+  }
+},
+"discussions.apple.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//h1[contains(@class,'user-profile-name')]"
+  },
+  "level": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'level-label') and @data-cy='cy-userLevel']"
+  },
+  "points": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'points')]"
+  },
+  "participation_in_threads": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'content-container')][.//h3[normalize-space()='Participation in Threads']]//div[contains(@class,'count')]"
+  },
+  "authored_user_tips": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'content-container')][.//h3[normalize-space()='Authored User Tips']]//div[contains(@class,'count')]"
+  },
+  "user_tips_views": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'content-container')][.//h3[normalize-space()='User Tips Views']]//div[contains(@class,'count')]"
+  }
+},
+"www.artstation.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-info')]//h1"
+  },
+  "headline": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-info')]//span[contains(@class,'headline')]"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//li[.//i[normalize-space()='location_on']]/span"
+  },
+  "website": {
+    "by": "xpath",
+    "selector": "//li[.//i[normalize-space()='language']]/a"
+  },
+  "bio": {
+    "by": "xpath",
+    "selector": "//read-more//div[contains(@class,'collapsed')]"
+  },
+  "email": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'email-wrapper')]//span"
+  },
+  "facebook": {
+    "by": "xpath",
+    "selector": "//a[contains(@aria-label,'facebook')]"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'connection-item')][.//a[contains(normalize-space(),'Followers')]]//span[contains(@class,'connection-item-count')]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'connection-item')][.//a[contains(normalize-space(),'Following')]]//span[contains(@class,'connection-item-count')]"
+  },
+  "interested_in": {
+    "by": "xpath",
+    "selector": "//div[.//h4[normalize-space()='Interested In']]//div[contains(@class,'profile-badge')]//span"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//img[contains(@class,'avatar')]"
+  }
+},
+"discourse.asciinema.org": {
+  "username": {
+    "by": "xpath",
+    "selector": "//h1[contains(@class,'username')] | //span[contains(@class,'username')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//h2[contains(@class,'full-name')]"
+  },
+  "title": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'user-title')]"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//img[contains(@class,'avatar')]"
+  },
+  "bio": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'bio')]"
+  },
+  "website": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'user-website')]"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'location')] | //span[contains(@class,'location')]"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'joined')]//time | //span[contains(@class,'user-stat')][.//*[contains(text(),'Joined')]]//time"
+  },
+  "last_seen": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'last-seen')]//time | //span[contains(@class,'user-stat')][.//*[contains(text(),'Last seen')]]//time"
+  },
+  "visits": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-stat')][.//*[contains(text(),'Visits')]]//*[contains(@class,'value')]"
+  },
+  "posts_read": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-stat')][.//*[contains(text(),'Read')]]//*[contains(@class,'value')]"
+  },
+  "topics_viewed": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-stat')][.//*[contains(text(),'Viewed')]]//*[contains(@class,'value')]"
+  },
+  "likes_given": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-stat')][.//*[contains(text(),'Given')]]//*[contains(@class,'value')]"
+  },
+  "likes_received": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-stat')][.//*[contains(text(),'Received')]]//*[contains(@class,'value')]"
+  },
+  "solutions": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-stat')][.//*[contains(text(),'Solutions')]]//*[contains(@class,'value')]"
+  }
+},
+"audiojungle.net": {
+  "username": {
+    "by": "xpath",
+    "selector": "//h1[contains(@class,'t-heading') and contains(@class,'h-display-inlineblock')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//h1[contains(@class,'t-heading')]"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//img[@alt and @width='80' and @height='80']"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//p[contains(@class,'t-body')][contains(normalize-space(.),'Member since')]"
+  }
+},
+"bandcamp.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//h1//span[@data-bind='text: name']"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//h1//span[@data-bind='text: name']"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//img[@itemprop='image']"
+  },
+  "genre": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'genre-wrapper')]"
+  },
+  "collection": {
+    "by": "xpath",
+    "selector": "//li[@data-tab='collection']//span[contains(@class,'count')]"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//li[@data-tab='followers']//span[contains(@class,'count')]"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//li[@data-tab='following']//span[contains(@class,'count')]"
+  }
+},
+"behance.net": {
+  "username": {
+    "by": "xpath",
+    "selector": "//h1//span[contains(@class,'ProfileCard-badgeUserFullName')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//h1//span[contains(@class,'ProfileCard-badgeUserFullName')]"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//div[@role='region' and @aria-label='Profile Avatar']//img"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//ul[contains(@class,'ProfileDetails-userDetails')]//li[.//svg[contains(@class,'ProfileDetails-globeIcon')]]//a"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//table[contains(@class,'UserInfo-userStats')]//tr[td[normalize-space()='Following']]//td[contains(@class,'UserInfo-statValue')]"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//p[contains(@class,'UserInfo-memberSince')]"
+  }
+},
+"bezuzyteczna.pl": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__name')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__name')]"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__logo')]//img"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__info-line')][.//span[contains(@class,'p-panel__info-left') and normalize-space()='dołączył:']]//span[contains(@class,'p-panel__info-right')]"
+  },
+  "gender": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__info-line')][.//span[contains(@class,'p-panel__info-left') and normalize-space()='płeć:']]//span[contains(@class,'p-panel__info-right')]"
+  },
+  "age": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__info-line')][.//span[contains(@class,'p-panel__info-left') and normalize-space()='wiek:']]//span[contains(@class,'p-panel__info-right')]"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__info-line')][.//span[contains(@class,'p-panel__info-left') and normalize-space()='miejsce zamieszkania:']]//span[contains(@class,'p-panel__info-right')]"
+  },
+  "trivia_count": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__info-line')][.//span[contains(@class,'p-panel__info-left') and normalize-space()='ciekawostek:']]//span[contains(@class,'p-panel__info-right')]"
+  },
+  "favorite_category": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'p-panel__info-line')][.//span[contains(@class,'p-panel__info-left') and normalize-space()='ulubiona kategoria:']]//span[contains(@class,'p-panel__info-right')]"
+  }
+},
+"biggerpockets.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/users/')][contains(@href,'/')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//h1"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//button[contains(@aria-label,\"profile photo\")]//img"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//span[.//svg[contains(@class,'lucide-map-pin')]]"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//span[.//svg[contains(@class,'lucide-calendar')]]"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/followerships/followers')]//strong"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/followerships/followings')]//strong"
+  },
+  "connections": {
+    "by": "xpath",
+    "selector": "//a[contains(@href,'/colleagues/connections')]//strong"
+  },
+  "bio": {
+    "by": "xpath",
+    "selector": "//h2[normalize-space()='About myself']/ancestor::div[1]//p[1]"
+  },
+  "deals_shared": {
+    "by": "xpath",
+    "selector": "//p[normalize-space()='Deals shared']/preceding-sibling::p[1]"
+  },
+  "currently_owned": {
+    "by": "xpath",
+    "selector": "//p[normalize-space()='Currently owned']/preceding-sibling::p[1]"
+  },
+  "total_units": {
+    "by": "xpath",
+    "selector": "//p[normalize-space()='Total units']/preceding-sibling::p[1]"
+  },
+  "forum_posts": {
+    "by": "xpath",
+    "selector": "//p[normalize-space()='Forum posts']/preceding-sibling::p[1]"
+  },
+  "best_replies": {
+    "by": "xpath",
+    "selector": "//p[normalize-space()='Best replies']/preceding-sibling::p[1]"
+  },
+  "reputation": {
+    "by": "xpath",
+    "selector": "//p[normalize-space()='Reputation']/preceding-sibling::p[1]"
+  }
+},
+"forum.dangerousthings.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-profile-names__primary')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-profile-names__secondary')]"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-profile-avatar')]//img[contains(@class,'avatar')]"
+  },
+  "location": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'user-profile-location')]"
+  },
+  "bio": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'bio')]//p"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//dt[contains(@class,'created-at') and normalize-space()='Joined']/following-sibling::dd[contains(@class,'created-at')]//span[contains(@class,'relative-date')]"
+  },
+  "last_posted": {
+    "by": "xpath",
+    "selector": "//dt[contains(@class,'last-posted-at') and normalize-space()='Last Post']/following-sibling::dd[contains(@class,'last-posted-at')]//span[contains(@class,'relative-date')]"
+  },
+  "last_seen": {
+    "by": "xpath",
+    "selector": "//dt[contains(@class,'last-seen-at') and normalize-space()='Seen']/following-sibling::dd[contains(@class,'last-seen-at')]//span[contains(@class,'relative-date')]"
+  },
+  "views": {
+    "by": "xpath",
+    "selector": "//dt[contains(@class,'profile-view-count') and normalize-space()='Views']/following-sibling::dd[contains(@class,'profile-view-count')]"
+  },
+  "trust_level": {
+    "by": "xpath",
+    "selector": "//dt[contains(@class,'trust-level') and normalize-space()='Trust Level']/following-sibling::dd[contains(@class,'trust-level')]"
+  },
+  "cheers": {
+    "by": "xpath",
+    "selector": "//dt[normalize-space()='Cheers']/following-sibling::dd[1]//span[contains(@class,'gamification-score')]"
+  },
+  "days_visited": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-days-visited')]//span[contains(@class,'value')]"
+  },
+  "read_time": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-time-read')]//span[contains(@class,'value')]"
+  },
+  "topics_viewed": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-topics-entered')]//span[contains(@class,'value')]"
+  },
+  "posts_read": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-posts-read')]//span[contains(@class,'value')]"
+  },
+  "likes_given": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-likes-given')]//span[contains(@class,'value')]"
+  },
+  "likes_received": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-likes-received')]//span[contains(@class,'value')]"
+  },
+  "topics_created": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-topic-count')]//span[contains(@class,'value')]"
+  },
+  "posts_created": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'stats-post-count')]//span[contains(@class,'value')]"
+  },
+  "top_badges": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'badges-section')]//a[contains(@class,'badge-link')]"
+  }
+},
+"buzzfeed.com": {
+  "username": {
+    "by": "xpath",
+    "selector": "//h1[contains(@class,'displayName')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//h1[contains(@class,'displayName')]"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'userInfoContainer')]//img[contains(@class,'avatar')]"
+  },
+  "bio": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'userNameContainer')]//div[contains(@class,'bio')]"
+  },
+  "website": {
+    "by": "xpath",
+    "selector": "//ul[contains(@class,'userSocial')]//a[normalize-space()='Website']"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'joinedDate')]//dt[normalize-space()='joined']/following-sibling::dd"
+  },
+  "points": {
+    "by": "xpath",
+    "selector": "//a[contains(@class,'internetPoints')]//span[contains(@class,'pointsValue')]"
+  },
+  "trophies": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'invertDef')][.//dt[normalize-space()='trophies']]//dd"
+  },
+  "posts": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'invertDef')][.//dt[normalize-space()='posts']]//dd"
+  },
+  "comments": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'invertDef')][.//dt[normalize-space()='comments']]//dd"
+  }
+},
+"chaos.social": {
+  "username": {
+    "by": "xpath",
+    "selector": "//button[contains(@class,'handleHelpButton')]"
+  },
+  "name": {
+    "by": "xpath",
+    "selector": "//div[contains(@class,'account_header__name')]//h1//bdi//span"
+  },
+  "avatar": {
+    "by": "xpath",
+    "selector": "//span[contains(@class,'account__avatar')]//img"
+  },
+  "followers": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'number_fields__item')][starts-with(normalize-space(.),'Followers')]//a"
+  },
+  "following": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'number_fields__item')][starts-with(normalize-space(.),'Following')]//a"
+  },
+  "posts": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'number_fields__item')][starts-with(normalize-space(.),'Posts')]//strong"
+  },
+  "joined": {
+    "by": "xpath",
+    "selector": "//li[contains(@class,'number_fields__item')][starts-with(normalize-space(.),'Joined')]//time"
+  }
+}
+}

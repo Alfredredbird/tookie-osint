@@ -1,0 +1,535 @@
+import os
+import re
+import csv
+import sys
+import json
+import time
+import random
+import signal
+import socket
+import platform
+import requests
+import threading
+from colorama import Fore
+from urllib.parse import urlparse
+from modules.webscraper import *
+
+# Proxy used by every request in this module, set once from the CLI flags.
+TOR_PROXY = "socks5h://127.0.0.1:9050"
+TOR_PROXY_CHROME = "socks5://127.0.0.1:9050"
+
+_PROXIES = None
+
+def proxy_endpoint(proxy=None, tor=False, for_chrome=False):
+    # socks5h resolves DNS on the Tor side so hostnames never reach the local
+    # resolver. Chrome does that itself for socks5:// and rejects socks5h.
+    if tor:
+        return TOR_PROXY_CHROME if for_chrome else TOR_PROXY
+    return proxy or None
+
+def set_proxies(proxy=None, tor=False):
+    global _PROXIES
+    endpoint = proxy_endpoint(proxy, tor)
+    _PROXIES = {"http": endpoint, "https": endpoint} if endpoint else None
+    return _PROXIES
+
+def tor_is_running(host="127.0.0.1", port=9050, timeout=3):
+    # Without this, --tor with no daemon running fails once per site.
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+# Fix for the CVE
+# Restrict caller-supplied usernames to a safe filename fragment before they
+# are used as output file paths. Without this, "-u ../../../tmp/x" (or any
+# -U userfile line containing path separators) would let the caller steer the
+# output file anywhere the invoking user can write. Replaces every character
+# outside [A-Za-z0-9._-] with "_", collapses ".." sequences, refuses empty
+# or dot-only results, and caps length at 128.
+_UNSAFE_FILENAME_CHARS = re.compile(r"[^A-Za-z0-9._-]")
+
+
+def _safe_filename(user):
+    if not isinstance(user, str):
+        user = str(user)
+    safe = _UNSAFE_FILENAME_CHARS.sub("_", user)
+    safe = safe.replace("..", "_")
+    safe = safe.strip(".")
+    if not safe:
+        safe = "output"
+    return safe[:128]
+
+
+# shutdown event
+shutdown_event = threading.Event()
+def handle_sigint(sig, frame):
+    print("\n[!] Interrupted, shutting down...")
+    shutdown_event.set()
+    # fixes webscrpe exit bug
+    # sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_sigint)
+
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#loads sites from the json
+
+def load_sites(debug=False, start_site=None):
+    if debug:
+        print("Opening site list file")
+
+    sites_file = os.path.join(BASE_DIR, "sites", "sites.json")
+
+    with open(sites_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # If no starting site was provided, load everything. The whole entry is
+    # kept, not just the url, because scan_site needs its errorMessage.
+    if start_site is None:
+        urls = list(data)
+
+    else:
+        # Find the first entry containing the provided text
+        start_index = None
+
+        for i, entry in enumerate(data):
+            if start_site.lower() in entry["site"].lower():
+                start_index = i
+                break
+
+        if start_index is None:
+            # A stale .tookie names a site that is no longer in the list.
+            # Raising here used to abort the scan before the first request.
+            print(
+                f"[!] Could not find restore site {start_site}. "
+                "Starting from the beginning."
+            )
+            urls = list(data)
+        else:
+            # Start at the matching entry and include everything after it
+            urls = data[start_index:]
+
+    if debug:
+        print(f"Loaded {len(urls)} URLs")
+
+    return urls
+
+
+def load_sites_for_scan(user_count, skip_restore, debug=False, restore_loader=None):
+    # A restore point is one username's place in the site list. Offering it
+    # for a -U file would resume every name from that spot, so only a single
+    # -u scan asks. Every other scan still has to load the full list: this
+    # used to be an if with no else, and `tookie-osint -U users.txt` crashed
+    # with NameError as soon as the file contained more than one name.
+    if user_count == 1 and not skip_restore:
+        if restore_loader is None:
+            from modules.files import load_restore
+
+            restore_loader = load_restore
+        return load_sites(debug, restore_loader())
+    return load_sites(debug)
+
+
+# loads the json fields for scraping
+def load_fields():
+    fields_file = os.path.join(BASE_DIR, "sites", "fields.json")
+    with open(fields_file, "r") as f:
+        return json.load(f)
+
+# grabs version info and such
+def get_info():
+ version_file = os.path.join(BASE_DIR, "config", "version")
+ with open(version_file, "r") as f:
+    lines = f.readline()
+    f.close()
+    return lines
+
+# scan file
+def scan_file(user, num, data=""):
+    safe_user = _safe_filename(user)
+    if num == 0:
+        # write header
+        with open(f"{safe_user}.txt", "a") as scanfile:
+            scanfile.write(f"Tookie-OSINT {get_info()}\n\n")
+            scanfile.close()
+    elif num == 1:
+        #write url
+        with open(f"{safe_user}.txt", "a") as scanfile:
+            scanfile.write(f"{data}\n")
+            scanfile.close()
+
+# Assembles success/fail string
+def sitestring(url, user, code, found=None, colored=True):
+    if url == "":
+        return "No URL"
+    if user == "":
+        return "No Username"
+    if code == "":
+        return "No Code or Bugged code"
+
+    # The caller decides this, because it also reads the page body. Falling
+    # back to the status code keeps older callers working.
+    if found is None:
+        found = 200 <= code <= 305
+
+    if found:
+        symbol = "+"
+        if colored:
+            symbol = Fore.GREEN + "+" + Fore.RESET
+        return f"[{symbol}] {url}{user}"
+    elif code < 500:
+        symbol = "-"
+        if colored:
+            symbol = Fore.RED + "-" + Fore.RESET
+        return f"[{symbol}] {url}{user}"
+    elif 500 <= code <= 600:
+        symbol = "E"
+        if colored:
+            symbol = Fore.YELLOW + "E" + Fore.RESET
+        return f"[{symbol}] {url}{user}"
+
+def get_system_data(threads, skip_headers):
+    """Print basic system information."""
+    arc = platform.machine()
+    system = platform.system()
+    python_version = platform.python_version()
+    node = platform.node()
+
+    system_lower = system.lower()
+
+    if "linux" in system_lower:
+        os_color = Fore.YELLOW
+    elif "nt" in system_lower or "windows" in system_lower:
+        os_color = Fore.BLUE
+    else:
+        os_color = Fore.RESET
+
+    print(f"    CPU: {arc}")
+    print(f"    OS: {os_color}{system}{Fore.RESET}")
+    print(f"    System: {Fore.RED}{node}{Fore.RESET}")
+    print(f"    Python Version: {Fore.BLUE}{python_version}{Fore.RESET}")
+    print(f"    Threads: {Fore.GREEN}{threads}{Fore.RESET}")
+
+    headers_loaded = 0 if skip_headers else count_header_lines()
+    print(f"    Headers Loaded: {headers_loaded}")
+
+    print("    " + "=" * 45)
+
+# grabs header file from github
+def get_header_file(debug=False):
+    url = "https://raw.githubusercontent.com/Alfredredbird/user-agentl-ist/refs/heads/main/header.txt"
+    # Use BASE_DIR here
+    save_path = os.path.join(BASE_DIR, "sites", "headers.txt")
+
+    if os.path.isfile(save_path):
+        if debug:
+            print("[+] headers.txt already exists, skipping download")
+        return
+
+    choice = input(
+        "[?] headers.txt not found.\n"
+        "    Download it from GitHub? (y/n): "
+    ).strip().lower()
+
+    if choice not in ("y", "yes"):
+        print("[-] Skipped downloading headers.txt")
+        return
+
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    try:
+        print("[*] Downloading headers.txt...")
+        response = requests.get(url, timeout=10, proxies=_PROXIES)
+        response.raise_for_status()
+
+        with open(save_path, "w", encoding="utf-8") as f:
+            f.write(response.text)
+
+        print(f"[+] headers.txt downloaded successfully at {save_path}")
+
+    except requests.RequestException as e:
+        print(f"[!] Failed to download headers.txt: {e}")
+
+# makes needed directories
+def make_sys_dirs(debug=False):
+    dirs = ["sites","lang","docs","config","modules"]
+    for dir in dirs:
+        try:
+         os.mkdir(dir)
+        except Exception:
+            if debug:
+             print(dir + " folder is here")
+            continue
+
+def count_header_lines(path=None):
+    if path is None:
+        path = os.path.join(BASE_DIR, "sites", "headers.txt")
+    count = 0
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip(): 
+                count += 1
+    return count
+
+def load_user_agents(path=None):
+    if path is None:
+        path = os.path.join(BASE_DIR, "sites", "headers.txt")
+    if not os.path.isfile(path):
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
+
+
+# scan sites
+def usable_error_message(error_message):
+    # "none" is a placeholder in sites.json, not text any page actually shows.
+    # Matching it literally is worse than useless, because "none" appears in
+    # the css of nearly every page, so those sites could never report a hit.
+    error_message = (error_message or "").strip()
+    if error_message.lower() in ("", "none", "no error message defined"):
+        return ""
+    return error_message
+
+
+# A username no one can have. Built once per run and reused for every site, so
+# a site only ever has to show us its "no such user" page a single time.
+_CONTROL_USER = "zq" + "".join(
+    random.choice("abcdefghijklmnopqrstuvwxyz0123456789") for _ in range(10)
+)
+_CONTROL_CACHE = {}
+_CONTROL_LOCK = threading.Lock()
+
+
+def control_response(site, headers):
+    # Cached per site because a -U run scans many usernames against the same
+    # list, and the control page does not change between them.
+    with _CONTROL_LOCK:
+        if site in _CONTROL_CACHE:
+            return _CONTROL_CACHE[site]
+    try:
+        control = requests.get(
+            site + _CONTROL_USER, headers=headers, timeout=10, proxies=_PROXIES
+        )
+    except requests.RequestException:
+        control = None
+    with _CONTROL_LOCK:
+        _CONTROL_CACHE[site] = control
+    return control
+
+
+def same_response(r, control, user):
+    # Same status and near enough the same size means the site served the same
+    # page for a real username as for one that cannot exist, so it is telling
+    # us nothing. This catches the sites whose errorMessage is a placeholder or
+    # has gone stale, and the ones that render their error text in javascript.
+    if control is None or control.status_code != r.status_code:
+        return False
+    # Take the usernames out before measuring. Pages echo them back, and the
+    # two names are different lengths, so the echo alone would look like a
+    # difference in content on a short page.
+    a = len(r.text.replace(user, ""))
+    b = len(control.text.replace(_CONTROL_USER, ""))
+    if not a or not b:
+        return a == b
+    return abs(a - b) / max(a, b) < 0.02
+
+
+def is_found(code, body, error_message="", final_url="", user=""):
+    # Three signals, because each one alone lets false hits through. A 4xx or
+    # 5xx is a miss. A redirect that drops the username means the site sent us
+    # to a login or home page instead of a profile. And the body still has to
+    # be read, since plenty of sites answer 200 with a "no such user" page.
+    if not 200 <= code < 400:
+        return False
+
+    if final_url and user:
+        # Host and path, never the query. Login walls keep the username in a
+        # ?next= parameter, while sites like gumroad move it into a subdomain.
+        parsed = urlparse(final_url)
+        if user.lower() not in (parsed.netloc + parsed.path).lower():
+            return False
+
+    error_message = usable_error_message(error_message)
+    if not error_message:
+        return True
+    return error_message.lower() not in body.lower()
+
+
+def scan_site(entry, user, debug, skip_headers, user_agents, allsites=False, args=None):
+    if shutdown_event.is_set():
+        return None
+
+    site = entry["site"]
+    error_message = entry.get("errorMessage") or ""
+    url = site + user
+    result = {
+        "url": url,
+        "found": False,
+        "status": None
+    }
+
+    try:
+        headers = None
+        if not skip_headers and user_agents:
+            headers = {"User-Agent": random.choice(user_agents)}
+
+        r = requests.get(url, headers=headers, timeout=10, proxies=_PROXIES)
+        if shutdown_event.is_set():
+            return None
+
+        code = r.status_code
+        found = is_found(code, r.text, error_message, r.url, user)
+
+        # Only candidate hits are worth a second request, so the cost is one
+        # extra fetch per hit rather than one per site.
+        if found and user.lower() != _CONTROL_USER:
+            found = not same_response(r, control_response(site, headers), user)
+
+        result["status"] = code
+        result["found"] = found
+
+        if debug:
+            print(f"[DEBUG] Hit: {url} Code: {code}")
+
+        # 🔹 PRINT LOGIC
+        if found or allsites:
+            print(sitestring(site, user, code, found))
+
+        # 🔹 RETURN LOGIC
+        if found or allsites:
+            return result
+
+        return None
+
+    except requests.RequestException as e:
+        if debug:
+            print(f"[!] Skipping {url}: {e}")
+
+        if allsites:
+            return result
+
+        return None
+
+
+# file writing related functions
+def write_txt(user, results):
+    safe_user = _safe_filename(user)
+    with open(f"{safe_user}.txt", "w") as f:
+        f.write(f"Tookie-OSINT {get_info()}\n\n")
+        f.write("found url\n")
+        for r in results:
+            f.write(f"{str(r['found']).lower():<6} {r['url']}\n")
+
+def write_csv(user, results):
+    safe_user = _safe_filename(user)
+    with open(f"{safe_user}.csv", "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["found", "url", "status"])
+        for r in results:
+            writer.writerow([r["found"], r["url"], r["status"]])
+
+def write_json(user, results):
+    safe_user = _safe_filename(user)
+    with open(f"{safe_user}.json", "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+
+
+def scan_webscraper(user, field_configs=None, debug=False, skip_headers=False, user_agents=None, delay=None,allsites=False):
+    """
+    loads sites/sites.json and calls check_site with URL + errorMessage.
+    user: the username to append to the site URL
+    """
+   
+    if user_agents is None:
+        user_agents = []
+
+    if debug:
+        print("[*] Loading sites with error messages...")
+    sites_file = os.path.join(BASE_DIR, "sites", "sites.json")
+    with open(sites_file, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    for entry in data:
+        site_url = entry.get("site", "")
+        error_message = entry.get("errorMessage", "No error message defined")
+        domain = site_url.replace("https://", "").replace("http://", "").split("/")[0].removeprefix("www.")
+        url = site_url + user
+
+        site_fields = field_configs.get(domain) if field_configs else None
+
+        if delay:
+            check_site(url, error_message, site_fields, allsites, delay)
+        else:
+            check_site(url, error_message, site_fields, allsites)
+        if debug:
+            print(f"Expected error message: {error_message}")    
+
+
+def write_to_file(user, results, output_format):
+    if output_format == "txt":
+        write_txt(user, results)
+    elif output_format == "csv":
+        write_csv(user, results)
+    elif output_format == "json":
+        write_json(user, results)
+
+def check_update():
+    
+    # Checks if a new version of Tookie-OSINT is available.
+    
+    remote_url = "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/refs/heads/main/config/version"
+    local_version = get_info().strip()
+
+    try:
+        response = requests.get(remote_url, timeout=10, proxies=_PROXIES)
+        response.raise_for_status()
+        latest_version = response.text.strip()
+
+        if latest_version == local_version:
+            print(f"[✓] You are running the latest version: {local_version}")
+            return False, latest_version
+        else:
+            print(f"[!] Update available! Local: {local_version} → Latest: {latest_version}")
+            time.sleep(1)
+            return True, latest_version
+
+    except requests.RequestException as e:
+        print(f"[!] Failed to check for updates: {e}")
+        return False, local_version
+
+def is_arch():
+    # --- Arch Linux Package Check ---
+ if os.path.exists("/etc/arch-release"):
+    try:
+        import selenium
+        import webdriver_manager
+    except ImportError:
+        print(f"\n{Fore.YELLOW}[!] Arch Linux detected. You need to install the webdriver manger and selenium before using the webscraper.")
+        print(f"{Fore.YELLOW}    if you already have it installed, ignore this meesage.")
+        print(f"{Fore.CYAN}    Run: sudo pacman -S python-selenium python-webdriver-manager")
+        print(f"{Fore.CYAN}    Or if using an AUR helper: yay -S python-selenium python-webdriver-manager\n")
+
+def load_user_file(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
+
+def motd():
+    try:
+        request = requests.get(
+            "https://raw.githubusercontent.com/Alfredredbird/tookie-osint/main/config/motd",
+            timeout=5,
+            proxies=_PROXIES
+        )
+
+        if request.status_code == 200:
+            print(request.text)
+            print("    ==============================================" + Fore.RESET)
+        else:
+            with open(os.path.join(BASE_DIR, "config", "motd"), "r", encoding="utf-8") as f:
+                print(f.read())
+            print("    ==============================================" + Fore.RESET)
+
+    except requests.RequestException:
+        print("Failed to fetch the message of the day.")
+        print("    ==============================================" + Fore.RESET)

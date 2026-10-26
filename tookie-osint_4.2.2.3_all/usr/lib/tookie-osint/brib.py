@@ -1,0 +1,269 @@
+#!/usr/bin/env python
+
+import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+from modules.fancy import logo
+from modules.modules import (
+    check_update,
+    get_header_file,
+    get_system_data,
+    load_fields,
+    load_sites_for_scan,
+    load_user_agents,
+    load_user_file,
+    proxy_endpoint,
+    scan_site,
+    scan_webscraper,
+    set_proxies,
+    tor_is_running,
+    write_to_file,
+    motd,
+)
+from modules.webscraper import close_driver, set_driver_proxy
+from modules.files import (
+    make_restore,
+    send_webhook
+)
+from modules.webui import (
+    run_webui
+)
+
+# initializes the arg parser
+parser = argparse.ArgumentParser(
+    description="Username OSINT scanner",
+    prog="tookie-osint",
+    formatter_class=argparse.RawTextHelpFormatter,
+    epilog="""
+Examples:
+  Basic scan (default txt output):
+    tookie-osint -u alfred
+
+  JSON output with 10 threads:
+    tookie-osint -u alfred -o json -t 10
+
+  Scan usernames from a file:
+    tookie-osint -U users.txt -o csv
+
+  Use proxy and show all results:
+    tookie-osint -u alfred -p http://127.0.0.1:8080 -a
+
+  Skip random headers:
+    tookie-osint -u alfred --skipheaders
+
+  Use webscraper:
+    tookie-osint -u alfred -W -H
+
+  Use a user file list
+    tookie-osint -U users.txt -t 20
+""",
+)
+# arguments
+# parser.add_argument("-h", "--help",)
+group = parser.add_mutually_exclusive_group(required=True)
+group.add_argument("-u", "--user", help="Username to scan")
+group.add_argument("-U", "--userfile", help="File path to username file")
+parser.add_argument(
+    "-t", "--threads", type=int, default=2, help="Threads. Defualt is 2"
+)
+parser.add_argument(
+    "-d", "--debug", action="store_true", help="Allows debugging options"
+)
+parser.add_argument(
+    "-sk", "--skipheaders", action="store_true", help="Skips using random user agents"
+)
+parser.add_argument(
+    "-wh", "--webhook", type=str, help="Webhook URL for notifications (in beta)"
+)
+parser.add_argument(
+    "-sr", "--skiprestore", action="store_true", help="Skips the restore file"
+)
+parser.add_argument("-p", "--proxy", type=str, help="proxy")
+parser.add_argument(
+    "-tr", "--tor", action="store_true", help="Routes all traffic through Tor"
+)
+parser.add_argument(
+    "-W", "--webscraper", action="store_true", help="Toggles uses the webscraper"
+)
+parser.add_argument(
+    "-WU", "--webui", action="store_true", help="Enables the web UI for the webscraper."
+)
+
+parser.add_argument(
+    "-sC", "--script", action="store_true", help="Disables UI and only displays results."
+)
+parser.add_argument(
+    "-o",
+    "--output",
+    choices=["txt", "csv", "json"],
+    default="txt",
+    help="Output format (txt, csv, json)",
+)
+parser.add_argument(
+    "-D", "--delay", type=int, help="Delay webscraper should wait for the page to load"
+)
+parser.add_argument(
+    "-a", "--all", action="store_true", help="Show all results (positive and negative)"
+)
+parser.add_argument(
+    "-H", "--harvest", action="store_true", help="Webscrape data from the sites"
+)
+
+# initializes the arg parser as a variable
+args = parser.parse_args()
+# arguments as variables
+if args.userfile:
+    users = load_user_file(args.userfile)
+else:
+    users = [args.user]
+threads = args.threads
+debug = args.debug
+skip_headers = args.skipheaders
+output_format = args.output
+webscrape = args.webscraper
+delay = args.delay
+allsites = args.all
+# loads the fields to scrape
+field_configs = load_fields()
+# basic argument validation for clearer errors
+if threads < 1:
+    parser.error("-t/--threads must be 1 or greater")
+
+if delay is not None and delay < 0:
+    parser.error("-D/--delay must be 0 or greater")
+
+if args.userfile and not users:
+    parser.error("-U/--userfile does not contain any usernames")
+
+if args.webui:
+    parser.error("-WU/--webui is not yet implemented. Please use -W/--webscraper instead.")
+
+# makes sure threads is not used with the webscraper
+if args.webscraper and args.threads != parser.get_default("threads"):
+    parser.print_help()
+    parser.exit(
+        status=1,
+        message="\n[!] Error: -W (webscraper) cannot be used with -t (threads)\n",
+    )
+
+if args.tor and args.proxy:
+    parser.error("-tr/--tor cannot be used with -p/--proxy, pick one")
+
+if args.tor and not tor_is_running():
+    parser.error(
+        "-tr/--tor was given but nothing is listening on 127.0.0.1:9050. "
+        "Start Tor first, for example: systemctl start tor"
+    )
+
+# routes all requests and the webscraper through the chosen proxy
+set_proxies(args.proxy, args.tor)
+set_driver_proxy(proxy_endpoint(args.proxy, args.tor, for_chrome=True))
+
+# checks for update
+if not args.script:
+    check_update()
+# asks to download request agent file
+if not args.script:
+    get_header_file(debug)
+
+if args.webhook:
+    send_webhook(args.webhook, users[0], f"Scan started for username: {users[0]}")
+
+# checks/loads restore file and loads sites
+sites = load_sites_for_scan(len(users), args.skiprestore, debug)
+    
+# debuging options
+if debug:
+    print("DEBUG")
+    print("Opening Scan File")
+
+# loads user agents
+user_agents = []
+if not skip_headers:
+    user_agents = load_user_agents()
+    if not user_agents:
+        print(
+            "[!] No headers loaded. Continuing without random User-Agent headers. Skipping header usage."
+        )
+        skip_headers = True
+# writes scan file (will be removed)
+# scan_file(user,0)
+
+# Main Function
+all_results = {}
+
+
+total_users = len(users)
+
+for idx, user in enumerate(users, start=1):
+    if not args.script:
+        print(f"\n[+] Scanning username: {user}")
+        logo(user, idx, total_users)
+    # gets basic system info for the logo
+    if webscrape:
+        threads = 1
+
+    # displays system info for the logo
+    if not args.script:
+        get_system_data(threads, skip_headers)
+
+    results = []
+
+    if not webscrape:
+        with ThreadPoolExecutor(max_workers=threads) as executor:
+            futures = [
+                executor.submit(
+                    scan_site, site, user, debug, skip_headers, user_agents, allsites, args
+                )
+                for site in sites
+            ]
+
+            try:
+                for future in as_completed(futures):
+                    res = future.result()
+                    if res:
+                        results.append(res)
+                        if args.webhook:
+                         send_webhook(args.webhook, user, f"Found result for username: {user} on site: {res}", type="site")
+                
+            except KeyboardInterrupt:
+                print("Stopping!")
+                executor.shutdown(wait=False)
+                break
+
+    else:
+        try:
+            if args.harvest:
+                scan_webscraper(
+                    user,
+                    debug=debug,
+                    field_configs=field_configs,
+                    skip_headers=skip_headers,
+                    user_agents=user_agents,
+                    delay=delay,
+                    allsites=allsites,
+                )
+            else:
+                scan_webscraper(
+                    user,
+                    debug=debug,
+                    skip_headers=skip_headers,
+                    user_agents=user_agents,
+                    delay=delay,
+                    allsites=allsites,
+                )
+        except KeyboardInterrupt:
+            print("\nStopping web scraper...")
+        finally:
+            close_driver()
+    # makes restore point
+    make_restore(results, user)
+ 
+    all_results[user] = results
+
+    # write output per-user
+    write_to_file(user, results, output_format)
+
+print("    ==============================================")
+print("Scan done!")
+exit(0)
