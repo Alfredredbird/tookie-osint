@@ -168,6 +168,7 @@ There Is A Lot Lol
 - [X] Data Webscrapping
 - [ ] Phone Number OSINT
 - [ ] Custom Plugins
+- [ ] Translation implementation
 - [ ] Detailed Reports (in beta)
 - [ ] Email OSINT (in beta)
 - [x] CSV
@@ -256,10 +257,19 @@ There has been several articles written about our tool. Feal free to check them 
 
 </table>
 
+# 🌴 Branches
+Branches for development
+[Main Branch](https://github.com/Alfredredbird/tookie-osint/)
+[Debain Based Distro's](https://github.com/Alfredredbird/tookie-osint/tree/debianAndKali)
+[GitHub Pages](https://github.com/Alfredredbird/tookie-osint/tree/gh-pages)
+[Tookie-OSINT V1](https://github.com/Alfredredbird/tookie-osint/tree/tookie-osint-v1)
+[Development](https://github.com/Alfredredbird/tookie-osint/tree/dev) 
+
 # 🎬 Official Tutorials
 
 - https://www.youtube.com/watch?v=crMN_SI7n40&t=2s
 - https://www.youtube.com/watch?v=8ciMPAJMB2g
+- V4 tutorial is coming soon!
   
 # 📘 Contact
 
