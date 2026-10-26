@@ -247,9 +247,15 @@ There has been several articles written about our tool. Feal free to check them 
         <th>Kali Linux Tutorials</th>
         <th>https://kalilinuxtutorials.com/tookie-osint/</th>
     </tr>
+    <tr>
         <th>JJ Gallego</th>
         <th>https://medium.com/cyberscribers-exploring-cybersecurity/osint-for-nicknames-tookie-osint-1364a3c87acf</th>
     </tr>
+    <tr>
+        <th>Termux Commands</th>
+        <th>https://tools.termuxcommands.com/tookie-osint-in-termux-installation-and-usage-guide/</th>
+    </tr>
+   
     </tr>
 
 
