@@ -9,7 +9,7 @@ from modules.modules import (
     get_header_file,
     get_system_data,
     load_fields,
-    load_sites,
+    load_sites_for_scan,
     load_user_agents,
     load_user_file,
     proxy_endpoint,
@@ -23,7 +23,6 @@ from modules.modules import (
 from modules.webscraper import close_driver, set_driver_proxy
 from modules.files import (
     make_restore,
-    load_restore,
     send_webhook
 )
 from modules.webui import (
@@ -171,11 +170,7 @@ if args.webhook:
     send_webhook(args.webhook, users[0], f"Scan started for username: {users[0]}")
 
 # checks/loads restore file and loads sites
-if args.skiprestore:
-    sites = load_sites(debug)
-if len(users) == 1 and not args.skiprestore:
-    restore_site = load_restore()
-    sites = load_sites(debug, restore_site)
+sites = load_sites_for_scan(len(users), args.skiprestore, debug)
     
 # debuging options
 if debug:

@@ -111,6 +111,21 @@ def load_sites(debug=False, start_site=None):
     return urls
 
 
+def load_sites_for_scan(user_count, skip_restore, debug=False, restore_loader=None):
+    # A restore point is one username's place in the site list. Offering it
+    # for a -U file would resume every name from that spot, so only a single
+    # -u scan asks. Every other scan still has to load the full list: this
+    # used to be an if with no else, and `tookie-osint -U users.txt` crashed
+    # with NameError as soon as the file contained more than one name.
+    if user_count == 1 and not skip_restore:
+        if restore_loader is None:
+            from modules.files import load_restore
+
+            restore_loader = load_restore
+        return load_sites(debug, restore_loader())
+    return load_sites(debug)
+
+
 # loads the json fields for scraping
 def load_fields():
     fields_file = os.path.join(BASE_DIR, "sites", "fields.json")
