@@ -414,6 +414,22 @@ def write_json(user, results):
         json.dump(results, f, indent=2)
 
 
+def record_webscraper_result(url, outcome, allsites=False):
+    # check_site returns True, False, or a dict. The caller used to ignore
+    # that, so the output file stayed empty after every -W run. csv writing
+    # also requires status, which the dict form does not always include.
+    if isinstance(outcome, dict):
+        outcome.setdefault("url", url)
+        outcome.setdefault("found", True)
+        outcome.setdefault("status", None)
+        return outcome
+    if outcome:
+        return {"url": url, "found": True, "status": None}
+    if allsites:
+        return {"url": url, "found": False, "status": None}
+    return None
+
+
 def scan_webscraper(user, field_configs=None, debug=False, skip_headers=False, user_agents=None, delay=None,allsites=False):
     """
     loads sites/sites.json and calls check_site with URL + errorMessage.
@@ -429,6 +445,7 @@ def scan_webscraper(user, field_configs=None, debug=False, skip_headers=False, u
     with open(sites_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    results = []
     for entry in data:
         site_url = entry.get("site", "")
         error_message = entry.get("errorMessage", "No error message defined")
@@ -437,12 +454,20 @@ def scan_webscraper(user, field_configs=None, debug=False, skip_headers=False, u
 
         site_fields = field_configs.get(domain) if field_configs else None
 
-        if delay:
-            check_site(url, error_message, site_fields, allsites, delay)
-        else:
-            check_site(url, error_message, site_fields, allsites)
+        # delay 0 is a real wait. `if delay` treated it as "use the default".
+        outcome = check_site(
+            url,
+            error_message,
+            site_fields,
+            allsites,
+            2 if delay is None else delay,
+        )
+        recorded = record_webscraper_result(url, outcome, allsites)
+        if recorded is not None:
+            results.append(recorded)
         if debug:
-            print(f"Expected error message: {error_message}")    
+            print(f"Expected error message: {error_message}")
+    return results
 
 
 def write_to_file(user, results, output_format):
