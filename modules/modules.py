@@ -100,10 +100,16 @@ def load_sites(debug=False, start_site=None):
                 break
 
         if start_index is None:
-            raise ValueError(f"Could not find site: {start_site}")
-
-        # Start at the matching entry and include everything after it
-        urls = data[start_index:]
+            # A stale .tookie names a site that is no longer in the list.
+            # Raising here used to abort the scan before the first request.
+            print(
+                f"[!] Could not find restore site {start_site}. "
+                "Starting from the beginning."
+            )
+            urls = list(data)
+        else:
+            # Start at the matching entry and include everything after it
+            urls = data[start_index:]
 
     if debug:
         print(f"Loaded {len(urls)} URLs")

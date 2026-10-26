@@ -7,6 +7,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def make_restore(sites, username):
+    # An empty scan has no site to resume from. Indexing it used to print
+    # "list index out of range" after every run that found nothing.
+    if not sites:
+        return
     try:
         site = sites[-1]
         # Get the URL
@@ -34,6 +38,12 @@ def make_restore(sites, username):
         print(e)
 
 
+def use_restore_answer(answer):
+    # The prompt is [Y/n], so pressing Enter accepts the file. "yes" used to
+    # be treated as a no because only the single letter y was recognized.
+    return str(answer).strip().lower() in ("", "y", "yes")
+
+
 def load_restore():
     try:
         with open(".tookie", "r") as f:
@@ -45,14 +55,14 @@ def load_restore():
                 print("==============================================")
                 print(f"Found restore file!")
                 print("==============================================")
-                YN = input("Use Restore File? [Y/n] ")
-
-
-                if YN.lower() == "y":
+                if use_restore_answer(input("Use Restore File? [Y/n] ")):
                     return url
 
                 return None
 
+    except FileNotFoundError:
+        # First run, or the previous scan found nothing. That is not an error.
+        return None
     except Exception as e:
         print(e)
 
