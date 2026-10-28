@@ -108,5 +108,18 @@ def send_webhook(webhook_url, username, message, type="info"):
                 ]
             }]
         }
-    
-    response = requests.post(webhook_url, json=payload)
+    else:
+        # An unknown type used to fall through with payload unset and raise
+        # UnboundLocalError in the middle of a scan.
+        print(f"[!] Unknown webhook type: {type}")
+        return False
+
+    # A refused connection or a timeout used to raise out of the result loop,
+    # so write_to_file() never ran and the report was lost.
+    try:
+        response = requests.post(webhook_url, json=payload, timeout=10)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print(f"[!] Webhook notification failed: {e}")
+        return False
+    return True
