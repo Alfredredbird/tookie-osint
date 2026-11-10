@@ -234,7 +234,7 @@ for idx, user in enumerate(users, start=1):
     else:
         try:
             if args.harvest:
-                scan_webscraper(
+                results = scan_webscraper(
                     user,
                     debug=debug,
                     field_configs=field_configs,
@@ -244,7 +244,7 @@ for idx, user in enumerate(users, start=1):
                     allsites=allsites,
                 )
             else:
-                scan_webscraper(
+                results = scan_webscraper(
                     user,
                     debug=debug,
                     skip_headers=skip_headers,
