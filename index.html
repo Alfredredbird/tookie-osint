@@ -284,18 +284,19 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
 
 // terminal demo (illustrative output, plays once)
 const lines=[
- ['<span class="t-dim">$</span> tookie-osint',0],
- ['<span class="t-dim">username?</span> alfred_demo',0],
- ['',0],
- ['<span class="t-dim">scanning sites with threading on…</span>',0],
- ['<span class="t-ok">[+]</span> GitHub       found',0],
- ['<span class="t-ok">[+]</span> Reddit       found',0],
- ['<span class="t-dim">[-]</span> Pinterest    not found',0],
- ['<span class="t-ok">[+]</span> Medium       found',0],
- ['<span class="t-dim">[-]</span> Twitch       not found',0],
- ['<span class="t-ok">[+]</span> Dev.to       found',0],
- ['',0],
- ['<span class="t-hit">5 accounts found</span> <span class="t-dim">· saved to results.csv</span>',0]
+ ['<span class="t-dim">$</span> tookie-osint -u alfred -a',0],
+ ['<span class="t-dim">=============================================</span>',0],
+ ['<span class="t-ok">[+]</span> https://www.twitch.tv/alfred',0],
+ ['<span class="t-ok">[+]</span> https://www.youtube.com/@alfred',0],
+ ['<span class="t-ok">[+]</span> https://m.twitch.tv/alfred',0],
+ ['<span class="t-ok">[+]</span> https://www.x.com/alfred',0],
+ ['<span class="t-ok">[+]</span> https://www.twitter.com/alfred',0],
+ ['<span class="t-dim">[-]</span> <span class="t-dim">https://www.stackoverflow.com/alfred</span>',0],
+ ['<span class="t-dim">[-]</span> <span class="t-dim">https://www.7cups.com/@alfred</span>',0],
+ ['<span class="t-ok">[+]</span> https://www.facebook.com/alfred',0],
+ ['<span class="t-dim">[-]</span> <span class="t-dim">https://www.9gag.com/u/alfred</span>',0],
+ ['<span class="t-dim">[-]</span> <span class="t-dim">https://apclips.com/alfred</span>',0],
+ ['<span class="t-ok">[+]</span> https://about.me/alfred',0]
 ];
 const out=$('#termOut');
 function play(){
@@ -304,7 +305,7 @@ function play(){
   (function next(){
     if(i>=lines.length){out.innerHTML+='\n<span class="cursor"></span>';return}
     out.innerHTML=lines.slice(0,i+1).map(l=>l[0]).join('\n')+'\n<span class="cursor"></span>';
-    i++; setTimeout(next,i<4?650:380);
+    i++; setTimeout(next,i<3?650:300);
   })();
 }
 play();
