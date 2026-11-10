@@ -1308,5 +1308,266 @@
     "site": "https://truthsocial.com/@",
     "nsfw": "false",
     "errorMessage": "none"
+  },
+    {
+    "site": "https://www.instagram.com/",
+    "nsfw": "false",
+    "errorMessage": "Sorry, this page isn't available."
+  },
+  {
+    "site": "https://www.pinterest.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.linkedin.com/in/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.threads.net/@",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://bsky.app/profile/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://mastodon.social/@",
+    "nsfw": "false",
+    "errorMessage": "The page you are looking for isn't here."
+  },
+  {
+    "site": "https://fosstodon.org/@",
+    "nsfw": "false",
+    "errorMessage": "The page you are looking for isn't here."
+  },
+  {
+    "site": "https://mstdn.social/@",
+    "nsfw": "false",
+    "errorMessage": "The page you are looking for isn't here."
+  },
+  {
+    "site": "https://infosec.exchange/@",
+    "nsfw": "false",
+    "errorMessage": "The page you are looking for isn't here."
+  },
+  {
+    "site": "https://gab.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.minds.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://ask.fm/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://vimeo.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://kick.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://steamcommunity.com/id/",
+    "nsfw": "false",
+    "errorMessage": "The specified profile could not be found."
+  },
+  {
+    "site": "https://bitbucket.org/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://codeberg.org/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://sr.ht/~",
+    "nsfw": "false",
+    "errorMessage": "404"
+  },
+  {
+    "site": "https://hub.docker.com/u/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.npmjs.com/~",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://crates.io/users/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://packagist.org/users/",
+    "nsfw": "false",
+    "errorMessage": "404"
+  },
+  {
+    "site": "https://huggingface.co/",
+    "nsfw": "false",
+    "errorMessage": "Sorry, we can't find the page you are looking for."
+  },
+  {
+    "site": "https://glitch.com/@",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://exercism.org/profiles/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://codeforces.com/profile/",
+    "nsfw": "false",
+    "errorMessage": "not found"
+  },
+  {
+    "site": "https://atcoder.jp/users/",
+    "nsfw": "false",
+    "errorMessage": "404 Page Not Found"
+  },
+  {
+    "site": "https://hashnode.com/@",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://substack.com/@",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://ko-fi.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.paypal.com/paypalme/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://cash.app/$",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://bio.link/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://en.wikipedia.org/wiki/User:",
+    "nsfw": "false",
+    "errorMessage": "Wikipedia does not have a user page with this exact name"
+  },
+  {
+    "site": "https://www.wattpad.com/user/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.deviantart.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.last.fm/user/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.mixcloud.com/",
+    "nsfw": "false",
+    "errorMessage": "Page Not Found"
+  },
+  {
+    "site": "https://audiomack.com/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://itch.io/profile/",
+    "nsfw": "false",
+    "errorMessage": "404"
+  },
+  {
+    "site": "https://gamejolt.com/@",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.furaffinity.net/user/",
+    "nsfw": "false",
+    "errorMessage": "This user cannot be found."
+  },
+  {
+    "site": "https://www.xbox.com/en-US/play/user/",
+    "nsfw": "false",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.kaggle.com/",
+    "nsfw": "false",
+    "errorMessage": "We can't find that page."
+  },
+  {
+    "site": "https://onlyfans.com/",
+    "nsfw": "true",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://fansly.com/",
+    "nsfw": "true",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://fapello.com/",
+    "nsfw": "true",
+    "errorMessage": "Page Not Found"
+  },
+  {
+    "site": "https://www.xvideos.com/profiles/",
+    "nsfw": "true",
+    "errorMessage": "Page not found"
+  },
+  {
+    "site": "https://xhamster.com/users/",
+    "nsfw": "true",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://spankbang.com/profile/",
+    "nsfw": "true",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://stripchat.com/",
+    "nsfw": "true",
+    "errorMessage": "none"
+  },
+  {
+    "site": "https://www.cam4.com/",
+    "nsfw": "true",
+    "errorMessage": "none"
   }
+
 ]
