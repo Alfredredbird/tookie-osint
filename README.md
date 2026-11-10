@@ -159,6 +159,13 @@ There Is A Lot Lol
 - [X] Farsi
 - [X] Turkish
 
+# 🤖 Use Of Ai
+While we do love the pull requets and bug fixes submitted,
+we do like to limit the ammount of Ai bug fixes. 
+Tookie-OSINT should be atleast 90% humman made.
+So please keep that in mind when making pull requests!
+(This doesnt mean you cant submit a PR)
+
 # 📕 Upcoming Features
  (They Are Great First Issues :D)
 - [X] Scripting support

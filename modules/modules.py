@@ -118,11 +118,6 @@ def load_sites(debug=False, start_site=None):
 
 
 def load_sites_for_scan(user_count, skip_restore, debug=False, restore_loader=None):
-    # A restore point is one username's place in the site list. Offering it
-    # for a -U file would resume every name from that spot, so only a single
-    # -u scan asks. Every other scan still has to load the full list: this
-    # used to be an if with no else, and `tookie-osint -U users.txt` crashed
-    # with NameError as soon as the file contained more than one name.
     if user_count == 1 and not skip_restore:
         if restore_loader is None:
             from modules.files import load_restore
@@ -319,11 +314,6 @@ def control_response(site, headers):
 
 
 def _mask_echoed_username(text, username, width):
-    # Mask the username only where it stands alone. Replacing every
-    # occurrence used to eat short names such as "a" or "in" out of ordinary
-    # HTML, so the candidate page and the control page shrank by different
-    # amounts and no longer looked like the same document. Both echoes are
-    # masked to the same width so the name's own length is not the difference.
     if not text or not username:
         return text or ""
     pattern = re.compile(
@@ -334,10 +324,6 @@ def _mask_echoed_username(text, username, width):
 
 
 def same_response(r, control, user):
-    # Same status and near enough the same size means the site served the same
-    # page for a real username as for one that cannot exist, so it is telling
-    # us nothing. This catches the sites whose errorMessage is a placeholder or
-    # has gone stale, and the ones that render their error text in javascript.
     if control is None or control.status_code != r.status_code:
         return False
     width = max(len(user or ""), len(_CONTROL_USER))
@@ -349,10 +335,6 @@ def same_response(r, control, user):
 
 
 def is_found(code, body, error_message="", final_url="", user=""):
-    # Three signals, because each one alone lets false hits through. A 4xx or
-    # 5xx is a miss. A redirect that drops the username means the site sent us
-    # to a login or home page instead of a profile. And the body still has to
-    # be read, since plenty of sites answer 200 with a "no such user" page.
     if not 200 <= code < 400:
         return False
 
